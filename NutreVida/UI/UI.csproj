@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
-    <Content Include="Expedientes.aspx" />
     <Content Include="img\fondo.jpg" />
     <Content Include="img\InicioSesion.jpg" />
     <Content Include="img\undraw_posting_photo.svg" />
@@ -1654,13 +1653,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Expedientes.aspx.cs">
-      <DependentUpon>Expedientes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Expedientes.aspx.designer.cs">
-      <DependentUpon>Expedientes.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
