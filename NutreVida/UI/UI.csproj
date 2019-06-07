@@ -71,6 +71,7 @@
     <Content Include="Agenda.aspx" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="css\Styles.css" />
     <Content Include="img\fondo.jpg" />
     <Content Include="img\InicioSesion.jpg" />
     <Content Include="img\undraw_posting_photo.svg" />

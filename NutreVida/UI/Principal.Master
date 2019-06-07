@@ -40,7 +40,7 @@
 
       <!-- Nav Item - Agenda -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="Agenda.aspx">
           <i class="fas fa-calendar-alt"></i>
           <span>Agenda</span></a>
       </li>
