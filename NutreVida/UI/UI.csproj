@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin.aspx" />
     <Content Include="Agenda.aspx" />
     <Content Include="Cliente.aspx" />
     <Content Include="css\sb-admin-2.css" />
@@ -83,6 +84,8 @@
     <Content Include="js\demo\datatables-demo.js" />
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
+    <Content Include="Notificacion.aspx" />
+    <Content Include="PrimerIngreso.aspx" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
@@ -1658,6 +1661,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Agenda.aspx.cs">
       <DependentUpon>Agenda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1678,6 +1688,20 @@
     </Compile>
     <Compile Include="Expedientes.aspx.designer.cs">
       <DependentUpon>Expedientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Notificacion.aspx.cs">
+      <DependentUpon>Notificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Notificacion.aspx.designer.cs">
+      <DependentUpon>Notificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrimerIngreso.aspx.cs">
+      <DependentUpon>PrimerIngreso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrimerIngreso.aspx.designer.cs">
+      <DependentUpon>PrimerIngreso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
