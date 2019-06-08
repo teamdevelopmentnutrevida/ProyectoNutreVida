@@ -1,9 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="Cliente.aspx.cs" Inherits="UI.Cliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form3" runat="server">
@@ -56,16 +53,18 @@
             <br />
                 
           <div class="col-11" style="width:100%; float:left;">
-            <ul class="nav nav-tabs">
-              <li class="active"><a data-toggle="tab" href="#HM">Historial Médico</a></li>
-              <li><a data-toggle="tab" href="#HA">Habitos Alimentarios</a></li>
-              <li><a data-toggle="tab" href="#Ant">Antropomentría</a></li>
-              <li><a data-toggle="tab" href="#SS">Seguimiento Semanal</a></li>
-              <li><a data-toggle="tab" href="#SM">Seguimiento Mensual</a></li>
-            </ul>
-             <div class="tab-content">
+            <nav>
+                  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-HM" data-toggle="tab" href="#HM" role="tab" aria-controls="nav-home" aria-selected="true">Historial Médico</a>
+                    <a class="nav-item nav-link" id="nav-HA" data-toggle="tab" href="#HA" role="tab" aria-controls="nav-profile" aria-selected="false">Hábitos Alimentario</a>
+                    <a class="nav-item nav-link" id="nav-Ant" data-toggle="tab" href="#Ant" role="tab" aria-controls="nav-contact" aria-selected="false">Antropometría</a>
+                   <a class="nav-item nav-link" id="nav-SS" data-toggle="tab" href="#SS" role="tab" aria-controls="nav-contact" aria-selected="false">Seguimiento Semanal</a>
+                  <a class="nav-item nav-link" id="nav-SM" data-toggle="tab" href="#SM" role="tab" aria-controls="nav-contact" aria-selected="false">Seguimiento Mensual</a>
+                  </div>
+                </nav>
+             <div class="tab-content" id="nav-tabContent">
                   <%--    Historial Medico--%>
-                  <div id="HM" class="tab-pane fade in active">
+                  <div id="HM" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-HM">
                        <h4>Historial Médico</h4>
             <div class="col-11" style="width:100%;">
                 <label class="form-label" for="tAntFam">Antecedentes Familiares:</label><asp:Label runat="server" ID="AntecedF" Font-Size="Medium"></asp:Label>
@@ -112,7 +111,7 @@
                     </div> <%--tab hist medico--%>
 
                   <%--   Habitos alimentarios--%>
-                 <div id="HA" class="tab-pane fade">
+                 <div id="HA" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-HA">
                      <h4>Habitos Alimentarios</h4>
           <div class="col-11" style="width:100%;">
                  <label class="form-label" for="tComD">¿Cuántas veces come al día? </label>
@@ -217,7 +216,7 @@
                   </div> <%--tab hab aliment--%>
 
              <%--    Antropometria--%>
-                 <div id="Ant" class="tab-pane fade">
+                 <div id="Ant" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-Ant">
                       <h4>Antropometría</h4>
            <div>
             <div class="col-11" style="width:50%; float:left;">
@@ -441,7 +440,7 @@
                   </div> <%--tab Antrop--%>
 
                 <%-- Seguimiento Semanal--%>
-                 <div id="SS" class="tab-pane fade">
+                 <div id="SS" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-SS">
                       <h4 >Seguimientos Semanales</h4>
                             <div style="width:25%; float:left;">
                             <div class="col-11" style="width:25%;">
@@ -486,7 +485,7 @@
 
 
                    <%-- Seguimiento Mensual--%>
-                 <div id="SM" class="tab-pane fade">
+                 <div id="SM" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-SM">
                       <h4>Seguimientos Nutricionales</h4>
            <%--<div style="width:100%; float:left;">--%>
                <h4>Nuevo Registro</h4>
