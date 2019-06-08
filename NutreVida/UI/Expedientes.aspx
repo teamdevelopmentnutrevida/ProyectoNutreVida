@@ -19,6 +19,39 @@
                               <th>Acción</th>
                             </tr>
                           </thead>
+                           <tbody>
+                            <tr>
+                              <td>Tiger Nixon</td>
+                              <td>System Architect</td>
+                              <td>
+                                  <ul class="navbar-nav ml-auto">
+                                  <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                    <div class="dropdown-menu dropdown-menu-right animated--fade-in" aria-labelledby="navbarDropdown">
+                                      <a class="dropdown-item" href="#">Deshabilitar</a>
+                                      <a class="dropdown-item" href="#">Eliminar</a>
+                                    </div>
+                                  </li>
+                                </ul>
+
+                              </td>
+                                 </tr>
+                               <tr>
+                              <td>61</td>
+                              <td>2011/04/25</td>
+                              <td>
+                                   <ul class="navbar-nav ml-auto">
+                                  <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                    <div class="dropdown-menu dropdown-menu-right animated--fade-in" aria-labelledby="navbarDropdown">
+                                      <a class="dropdown-item" href="#">Deshabilitar</a>
+                                      <a class="dropdown-item" href="#">Eliminar</a>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </td>
+                            </tr>
+                               </tbody>
                        </table>
                   </div>
             </div> 

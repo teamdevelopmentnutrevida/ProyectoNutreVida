@@ -52,7 +52,7 @@
 
       <!-- Nav Item - Expedientes Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="Expedientes.aspx">
           <i class="fas fa-folder-open"></i>
           <span>Expedientes</span>
         </a>
