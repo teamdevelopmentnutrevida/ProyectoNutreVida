@@ -59,7 +59,7 @@
 
                                     <div class="form-group">                                        
                                         <div class="col-sm-10 divBoton">
-                                            <asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass=" colorBoton btn btn-primary texto" />
+                                            <asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass=" colorBoton btn btn-primary texto" OnClick="btnEnviar_Click" />
                                         </div>
                                     </div>
 
