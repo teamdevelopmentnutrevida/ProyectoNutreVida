@@ -72,6 +72,7 @@
     <Content Include="Cliente.aspx" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="css\Styles.css" />
     <Content Include="Expedientes.aspx" />
     <Content Include="img\fondo.jpg" />
     <Content Include="img\InicioSesion.jpg" />
