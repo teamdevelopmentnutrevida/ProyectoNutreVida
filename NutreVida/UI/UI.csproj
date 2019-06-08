@@ -72,7 +72,7 @@
     <Content Include="Cliente.aspx" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
-    <Content Include="css\Styles.css" />
+    <Content Include="css\style.css" />
     <Content Include="Expedientes.aspx" />
     <Content Include="img\fondo.jpg" />
     <Content Include="img\InicioSesion.jpg" />
@@ -83,6 +83,7 @@
     <Content Include="js\demo\datatables-demo.js" />
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
+    <Content Include="js\script.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
