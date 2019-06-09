@@ -79,7 +79,7 @@
                                     <div class="form-group">
                                         <asp:Label ID="lbOlvidoCont" runat="server" Text="<a href='/OlvidoContrasena.aspx'>Olvidé mi contraseña</a>" CssClass="control-label col-sm-2 small"></asp:Label>
                                         <div class="col-sm-10 divBoton">
-                                            <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" CssClass=" btn btn-primary btn-user btn-block" OnClick="btnIngresar_Click" />
+                                            <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" CssClass=" btn btn-primary btn-user btn-block col-md-5" OnClick="btnIngresar_Click" />
                                         </div>
                                     </div>
 
