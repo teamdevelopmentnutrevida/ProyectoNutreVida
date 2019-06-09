@@ -71,6 +71,7 @@
     <Content Include="Admin.aspx" />
     <Content Include="Agenda.aspx" />
     <Content Include="Cliente.aspx" />
+    <Content Include="ControlSeguridad.aspx" />
     <Content Include="css\InicioSesionStyles.css" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
@@ -1685,6 +1686,13 @@
     </Compile>
     <Compile Include="Cliente.aspx.designer.cs">
       <DependentUpon>Cliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlSeguridad.aspx.cs">
+      <DependentUpon>ControlSeguridad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlSeguridad.aspx.designer.cs">
+      <DependentUpon>ControlSeguridad.aspx</DependentUpon>
     </Compile>
     <Compile Include="Expedientes.aspx.cs">
       <DependentUpon>Expedientes.aspx</DependentUpon>
