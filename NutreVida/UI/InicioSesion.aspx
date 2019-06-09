@@ -14,17 +14,21 @@
 </head>
 <body>
 
-    <div class="container-fluid" style="height: 100%">
+	<style>
+	.body {overflow-y:hidden!important;}
+</style>
+
+    <div class="container-fluid body" style="height: 100%">
 
         <div class="row fila">
 
-            <div class="col-lg-9 box">
+            <div class="col-md-9 box">
 
                 <asp:Image ID="ImgInicio" runat="server" ImageUrl="~/img/InicioSesion.jpg" />
 
             </div>
 
-            <div class="col-lg-3 contenido">
+            <div class="col-md-3 contenido">
 
                 <div class="container">
 
