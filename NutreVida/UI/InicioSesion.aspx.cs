@@ -16,7 +16,8 @@ namespace UI
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-
+            String correo = txtCorreo.Text;
+            String contrasena = txtContrasena.Text;
         }
     }
 }
