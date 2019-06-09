@@ -35,6 +35,13 @@
 
             <div class="col-lg-3 contenido">
 
+
+
+
+
+
+
+
                 <div class="container">
 
                     <div class="row">
@@ -54,11 +61,14 @@
                             <form id="InicioSesionForm" runat="server">
 
                                 <div class="formInicio">
-                                    <div class="">
-                                        <h3 class=" mb-4">
-                                            &nbsp;
-                                            Inicio Sesión
-                                        </h3>
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Inicio 
+                            <span class="textoPrimario">Sesión</span>
+                                        </h1>
+                                    </div>
+
+
+                                    <div class="form-group">
                                         <asp:Label ID="lbCorreo" runat="server" Text="Correo Electrónico:" CssClass="control-label col-sm-2 "></asp:Label>
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtCorreo" runat="server" placeholder="Digite el correo" CssClass="form-control form-control-user col-md-10"></asp:TextBox>
@@ -69,7 +79,7 @@
                                     <div class="form-group">
                                         <asp:Label ID="lbContrasena" runat="server" Text="Contraseña:" CssClass="control-label col-sm-2 "></asp:Label>
                                         <div class="col-sm-10">
-                                            <asp:TextBox ID="txtContrasena" runat="server" TextMode="Password" placeholder="Digite la contraseña" CssClass="form-control form-control-user col-md-10"></asp:TextBox>
+                                            <asp:TextBox ID="txtContrasena" runat="server" TextMode="Password" placeholder="Digitela contraseña" CssClass="form-control form-control-user col-md-10"></asp:TextBox>
                                         </div>
                                     </div>
 
@@ -98,13 +108,21 @@
                                 <asp:Label ID="lbCod" runat="server" Text="Nutricionista Cód CNP 1187-12" CssClass="control-label col-sm-2 "></asp:Label>
                             </div>
                             <div class="col-md-10">
-                                <asp:Label ID="lbTel" runat="server" Text="Tel: 7076-1100" CssClass="control-label col-sm-2 "></asp:Label>
+                                <asp:Label ID="lbTel" runat="server" Text="Tel:7076-1100" CssClass="control-label col-sm-2 "></asp:Label>
                             </div>
 
                         </div>
 
                     </div>
                 </div>
+
+
+
+
+
+
+
+
             </div>
 
         </div>

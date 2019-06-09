@@ -18,7 +18,7 @@
               </div>
                 </nav>
 				<div class="tab-content" id="nav-tabContent">
-
+                      
 						<%--    Datos Personales --%>
 					<div id="DP" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-DP">
 						<br />
