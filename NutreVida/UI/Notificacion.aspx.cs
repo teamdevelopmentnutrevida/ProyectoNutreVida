@@ -11,6 +11,10 @@ namespace UI
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			//if (new ControlSeguridad().validarAdmin() == true)
+			//{
+			//    Response.Redirect("~/PaginasGenerales/InicioSesion.aspx");
+			//
 
 		}
 	}
