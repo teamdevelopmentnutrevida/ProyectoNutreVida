@@ -27,7 +27,7 @@ namespace TO
 
         public TOSeguimientoSemanal() { }
 
-        public SeguimientoSemanal(DateTime fecha, decimal peso, string oreja, string ejercicio, string cedula)
+        public TOSeguimientoSemanal(DateTime fecha, decimal peso, string oreja, string ejercicio, string cedula)
         {
             Fecha = fecha;
             Peso = peso;
