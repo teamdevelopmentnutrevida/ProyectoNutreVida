@@ -71,13 +71,16 @@
     <Content Include="Admin.aspx" />
     <Content Include="Agenda.aspx" />
     <Content Include="Cliente.aspx" />
+    <Content Include="css\InicioSesionStyles.css" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="css\style.css" />
     <Content Include="Expedientes.aspx" />
     <Content Include="img\fondo.jpg" />
     <Content Include="img\InicioSesion.jpg" />
+    <Content Include="img\nutriVital.jfif" />
     <Content Include="img\undraw_posting_photo.svg" />
+    <Content Include="InicioSesion.aspx" />
     <Content Include="js\demo\chart-area-demo.js" />
     <Content Include="js\demo\chart-bar-demo.js" />
     <Content Include="js\demo\chart-pie-demo.js" />
@@ -86,6 +89,7 @@
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="Notificacion.aspx" />
     <Content Include="PrimerIngreso.aspx" />
+    <Content Include="OlvidoContrasena.aspx" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
@@ -1702,6 +1706,20 @@
     </Compile>
     <Compile Include="PrimerIngreso.aspx.designer.cs">
       <DependentUpon>PrimerIngreso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.designer.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OlvidoContrasena.aspx.cs">
+      <DependentUpon>OlvidoContrasena.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OlvidoContrasena.aspx.designer.cs">
+      <DependentUpon>OlvidoContrasena.aspx</DependentUpon>
     </Compile>
     <Compile Include="Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
