@@ -39,8 +39,10 @@ namespace UI
 			//	lblIncorrecto.Text = "Usuario o contraseña incorrecto";
 			//}
 
-		}
+            String correo = txtCorreo.Text;
+            String contrasena = txtContrasena.Text;
+        }
 
 	
-	}
+    }
 }
