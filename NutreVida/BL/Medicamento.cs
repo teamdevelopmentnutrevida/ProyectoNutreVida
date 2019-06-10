@@ -12,7 +12,7 @@ namespace BL
         public string Nombre { set; get; }
         public string Motivo { set; get; }
         public string Frecuencia { set; get; }
-        public string Dosis { set; get; }
+        public string Dosis { set; get; } 
 
 
         public Medicamento(int cedula, string nombre, string motivo, string frecuencia, string dosis)
