@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace TO
+namespace BL
 {
-    public class TOClienteNutricion
+    public class ClienteNutricion
     {
         public int Cedula { set; get; }
         public string Nombre { set; get; }
@@ -24,7 +23,7 @@ namespace TO
         public string Correo { set; get; }
 
 
-        public TOClienteNutricion(int cedula,string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil,char whatsApp ,int telefono, string residencia, string ocupacion, DateTime fechaIngreso)
+        public ClienteNutricion(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso)
         {
             Cedula = cedula;
             Correo = correo;
@@ -41,11 +40,7 @@ namespace TO
             FechaIngreso = fechaIngreso;
         }
 
-
-
-        public TOClienteNutricion()
-        {
-        }
+        public ClienteNutricion() {}
 
     }
 }

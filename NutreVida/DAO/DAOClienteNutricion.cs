@@ -30,7 +30,7 @@ namespace DAO
                 while (lector.Read())
                 {
                     ListaMedidas.Add(new TOClienteNutricion(Int32.Parse(lector["Cedula"].ToString()), lector["Correo"].ToString(), lector["Nombre"].ToString(), lector["Apellido1"].ToString(),
-                        lector["Apellido2"].ToString(), lector["Fecha_Nacimiento"].ToString(), Char.Parse(lector["Sexo"].ToString()),
+                        lector["Apellido2"].ToString(), DateTime.Parse(lector["Fecha_Nacimiento"].ToString()), Char.Parse(lector["Sexo"].ToString()),
                         lector["Estado_Civil"].ToString(), Char.Parse(lector["WhatsApp"].ToString()), Int32.Parse(lector["Telefono"].ToString()), lector["Residencia"].ToString(), lector["Ocupacion"].ToString(), DateTime.Parse(lector["FechaIngreso"].ToString())));
 
                 }

@@ -56,7 +56,7 @@ namespace UI
             string nombre = txtNombre.Text;
             string apellido1 = txtPrimerApellido.Text;
             string apellido2 = txtSegundoApellido.Text;
-            string fecha_Nacimiento = iFechaNac.Value;
+            DateTime fecha_Nacimiento = DateTime.Parse(iFechaNac.Value);
             char sexo = char.Parse(dropSexo.SelectedValue);
             string estado_Civil = dropEstadoCivil.SelectedValue;
             char whatsApp = '0';
@@ -67,8 +67,7 @@ namespace UI
             int telefono = int.Parse(txtTel.Text);
             string residencia = txtResid.Text;
             string ocupacion = txtOcup.Text;
-            DateTime fechaHoy = DateTime.Now;
-            string fechaIngreso = fechaHoy.ToString("d");
+            DateTime fechaIngreso = DateTime.Now;
 
 
             ingreso.CrearCliente(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso);

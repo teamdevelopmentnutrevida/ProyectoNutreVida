@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAOClienteNutricion.cs" />
     <Compile Include="DAOLogin.cs" />
     <Compile Include="DAOPrimerIngreso.cs" />
     <Compile Include="DAOSeguimientos.cs" />
