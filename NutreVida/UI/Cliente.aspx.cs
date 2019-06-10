@@ -12,7 +12,8 @@ namespace UI
     {
         private int contPrueba = 0;
         private static List<SeguimientoSemanal> listaSeguimientos = null;
-        ManejadorSeguimientos manejadorNutrición = new ManejadorSeguimientos();
+        ManejadorSeguimientos manejadorSeg = new ManejadorSeguimientos();
+        ManejadorErrores manejError = new ManejadorErrores();
         protected void Page_Load(object sender, EventArgs e)
         {
                  
@@ -21,20 +22,31 @@ namespace UI
         
         protected void btnAgreg_Click(object sender, EventArgs e)
         {
-
+            decimal peso = 0;
             if (sPeso.Text.Equals("") || sOreja.Text.Equals("") || sEjercicio.Text.Equals(""))
             {
                 Response.Write("<script>alert('No deben haber espacios en blanco')</script>");
             }
             else
             {
-                bool creado = true;//manejadorNutrición.AgregarSeguimiento(new SeguimientoSemanal(listaSeguimientos.Count, DateTime.Now, Convert.ToDecimal(sPeso.Text), sOreja.Text, sEjercicio.Text, " "));
+                try
+                {
+                    peso= Convert.ToDecimal(sPeso.Text);
+                }
+                catch (FormatException)
+                {
+                    string y = manejError.ErrorIngresoNumero();
+                    Response.Write("<script>alert('"+y +"')</script>");
+                    peso = 0;
+                    
+                }
+                bool creado = manejadorSeg.AgregarSeguimiento(new SeguimientoSemanal(listaSeguimientos.Count, DateTime.Now, Convert.ToDecimal(sPeso.Text), sOreja.Text, sEjercicio.Text, " "));
                 if (creado)
                 {
 
                     if (listaSeguimientos != null)
                     {
-                        listaSeguimientos.Add(new SeguimientoSemanal(contPrueba  + 1, DateTime.Now.Date, Convert.ToDecimal(sPeso.Text), sOreja.Text, sEjercicio.Text, ""));
+                        listaSeguimientos.Add(new SeguimientoSemanal(contPrueba  + 1, DateTime.Now.Date, peso, sOreja.Text, sEjercicio.Text, ""));
                         LitSeguimiento.Text += "<tr><td>" + (contPrueba + "</td><td>" + DateTime.Now + "</td><td>" + sPeso.Text + "</td><td>" + sOreja.Text + "</td><td>" + sEjercicio.Text + "</td></tr>");
                     }
                     else
