@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,28 +18,28 @@ namespace UI
 			Session["usuario"] = null;
 		}
 
-		//public BLUsuario usuario()
-		//{
-		//	return (BLUsuario)Session["usuario"];
-		//}
+		public BLLogin usuario()
+		{
+			return (BLLogin)Session["usuario"];
+		}
 
-		//public Boolean validarCli()
-		//{
-		//	if (usuario() == null || !usuario().rol.Equals("cliente") || usuario().rol.Equals(""))
-		//	{
-		//		return true;
-		//	}
-		//	return false;
-		//}
+		public Boolean validarNutri()
+		{
+			if (usuario() == null || !usuario().rol.Equals("nutricionista") || usuario().rol.Equals(""))
+			{
+				return true;
+			}
+			return false;
+		}
 
-		//public Boolean validarAdmin()
-		//{
-		//	if (usuario() == null || !usuario().rol.Equals("admin") || usuario().rol.Equals(""))
-		//	{
-		//		return true;
-		//	}
-		//	return false;
-		//}
-	
+		public Boolean validarAdmin()
+		{
+			if (usuario() == null || !usuario().rol.Equals("admin") || usuario().rol.Equals(""))
+			{
+				return true;
+			}
+			return false;
+		}
+
 	}
 }

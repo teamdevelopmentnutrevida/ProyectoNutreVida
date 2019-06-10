@@ -18,7 +18,7 @@ namespace DAO
 			try
 			{
 				TOLogin usuario = new TOLogin();
-				SqlCommand buscar = new SqlCommand("SELECT * FROM Usuario WHERE Nombre_usuario = @corrusu and Clave = @contus", conexion);
+				SqlCommand buscar = new SqlCommand("SELECT * FROM Login WHERE Nombre_usuario = @corrusu and Clave = @contus", conexion);
 				buscar.Parameters.AddWithValue("@corrusu", correo);
 				buscar.Parameters.AddWithValue("@contus", contras);
 				conexion.Open();

@@ -87,7 +87,7 @@
 
       <!-- Nav Item - Cerrar Sesion -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" onclick="cerrar" href="InicioSesion.aspx">
           <i class="fas fa-sign-out-alt"></i>
           <span>Cerrar Sesión</span></a>
       </li>
