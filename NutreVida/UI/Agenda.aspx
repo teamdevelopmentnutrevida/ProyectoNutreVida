@@ -1,11 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="Agenda.aspx.cs" Inherits="UI.Agenda" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="css/Styles.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -19,7 +22,7 @@
 
 
     <div class="container theme-showcase">
-        <h1>Calendario</h1>
+        <h1>Agenda Nutre Vida</h1>
         <div id="holder" class="row"></div>
     </div>
 
@@ -446,6 +449,8 @@
             data: data
         });
 </script>
+
+
 </asp:Content>
 
 

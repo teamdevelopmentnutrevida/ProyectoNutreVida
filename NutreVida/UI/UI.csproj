@@ -73,10 +73,12 @@
     <Content Include="Cliente.aspx" />
     <Content Include="ControlSeguridad.aspx" />
     <Content Include="css\InicioSesionStyles.css" />
+    <Content Include="css\Margen.css" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
-    <Content Include="css\Styles.css" />
+    <Content Include="css\style.css" />
     <Content Include="Expedientes.aspx" />
+    <Content Include="img\favicon.ico" />
     <Content Include="img\fondo.jpg" />
     <Content Include="img\InicioSesion.jpg" />
     <Content Include="img\nutriVital.jfif" />

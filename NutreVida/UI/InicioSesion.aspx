@@ -18,7 +18,7 @@
 	<link href="css/sb-admin-2.min.css" rel="stylesheet" />
 	<link href="css/InicioSesionStyles.css" rel="stylesheet" />
 
-
+    <link rel="shortcut icon" href="img/favicon.ico" />
 
 	<title>NutreVida</title>
 </head>

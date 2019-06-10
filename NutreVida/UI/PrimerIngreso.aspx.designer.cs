@@ -139,15 +139,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtOcup;
         
         /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
         /// dropWhats control.
         /// </summary>
         /// <remarks>
@@ -155,6 +146,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropWhats;
+        
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
         /// AntecedF control.
@@ -193,6 +193,24 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtPatol;
         
         /// <summary>
+        /// DropLicor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropLicor;
+        
+        /// <summary>
+        /// labelFrecLic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelFrecLic;
+        
+        /// <summary>
         /// txtFrecLicor control.
         /// </summary>
         /// <remarks>
@@ -200,6 +218,24 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFrecLicor;
+        
+        /// <summary>
+        /// DropFuma control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropFuma;
+        
+        /// <summary>
+        /// labelFreFum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelFreFum;
         
         /// <summary>
         /// txtFrecFuma control.
@@ -535,6 +571,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label AntrEdad;
         
         /// <summary>
+        /// txtEdad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEdad;
+        
+        /// <summary>
         /// PesoActual control.
         /// </summary>
         /// <remarks>
@@ -542,6 +587,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PesoActual;
+        
+        /// <summary>
+        /// txtPesoActual control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPesoActual;
         
         /// <summary>
         /// PesoMaxTeoria control.
@@ -553,6 +607,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label PesoMaxTeoria;
         
         /// <summary>
+        /// txtPesoMaxTeoria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPesoMaxTeoria;
+        
+        /// <summary>
         /// PesoIdeal control.
         /// </summary>
         /// <remarks>
@@ -560,6 +623,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PesoIdeal;
+        
+        /// <summary>
+        /// txtPesoIdeal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPesoIdeal;
         
         /// <summary>
         /// EdadMetab control.
@@ -571,6 +643,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label EdadMetab;
         
         /// <summary>
+        /// txtEdadMetabolica control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEdadMetabolica;
+        
+        /// <summary>
         /// Cintura control.
         /// </summary>
         /// <remarks>
@@ -578,6 +659,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Cintura;
+        
+        /// <summary>
+        /// txtCintura control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCintura;
         
         /// <summary>
         /// Abdomen control.
@@ -589,6 +679,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label Abdomen;
         
         /// <summary>
+        /// txtAbdomen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAbdomen;
+        
+        /// <summary>
         /// Cadera control.
         /// </summary>
         /// <remarks>
@@ -596,6 +695,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Cadera;
+        
+        /// <summary>
+        /// txtCadera control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCadera;
         
         /// <summary>
         /// Muslo control.
@@ -607,6 +715,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label Muslo;
         
         /// <summary>
+        /// txtMuslo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMuslo;
+        
+        /// <summary>
         /// PMB control.
         /// </summary>
         /// <remarks>
@@ -614,6 +731,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PMB;
+        
+        /// <summary>
+        /// txtPMB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPMB;
         
         /// <summary>
         /// CMB control.
@@ -625,6 +751,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label CMB;
         
         /// <summary>
+        /// txtCMB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCMB;
+        
+        /// <summary>
         /// Agua control.
         /// </summary>
         /// <remarks>
@@ -632,6 +767,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Agua;
+        
+        /// <summary>
+        /// txtAgua control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAgua;
         
         /// <summary>
         /// Complexión control.
@@ -643,6 +787,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label Complexión;
         
         /// <summary>
+        /// txtComplexion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtComplexion;
+        
+        /// <summary>
         /// MasaOsea control.
         /// </summary>
         /// <remarks>
@@ -650,6 +803,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MasaOsea;
+        
+        /// <summary>
+        /// txtMasaOsea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMasaOsea;
         
         /// <summary>
         /// Talla control.
@@ -661,6 +823,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label Talla;
         
         /// <summary>
+        /// txtTalla control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTalla;
+        
+        /// <summary>
         /// CircunfMun control.
         /// </summary>
         /// <remarks>
@@ -668,6 +839,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label CircunfMun;
+        
+        /// <summary>
+        /// txtCircunferencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCircunferencia;
         
         /// <summary>
         /// IMC control.
@@ -679,6 +859,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label IMC;
         
         /// <summary>
+        /// txtIMC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIMC;
+        
+        /// <summary>
         /// GrasaAnalizador control.
         /// </summary>
         /// <remarks>
@@ -686,6 +875,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label GrasaAnalizador;
+        
+        /// <summary>
+        /// txtGrasaAnalizador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGrasaAnalizador;
         
         /// <summary>
         /// GrasVisceral control.
@@ -697,6 +895,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label GrasVisceral;
         
         /// <summary>
+        /// txtGarsaViceral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGarsaViceral;
+        
+        /// <summary>
         /// tGrasBascula control.
         /// </summary>
         /// <remarks>
@@ -704,6 +911,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label tGrasBascula;
+        
+        /// <summary>
+        /// txtGrasaBascula control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGrasaBascula;
         
         /// <summary>
         /// GB_BI control.
@@ -715,6 +931,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label GB_BI;
         
         /// <summary>
+        /// txtGB_BI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGB_BI;
+        
+        /// <summary>
         /// GB_BD control.
         /// </summary>
         /// <remarks>
@@ -722,6 +947,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label GB_BD;
+        
+        /// <summary>
+        /// txtGB_BD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGB_BD;
         
         /// <summary>
         /// GB_PI control.
@@ -733,6 +967,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label GB_PI;
         
         /// <summary>
+        /// txtGB_PI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGB_PI;
+        
+        /// <summary>
         /// GB_PD control.
         /// </summary>
         /// <remarks>
@@ -740,6 +983,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label GB_PD;
+        
+        /// <summary>
+        /// txtGB_PD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGB_PD;
         
         /// <summary>
         /// GB_Tronco control.
@@ -751,6 +1003,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label GB_Tronco;
         
         /// <summary>
+        /// txtGB_Trono control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGB_Trono;
+        
+        /// <summary>
         /// PorcentMusculo control.
         /// </summary>
         /// <remarks>
@@ -758,6 +1019,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PorcentMusculo;
+        
+        /// <summary>
+        /// txtPorcentaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcentaje;
         
         /// <summary>
         /// PM_BI control.
@@ -769,6 +1039,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label PM_BI;
         
         /// <summary>
+        /// txtPM_BI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPM_BI;
+        
+        /// <summary>
         /// PM_BD control.
         /// </summary>
         /// <remarks>
@@ -776,6 +1055,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PM_BD;
+        
+        /// <summary>
+        /// txtPM_BD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPM_BD;
         
         /// <summary>
         /// PM_PI control.
@@ -787,6 +1075,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label PM_PI;
         
         /// <summary>
+        /// txtPM_PI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPM_PI;
+        
+        /// <summary>
         /// PM_PD control.
         /// </summary>
         /// <remarks>
@@ -796,6 +1093,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label PM_PD;
         
         /// <summary>
+        /// txtPM_PD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPM_PD;
+        
+        /// <summary>
         /// PM_Tronco control.
         /// </summary>
         /// <remarks>
@@ -803,6 +1109,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PM_Tronco;
+        
+        /// <summary>
+        /// txtPM_Tronco control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPM_Tronco;
         
         /// <summary>
         /// Observacion control.
@@ -902,5 +1217,14 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PSuplemnt;
+        
+        /// <summary>
+        /// btnGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
     }
 }
