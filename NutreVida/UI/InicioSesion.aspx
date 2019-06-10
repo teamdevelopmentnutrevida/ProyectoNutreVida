@@ -30,7 +30,7 @@
 	<div class="row fila">
 
 		<div class="col-lg-9 box">
-			<asp:Image ID="ImgInicio" runat="server" ImageUrl="~/img/InicioSesion.jpg" />
+			<asp:Image ID="ImgInicio" runat="server" ImageUrl="~/img/InicioSesion.jpg" data-toggle="tooltip" title="Nutre Vida" />
 
 		</div>
 
@@ -43,7 +43,7 @@
 
 					<div class="col-md-12 divlogo">
 
-						<asp:Image ID="Logo" runat="server" ImageUrl="~/img/nutriVital.jfif" />
+						<asp:Image ID="Logo" runat="server" ImageUrl="~/img/nutriVital.jfif" data-toggle="tooltip" title="Nutre Vida" />
 
 					</div>
 
@@ -58,24 +58,24 @@
 						<form id="InicioSesionForm" runat="server">
 							<asp:Label ID="lbCorreo" runat="server" Text="Correo electrónico:"></asp:Label>
 							<br />
-							<asp:TextBox ID="txtCorreo" TextMode="Email" runat="server" ></asp:TextBox>
+							<asp:TextBox ID="txtCorreo" TextMode="Email" runat="server" data-toggle="tooltip" title="Correo electrónico"></asp:TextBox>
                             <br />
 							<asp:Label ID="lbContras" runat="server" Text="Contraseña:"></asp:Label>
 							<br />
-							<asp:TextBox TextMode="Password" ID="txtContras" runat="server"></asp:TextBox>
+							<asp:TextBox TextMode="Password" ID="txtContras" runat="server" data-toggle="tooltip" title="Contraseña"></asp:TextBox>
 							<br />
 							<asp:Label ID="lblIncorrecto" runat="server" Text=""></asp:Label>
 							<br />
 							<asp:Label ID="lbOlvidoCont" runat="server" Text="<a href='/OlvidoContrasena.aspx'>Olvidé mi contraseña</a>" CssClass="control-label col-sm-2 small"></asp:Label>
 							<br />
-							<asp:Button ID="btnIngresar" CssClass=" btn btn-primary" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+							<asp:Button ID="btnIngresar" CssClass=" btn btn-primary" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" data-toggle="tooltip" title="Ingresar"/>
 						</form>
 					</div>
 				</div>
 
 
 				<div class="row">
-					<div class="col-md-11 info-inicio ">
+					<div class="col-md-11 info-inicio " data-toggle="tooltip" title="Información médica">
 						<asp:Label ID="lbNombre" runat="server" Text="Dra. Elky Fernández Palma" CssClass="control-label"></asp:Label>
 						<asp:Label ID="lbCod" runat="server" Text="Nutricionista Cód CNP 1187-12" CssClass="control-label"></asp:Label>
 						<asp:Label ID="lbTel" runat="server" Text="Tel:7076-1100" CssClass="control-label"></asp:Label>
