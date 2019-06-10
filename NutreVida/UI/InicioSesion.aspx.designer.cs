@@ -58,22 +58,22 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtCorreo;
         
         /// <summary>
-        /// lbContrasena control.
+        /// lbContras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbContrasena;
+        protected global::System.Web.UI.WebControls.Label lbContras;
         
         /// <summary>
-        /// txtContrasena control.
+        /// txtContras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContrasena;
+        protected global::System.Web.UI.WebControls.TextBox txtContras;
         
         /// <summary>
         /// lbOlvidoCont control.
