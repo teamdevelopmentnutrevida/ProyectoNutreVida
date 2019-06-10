@@ -16,7 +16,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Label CssClass="textareaLabel" ID="lbCorreo" runat="server" Text="Nuevo Correo Electrónico:" ></asp:Label>
                             <div class="col-sm-10">
-                                <asp:TextBox ID="txtCorreo" runat="server" placeholder="Digite el correo" CssClass="form-control"></asp:TextBox>
+                                <%--<asp:TextBox ID="txtCorreo" runat="server" placeholder="Digite el correo" CssClass="form-control"></asp:TextBox>--%>
                             </div>
                         </div>
                         <div class="form-group">
@@ -30,7 +30,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Label CssClass="textareaLabel" ID="lbRepetir" runat="server" Text="Repetir Nueva Contraseña:"></asp:Label>
                             <div class="col-sm-10">
-                                <asp:TextBox ID="txtRepetir" runat="server" TextMode="Password" placeholder="Repita la nueva contraseña" CssClass="form-control"></asp:TextBox>
+                                <%--<asp:TextBox ID="txtRepetir" runat="server" TextMode="Password" placeholder="Repita la nueva contraseña" CssClass="form-control"></asp:TextBox>--%>
                             </div>
                         </div>
 						 <br />

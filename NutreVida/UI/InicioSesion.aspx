@@ -58,38 +58,31 @@
 						<form id="InicioSesionForm" runat="server">
 							<asp:Label ID="lbCorreo" runat="server" Text="Correo electrónico:"></asp:Label>
 							<br />
-							<asp:TextBox ID="txtCorreo" placeholder="" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtCorreo" TextMode="Email" runat="server"></asp:TextBox>
 							<br />
 							<asp:Label ID="lbContras" runat="server" Text="Contraseña:"></asp:Label>
 							<br />
-							<asp:TextBox TextMode="Password" placeholder="" ID="txtContras" runat="server"></asp:TextBox>
+							<asp:TextBox TextMode="Password" ID="txtContras" runat="server"></asp:TextBox>
 							<br />
+							<asp:Label ID="lblIncorrecto" runat="server" Text=""></asp:Label>
 							<br />
 							<asp:Label ID="lbOlvidoCont" runat="server" Text="<a href='/OlvidoContrasena.aspx'>Olvidé mi contraseña</a>" CssClass="control-label col-sm-2 small"></asp:Label>
 							<br />
-							<asp:Button ID="btnIngresar" CssClass=" btn btn-primary" runat="server" Text="Ingresar" />
+							<asp:Button ID="btnIngresar" CssClass=" btn btn-primary" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
 						</form>
 					</div>
-
 				</div>
 
 
 				<div class="row">
-
 					<div class="col-md-11 info-inicio ">
-
 						<asp:Label ID="lbNombre" runat="server" Text="Dra. Elky Fernández Palma" CssClass="control-label"></asp:Label>
 						<asp:Label ID="lbCod" runat="server" Text="Nutricionista Cód CNP 1187-12" CssClass="control-label"></asp:Label>
 						<asp:Label ID="lbTel" runat="server" Text="Tel:7076-1100" CssClass="control-label"></asp:Label>
-
 					</div>
-
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
 
 		

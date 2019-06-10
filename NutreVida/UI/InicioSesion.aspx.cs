@@ -15,8 +15,8 @@ namespace UI
 
         }
 
-        protected void btnIngresar_Click(object sender, EventArgs e)
-        {
+		protected void btnIngresar_Click(object sender, EventArgs e)
+		{
 
 			String correo = txtCorreo.Text;
 			String contrasena = txtContras.Text;
@@ -37,9 +37,10 @@ namespace UI
 			}
 			else
 			{
-				//lblIncorrecto.Text = "Usuario o contraseña incorrecto";
+				lblIncorrecto.Text = "Usuario o contraseña incorrecto";
 			}
-		
+
+		}
+
 	}
-    }
 }

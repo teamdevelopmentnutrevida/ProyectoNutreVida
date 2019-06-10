@@ -22,15 +22,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label lbCorreo;
         
         /// <summary>
-        /// txtCorreo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCorreo;
-        
-        /// <summary>
         /// lbContrasena control.
         /// </summary>
         /// <remarks>
@@ -56,15 +47,6 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbRepetir;
-        
-        /// <summary>
-        /// txtRepetir control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRepetir;
         
         /// <summary>
         /// btnGuardar control.

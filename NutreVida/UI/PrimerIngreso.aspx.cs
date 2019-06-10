@@ -10,9 +10,14 @@ namespace UI
 {
     public partial class PrimerIngreso : System.Web.UI.Page
     {
+        private static List<Medicamento> ListaMedicamSuplem = new List<Medicamento>();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                
+                tSuplementoMedico.Text = "<tr><th>Nombre</th><th>Motivo</th><th>Frecuencia</th><th>Dosis</th></tr>";
+            }
         }
 
         protected void DropLicor_SelectedIndexChanged(object sender, EventArgs e)
@@ -38,7 +43,7 @@ namespace UI
             }
         }
 
-        protected void btnGuardar_Click1(object sender, EventArgs e)
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
             BL.PrimerIngreso ingreso = new BL.PrimerIngreso();
 
@@ -49,12 +54,16 @@ namespace UI
 
             string correo = txtEmail.Text;
             string nombre = txtNombre.Text;
-            //string apellido1 = txtApellido1.text;
-            //string apellido2 = txtApellido2.text;
+            string apellido1 = txtPrimerApellido.Text;
+            string apellido2 = txtSegundoApellido.Text;
             string fecha_Nacimiento = iFechaNac.Value;
             char sexo = char.Parse(dropSexo.SelectedValue);
-            //string estado_Civil = txtEstadoCivil.text;
-            char whatsApp = char.Parse(dropWhats.SelectedValue);
+            string estado_Civil = dropEstadoCivil.SelectedValue;
+            char whatsApp = '0';
+            if (dropWhats.SelectedValue.Equals("Sí"))
+            {
+                whatsApp = '1';
+            }
             int telefono = int.Parse(txtTel.Text);
             string residencia = txtResid.Text;
             string ocupacion = txtOcup.Text;
@@ -62,7 +71,7 @@ namespace UI
             string fechaIngreso = fechaHoy.ToString("d");
 
 
-            //ingreso.CrearCliente(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso);
+            ingreso.CrearCliente(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso);
 
 
             //Historial medico
@@ -74,8 +83,40 @@ namespace UI
             string frecFuma = txtFrecFuma.Text;
             string frecLicor = txtFrecLicor.Text;
             string ultimoExamen = fechaExam.Value;
-            //string actividadFisica = txtActividadFisica.text;
+            string actividadFisica = txtActividadFisica.Text;
 
+            HistorialMedico historial = new HistorialMedico(cedula, antecedentes, patologias, consumeLicor, fuma, frecFuma, frecLicor, ultimoExamen, actividadFisica);
+
+
+
+        }
+
+
+
+        protected void BtnAgreg_Click(object sender, EventArgs e)
+        {
+            if (tNomMed.Text.Equals("") || tMotvMed.Text.Equals("") || tFrecMed.Text.Equals("") || tDosisMed.Text.Equals(""))
+            {
+                Response.Write("<script>alert('No deben haber espacios en blanco')</script>");
+            }
+            else
+            {
+                Medicamento medicamSupl = new Medicamento();
+                string tabla = tSuplementoMedico.Text;
+                tabla += "<tr><td>" + tNomMed.Text + "</td><td>" + tMotvMed.Text + "</td><td>" + tFrecMed.Text + "</td><td>" + tDosisMed.Text + "</td></tr>";
+                tSuplementoMedico.Text = tabla;
+                medicamSupl.Cedula = int.Parse(txtCed.Text);
+                medicamSupl.Nombre = tNomMed.Text;
+                medicamSupl.Motivo = tMotvMed.Text;
+                medicamSupl.Frecuencia = tFrecMed.Text;
+                medicamSupl.Dosis = tDosisMed.Text;
+                ListaMedicamSuplem.Add(medicamSupl);
+
+                tNomMed.Text = "";
+                tMotvMed.Text = "";
+                tFrecMed.Text = "";
+                tDosisMed.Text = "";
+            }
         }
     }
 }

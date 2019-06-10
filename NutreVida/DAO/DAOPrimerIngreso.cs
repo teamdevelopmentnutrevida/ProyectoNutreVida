@@ -24,14 +24,14 @@ namespace DAO
             SqlCommand cmd = new SqlCommand(query1, conexion);
             SqlCommand cmd2 = new SqlCommand(query2, conexion);
 
-            try
+            //try
             {
 
                 cmd.Parameters.AddWithValue("@ced", tOCliente.Cedula);
                 cmd.Parameters.AddWithValue("@cor", tOCliente.Correo);
                 cmd.Parameters.AddWithValue("@nomb", tOCliente.Nombre);
-                cmd2.Parameters.AddWithValue("@whats", tOCliente.WhatsApp);
-                cmd2.Parameters.AddWithValue("@tel", tOCliente.Telefono);
+                cmd.Parameters.AddWithValue("@whats", tOCliente.WhatsApp);
+                cmd.Parameters.AddWithValue("@tel", tOCliente.Telefono);
                 cmd.Parameters.AddWithValue("@ape1", tOCliente.Apellido1);
                 cmd.Parameters.AddWithValue("@ape2", tOCliente.Apellido2);
                 cmd.Parameters.AddWithValue("@rol", "clienteNutri");
@@ -58,10 +58,10 @@ namespace DAO
 
                 return true;
             }
-            catch (SqlException)
-            {
-                return false;
-            }
+            //catch (SqlException)
+            //{
+            //    return false;
+            //}
         }
 
         public bool GuardarHistorial(TOHistorialMedico historial, List<TOMedicamento> listaMedicamento)
