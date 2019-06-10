@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="Cliente.aspx.cs" Inherits="UI.Cliente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="Cliente.aspx.cs" Inherits="UI.Cliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form3" runat="server">
@@ -8,42 +8,53 @@
 
              <h2>Información Personal</h2>
             <div>
-                <div class="col-11" style="width:50%; float:left;">
+                <div class="form-group"  style="width:50%; float:left;">
                     <div class="col-11" style="width:50%;">
-                        <label class="form-label" for="tCedula">Cédula:</label><asp:Label runat="server" ID="CedCl" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tCedula">Cédula:</label>    
+                        <asp:TextBox runat="server" ID="ced1" Font-Size="X-Small" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div class="col-11" style="width:50%;">
-                        <label class="form-label" for="tnombre">Nombre</label><asp:Label runat="server" ID="NombCl" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tnombre">Nombre</label> 
+                        <asp:TextBox runat="server" ID="NombCli" Font-Size="X-Small" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div class="col-11" style="width:50%;">
-                        <label class="form-label" for="tFechN">Fecha de Nacimiento:</label><asp:Label runat="server" ID="FechNaCL" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tFechN">Fecha de Nacimiento:</label>
+                        <asp:TextBox runat="server" ID="FechNaCLi" Font-Size="X-Small" CssClass="form-control"></asp:TextBox>
                     </div>
                      <div class="col-11" style="width:50%;">
-                        <label class="form-label" for="tTel">Teléfono:</label><asp:Label runat="server" ID="Telef" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tTel">Teléfono:</label>
+                         <asp:TextBox runat="server" ID="Telefo" Font-Size="X-Small" CssClass="form-control"></asp:TextBox>
                     </div>
                      <div class ="col-11" style="width:50%;">
-                        <label class="form-label" for="tWhats">Utiliza whatsapp:</label>
-                        <asp:Label runat="server" ID="Whatsapp" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tWhats">Utiliza whatsapp:</label>
+                        <asp:TextBox runat="server" ID="WhatsappC" Font-Size="X-Small" CssClass="form-control"></asp:TextBox>
                     </div>
                      <div class="col-11" style="width:50%;">
-                        <label class="form-label" for="tOcup">Ocupación:</label><asp:Label runat="server" ID="Ocup" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tOcup">Ocupación:</label>
+                         <asp:Label runat="server" ID="Ocupac" Font-Size="X-Small" CssClass="form-control"></asp:Label>
                     </div>
                 </div>
-                <div style="width:50%; float:left;">
+                
+                <div class="form-group" style="width:50%; float:left;">
                     <div class="col-11" style="width:50%;">
-                        <label class="form-label" for="tSex">Sexo:</label><asp:Label runat="server" ID="Sexo" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tSex">Sexo:</label>
+                        <asp:TextBox runat="server" ID="Sex" Font-Size="X-Small" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div class="col-11" style="width:50%;">
-                        <label class="form-label" for="tEdad">Edad</label><asp:Label runat="server" ID="Edad" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tEdad">Edad</label>
+                        <asp:TextBox runat="server" ID="EdadC" Font-Size="X-Small" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div class="col-11" style="width:50%;">
-                        <label class="form-label" for="tResid">Residencia</label><asp:Label runat="server" ID="Residencia" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tResid">Residencia</label>
+                        <asp:TextBox runat="server" ID="ResidenciaC" Font-Size="X-Small" CssClass="form-control"></asp:TextBox>
                     </div> 
                     <div class="col-11" style="width:50%;">
-                        <label class="form-label" for="tEmail">Email</label><asp:Label runat="server" ID="Email" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tEmail">Email</label>
+                        <asp:TextBox runat="server" ID="EmailC" Font-Size="X-Small" CssClass="form-control"></asp:TextBox>
                     </div>  
                     <div class="col-11" style="width:50%;">
-                        <label class="form-label" for="tFechIngr">Fecha de Ingreso</label><asp:Label runat="server" ID="FechIngr" Font-Size="Medium"></asp:Label>
+                        <label class="col-xs-4 control-label" for="tFechIngr" >Fecha de Ingreso</label>
+                        <asp:TextBox runat="server" ID="FechIngreso" Font-Size="X-Small" CssClass="form-control"></asp:TextBox>
                     </div>
                      <br />
                     <br />
@@ -65,7 +76,7 @@
              <div class="tab-content" id="nav-tabContent">
                   <%--    Historial Medico--%>
                   <div id="HM" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-HM">
-                       <h4>Historial Médico</h4>
+                       <h5>Historial Médico</h5>
             <div class="col-11" style="width:100%;">
                 <label class="form-label" for="tAntFam">Antecedentes Familiares:</label><asp:Label runat="server" ID="AntecedF" Font-Size="Medium"></asp:Label>
             </div>
@@ -73,17 +84,17 @@
                  <label class="form-label" for="tPat">Patologías que padece:</label><asp:Label runat="server" ID="Patolg" Font-Size="Medium"></asp:Label>
             </div>
                 
-            <h4>Consumo de:</h4> 
+            <h6>Consumo de:</h6> 
            
              <div class="col-11" style="width:50%;">
-                    <label class="form-label" for="tLic">Licor:     </label><asp:Label runat="server" ID="ConsLic" Font-Size="Medium"></asp:Label>
-                    <label class="form-label" for="tFrecLic">Frecuencia: </label><asp:Label runat="server" ID="FrecLic" Font-Size="Medium"></asp:Label>
+                    <label class="form-label" for="tLic">Licor:     </label><asp:TextBox runat="server" ID="ConsLicC" Font-Size="Medium"></asp:TextBox>
+                    <label class="form-label" for="tFrecLic">Frecuencia: </label><asp:TextBox runat="server" ID="FrecLicC" Font-Size="Medium"></asp:TextBox>
                 </div>
                 <div class="col-11" style="width:50%;">
                     <label class="form-label" for="tLic">Fuma:     </label><asp:Label runat="server" ID="fumad" Font-Size="Medium"></asp:Label>
                     <label class="form-label" for="tFrecFum">Frecuencia: </label><asp:Label runat="server" ID="FrecFuma" Font-Size="Medium"></asp:Label>
                 </div>
-             <h4>Medicamentos o suplementos que consume:</h4>   
+             <h6>Medicamentos o suplementos que consume:</h6>   
            <table class="table">
                <tr>
                 <th scope="col">Medicamento</th>
@@ -112,7 +123,7 @@
 
                   <%--   Habitos alimentarios--%>
                  <div id="HA" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-HA">
-                     <h4>Habitos Alimentarios</h4>
+                     <h5>Habitos Alimentarios</h5>
           <div class="col-11" style="width:100%;">
                  <label class="form-label" for="tComD">¿Cuántas veces come al día? </label>
                  <asp:Label runat="server" ID="ComeDiario" Font-Size="Medium"></asp:Label>
@@ -145,7 +156,7 @@
                 <label class="form-label" for="tAder">¿Agrega salsa tomate, mayonesa, mantequilla o natilla a la comida? </label>
                 <asp:Label runat="server" ID="Aderezos" Font-Size="Medium"></asp:Label>
            </div>
-           <h4>Le gusta la mayoría de:</h4>
+           <h6>Le gusta la mayoría de:</h6>
             <table class="table">
                <tr>
                    <th scope="row">Frutas:</th>
@@ -163,7 +174,7 @@
                    <th scope="row">Semillas:</th>
                </tr>
             </table>
-            <h4>Recordatorio de 24 Horas</h4>
+            <h6>Recordatorio de 24 Horas</h6>
              <table class="table">
                <tr>
                 <th scope="col">Tiempo de Comida</th>
@@ -217,7 +228,7 @@
 
              <%--    Antropometria--%>
                  <div id="Ant" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-Ant">
-                      <h4>Antropometría</h4>
+                      <h5>Antropometría</h5>
            <div>
             <div class="col-11" style="width:50%; float:left;">
                 <div class="col-11" style="width:50%;">
@@ -441,30 +452,31 @@
 
                 <%-- Seguimiento Semanal--%>
                  <div id="SS" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-SS">
-                      <h4 >Seguimientos Semanales</h4>
-                            <div style="width:25%; float:left;">
-                            <div class="col-11" style="width:25%;">
-                                <asp:TextBox runat="server" ID="PesoSeguim" placeholder="Peso"></asp:TextBox>
+                      <div class="form-container">
+                            <h5>Seguimiento de pesaje semanal:</h5>
+                            
+                            <div class="row">
+                                <div class="col-form-label-lg">
+                                    <asp:TextBox ID="sPeso" runat="server"  placeholder="Peso" Font-Size="Small" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col"></div>
+                                <div class="col-form-label-lg">
+                                   <asp:DropDownList runat="server" ID="sOreja" CssClass="form-control" Font-Size="Small">
+										 <asp:ListItem Selected="True" Value="Derecha"> Derecha </asp:ListItem>
+                                       <asp:ListItem Value="Izquierda"> Izquierda </asp:ListItem>
+									</asp:DropDownList>
+                                </div>
+                                 <div class="col"></div>
+                                <div class="col-form-label-lg">
+                                    <asp:TextBox ID="sEjercicio" runat="server" placeholder="Ejercicio" Font-Size="Small" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                 <div class="col"></div>
+                                <div class="col-form-label-lg">
+                                    <asp:Button ID="btnAgreg" Text="Agregar" runat="server"  OnClick="btnAgreg_Click"  CssClass="btn btn-primary colorBoton" />
+                                </div>
                             </div>
-                        </div>
-                        <div style="width:25%; float:left;">
-                            <div class="col-11" style="width:25%;">
-                                <asp:TextBox runat="server" ID="OrejaSegum" placeholder="Oreja"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div style="width:25%; float:left;">
-                            <div class="col-11" style="width:25%;">
-                                <asp:TextBox runat="server" ID="EjercSeguim" placeholder="Ejercicio"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div style="width:25%; float:left;">
-                            <div class="col-11" style="width:25%;">
-                                <asp:Button runat="server" ID="Agregar" Text="Agregar"  CssClass="btn btn-primary colorBoton"></asp:Button>
-                            </div>
-                        </div>
-                        <br />
-                        <br />
-                        <h4>Lista Seguimientos:</h4>
+                            
+                            <h6>Lista Seguimientos:</h6>
                         <table class="table">
                             <tr>
                                 <th scope="col">Sesión</th>
@@ -473,14 +485,12 @@
                                 <th scope="col">Oreja</th>
                                 <th scope="col">Ejercicio</th>
                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                                <asp:Literal ID="LitSeguimiento" runat="server" ></asp:Literal>
                         </table>
+
+                        </div>
+                     
+                        
                   </div> <%--tab Seg Semanal--%>
 
 

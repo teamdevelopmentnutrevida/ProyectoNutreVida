@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TOLogin.cs" />
     <Compile Include="TOAntropometria.cs" />
     <Compile Include="TOClienteNutricion.cs" />
     <Compile Include="TODistribucionPorciones.cs" />

@@ -42,6 +42,9 @@
   <ItemGroup>
     <Compile Include="HabitoAlimentario.cs" />
     <Compile Include="HistorialMedico.cs" />
+    <Compile Include="BLLogin.cs" />
+    <Compile Include="MaejadorLogin.cs" />
+    <Compile Include="ManejadorErrores.cs" />
     <Compile Include="ManejadorSeguimientos.cs" />
     <Compile Include="Medicamento.cs" />
     <Compile Include="PrimerIngreso.cs" />
