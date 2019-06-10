@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="col-11 margen" style="width: 100%;">
                                     <label class="form-label" for="tFechN">Fecha de Nacimiento:</label><asp:Label runat="server" ID="Label4" Font-Size="Medium"></asp:Label>
-                                    <input id="iFechaNac" type="date" />
+                                    <input id="iFechaNac" type="date" runat="server"/>
                                 </div>
                                 <br />
                                 <br />
@@ -148,7 +148,7 @@
                         <div class="col-11 margen" style="width: 70%;">
                             <label class="form-label" for="tFechExm">Fecha de últimos examenes de sangre o revisión médica: </label>
                             <asp:Label runat="server" ID="FechRevMed" Font-Size="Medium"></asp:Label>
-                            <input id="fechaExam" type="date" />
+                            <input id="fechaExam" type="date" runat="server" />
                         </div>
                         <br />
                         <br />

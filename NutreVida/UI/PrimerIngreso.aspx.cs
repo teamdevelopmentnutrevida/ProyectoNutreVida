@@ -42,22 +42,40 @@ namespace UI
         {
             BL.PrimerIngreso ingreso = new BL.PrimerIngreso();
 
-            //int cedula = int.Parse(txtCed.Text);
-            //string correo = txtEmail.Text;
-            //string nombre = txtNombre.Text;
+
+            //Datos personales
+
+            int cedula = int.Parse(txtCed.Text);
+
+            string correo = txtEmail.Text;
+            string nombre = txtNombre.Text;
             //string apellido1 = txtApellido1.text;
-            //string apellido2 = txtApellido.text;
-            //DateTime fecha_Nacimiento = txtFechaN.text;
-            //char sexo = char.Parse(dropSexo.SelectedValue);
+            //string apellido2 = txtApellido2.text;
+            string fecha_Nacimiento = iFechaNac.Value;
+            char sexo = char.Parse(dropSexo.SelectedValue);
             //string estado_Civil = txtEstadoCivil.text;
-            //char whatsApp = char.Parse(dropWhats.SelectedValue);
-            //int telefono = int.Parse(txtTel.Text);
-            //string residencia = txtResid.Text;
-            //string ocupacion = txtOcup.Text;
-            //DateTime fechaIngreso ;
+            char whatsApp = char.Parse(dropWhats.SelectedValue);
+            int telefono = int.Parse(txtTel.Text);
+            string residencia = txtResid.Text;
+            string ocupacion = txtOcup.Text;
+            DateTime fechaHoy = DateTime.Now;
+            string fechaIngreso = fechaHoy.ToString("d");
 
 
-            //ingreso.CrearCliente()
+            //ingreso.CrearCliente(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso);
+
+
+            //Historial medico
+
+            string antecedentes = txtAntec.Text; ;
+            string patologias = txtPatol.Text;
+            int consumeLicor = int.Parse(DropLicor.SelectedValue);
+            int fuma = int.Parse(DropFuma.SelectedValue);
+            string frecFuma = txtFrecFuma.Text;
+            string frecLicor = txtFrecLicor.Text;
+            string ultimoExamen = fechaExam.Value;
+            //string actividadFisica = txtActividadFisica.text;
+
         }
     }
 }

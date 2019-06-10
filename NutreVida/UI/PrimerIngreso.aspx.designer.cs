@@ -157,6 +157,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
+        /// iFechaNac control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl iFechaNac;
+        
+        /// <summary>
         /// AntecedF control.
         /// </summary>
         /// <remarks>
@@ -326,6 +335,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label FechRevMed;
+        
+        /// <summary>
+        /// fechaExam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl fechaExam;
         
         /// <summary>
         /// numeroComidas control.

@@ -15,12 +15,12 @@ namespace BL
         public int Fuma { set; get; }
         public string FrecFuma { set; get; }
         public string FrecLicor { set; get; }
-        public DateTime UltimoExamen { set; get; }
-        public string ActividadFisica;
+        public string UltimoExamen { set; get; }
+        public string ActividadFisica { set; get; }
 
         public HistorialMedico() { }
 
-        public HistorialMedico(int cedula, string antecedentes, string patologias, int consumeLicor, int fuma, string frecFuma, string frecLicor, DateTime ultimoExamen, string actividadFisica)
+        public HistorialMedico(int cedula, string antecedentes, string patologias, int consumeLicor, int fuma, string frecFuma, string frecLicor, string ultimoExamen, string actividadFisica)
         {
             Cedula = cedula;
             Antecedentes = antecedentes;

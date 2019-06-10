@@ -12,7 +12,7 @@ namespace BL
     {
         DAOPrimerIngreso daoClienteNutricion = new DAOPrimerIngreso();
 
-        public Boolean CrearCliente(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso)
+        public Boolean CrearCliente(int cedula, string correo, string nombre, string apellido1, string apellido2, string fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, string fechaIngreso)
         {
             if (cedula.Equals(""))
             {
