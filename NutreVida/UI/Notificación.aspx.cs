@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace UI
 {
-	public partial class Notificacion : System.Web.UI.Page
+	public partial class Notificación : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (new ControlSeguridad().validarNutri() == true)
-			{
-				Response.Redirect("~/InicioSesion.aspx");
 
-
-			}
 		}
 	}
 }

@@ -645,6 +645,11 @@
                                 <td></td>
                             </tr>
                         </table>
+
+                        <asp:Button ID="btnGuardar" CssClass=" btn btn-primary" runat="server" Text="Guardar" OnClick="btnGuardar_Click1"  />
+                        <br />
+                        <br />
+                        <br />
                     </div>
                     <%--tab Antrop--%>
                 </div>

@@ -13,5 +13,11 @@ namespace UI
         {
 
         }
-    }
+
+		protected void cerrar(object sender, EventArgs e) {
+			new ControlSeguridad().salir();
+		}
+
+
+	}
 }
