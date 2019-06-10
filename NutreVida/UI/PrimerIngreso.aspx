@@ -89,7 +89,7 @@
                                 <div class="col-11 margen" style="width: 100%;">
                                     <label class="form-label" for="iFechaNac">Fecha de Nacimiento:</label>
                                     <asp:Label runat="server" ID="Label4" Font-Size="Medium" data-toggle="tooltip" title="Fecha de nacimiento"></asp:Label>
-                                    <input id="iFechaNac" type="date" />
+                                    <input id="iFechaNac" type="date" runat="server"/>
                                 </div>
                                 <br />
                                 <br />
@@ -146,32 +146,45 @@
                         </div>
 
                         <br />
-                        <h5>Medicamentos o suplementos que consume:</h5>
-                        <div class="col-11 margen" style="width: 70%;">
-                            <label class="form-label" for="tPat">Medicamento:</label><asp:Label runat="server" ID="Label6" Font-Size="Medium"></asp:Label>
-                            <br />
-                            <asp:TextBox ID="txtMed" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Medicamento"></asp:TextBox>
+                       
+                        <h3>Medicamentos o suplementos que consume:</h3>
+                        <div class="row">
+                            <div class="col-20">
+                                <asp:TextBox ID="tNomMed" runat="server" placeholder="Nombre" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
+                            </div>
+                            <div class="col-20">
+                                <asp:TextBox ID="tMotvMed" runat="server" placeholder="Motivo"  CssClass="form-control" Font-Size="Small" ></asp:TextBox>
+                            </div>
+                            <div class="col-20">
+                                <asp:TextBox ID="tFrecMed" runat="server" placeholder="Frecuencia" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                         </div>
-                        <div class="col-11 margen" style="width: 70%;">
-                            <label class="form-label" for="tPat">Motivo:</label><asp:Label runat="server" ID="Label8" Font-Size="Medium"></asp:Label>
-                            <br />
-                            <asp:TextBox ID="txtMotiv" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Motivo"></asp:TextBox>
+                            <div class="col-20">
+                                <asp:TextBox ID="tDosisMed" runat="server" placeholder="Dosis" CssClass="form-control" Font-Size="Small"></asp:TextBox>
+                            </div>
+                            <div class="col-20">
+
+                                <asp:Button ID="btnAgreg" runat="server" Text="Agregar" CssClass=" btn btn-primary" OnClick="BtnAgreg_Click"  /> 
+
+                            </div>
                         </div>
-                        <div class="col-11 margen" style="width: 70%;">
-                            <label class="form-label" for="tPat">Frecuencia:</label><asp:Label runat="server" ID="Label11" Font-Size="Medium"></asp:Label>
-                            <br />
-                            <asp:TextBox ID="txtFrecMed" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Frecuencia del medicamento"></asp:TextBox>
-                        </div>
-                        <div class="col-11 margen" style="width: 70%;">
-                            <label class="form-label" for="tPat">Dosis:</label><asp:Label runat="server" ID="Label12" Font-Size="Medium"></asp:Label>
-                            <br />
-                            <asp:TextBox ID="txtDosis" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Dosis"></asp:TextBox>
+                        <br />
+                        <div class="row">
+                           <table class="table">
+                               <tr>
+                                <th scope="col">Medicamento</th>
+                                <th scope="col">Motivo</th> 
+                                <th scope="col">Frecuencia</th>
+                                <th scope="col">Dosis</th>
+                               </tr>
+                                    <asp:Literal ID="tSuplementoMedico" runat="server"></asp:Literal>
+                               </table> 
+                           
                         </div>
                         <br />
                         <div class="col-11 margen" style="width: 70%;">
                             <label class="form-label" for="tFechExm">Fecha de últimos examenes de sangre o revisión médica: </label>
                             <asp:Label runat="server" ID="FechRevMed" Font-Size="Medium"></asp:Label>
-                            <input id="fechaExam" type="date" />
+                            <input id="fechaExam" type="date" runat="server" />
                         </div>
                         <br />
                         <br />

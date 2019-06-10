@@ -202,6 +202,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
+        /// iFechaNac control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl iFechaNac;
+        
+        /// <summary>
         /// AntecedF control.
         /// </summary>
         /// <remarks>
@@ -310,76 +319,58 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtFrecFuma;
         
         /// <summary>
-        /// Label6 control.
+        /// tNomMed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.TextBox tNomMed;
         
         /// <summary>
-        /// txtMed control.
+        /// tMotvMed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMed;
+        protected global::System.Web.UI.WebControls.TextBox tMotvMed;
         
         /// <summary>
-        /// Label8 control.
+        /// tFrecMed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.TextBox tFrecMed;
         
         /// <summary>
-        /// txtMotiv control.
+        /// tDosisMed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMotiv;
+        protected global::System.Web.UI.WebControls.TextBox tDosisMed;
         
         /// <summary>
-        /// Label11 control.
+        /// btnAgreg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label11;
+        protected global::System.Web.UI.WebControls.Button btnAgreg;
         
         /// <summary>
-        /// txtFrecMed control.
+        /// tSuplementoMedico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFrecMed;
-        
-        /// <summary>
-        /// Label12 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label12;
-        
-        /// <summary>
-        /// txtDosis control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDosis;
+        protected global::System.Web.UI.WebControls.Literal tSuplementoMedico;
         
         /// <summary>
         /// FechRevMed control.
@@ -389,6 +380,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label FechRevMed;
+        
+        /// <summary>
+        /// fechaExam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl fechaExam;
         
         /// <summary>
         /// numeroComidas control.
