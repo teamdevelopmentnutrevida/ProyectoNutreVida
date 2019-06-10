@@ -22,103 +22,103 @@ namespace UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form3;
         
         /// <summary>
-        /// CedCl control.
+        /// ced1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CedCl;
+        protected global::System.Web.UI.WebControls.TextBox ced1;
         
         /// <summary>
-        /// NombCl control.
+        /// NombCli control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NombCl;
+        protected global::System.Web.UI.WebControls.TextBox NombCli;
         
         /// <summary>
-        /// FechNaCL control.
+        /// FechNaCLi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FechNaCL;
+        protected global::System.Web.UI.WebControls.TextBox FechNaCLi;
         
         /// <summary>
-        /// Telef control.
+        /// Telefo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Telef;
+        protected global::System.Web.UI.WebControls.TextBox Telefo;
         
         /// <summary>
-        /// Whatsapp control.
+        /// WhatsappC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Whatsapp;
+        protected global::System.Web.UI.WebControls.TextBox WhatsappC;
         
         /// <summary>
-        /// Ocup control.
+        /// Ocupac control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Ocup;
+        protected global::System.Web.UI.WebControls.Label Ocupac;
         
         /// <summary>
-        /// Sexo control.
+        /// Sex control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sexo;
+        protected global::System.Web.UI.WebControls.TextBox Sex;
         
         /// <summary>
-        /// Edad control.
+        /// EdadC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Edad;
+        protected global::System.Web.UI.WebControls.TextBox EdadC;
         
         /// <summary>
-        /// Residencia control.
+        /// ResidenciaC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Residencia;
+        protected global::System.Web.UI.WebControls.TextBox ResidenciaC;
         
         /// <summary>
-        /// Email control.
+        /// EmailC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Email;
+        protected global::System.Web.UI.WebControls.TextBox EmailC;
         
         /// <summary>
-        /// FechIngr control.
+        /// FechIngreso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FechIngr;
+        protected global::System.Web.UI.WebControls.TextBox FechIngreso;
         
         /// <summary>
         /// AntecedF control.
@@ -139,22 +139,22 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label Patolg;
         
         /// <summary>
-        /// ConsLic control.
+        /// ConsLicC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ConsLic;
+        protected global::System.Web.UI.WebControls.TextBox ConsLicC;
         
         /// <summary>
-        /// FrecLic control.
+        /// FrecLicC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FrecLic;
+        protected global::System.Web.UI.WebControls.TextBox FrecLicC;
         
         /// <summary>
         /// fumad control.
@@ -634,40 +634,49 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label PSuplemnt;
         
         /// <summary>
-        /// PesoSeguim control.
+        /// sPeso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PesoSeguim;
+        protected global::System.Web.UI.WebControls.TextBox sPeso;
         
         /// <summary>
-        /// OrejaSegum control.
+        /// sOreja control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox OrejaSegum;
+        protected global::System.Web.UI.WebControls.DropDownList sOreja;
         
         /// <summary>
-        /// EjercSeguim control.
+        /// sEjercicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EjercSeguim;
+        protected global::System.Web.UI.WebControls.TextBox sEjercicio;
         
         /// <summary>
-        /// Agregar control.
+        /// btnAgreg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Agregar;
+        protected global::System.Web.UI.WebControls.Button btnAgreg;
+        
+        /// <summary>
+        /// LitSeguimiento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LitSeguimiento;
         
         /// <summary>
         /// Label2 control.
