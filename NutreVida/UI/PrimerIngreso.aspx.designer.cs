@@ -454,13 +454,13 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtCuantaAgua;
         
         /// <summary>
-        /// txtAderezo control.
+        /// dropAderezos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAderezo;
+        protected global::System.Web.UI.WebControls.DropDownList dropAderezos;
         
         /// <summary>
         /// lbFrutas control.

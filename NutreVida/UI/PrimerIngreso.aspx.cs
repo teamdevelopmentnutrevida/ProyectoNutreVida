@@ -69,7 +69,15 @@ namespace UI
             BL.PrimerIngreso ingreso = new BL.PrimerIngreso();
 
 
-            //Datos personales
+            ////Datos personales
+
+            if (string.IsNullOrEmpty(txtCed.Text))
+            {
+                //mensaje de error
+                Response.Write("<script>window.alert('Debe registrar un número de cedula');</script>");
+                return;
+
+            }
 
             int cedula = int.Parse(txtCed.Text);
 
@@ -98,15 +106,129 @@ namespace UI
 
             string antecedentes = txtAntec.Text; ;
             string patologias = txtPatol.Text;
-            int consumeLicor = int.Parse(DropLicor.SelectedValue);
-            int fuma = int.Parse(DropFuma.SelectedValue);
+            int consumeLicor = 0;
+            if (DropLicor.SelectedValue.Equals("Sí"))
+            {
+                consumeLicor = 1;
+            }
+
+            int fuma = 0;
+            if (DropFuma.SelectedValue.Equals("Sí"))
+            {
+                consumeLicor = 1;
+            }
+
             string frecFuma = txtFrecFuma.Text;
             string frecLicor = txtFrecLicor.Text;
             string ultimoExamen = fechaExam.Value;
             string actividadFisica = txtActividadFisica.Text;
+            List<Medicamento> listaM = ListaMedicamSuplem; // no se si debería validar que la lista tenga al menos un elemento
 
             HistorialMedico historial = new HistorialMedico(cedula, antecedentes, patologias, consumeLicor, fuma, frecFuma, frecLicor, ultimoExamen, actividadFisica);
+            ingreso.AgregarHistorialMedico(historial, listaM);
 
+            //Habitos alimentario
+            int ComidaDiaria = int.Parse(numeroComidas.Text);
+
+            char ComidaHorasDia = '0'; //drop
+            if (ComeHoras.SelectedValue.Equals("Sí"))
+            {
+                ComidaHorasDia = '1';
+            }
+
+            int AfueraExpress = int.Parse(txtEspres.Text);
+            string ComidaFuera = txtQueComeFuera.Text;
+            string AzucarBebida = cantAzucar.Text;
+            string ComidaElaboradCon = dropCocinaCon.SelectedValue; //drop
+            decimal AguaDiaria = int.Parse(txtCuantaAgua.Text);
+
+            char Aderezos = '0'; //drop
+            if (dropAderezos.SelectedValue.Equals("Sí"))
+            {
+                Aderezos = '1';
+            }
+
+            char Fruta = '0'; //drop
+            if (dropFrutas.SelectedValue.Equals("Sí"))
+            {
+                Fruta = '1';
+            }
+
+            char Verdura = '0'; //drop
+            if (dropVeget.SelectedValue.Equals("Sí"))
+            {
+                Verdura = '1';
+            }
+
+            char Leche = '0'; //drop
+            if (dropLeche.SelectedValue.Equals("Sí"))
+            {
+                Leche = '1';
+            }
+
+            char Huevo = '0'; //drop
+            if (dropHuevo.SelectedValue.Equals("Sí"))
+            {
+                Huevo = '1';
+            }
+
+            char Yogurt = '0'; //drop
+            if (dropYogurt.SelectedValue.Equals("Sí"))
+            {
+                Yogurt = '1';
+            }
+
+            char Carne = '0'; //drop
+            if (dropCarne.SelectedValue.Equals("Sí"))
+            {
+                Carne = '1';
+            }
+            
+            char Queso = '0'; //drop
+            if (dropQueso.SelectedValue.Equals("Sí"))
+            {
+                Queso = '1';
+            }
+
+            char Aguacate = '0'; //drop
+            if (dropAguacate.SelectedValue.Equals("Sí"))
+            {
+                Aguacate = '1';
+            }
+
+            char Semillas = '0'; //drop
+            if (dropSemillas.SelectedValue.Equals("Sí"))
+            {
+                Semillas = '1';
+            }
+
+            HabitoAlimentario habito = new HabitoAlimentario(cedula, ComidaDiaria, ComidaHorasDia, AfueraExpress, ComidaFuera, AzucarBebida, ComidaElaboradCon, AguaDiaria, Aderezos, Fruta, Verdura, Leche, Huevo, Yogurt, Carne, Queso, Aguacate, Semillas);
+            List<Recordatorio24H> listaRecordatorio = new List<Recordatorio24H>();
+
+            //ayunas
+            listaRecordatorio.Add( new Recordatorio24H(cedula, "Ayunas", txtHoraAyunas.Text, txtDescAyunas.Text));
+
+            //desayuno
+            listaRecordatorio.Add(new Recordatorio24H(cedula, "Desayuno", txtHoraDesayuno.Text, txtDescDesay.Text));
+
+            //Media mañana
+            listaRecordatorio.Add(new Recordatorio24H(cedula, "Media mañana", txtHoraMediaM.Text, txtDescMediaM.Text));
+
+            //almuerzo
+            listaRecordatorio.Add(new Recordatorio24H(cedula, "Almuerzo", txtHoraAlmmuerzo.Text, txtDescAlmuerzo.Text));
+
+            //Media tarde
+            listaRecordatorio.Add(new Recordatorio24H(cedula, "Tarde", txtHoraTarde.Text, txtDescTarde.Text));
+
+            //Cena
+            listaRecordatorio.Add(new Recordatorio24H(cedula, "Cena", txtHoraCena.Text, txtDescCena.Text));
+
+            //Colacion nocturna
+            listaRecordatorio.Add(new Recordatorio24H(cedula, "Colasión nocturna", txtHoraColacion.Text, txtDescColacion.Text));
+
+            ingreso.AgregarHabitosAlimentarios(new HabitoAlimentario(cedula, ComidaDiaria, ComidaHorasDia, AfueraExpress, ComidaFuera, AzucarBebida, ComidaElaboradCon, AguaDiaria, Aderezos, Fruta, Verdura, Leche, Huevo, Yogurt, Carne, Queso, Aguacate, Semillas), listaRecordatorio);
+
+            //Antropometria
 
 
         }
@@ -125,7 +247,17 @@ namespace UI
                 string tabla = tSuplementoMedico.Text;
                 tabla += "<tr><td>" + tNomMed.Text + "</td><td>" + tMotvMed.Text + "</td><td>" + tFrecMed.Text + "</td><td>" + tDosisMed.Text + "</td></tr>";
                 tSuplementoMedico.Text = tabla;
+
+                if (string.IsNullOrEmpty(txtCed.Text))
+                {
+                    //mensaje de error
+                    Response.Write("<script>window.alert('Debe registrar un número de cedula');</script>");
+                    return;
+                   
+                } 
+
                 medicamSupl.Cedula = int.Parse(txtCed.Text);
+
                 medicamSupl.Nombre = tNomMed.Text;
                 medicamSupl.Motivo = tMotvMed.Text;
                 medicamSupl.Frecuencia = tFrecMed.Text;

@@ -123,8 +123,8 @@ namespace DAO
         {
             String query1 = "Insert into HabitosAlimentario values(@ced,@comDi,@ComHD,@express,@comFue,@azuc,@comElab,@agua,@ader,@frut,@verd,@lech,@huev,@yogurt,@carn,@ques,@aguacat,@semil);";
             SqlCommand cmd = new SqlCommand(query1, conexion);
-            try
-            {
+            //try
+            //{
                 cmd.Parameters.AddWithValue("@ced", HabitosAlimentario.Cedula);
                 cmd.Parameters.AddWithValue("@comDi", HabitosAlimentario.ComidaDiaria);
                 cmd.Parameters.AddWithValue("@ComHD", HabitosAlimentario.ComidaHorasDia);
@@ -137,7 +137,7 @@ namespace DAO
                 cmd.Parameters.AddWithValue("@frut", HabitosAlimentario.Fruta);
                 cmd.Parameters.AddWithValue("@verd", HabitosAlimentario.Verdura);
                 cmd.Parameters.AddWithValue("@lech", HabitosAlimentario.Leche);
-                cmd.Parameters.AddWithValue("@huev", HabitosAlimentario.Leche);
+                cmd.Parameters.AddWithValue("@huev", HabitosAlimentario.Huevo);
                 cmd.Parameters.AddWithValue("@yogurt", HabitosAlimentario.Yogurt);
                 cmd.Parameters.AddWithValue("@carn", HabitosAlimentario.Carne);
                 cmd.Parameters.AddWithValue("@ques", HabitosAlimentario.Queso);
@@ -169,12 +169,12 @@ namespace DAO
                 }
 
                 return true;
-            }
-            catch (SqlException)
-            {
-                conexion.Close();
-                return false;
-            }
+            //}
+            //catch (SqlException)
+            //{
+            //    conexion.Close();
+            //    return false;
+            //}
         }
 
         public bool GuardarAntropometria(TOAntropometria antropom, TOPorciones porcion, TODistribucionPorciones distrib)
