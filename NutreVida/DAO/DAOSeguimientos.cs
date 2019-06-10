@@ -15,9 +15,9 @@ namespace DAO
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
         public bool AgregarSeguimientoSemanal(TOSeguimientoSemanal tOSeguimientoSemanal)
         {
-            String query = "Insert into SeguimientoSemanal values(@sesion,@fech,@peso,@orej,@ejercic,@ced);";
+            string query = "Insert into SeguimientoSemanal values(@sesion,@fech,@peso,@orej,@ejercic,@ced);";
             SqlCommand cmd = new SqlCommand(query, conexion);
-            String query2 = "Select max(Sesion) as 'Sesion' from SeguimientoSemanal where Cedula = " + tOSeguimientoSemanal.Cedula;
+            string query2 = "Select max(Sesion) as 'Sesion' from SeguimientoSemanal where Cedula = " + tOSeguimientoSemanal.Cedula;
             SqlCommand cmd2 = new SqlCommand(query2, conexion);
             SqlDataReader lector;
             try
@@ -72,7 +72,7 @@ namespace DAO
             }
         }
 
-        public List<TOSeguimientoSemanal> ListarSeguimSemanal(string cedula)
+        public List<TOSeguimientoSemanal> ListarSeguimSemanal(int cedula)
         {
             List<TOSeguimientoSemanal> ListaMedidas = new List<TOSeguimientoSemanal>();
             string qry = "Select * from SeguimientoSemanal where Cedula = " + cedula;
@@ -89,7 +89,7 @@ namespace DAO
                 while (lector.Read())
                 {
                     ListaMedidas.Add(new TOSeguimientoSemanal(Int32.Parse(lector["Sesion"].ToString()), DateTime.Parse(lector["FechaSesion"].ToString()),
-                    decimal.Parse(lector["Peso"].ToString()), lector["Oreja"].ToString(), lector["Ejercicio"].ToString(), lector["Cedula"].ToString()));
+                    decimal.Parse(lector["Peso"].ToString()), lector["Oreja"].ToString(), lector["Ejercicio"].ToString(), Int32.Parse(lector["Cedula"].ToString())));
 
                 }
                 conexion.Close();

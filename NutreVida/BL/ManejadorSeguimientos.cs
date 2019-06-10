@@ -14,9 +14,10 @@ namespace BL
         public bool AgregarSeguimiento(SeguimientoSemanal seguimiento)
         {
             return daoSeguimientos.AgregarSeguimientoSemanal(new TOSeguimientoSemanal(seguimiento.Fecha, seguimiento.Peso, seguimiento.Oreja, seguimiento.Ejercicio, seguimiento.Cedula));
+           
         }
 
-        public List<SeguimientoSemanal> TraerLista(string cedula)
+        public List<SeguimientoSemanal> TraerLista(int cedula)
         {
             List<SeguimientoSemanal> listaSeguimiento = new List<SeguimientoSemanal>();
             List<TOSeguimientoSemanal> lista = daoSeguimientos.ListarSeguimSemanal(cedula);
@@ -86,5 +87,6 @@ namespace BL
             return daoSeguimientos.GuardarSeguimientoMensual(seg, lisSeg, segAnt);
 
         }
+        
     }
 }
