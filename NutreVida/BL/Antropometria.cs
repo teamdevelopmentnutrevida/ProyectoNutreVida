@@ -8,6 +8,7 @@ namespace BL
 {
     public class Antropometria
     {
+
         public int Cedula { set; get; }
         public decimal Talla { set; get; }
         public decimal PesoIdeal { set; get; }
