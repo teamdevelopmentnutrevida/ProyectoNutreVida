@@ -64,7 +64,28 @@ namespace UI
 			
 		}
 
-        protected void btnGuardar_Click(object sender, EventArgs e)
+		protected void capturarRecordatorioAntrop()
+		{
+			string horaAyunasA = txtHoraAyunasA.Text.ToString();
+			string descAyunasA = txtDescAyunasA.Text;
+			string horaDesA = txtHoraDesayunoA.Text.ToString();
+			string descDesayA = txtDescDesayA.Text;
+			string horaMediaMA = txtHoraMediaMA.Text.ToString();
+			string descMediaMA = txtDescMediaMA.Text;
+			string horaAlmuerzoA = txtHoraAlmmuerzoA.Text.ToString();
+			string descAlmuerzoA = txtDescAlmuerzoA.Text;
+			string horaTardeA = txtHoraTardeA.Text.ToString();
+			string descTardeA = txtDescTardeA.Text;
+			string horaCenaA = txtHoraCenaA.Text.ToString();
+			string descCenaA = txtDescCenaA.Text;
+			string horaColacA = txtHoraColacionA.Text.ToString();
+			string descColacA = txtDescColacionA.Text;
+
+
+
+		}
+
+		protected void btnGuardar_Click(object sender, EventArgs e)
         {
             BL.PrimerIngreso ingreso = new BL.PrimerIngreso();
 

@@ -568,56 +568,67 @@
                             </tr>
                             <tr>
                                 <th scope="row">CHO</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><asp:TextBox TextMode="Number" CssClass="form-control" Font-Size="Small" ID="choPorc" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox TextMode="Number" CssClass="form-control" Font-Size="Small" ID="choGram" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox TextMode="Number" CssClass="form-control" Font-Size="Small" ID="choKcal" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <th scope="row">Proteínas</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><asp:TextBox TextMode="Number" CssClass="form-control" Font-Size="Small" ID="ProtPorc" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox TextMode="Number" CssClass="form-control" Font-Size="Small" ID="ProtGram" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox TextMode="Number" CssClass="form-control" Font-Size="Small" ID="protKcal" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <th scope="row">Grasas</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><asp:TextBox TextMode="Number" CssClass="form-control" Font-Size="Small" ID="GrasPorc" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox TextMode="Number" CssClass="form-control" Font-Size="Small" ID="GrasGram" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox TextMode="Number" CssClass="form-control" Font-Size="Small" ID="GrasKcal" runat="server"></asp:TextBox></td>
                             </tr>
                         </table>
 
                         <br />
                         <h5>Porciones: </h5>
                         <div style="width: 25%; float: left;">
-                            <div class="col-11" style="width: 25%;">
+                            <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tLeche">Leche:</label><asp:Label runat="server" ID="Leche" Font-Size="Medium"></asp:Label>
-                            </div>
-                            <div class="col-11" style="width: 25%;">
+								<asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtPorcLeche" runat="server"></asp:TextBox>
+								 </div>
+                            <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tCarnes">Carnes:</label><asp:Label runat="server" ID="Carnes" Font-Size="Medium"></asp:Label>
-                            </div>
+								<asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtPorcCarnes" runat="server"></asp:TextBox>
+							</div>
                         </div>
                         <div style="width: 25%; float: left;">
-                            <div class="col-11" style="width: 25%;">
+                            <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tVegetales">Vegetales:</label><asp:Label runat="server" ID="PVegetales" Font-Size="Medium"></asp:Label>
-                            </div>
-                            <div class="col-11" style="width: 25%;">
+								<asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtPorcVeget" runat="server"></asp:TextBox>
+								 </div>
+                            <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tGrasas">Grasas:</label><asp:Label runat="server" ID="PGrasas" Font-Size="Medium"></asp:Label>
-                            </div>
+								<asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtPorcGrasas" runat="server"></asp:TextBox>
+								 </div>
                         </div>
                         <div style="width: 25%; float: left;">
-                            <div class="col-11" style="width: 25%;">
+                            <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tFruts">Frutas:</label><asp:Label runat="server" ID="PFrutas" Font-Size="Medium"></asp:Label>
-                            </div>
-                            <div class="col-11" style="width: 25%;">
+								<asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtPorcFrutas" runat="server"></asp:TextBox>
+								 </div>
+                            <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tAzucares">Azúcares:</label><asp:Label runat="server" ID="PAzucares" Font-Size="Medium"></asp:Label>
-                            </div>
+								<asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtPorcAzuca" runat="server"></asp:TextBox>
+								  </div>
                         </div>
                         <div style="width: 25%; float: left;">
-                            <div class="col-11" style="width: 25%;">
+                            <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tHarinas">Harinas:</label><asp:Label runat="server" ID="PHarinas" Font-Size="Medium"></asp:Label>
-                            </div>
-                            <div class="col-11" style="width: 25%;">
+								<asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtPorcHarinas" runat="server"></asp:TextBox>
+								 </div>
+                            <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tSuplem">Suplementos:</label><asp:Label runat="server" ID="PSuplemnt" Font-Size="Medium"></asp:Label>
+								<asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtPorcSuplem" runat="server"></asp:TextBox>
+								<br />
+                        <br />
+
                             </div>
                         </div>
                         <br />
@@ -631,39 +642,39 @@
                                 <th scope="col">Descripción</th>
                             </tr>
                             <tr>
-                                <th scope="row">Ayunas</th>
-                                <td></td>
-                                <td></td>
+                                <td>Ayunas</td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraAyunasA" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescAyunasA" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <th scope="row">Desayuno</th>
-                                <td></td>
-                                <td></td>
+                                <td>Desayuno</td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraDesayunoA" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescDesayA" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <th scope="row">Media Mañana</th>
-                                <td></td>
-                                <td></td>
+                                <td>Media Mañana</td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraMediaMA" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescMediaMA" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <th scope="row">Almuerzo</th>
-                                <td></td>
-                                <td></td>
+                                <td>Almuerzo</td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraAlmmuerzoA" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescAlmuerzoA" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <th scope="row">Media Tarde</th>
-                                <td></td>
-                                <td></td>
+                                <td>Media Tarde</td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraTardeA" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescTardeA" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <th scope="row">Cena</th>
-                                <td></td>
-                                <td></td>
+                                <td>Cena</td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraCenaA" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescCenaA" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <th scope="row">Colación Nocturna</th>
-                                <td></td>
-                                <td></td>
+                                <td>Colación Nocturna</td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraColacionA" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescColacionA" runat="server"></asp:TextBox></td>
                             </tr>
                         </table>
 
