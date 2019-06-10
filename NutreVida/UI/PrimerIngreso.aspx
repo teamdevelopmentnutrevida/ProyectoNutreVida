@@ -69,7 +69,7 @@
                                     <asp:TextBox ID="txtOcup" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Ocupación"></asp:TextBox>
                                 </div>
 
-                                <div class="col-11 margen" style="width: 100%;">
+                                 <div class="col-11 margen" style="width: 100%;">
                                     <label class="form-label" for="tEstadoCivil">Estado Civil:</label>
                                     <asp:DropDownList runat="server" ID="dropEstadoCivil" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Estado civil">
                                         <asp:ListItem Selected="True" Value="Soltero"> Soltero(a) </asp:ListItem>
@@ -315,56 +315,43 @@
                         <table class="table">
                             <tr>
                                 <th scope="col">Tiempo de Comida</th>
-                                <th scope="col">Hora</th>
-                                <th scope="col">Descripción</th>
+                                <th scope="col">&nbsp;&nbsp; Hora</th>
+                                <th scope="col">&nbsp;&nbsp;Descripción</th>
                             </tr>
                             <tr>
                                 <td>Ayunas</td>
-                                <td>
-                                    <div class="col-md-5" style="float: left">
-                                        <asp:TextBox ID="txtHoraAyunas" runat="server" CssClass="form-control" Font-Size="Small" TextMode="Time"></asp:TextBox>
-                                    </div>
-
-                                </td>
-
-                                <td></td>
-                                <td></td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraAyunas" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescAyunas" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td>Desayuno</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraDesayuno" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescDesay" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td>Media Mañana</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraMediaM" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescMediaM" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td>Almuerzo</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraAlmmuerzo" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescAlmuerzo" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td>Media Tarde</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraTarde" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescTarde" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td>Cena</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraCena" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescCena" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td>Colación Nocturna</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="txtHoraColacion" runat="server"></asp:TextBox></td>
+                                <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescColacion" runat="server"></asp:TextBox></td>
                             </tr>
                         </table>
                     </div>
