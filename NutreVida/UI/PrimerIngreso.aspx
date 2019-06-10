@@ -26,20 +26,20 @@
                             <div class="col-11" style="width: 50%; float: left;">
                                 <div class="col-11 margen" style="width: 100%;">
                                     <label class="form-label" for="tCedula">Cédula:</label><asp:Label runat="server" ID="Label2" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtCed" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                    <asp:TextBox ID="txtCed" runat="server" CssClass="form-control" Font-Size="Small" type="number" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 100%;">
                                     <label class="form-label" for="tnombre">Nombre:</label><asp:Label runat="server" ID="Label3" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                                 </div>
 
                                 <div class="col-11 margen" style="width: 100%;">
                                     <label class="form-label" for="tTel">Teléfono:</label><asp:Label runat="server" ID="Label5" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtTel" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                    <asp:TextBox ID="txtTel" runat="server" CssClass="form-control" Font-Size="Small" type="number"></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 100%;">
                                     <label class="form-label" for="tEmail">Email:</label><asp:Label runat="server" ID="Label10" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                                 </div>
                                 <br />
                                 <div class="col-11 margen" style="width: 100%;">
@@ -53,11 +53,11 @@
                             <div style="width: 50%; float: left;">
                                 <div class="col-11 margen" style="width: 100%;">
                                     <label class="form-label" for="tResid">Residencia:</label><asp:Label runat="server" ID="Label9" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtResid" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                    <asp:TextBox ID="txtResid" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 100%;">
                                     <label class="form-label" for="tOcup">Ocupación:</label><asp:Label runat="server" ID="Label7" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtOcup" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                    <asp:TextBox ID="txtOcup" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                                 </div>
 
                                 <div class="col-11 margen" style="width: 100%;">
@@ -84,12 +84,12 @@
                         <div class="col-11 margen" style="width: 100%;">
                             <label class="form-label" for="tAntFam">Antecedentes Familiares:</label><asp:Label runat="server" ID="AntecedF" Font-Size="Medium"></asp:Label>
                             <br />
-                            <asp:TextBox Width="700px" ID="txtAntec" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                            <asp:TextBox Width="700px" ID="txtAntec" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                         </div>
                         <div class="col-11 margen" style="width: 100%;">
                             <label class="form-label" for="tPat">Patologías que padece:</label><asp:Label runat="server" ID="Patolg" Font-Size="Medium"></asp:Label>
                             <br />
-                            <asp:TextBox Width="700px" ID="txtPatol" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                            <asp:TextBox Width="700px" ID="txtPatol" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                         </div>
                         <br />
                         <h5>Consumo de:</h5>
@@ -105,7 +105,7 @@
                         <div class="col-11 margen" style="width: 50%;">
                             <br />
                             <label class="form-label" for="tFrecLic">Frecuencia:</label><asp:Label runat="server" ID="labelFrecLic" Font-Size="Medium"></asp:Label>
-                            <asp:TextBox ID="txtFrecLicor" runat="server" CssClass="form-control" Font-Size="X-Small" Enabled="false"></asp:TextBox>
+                            <asp:TextBox ID="txtFrecLicor" runat="server" CssClass="form-control" Font-Size="Small" Enabled="false"></asp:TextBox>
                         </div>
 
                         <div class="col-11" style="width: 50%;">
@@ -119,7 +119,7 @@
                         <div class="col-11 margen" style="width: 50%;">
                             <br />
                             <label class="form-label" for="tfrecFum">Frecuencia:</label><asp:Label runat="server" ID="labelFreFum" Font-Size="Medium"></asp:Label>
-                            <asp:TextBox ID="txtFrecFuma" runat="server" CssClass="form-control" Font-Size="X-Small" Enabled="false"></asp:TextBox>
+                            <asp:TextBox ID="txtFrecFuma" runat="server" CssClass="form-control" Font-Size="Small" Enabled="false"></asp:TextBox>
                         </div>
 
                         <br />
@@ -127,22 +127,22 @@
                         <div class="col-11 margen" style="width: 70%;">
                             <label class="form-label" for="tPat">Medicamento:</label><asp:Label runat="server" ID="Label6" Font-Size="Medium"></asp:Label>
                             <br />
-                            <asp:TextBox ID="txtMed" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                            <asp:TextBox ID="txtMed" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                         </div>
                         <div class="col-11 margen" style="width: 70%;">
                             <label class="form-label" for="tPat">Motivo:</label><asp:Label runat="server" ID="Label8" Font-Size="Medium"></asp:Label>
                             <br />
-                            <asp:TextBox ID="txtMotiv" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                            <asp:TextBox ID="txtMotiv" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                         </div>
                         <div class="col-11 margen" style="width: 70%;">
                             <label class="form-label" for="tPat">Frecuencia:</label><asp:Label runat="server" ID="Label11" Font-Size="Medium"></asp:Label>
                             <br />
-                            <asp:TextBox ID="txtFrecMed" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                            <asp:TextBox ID="txtFrecMed" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                         </div>
                         <div class="col-11 margen" style="width: 70%;">
                             <label class="form-label" for="tPat">Dosis:</label><asp:Label runat="server" ID="Label12" Font-Size="Medium"></asp:Label>
                             <br />
-                            <asp:TextBox ID="txtDosis" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                            <asp:TextBox ID="txtDosis" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                         </div>
                         <br />
                         <div class="col-11 margen" style="width: 70%;">
@@ -163,8 +163,7 @@
                             <div class="col-11 margen" style="width: 100%;">
                                 <br />
                                 <label class="form-label" for="tComD">¿Cuántas veces come al día? </label>
-                                <br />
-                                <asp:TextBox ID="numeroComidas" runat="server" type="number" CssClass="form-control" Font-Size="X-Small" />
+                                <asp:TextBox ID="numeroComidas" runat="server" type="number" CssClass="form-control" Font-Size="Small" />
                             </div>
                             <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tComeHoraDia">¿Acostumbra a comer a las horas al día? </label>
@@ -177,17 +176,17 @@
                             <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tComeExprss">¿Cuántas veces a la semana come fuera o pide un express? </label>
                                 <br />
-                                <asp:TextBox ID="txtEspres" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                <asp:TextBox ID="txtEspres" runat="server" CssClass="form-control" Font-Size="Small" type="number"></asp:TextBox>
                             </div>
                             <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tGenerComeAfuera">¿Generalmente que come fuera de la casa?</label>
                                 <br />
-                                <asp:TextBox ID="txtQueComeFuera" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                <asp:TextBox ID="txtQueComeFuera" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                             </div>
                             <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tAzucarB">¿Cuánta azúcar le agrega a las bebidas?</label>
                                 <br />
-                                <asp:TextBox ID="cantAzucar" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                <asp:TextBox ID="cantAzucar" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                             </div>
                             <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tAzucarB">¿Los alimentos que cocina los elabora generalmente? </label>
@@ -202,12 +201,12 @@
                             <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tAguaDia">¿Cuántos vasos de agua toma al día? </label>
                                 <br />
-                                <asp:TextBox ID="txtCuantaAgua" runat="server" type="number" CssClass="form-control" Font-Size="X-Small" />
+                                <asp:TextBox ID="txtCuantaAgua" runat="server" type="number" CssClass="form-control" Font-Size="Small" />
                             </div>
                             <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tAder">¿Agrega salsa tomate, mayonesa, mantequilla o natilla a la comida? </label>
                                 <br />
-                                <asp:TextBox ID="txtAderezo" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                <asp:TextBox ID="txtAderezo" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                             </div>
                             <br />
                         </div>
@@ -351,71 +350,71 @@
 
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tEdad">Edad:</label><asp:Label runat="server" ID="AntrEdad" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtEdad" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tPesoActual">Peso Actual:</label><asp:Label runat="server" ID="PesoActual" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtPesoActual" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtPesoActual" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tPesoMaxTeoria">Peso máximo en teoría:</label><asp:Label runat="server" ID="PesoMaxTeoria" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtPesoMaxTeoria" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtPesoMaxTeoria" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tPesoIdeal">Peso meta o ideal: </label>
                                     <asp:Label runat="server" ID="PesoIdeal" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtPesoIdeal" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtPesoIdeal" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tEdadMetab">Edad metabólica: </label>
                                     <asp:Label runat="server" ID="EdadMetab" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtEdadMetabolica" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtEdadMetabolica" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tCintura">Cintura:</label><asp:Label runat="server" ID="Cintura" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtCintura" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtCintura" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tAbdm">Abdomen:</label><asp:Label runat="server" ID="Abdomen" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtAbdomen" runat="server" CssClass="form-control" Font-Size="X-Small"></asp:TextBox>
+                                    <asp:TextBox ID="txtAbdomen" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tCadera">Cadera:</label><asp:Label runat="server" ID="Cadera" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtCadera" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtCadera" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tMuslo">Muslo:</label><asp:Label runat="server" ID="Muslo" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtMuslo" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtMuslo" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tPMB">PMB: </label>
                                     <asp:Label runat="server" ID="PMB" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtPMB" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtPMB" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tCMB">CMB: </label>
                                     <asp:Label runat="server" ID="CMB" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtCMB" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtCMB" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tAgua">Agua: </label>
                                     <asp:Label runat="server" ID="Agua" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtAgua" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtAgua" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tComplexión">Complexión: </label>
                                     <asp:Label runat="server" ID="Complexión" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtComplexion" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtComplexion" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tMasaOsea">Masa ósea: </label>
                                     <asp:Label runat="server" ID="MasaOsea" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtMasaOsea" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtMasaOsea" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tTalla">Talla: </label>
                                     <asp:Label runat="server" ID="Talla" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtTalla" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtTalla" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                             </div>
 
@@ -424,69 +423,69 @@
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tCircunfMun">Circunferencia muñeca: </label>
                                     <asp:Label runat="server" ID="CircunfMun" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtCircunferencia" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtCircunferencia" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tIMC">IMC:</label><asp:Label runat="server" ID="IMC" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtIMC" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtIMC" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tGrasaAnalizador">%Grasa analizador:</label><asp:Label runat="server" ID="GrasaAnalizador" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtGrasaAnalizador" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtGrasaAnalizador" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tGrasVisceral">% Grasa Visceral:</label><asp:Label runat="server" ID="GrasVisceral" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtGarsaViceral" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtGarsaViceral" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tGrasBascu">% Grasa báscula: </label>
                                     <asp:Label runat="server" ID="tGrasBascula" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtGrasaBascula" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtGrasaBascula" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tGB_BI">BI:</label><asp:Label runat="server" ID="GB_BI" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtGB_BI" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtGB_BI" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tGB_BD">BD:</label><asp:Label runat="server" ID="GB_BD" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtGB_BD" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtGB_BD" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tGB_PI">PI:</label><asp:Label runat="server" ID="GB_PI" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtGB_PI" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtGB_PI" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tGB_PD">PD:</label><asp:Label runat="server" ID="GB_PD" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtGB_PD" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtGB_PD" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tGB_Tronco">Tronco:</label><asp:Label runat="server" ID="GB_Tronco" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtGB_Trono" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtGB_Trono" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tPorcentMusculo">% Músculo:</label><asp:Label runat="server" ID="PorcentMusculo" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtPorcentaje" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtPorcentaje" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tPM_BI">BI: </label>
                                     <asp:Label runat="server" ID="PM_BI" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtPM_BI" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtPM_BI" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tPM_BD">BD:</label><asp:Label runat="server" ID="PM_BD" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtPM_BD" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtPM_BD" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tPM_PI">PI:</label><asp:Label runat="server" ID="PM_PI" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtPM_PI" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtPM_PI" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tPM_PD">PD:</label><asp:Label runat="server" ID="PM_PD" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtPM_PD" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtPM_PD" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
                                 <div class="col-11 margen" style="width: 50%;">
                                     <label class="form-label" for="tPM_Tronco">Tronco</label><asp:Label runat="server" ID="PM_Tronco" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtPM_Tronco" runat="server" CssClass="form-control" Font-Size="X-Small" ></asp:TextBox>
+                                    <asp:TextBox ID="txtPM_Tronco" runat="server" CssClass="form-control" Font-Size="Small" ></asp:TextBox>
                                 </div>
 
                             </div>
