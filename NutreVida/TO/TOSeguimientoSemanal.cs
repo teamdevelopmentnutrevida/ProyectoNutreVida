@@ -13,9 +13,9 @@ namespace TO
         public decimal Peso { set; get; }
         public string Oreja { set; get; }
         public string Ejercicio { set; get; }
-        public string Cedula { set; get; }
+        public int Cedula { set; get; }
 
-        public TOSeguimientoSemanal(int sesion, DateTime fecha, decimal peso, string oreja, string ejercicio, string cedula)
+        public TOSeguimientoSemanal(int sesion, DateTime fecha, decimal peso, string oreja, string ejercicio, int cedula)
         {
             Sesion = sesion;
             Fecha = fecha;
@@ -27,7 +27,7 @@ namespace TO
 
         public TOSeguimientoSemanal() { }
 
-        public TOSeguimientoSemanal(DateTime fecha, decimal peso, string oreja, string ejercicio, string cedula)
+        public TOSeguimientoSemanal(DateTime fecha, decimal peso, string oreja, string ejercicio, int cedula)
         {
             Fecha = fecha;
             Peso = peso;

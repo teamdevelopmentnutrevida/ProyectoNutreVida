@@ -41,12 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Antropometria.cs" />
+    <Compile Include="ClienteNutricion.cs" />
     <Compile Include="DistribucionPorciones.cs" />
     <Compile Include="HabitoAlimentario.cs" />
     <Compile Include="HistorialMedico.cs" />
     <Compile Include="BLLogin.cs" />
     <Compile Include="MaejadorLogin.cs" />
     <Compile Include="ManejadorErrores.cs" />
+    <Compile Include="ManejadorExpediente.cs" />
     <Compile Include="ManejadorSeguimientos.cs" />
     <Compile Include="Medicamento.cs" />
     <Compile Include="Porciones.cs" />
