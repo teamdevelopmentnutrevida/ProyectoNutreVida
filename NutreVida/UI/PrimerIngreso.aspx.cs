@@ -16,7 +16,7 @@ namespace UI
             if (!IsPostBack)
             {
                 
-                tSuplementoMedico.Text = "<tr><th>Nombre</th><th>Motivo</th><th>Frecuencia</th><th>Dosis</th></tr>";
+               
             }
         }
 

@@ -146,28 +146,7 @@
                         </div>
 
                         <br />
-                        <%--<h5>Medicamentos o suplementos que consume:</h5>
-                        <div class="col-11 margen" style="width: 70%;">
-                            <label class="form-label" for="tPat">Medicamento:</label><asp:Label runat="server" ID="Label6" Font-Size="Medium"></asp:Label>
-                            <br />
-                            <asp:TextBox ID="txtMed" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Medicamento"></asp:TextBox>
-                        </div>
-                        <div class="col-11 margen" style="width: 70%;">
-                            <label class="form-label" for="tPat">Motivo:</label><asp:Label runat="server" ID="Label8" Font-Size="Medium"></asp:Label>
-                            <br />
-                            <asp:TextBox ID="txtMotiv" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Motivo"></asp:TextBox>
-                        </div>
-                        <div class="col-11 margen" style="width: 70%;">
-                            <label class="form-label" for="tPat">Frecuencia:</label><asp:Label runat="server" ID="Label11" Font-Size="Medium"></asp:Label>
-                            <br />
-                            <asp:TextBox ID="txtFrecMed" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Frecuencia del medicamento"></asp:TextBox>
-                        </div>
-                        <div class="col-11 margen" style="width: 70%;">
-                            <label class="form-label" for="tPat">Dosis:</label><asp:Label runat="server" ID="Label12" Font-Size="Medium"></asp:Label>
-                            <br />
-                            <asp:TextBox ID="txtDosis" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
-                        </div>--%>
-
+                       
                         <h3>Medicamentos o suplementos que consume:</h3>
                         <div class="row">
                             <div class="col-20">
@@ -188,10 +167,18 @@
 
                             </div>
                         </div>
+                        <br />
                         <div class="row">
-                            <table>
-                                <asp:Literal ID="tSuplementoMedico" runat="server"></asp:Literal>
-                            </table>
+                           <table class="table">
+                               <tr>
+                                <th scope="col">Medicamento</th>
+                                <th scope="col">Motivo</th> 
+                                <th scope="col">Frecuencia</th>
+                                <th scope="col">Dosis</th>
+                               </tr>
+                                    <asp:Literal ID="tSuplementoMedico" runat="server"></asp:Literal>
+                               </table> 
+                           
                         </div>
                         <br />
                         <div class="col-11 margen" style="width: 70%;">
