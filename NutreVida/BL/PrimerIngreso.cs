@@ -17,7 +17,7 @@ namespace BL
             if (cedula.Equals(""))
             {
                 return false;
-            }
+            }  
             TOClienteNutricion usuario = new TOClienteNutricion(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso);
             return daoClienteNutricion.CrearUsuario(usuario);
         }
