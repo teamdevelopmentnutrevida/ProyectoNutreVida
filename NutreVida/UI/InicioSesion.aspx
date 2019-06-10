@@ -58,8 +58,8 @@
 						<form id="InicioSesionForm" runat="server">
 							<asp:Label ID="lbCorreo" runat="server" Text="Correo electrónico:"></asp:Label>
 							<br />
-							<asp:TextBox ID="txtCorreo" TextMode="Email" runat="server"></asp:TextBox>
-							<br />
+							<asp:TextBox ID="txtCorreo" TextMode="Email" runat="server" ></asp:TextBox>
+                            <br />
 							<asp:Label ID="lbContras" runat="server" Text="Contraseña:"></asp:Label>
 							<br />
 							<asp:TextBox TextMode="Password" ID="txtContras" runat="server"></asp:TextBox>
