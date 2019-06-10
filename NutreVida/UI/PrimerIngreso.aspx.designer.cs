@@ -1363,6 +1363,87 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtGET;
         
         /// <summary>
+        /// choPorc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox choPorc;
+        
+        /// <summary>
+        /// choGram control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox choGram;
+        
+        /// <summary>
+        /// choKcal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox choKcal;
+        
+        /// <summary>
+        /// ProtPorc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ProtPorc;
+        
+        /// <summary>
+        /// ProtGram control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ProtGram;
+        
+        /// <summary>
+        /// protKcal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox protKcal;
+        
+        /// <summary>
+        /// GrasPorc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox GrasPorc;
+        
+        /// <summary>
+        /// GrasGram control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox GrasGram;
+        
+        /// <summary>
+        /// GrasKcal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox GrasKcal;
+        
+        /// <summary>
         /// Leche control.
         /// </summary>
         /// <remarks>
@@ -1370,6 +1451,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Leche;
+        
+        /// <summary>
+        /// txtPorcLeche control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcLeche;
         
         /// <summary>
         /// Carnes control.
@@ -1381,6 +1471,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label Carnes;
         
         /// <summary>
+        /// txtPorcCarnes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcCarnes;
+        
+        /// <summary>
         /// PVegetales control.
         /// </summary>
         /// <remarks>
@@ -1388,6 +1487,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PVegetales;
+        
+        /// <summary>
+        /// txtPorcVeget control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcVeget;
         
         /// <summary>
         /// PGrasas control.
@@ -1399,6 +1507,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label PGrasas;
         
         /// <summary>
+        /// txtPorcGrasas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcGrasas;
+        
+        /// <summary>
         /// PFrutas control.
         /// </summary>
         /// <remarks>
@@ -1406,6 +1523,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PFrutas;
+        
+        /// <summary>
+        /// txtPorcFrutas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcFrutas;
         
         /// <summary>
         /// PAzucares control.
@@ -1417,6 +1543,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label PAzucares;
         
         /// <summary>
+        /// txtPorcAzuca control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcAzuca;
+        
+        /// <summary>
         /// PHarinas control.
         /// </summary>
         /// <remarks>
@@ -1426,6 +1561,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label PHarinas;
         
         /// <summary>
+        /// txtPorcHarinas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcHarinas;
+        
+        /// <summary>
         /// PSuplemnt control.
         /// </summary>
         /// <remarks>
@@ -1433,6 +1577,141 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PSuplemnt;
+        
+        /// <summary>
+        /// txtPorcSuplem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcSuplem;
+        
+        /// <summary>
+        /// txtHoraAyunasA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHoraAyunasA;
+        
+        /// <summary>
+        /// txtDescAyunasA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescAyunasA;
+        
+        /// <summary>
+        /// txtHoraDesayunoA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHoraDesayunoA;
+        
+        /// <summary>
+        /// txtDescDesayA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescDesayA;
+        
+        /// <summary>
+        /// txtHoraMediaMA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHoraMediaMA;
+        
+        /// <summary>
+        /// txtDescMediaMA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescMediaMA;
+        
+        /// <summary>
+        /// txtHoraAlmmuerzoA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHoraAlmmuerzoA;
+        
+        /// <summary>
+        /// txtDescAlmuerzoA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescAlmuerzoA;
+        
+        /// <summary>
+        /// txtHoraTardeA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHoraTardeA;
+        
+        /// <summary>
+        /// txtDescTardeA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescTardeA;
+        
+        /// <summary>
+        /// txtHoraCenaA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHoraCenaA;
+        
+        /// <summary>
+        /// txtDescCenaA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescCenaA;
+        
+        /// <summary>
+        /// txtHoraColacionA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHoraColacionA;
+        
+        /// <summary>
+        /// txtDescColacionA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescColacionA;
         
         /// <summary>
         /// btnGuardar control.
