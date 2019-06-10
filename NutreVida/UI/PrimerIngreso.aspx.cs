@@ -38,6 +38,27 @@ namespace UI
             }
         }
 
+		protected void capturarRecordatorio()
+		{
+			string horaAyunas = txtHoraAyunas.Text.ToString();
+			string descAyunas = txtDescAyunas.Text;
+			string horaDes = txtHoraDesayuno.Text.ToString();
+			string descDesay = txtDescDesay.Text;
+			string horaMediaM = txtHoraMediaM.Text.ToString();
+			string descMediaM = txtDescMediaM.Text;
+			string horaAlm = txtHoraAlmmuerzo.Text.ToString();
+			string descAlmuerzo = txtDescAlmuerzo.Text;
+			string horaTarde = txtHoraTarde.Text.ToString();
+			string descTarde = txtDescTarde.Text;
+			string horaCena = txtHoraCena.Text.ToString();
+			string descCena = txtDescCena.Text;
+			string horaColac = txtHoraColacion.Text.ToString();
+			string descColac = txtDescColacion.Text;
+
+
+			
+		}
+
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             BL.PrimerIngreso ingreso = new BL.PrimerIngreso();
@@ -59,5 +80,7 @@ namespace UI
 
             //ingreso.CrearCliente()
         }
+
+
     }
 }
