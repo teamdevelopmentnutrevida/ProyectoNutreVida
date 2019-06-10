@@ -111,6 +111,13 @@
                             <br />
                             <asp:TextBox Width="700px" ID="txtPatol" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                         </div>
+
+                        <div class="col-11 margen" style="width: 100%;">
+                            <label class="form-label" for="tActividadFisica">Actividades físicas:</label><asp:Label runat="server" ID="Label14" Font-Size="Medium"></asp:Label>
+                            <br />
+                            <asp:TextBox Width="700px" ID="txtActividadFisica" runat="server" CssClass="form-control" Font-Size="Small"></asp:TextBox>
+                        </div>
+
                         <br />
                         <h5>Consumo de:</h5>
 
@@ -646,7 +653,7 @@
                             </tr>
                         </table>
 
-                        <asp:Button ID="btnGuardar" CssClass=" btn btn-primary" runat="server" Text="Guardar" OnClick="btnGuardar_Click1"  />
+                        <asp:Button ID="btnGuardar" CssClass=" btn btn-primary" runat="server" Text="Guardar" OnClick="btnGuardar_Click"  />
                         <br />
                         <br />
                         <br />

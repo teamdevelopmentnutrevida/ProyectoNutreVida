@@ -38,7 +38,7 @@ namespace UI
             }
         }
 
-        protected void btnGuardar_Click1(object sender, EventArgs e)
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
             BL.PrimerIngreso ingreso = new BL.PrimerIngreso();
 
