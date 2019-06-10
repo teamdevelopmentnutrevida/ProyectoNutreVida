@@ -24,6 +24,8 @@ namespace DAO
 				conexion.Open();
 				SqlDataReader lector = buscar.ExecuteReader();
 
+
+
 				if (lector.HasRows)
 				{
 					while (lector.Read())
