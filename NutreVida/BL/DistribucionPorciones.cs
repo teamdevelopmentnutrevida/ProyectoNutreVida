@@ -14,7 +14,7 @@ namespace BL
         public string Hora { set; get; }
 
 
-        public DistribucionPorciones(int cedula, string descripcion, string tiempoComida, string hora)
+        public DistribucionPorciones(int cedula, string tiempoComida, string hora, string descripcion)
         {
             Cedula = cedula;
             Descripcion = descripcion;

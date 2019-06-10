@@ -123,8 +123,8 @@ namespace DAO
         {
             String query1 = "Insert into HabitosAlimentario values(@ced,@comDi,@ComHD,@express,@comFue,@azuc,@comElab,@agua,@ader,@frut,@verd,@lech,@huev,@yogurt,@carn,@ques,@aguacat,@semil);";
             SqlCommand cmd = new SqlCommand(query1, conexion);
-            //try
-            //{
+            try
+            {
                 cmd.Parameters.AddWithValue("@ced", HabitosAlimentario.Cedula);
                 cmd.Parameters.AddWithValue("@comDi", HabitosAlimentario.ComidaDiaria);
                 cmd.Parameters.AddWithValue("@ComHD", HabitosAlimentario.ComidaHorasDia);
@@ -169,15 +169,15 @@ namespace DAO
                 }
 
                 return true;
-            //}
-            //catch (SqlException)
-            //{
-            //    conexion.Close();
-            //    return false;
-            //}
+            }
+            catch (SqlException)
+            {
+                conexion.Close();
+                return false;
+            }
         }
 
-        public bool GuardarAntropometria(TOAntropometria antropom, TOPorciones porcion, TODistribucionPorciones distrib)
+        public bool GuardarAntropometria(TOAntropometria antropom, TOPorciones porcion, List<TODistribucionPorciones> listDistrib)
         {
             String query1 = "Insert into Antropometria values(@ced, @talla, @pesIdeal, @edad,@pmb, @peso,@pesmax,@imc, @gAnaliz, @grbascu, @gbbi,@gbbd, @gbpi, @gbpd," +
                 "@gbtronc, @aguacorp, @masaOsea, @complex,@edadMetab,@cint,@abdomn,@cader,@muslo,@cbm,@circunf,@grviser,@pormuscul,@pmbi,@pmpd,@pmbd," +
@@ -185,11 +185,11 @@ namespace DAO
 
             String query2 = "Insert into Porciones values( @pced,@pleche,@pcarne,@pveget,@pgrasa,@pfruta,@pazuc,@pharina, @psuplem)";
 
-            String query3 = "Insert into DistribucionPorcion values(@desc,@tiempCom,@hora,@ced)";
+            
 
             SqlCommand cmd = new SqlCommand(query1, conexion);
             SqlCommand cmd2 = new SqlCommand(query2, conexion);
-            SqlCommand cmd3 = new SqlCommand(query3, conexion);
+
             try
             {
 
@@ -220,12 +220,7 @@ namespace DAO
                 cmd2.Parameters.AddWithValue("@pcarne", porcion.Carne); cmd2.Parameters.AddWithValue("@pveget", porcion.Vegetales);
                 cmd2.Parameters.AddWithValue("@pgrasa", porcion.Grasa); cmd2.Parameters.AddWithValue("@pfruta", porcion.Fruta);
                 cmd2.Parameters.AddWithValue("@pazuc", porcion.Azucar); cmd2.Parameters.AddWithValue("@pharina", porcion.Harina);
-                cmd2.Parameters.AddWithValue("@psuplem", porcion.Suplemento);
-
-                cmd3.Parameters.AddWithValue("@desc", distrib.Descripcion);
-                cmd3.Parameters.AddWithValue("@tiempCom", distrib.TiempoComida);
-                cmd3.Parameters.AddWithValue("@hora", distrib.Hora);
-                cmd3.Parameters.AddWithValue("@ced", distrib.Cedula);
+                cmd2.Parameters.AddWithValue("@psuplem", porcion.Suplemento);               
 
 
 
@@ -236,11 +231,26 @@ namespace DAO
                 //insertar
                 cmd.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
-                cmd3.ExecuteNonQuery();
 
                 conexion.Close();
+
+                if (listDistrib != null)
+                {
+                    foreach (TODistribucionPorciones distribucion in listDistrib)
+                    {
+                        String query3 = "Insert into DistribucionPorcion values(@desc,@tiempCom,@hora,@ced)";
+                        SqlCommand cmd3 = new SqlCommand(query3, conexion);
+                        cmd3.Parameters.AddWithValue("@ced", distribucion.Cedula);
+                        cmd3.Parameters.AddWithValue("@tiempCom", distribucion.TiempoComida);
+                        cmd3.Parameters.AddWithValue("@hora", distribucion.Hora);
+                        cmd3.Parameters.AddWithValue("@desc", distribucion.Descripcion);
+                        conexion.Open();
+                        cmd3.ExecuteNonQuery();
+                        conexion.Close();
+                    }
+                }
                 return true;
-            }
+        }
             catch (SqlException)
             {
                 return false;

@@ -106,7 +106,14 @@ namespace UI
             string nombre = txtNombre.Text;
             string apellido1 = txtPrimerApellido.Text;
             string apellido2 = txtSegundoApellido.Text;
-            DateTime fecha_Nacimiento = DateTime.Parse(iFechaNac.Value);
+            DateTime fecha_Nacimiento;
+            //Validacion de fecha vacia, guarda la fecha del sistema
+            if (string.IsNullOrEmpty(iFechaNac.Value))
+            {
+                fecha_Nacimiento = DateTime.Now;
+            }else
+                fecha_Nacimiento = DateTime.Parse(iFechaNac.Value);
+
             char sexo = char.Parse(dropSexo.SelectedValue);
             string estado_Civil = dropEstadoCivil.SelectedValue;
             char whatsApp = '0';
@@ -114,7 +121,13 @@ namespace UI
             {
                 whatsApp = '1';
             }
-            int telefono = int.Parse(txtTel.Text);
+            int telefono;
+
+            if (string.IsNullOrEmpty(txtTel.Text))
+            {
+                telefono = 0;
+            }else
+                telefono = int.Parse(txtTel.Text);
             string residencia = txtResid.Text;
             string ocupacion = txtOcup.Text;
             DateTime fechaIngreso = DateTime.Now;
@@ -149,7 +162,12 @@ namespace UI
             ingreso.AgregarHistorialMedico(historial, listaM);
 
             //Habitos alimentario
-            int ComidaDiaria = int.Parse(numeroComidas.Text);
+            int ComidaDiaria;
+            if (string.IsNullOrEmpty(numeroComidas.Text))
+            {
+                ComidaDiaria = 0;
+            }else
+                ComidaDiaria = int.Parse(numeroComidas.Text);
 
             char ComidaHorasDia = '0'; //drop
             if (ComeHoras.SelectedValue.Equals("Sí"))
@@ -157,11 +175,24 @@ namespace UI
                 ComidaHorasDia = '1';
             }
 
-            int AfueraExpress = int.Parse(txtEspres.Text);
+            int AfueraExpress;
+            if (string.IsNullOrEmpty(txtEspres.Text))
+            {
+                AfueraExpress = 0;
+            }
+            else
+                AfueraExpress = int.Parse(txtEspres.Text);
             string ComidaFuera = txtQueComeFuera.Text;
             string AzucarBebida = cantAzucar.Text;
             string ComidaElaboradCon = dropCocinaCon.SelectedValue; //drop
-            decimal AguaDiaria = int.Parse(txtCuantaAgua.Text);
+
+            decimal AguaDiaria;
+            if (string.IsNullOrEmpty(txtCuantaAgua.Text))
+            {
+                AguaDiaria = 0;
+            }
+            else
+                AguaDiaria = decimal.Parse(txtCuantaAgua.Text);
 
             char Aderezos = '0'; //drop
             if (dropAderezos.SelectedValue.Equals("Sí"))
@@ -204,7 +235,7 @@ namespace UI
             {
                 Carne = '1';
             }
-            
+
             char Queso = '0'; //drop
             if (dropQueso.SelectedValue.Equals("Sí"))
             {
@@ -227,7 +258,7 @@ namespace UI
             List<Recordatorio24H> listaRecordatorio = new List<Recordatorio24H>();
 
             //ayunas
-            listaRecordatorio.Add( new Recordatorio24H(cedula, "Ayunas", txtHoraAyunas.Text, txtDescAyunas.Text));
+            listaRecordatorio.Add(new Recordatorio24H(cedula, "Ayunas", txtHoraAyunas.Text, txtDescAyunas.Text));
 
             //desayuno
             listaRecordatorio.Add(new Recordatorio24H(cedula, "Desayuno", txtHoraDesayuno.Text, txtDescDesay.Text));
@@ -250,6 +281,369 @@ namespace UI
             ingreso.AgregarHabitosAlimentarios(new HabitoAlimentario(cedula, ComidaDiaria, ComidaHorasDia, AfueraExpress, ComidaFuera, AzucarBebida, ComidaElaboradCon, AguaDiaria, Aderezos, Fruta, Verdura, Leche, Huevo, Yogurt, Carne, Queso, Aguacate, Semillas), listaRecordatorio);
 
             //Antropometria
+            decimal talla;
+            if (string.IsNullOrEmpty(txtTalla.Text))
+            {
+                talla = 0;
+            } else
+                talla = decimal.Parse(txtTalla.Text);
+
+            decimal pesoIdeal;
+            if (string.IsNullOrEmpty(txtPesoIdeal.Text))
+            {
+                pesoIdeal = 0;
+            } else
+                pesoIdeal = decimal.Parse(txtPesoIdeal.Text);
+
+            decimal edad;
+            if (string.IsNullOrEmpty(txtEdad.Text))
+            {
+                edad = 0;
+            }
+            else
+                edad = decimal.Parse(txtEdad.Text);
+
+            decimal pMB;
+            if (string.IsNullOrEmpty(txtPMB.Text))
+            {
+                pMB = 0;
+            }
+            else
+                pMB = decimal.Parse(txtPMB.Text);
+
+            decimal peso;
+            if (string.IsNullOrEmpty(txtPesoActual.Text))
+            {
+                peso = 0;
+            }
+            else
+                peso = decimal.Parse(txtPesoActual.Text);
+
+            decimal pesoMaxTeoria;
+            if (string.IsNullOrEmpty(txtPesoMaxTeoria.Text))
+            {
+                pesoMaxTeoria = 0;
+            }
+            else
+                pesoMaxTeoria = decimal.Parse(txtPesoMaxTeoria.Text);
+
+            decimal iMC;
+            if (string.IsNullOrEmpty(txtIMC.Text))
+            {
+                iMC = 0;
+            }
+            else
+                 iMC = decimal.Parse(txtIMC.Text);
+
+            decimal porcGrasaAnalizador;
+            if (string.IsNullOrEmpty(txtGrasaAnalizador.Text))
+            {
+                porcGrasaAnalizador = 0;
+            }
+            else
+                 porcGrasaAnalizador = decimal.Parse(txtGrasaAnalizador.Text);
+
+            decimal porcGr_Bascula;
+            if (string.IsNullOrEmpty(txtGrasaBascula.Text))
+            {
+                porcGr_Bascula = 0;
+            }
+            else
+                 porcGr_Bascula = decimal.Parse(txtGrasaBascula.Text);
+
+            decimal gB_BI;
+            if (string.IsNullOrEmpty(txtGB_BI.Text))
+            { gB_BI = 0; }
+            else
+                gB_BI = decimal.Parse(txtGB_BI.Text);
+
+            decimal gB_BD;
+            if (string.IsNullOrEmpty(txtGB_BD.Text))
+            {  gB_BD = 0; }
+            else
+                 gB_BD = decimal.Parse(txtGB_BD.Text);
+
+            decimal gB_PI;
+            if (string.IsNullOrEmpty(txtGB_PI.Text))
+            { gB_PI = 0; }
+            else
+                gB_PI = decimal.Parse(txtGB_PI.Text);
+
+            decimal gB_PD;
+            if (string.IsNullOrEmpty(txtGB_PD.Text))
+            { gB_PD = 0; }
+            else
+                gB_PD = decimal.Parse(txtGB_PD.Text);
+
+            decimal gB_Tronco;
+            if (string.IsNullOrEmpty(txtGB_Trono.Text))
+            { gB_Tronco = 0; }
+            else
+                gB_Tronco = decimal.Parse(txtGB_Trono.Text);
+
+            decimal aguaCorporal;
+            if (string.IsNullOrEmpty(txtAgua.Text))
+            { aguaCorporal = 0; }
+            else
+                aguaCorporal = decimal.Parse(txtAgua.Text);
+
+            decimal masaOsea;
+            if (string.IsNullOrEmpty(txtMasaOsea.Text))
+            { masaOsea = 0; }
+            else
+                masaOsea = decimal.Parse(txtMasaOsea.Text);
+
+            decimal complexión;
+            if (string.IsNullOrEmpty(txtComplexion.Text))
+            { complexión = 0; }
+            else
+                complexión = decimal.Parse(txtComplexion.Text);
+
+            decimal edadMetabolica;
+            if (string.IsNullOrEmpty(txtEdadMetabolica.Text))
+            { edadMetabolica = 0; }
+            else
+                edadMetabolica = decimal.Parse(txtEdadMetabolica.Text);
+
+            decimal cintura;
+            if (string.IsNullOrEmpty(txtCintura.Text))
+            { cintura = 0; }
+            else
+                cintura = decimal.Parse(txtCintura.Text);
+
+            decimal abdomen;
+            if (string.IsNullOrEmpty(txtAbdomen.Text))
+            { abdomen = 0; }
+            else
+                abdomen = decimal.Parse(txtAbdomen.Text);
+
+            decimal cadera;
+            if (string.IsNullOrEmpty(txtCadera.Text))
+            { cadera = 0; }
+            else
+                cadera = decimal.Parse(txtCadera.Text);
+
+            decimal muslo;
+            if (string.IsNullOrEmpty(txtMuslo.Text))
+            { muslo = 0; }
+            else
+                muslo = decimal.Parse(txtMuslo.Text);
+
+            decimal cBM;
+            if (string.IsNullOrEmpty(txtCMB.Text))
+            { cBM = 0; }
+            else
+                cBM = decimal.Parse(txtCMB.Text);
+
+            decimal circunfMunneca;
+            if (string.IsNullOrEmpty(txtCircunferencia.Text))
+            { circunfMunneca = 0; }
+            else
+                circunfMunneca = decimal.Parse(txtCircunferencia.Text);
+
+            decimal porcentGViceral;
+            if (string.IsNullOrEmpty(txtGarsaViceral.Text))
+            { porcentGViceral = 0; }
+            else
+                porcentGViceral = decimal.Parse(txtGarsaViceral.Text);
+
+            decimal porcentMusculo;
+            if (string.IsNullOrEmpty(txtMuslo.Text))
+            { porcentMusculo = 0; }
+            else
+                 porcentMusculo = decimal.Parse(txtMuslo.Text);
+
+            decimal pM_BI;
+            if (string.IsNullOrEmpty(txtPM_BI.Text))
+            { pM_BI = 0; }
+            else
+                pM_BI = decimal.Parse(txtPM_BI.Text);
+
+            decimal pM_PD;
+            if (string.IsNullOrEmpty(txtPM_PD.Text))
+            { pM_PD = 0; }
+            else
+                pM_PD = decimal.Parse(txtPM_PD.Text);
+
+            decimal pM_BD;
+            if (string.IsNullOrEmpty(txtPM_BD.Text))
+            { pM_BD = 0; }
+            else
+                pM_BD = decimal.Parse(txtPM_BD.Text);
+
+            decimal pM_PI;
+            if (string.IsNullOrEmpty(txtPM_PI.Text))
+            { pM_PI = 0; }
+            else
+                pM_PI = decimal.Parse(txtPM_PI.Text);
+
+            decimal pM_Tronco;
+            if (string.IsNullOrEmpty(txtPM_Tronco.Text))
+            { pM_Tronco = 0; }
+            else
+                pM_Tronco = decimal.Parse(txtPM_Tronco.Text);
+
+
+            
+                string observaciones = txtObservaciones.Text;
+
+            decimal gEB;
+            if (string.IsNullOrEmpty(txtGEB.Text))
+            { gEB = 0; }
+            else
+                gEB = decimal.Parse(txtGEB.Text);
+
+            decimal gET;
+            if (string.IsNullOrEmpty(txtGET.Text))
+            { gET = 0; }
+            else
+                 gET = decimal.Parse(txtGET.Text);
+
+            decimal cHOPorc;
+            if (string.IsNullOrEmpty(choPorc.Text))
+            { cHOPorc = 0; }
+            else
+                cHOPorc = decimal.Parse(choPorc.Text);
+
+            decimal cHOGram;
+            if (string.IsNullOrEmpty(choGram.Text))
+            { cHOGram = 0; }
+            else
+                cHOGram = decimal.Parse(choGram.Text);
+
+            decimal cHO_kcal;
+            if (string.IsNullOrEmpty(choKcal.Text))
+            { cHO_kcal = 0; }
+            else
+                cHO_kcal = decimal.Parse(choKcal.Text);
+
+            decimal proteinaPorc;
+            if (string.IsNullOrEmpty(ProtPorc.Text))
+            { proteinaPorc = 0; }
+            else
+                proteinaPorc = decimal.Parse(ProtPorc.Text);
+
+            decimal proteinaGram;
+            if (string.IsNullOrEmpty(ProtGram.Text))
+            { proteinaGram = 0; }
+            else
+                proteinaGram = decimal.Parse(ProtGram.Text);
+
+            decimal proteinakcal;
+            if (string.IsNullOrEmpty(protKcal.Text))
+            { proteinakcal = 0; }
+            else
+                proteinakcal = decimal.Parse(protKcal.Text);
+
+            decimal grasaPorc;
+            if (string.IsNullOrEmpty(GrasPorc.Text))
+            { grasaPorc = 0; }
+            else
+                grasaPorc = decimal.Parse(GrasPorc.Text);
+
+            decimal grasaGram;
+            if (string.IsNullOrEmpty(GrasGram.Text))
+            { grasaGram = 0; }
+            else
+                grasaGram = decimal.Parse(GrasGram.Text);
+
+            decimal grasakcal;
+            if (string.IsNullOrEmpty(GrasKcal.Text))
+            { grasakcal = 0; }
+            else
+                grasakcal = decimal.Parse(GrasKcal.Text);
+
+
+
+            decimal leche;
+            if (string.IsNullOrEmpty(txtPorcLeche.Text))
+            { leche = 0; }
+            else
+                leche = decimal.Parse(txtPorcLeche.Text);
+
+            decimal carne;
+            if (string.IsNullOrEmpty(txtPorcCarnes.Text))
+            { carne = 0; }
+            else
+                carne = decimal.Parse(txtPorcCarnes.Text);
+
+            decimal vegetales;
+            if (string.IsNullOrEmpty(txtPorcVeget.Text))
+            { vegetales = 0; }
+            else
+                vegetales = decimal.Parse(txtPorcVeget.Text);
+
+            decimal grasa;
+            if (string.IsNullOrEmpty(txtPorcGrasas.Text))
+            { grasa = 0; }
+            else
+                grasa = decimal.Parse(txtPorcGrasas.Text);
+
+            decimal fruta;
+            if (string.IsNullOrEmpty(txtPorcFrutas.Text))
+            {
+                fruta = 0;
+            }
+            else
+                fruta = decimal.Parse(txtPorcFrutas.Text);
+
+            decimal azucar;
+            if (string.IsNullOrEmpty(txtPorcAzuca.Text))
+            {
+                azucar = 0;
+            }
+            else
+                 azucar = decimal.Parse(txtPorcAzuca.Text);
+
+            decimal harina;
+            if (string.IsNullOrEmpty(txtPorcHarinas.Text))
+            {
+                harina = 0;
+            }
+            else
+                harina= decimal.Parse(txtPorcHarinas.Text);
+
+            decimal suplemento;
+            if (string.IsNullOrEmpty(txtPorcSuplem.Text))
+            {
+                suplemento = 0;
+            }
+            else
+                suplemento = decimal.Parse(txtPorcSuplem.Text);
+
+
+
+            List<DistribucionPorciones> distribucion = new List<DistribucionPorciones>();
+
+            //ayunas
+            distribucion.Add(new DistribucionPorciones(cedula, "Ayunas", txtHoraAyunasA.Text, txtDescAyunasA.Text));
+
+            //desayuno
+            distribucion.Add(new DistribucionPorciones(cedula, "Desayuno", txtHoraDesayunoA.Text, txtDescDesayA.Text));
+
+            //Media mañana
+            distribucion.Add(new DistribucionPorciones(cedula, "Media mañana", txtHoraMediaMA.Text, txtDescMediaMA.Text));
+
+            //almuerzo
+            distribucion.Add(new DistribucionPorciones(cedula, "Almuerzo", txtHoraAlmmuerzoA.Text, txtDescAlmuerzoA.Text));
+
+            //Media tarde
+            distribucion.Add(new DistribucionPorciones(cedula, "Tarde", txtHoraTardeA.Text, txtDescTardeA.Text));
+
+            //Cena
+            distribucion.Add(new DistribucionPorciones(cedula, "Cena", txtHoraCenaA.Text, txtDescCenaA.Text));
+
+            //Colacion nocturna
+            distribucion.Add(new DistribucionPorciones(cedula, "Colasión nocturna", txtHoraColacionA.Text, txtDescColacionA.Text));
+
+            Antropometria antro = new Antropometria(cedula, talla, pesoIdeal, edad, pMB, peso, pesoMaxTeoria, iMC, porcGrasaAnalizador, 
+                porcGr_Bascula, gB_BI, gB_BD, gB_PI, gB_PD, gB_Tronco, aguaCorporal, masaOsea, complexión, edadMetabolica, cintura, abdomen, cadera, 
+                muslo, cBM, circunfMunneca, porcentGViceral, porcentMusculo, pM_BI, pM_PD, pM_BD, pM_PI, pM_Tronco, observaciones, 
+                gEB, gET, cHOPorc, cHOGram, cHO_kcal, proteinaPorc, proteinaGram, proteinakcal, grasaPorc, grasaGram, grasakcal);
+
+            Porciones porcion = new Porciones(cedula, leche, carne, vegetales, grasa, fruta, azucar, harina, suplemento);
+
+            ingreso.AgregarAntropometria(antro, porcion, distribucion);
 
 
         }
