@@ -457,11 +457,14 @@
                             
                             <div class="row">
                                 <div class="col-form-label-lg">
-                                    <asp:TextBox ID="sPeso" runat="server" placeholder="Peso" Font-Size="Small" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="sPeso" runat="server"  placeholder="Peso" Font-Size="Small" CssClass="form-control"></asp:TextBox>
                                 </div>
                                 <div class="col"></div>
                                 <div class="col-form-label-lg">
-                                    <asp:DropDownList ID="sOreja" runat="server"  Font-Size="Small"  CssClass="form-control"></asp:DropDownList>
+                                   <asp:DropDownList runat="server" ID="sOreja" CssClass="form-control" Font-Size="Small">
+										 <asp:ListItem Selected="True" Value="Derecha"> Derecha </asp:ListItem>
+                                       <asp:ListItem Value="Izquierda"> Izquierda </asp:ListItem>
+									</asp:DropDownList>
                                 </div>
                                  <div class="col"></div>
                                 <div class="col-form-label-lg">
@@ -469,7 +472,7 @@
                                 </div>
                                  <div class="col"></div>
                                 <div class="col-form-label-lg">
-                                    <asp:Button ID="btnAgreg" Text="Agregar" runat="server"  OnClick="btnAgreg_Click" OnClientClick="return false" CssClass="btn btn-primary colorBoton" />
+                                    <asp:Button ID="btnAgreg" Text="Agregar" runat="server"  OnClick="btnAgreg_Click"  CssClass="btn btn-primary colorBoton" />
                                 </div>
                             </div>
                             

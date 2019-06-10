@@ -15,17 +15,10 @@ namespace UI
         ManejadorSeguimientos manejadorNutrición = new ManejadorSeguimientos();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                LlenarLista();
-            }      
+                 
         }
 
-        private void LlenarLista()
-        {
-            sOreja.Items.Add("Derecha");
-            sOreja.Items.Add("Izquierda");
-        }
+        
         protected void btnAgreg_Click(object sender, EventArgs e)
         {
 
