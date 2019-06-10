@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,23 +21,23 @@ namespace UI
 			String correo = txtCorreo.Text;
 			String contrasena = txtContras.Text;
 
-			BLUsuario usua = new ManejadorUsuario().buscarUsuario(usuario, contra);
-			if (usua.correo_usuario != null && !usua.correo_usuario.Equals(""))
+			BLLogin usua = new MaejadorLogin().buscarUsuario(correo, contrasena);
+			if (usua.correo != null && !usua.correo.Equals(""))
 			{
 				Session["usuario"] = usua;
-				if (usua.rol.Equals("cocina"))
+				if (usua.rol.Equals("admin"))
 				{
-					Response.Redirect("~/ModuloCocina/Cocina.aspx");
+					Response.Redirect("~/Agenda.aspx");
 				}
-				else if (usua.rol.Equals("admin"))
+				else if (usua.rol.Equals("nutricionista"))
 				{
-					Response.Redirect("~/Administrador/PaginaPrincipalAdmin.aspx");
+					Response.Redirect("~/Agenda.aspx");
 				}
 
 			}
 			else
 			{
-				lblIncorrecto.Text = "Usuario o contraseña incorrecto";
+				//lblIncorrecto.Text = "Usuario o contraseña incorrecto";
 			}
 		
 	}
