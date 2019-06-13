@@ -65,7 +65,7 @@ namespace UI
                 catch (FormatException)
                 {
                     string y = manejError.ErrorIngresoNumero();
-                    Response.Write("<script>alert('"+y +"')</script>");
+                    Response.Write(y);
                     peso = 0;
                     
                 }

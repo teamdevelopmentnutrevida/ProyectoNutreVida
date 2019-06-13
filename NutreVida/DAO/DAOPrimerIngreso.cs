@@ -137,7 +137,7 @@ namespace DAO
                 cmd.Parameters.AddWithValue("@frut", HabitosAlimentario.Fruta);
                 cmd.Parameters.AddWithValue("@verd", HabitosAlimentario.Verdura);
                 cmd.Parameters.AddWithValue("@lech", HabitosAlimentario.Leche);
-                cmd.Parameters.AddWithValue("@huev", HabitosAlimentario.Leche);
+                cmd.Parameters.AddWithValue("@huev", HabitosAlimentario.Huevo);
                 cmd.Parameters.AddWithValue("@yogurt", HabitosAlimentario.Yogurt);
                 cmd.Parameters.AddWithValue("@carn", HabitosAlimentario.Carne);
                 cmd.Parameters.AddWithValue("@ques", HabitosAlimentario.Queso);
@@ -177,7 +177,7 @@ namespace DAO
             }
         }
 
-        public bool GuardarAntropometria(TOAntropometria antropom, TOPorciones porcion, TODistribucionPorciones distrib)
+        public bool GuardarAntropometria(TOAntropometria antropom, TOPorciones porcion, List<TODistribucionPorciones> listDistrib)
         {
             String query1 = "Insert into Antropometria values(@ced, @talla, @pesIdeal, @edad,@pmb, @peso,@pesmax,@imc, @gAnaliz, @grbascu, @gbbi,@gbbd, @gbpi, @gbpd," +
                 "@gbtronc, @aguacorp, @masaOsea, @complex,@edadMetab,@cint,@abdomn,@cader,@muslo,@cbm,@circunf,@grviser,@pormuscul,@pmbi,@pmpd,@pmbd," +
@@ -185,11 +185,11 @@ namespace DAO
 
             String query2 = "Insert into Porciones values( @pced,@pleche,@pcarne,@pveget,@pgrasa,@pfruta,@pazuc,@pharina, @psuplem)";
 
-            String query3 = "Insert into DistribucionPorcion values(@desc,@tiempCom,@hora,@ced)";
+            
 
             SqlCommand cmd = new SqlCommand(query1, conexion);
             SqlCommand cmd2 = new SqlCommand(query2, conexion);
-            SqlCommand cmd3 = new SqlCommand(query3, conexion);
+
             try
             {
 
@@ -220,12 +220,7 @@ namespace DAO
                 cmd2.Parameters.AddWithValue("@pcarne", porcion.Carne); cmd2.Parameters.AddWithValue("@pveget", porcion.Vegetales);
                 cmd2.Parameters.AddWithValue("@pgrasa", porcion.Grasa); cmd2.Parameters.AddWithValue("@pfruta", porcion.Fruta);
                 cmd2.Parameters.AddWithValue("@pazuc", porcion.Azucar); cmd2.Parameters.AddWithValue("@pharina", porcion.Harina);
-                cmd2.Parameters.AddWithValue("@psuplem", porcion.Suplemento);
-
-                cmd3.Parameters.AddWithValue("@desc", distrib.Descripcion);
-                cmd3.Parameters.AddWithValue("@tiempCom", distrib.TiempoComida);
-                cmd3.Parameters.AddWithValue("@hora", distrib.Hora);
-                cmd3.Parameters.AddWithValue("@ced", distrib.Cedula);
+                cmd2.Parameters.AddWithValue("@psuplem", porcion.Suplemento);               
 
 
 
@@ -236,11 +231,26 @@ namespace DAO
                 //insertar
                 cmd.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
-                cmd3.ExecuteNonQuery();
 
                 conexion.Close();
+
+                if (listDistrib != null)
+                {
+                    foreach (TODistribucionPorciones distribucion in listDistrib)
+                    {
+                        String query3 = "Insert into DistribucionPorcion values(@desc,@tiempCom,@hora,@ced)";
+                        SqlCommand cmd3 = new SqlCommand(query3, conexion);
+                        cmd3.Parameters.AddWithValue("@ced", distribucion.Cedula);
+                        cmd3.Parameters.AddWithValue("@tiempCom", distribucion.TiempoComida);
+                        cmd3.Parameters.AddWithValue("@hora", distribucion.Hora);
+                        cmd3.Parameters.AddWithValue("@desc", distribucion.Descripcion);
+                        conexion.Open();
+                        cmd3.ExecuteNonQuery();
+                        conexion.Close();
+                    }
+                }
                 return true;
-            }
+        }
             catch (SqlException)
             {
                 return false;

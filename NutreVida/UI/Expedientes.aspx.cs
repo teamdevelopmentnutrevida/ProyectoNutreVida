@@ -44,6 +44,15 @@ namespace UI
             }
         }
 
-       
+        private void EliminarCliente(string ced)
+        {
+
+        }
+        private void Deshabilitar(string ced)
+        {
+
+        }
+
+
     }
 }
