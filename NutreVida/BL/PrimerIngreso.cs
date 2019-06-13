@@ -61,8 +61,21 @@ namespace BL
                 habito.Queso, habito.Aguacate, habito.Semillas), lista);
         }
 
-        public bool AgregarAntropometria(Antropometria antrop, Porciones porcion, DistribucionPorciones distrib)
+        public bool AgregarAntropometria(Antropometria antrop, Porciones porcion, List<DistribucionPorciones>  Listdistrib)
         {
+            List<TODistribucionPorciones> lista = new List<TODistribucionPorciones>();
+            if (Listdistrib.Count != 0 && Listdistrib != null)
+            {
+                foreach (DistribucionPorciones porciones in Listdistrib)
+                {
+                    lista.Add(new TODistribucionPorciones(porciones.Cedula, porciones.TiempoComida, porciones.Hora, porciones.Descripcion));
+                }
+            }
+            else
+            {
+                lista = null;
+            }
+
             TOAntropometria antropom = new TOAntropometria();
             antropom.Cedula = antrop.Cedula; antropom.Talla = antrop.Talla; antropom.PesoIdeal = antrop.PesoIdeal;
             antropom.Edad = antrop.Edad; antropom.PMB = antrop.PMB; antropom.Peso = antrop.Peso; antropom.PesoMaxTeoria = antrop.PesoMaxTeoria;
@@ -81,9 +94,9 @@ namespace BL
             TOPorciones porci = new TOPorciones(porcion.Cedula, porcion.Leche, porcion.Carne, porcion.Vegetales, porcion.Grasa,
                porcion.Fruta, porcion.Azucar, porcion.Harina, porcion.Suplemento);
 
-            TODistribucionPorciones distribuc = new TODistribucionPorciones(distrib.Cedula, distrib.Descripcion, distrib.TiempoComida, distrib.Hora);
+            
 
-            return daoClienteNutricion.GuardarAntropometria(antropom, porci, distribuc);
+            return daoClienteNutricion.GuardarAntropometria(antropom, porci, lista);
 
         }
 
