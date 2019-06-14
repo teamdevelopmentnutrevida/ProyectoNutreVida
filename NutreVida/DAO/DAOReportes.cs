@@ -13,20 +13,24 @@ namespace DAO
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
 
-        public String obtenerClasificacionIMC(int cedula) {
+        public String obtenerPromedioPesoEdad(int edad1, int edad2) {
 
-            String query = "select IMC from Antropometria where cedula = @ced";
+            String query = "select AVG(Peso) from Antropometria where edad >=@edad1 and edad <=@edad2";
 
             SqlCommand cmd = new SqlCommand(query, conexion);
 
-            cmd.Parameters.AddWithValue("ced",cedula);
+            cmd.Parameters.AddWithValue("edad1", edad1);
+
+            cmd.Parameters.AddWithValue("edad1", edad2);
+
+            String promedioPeso;
 
             if (conexion.State != ConnectionState.Open)
             {
                 conexion.Open();
             }
 
-            cmd.ExecuteNonQuery();
+            promedioPeso = "" + cmd.ExecuteScalar();
 
 
             if (conexion.State != ConnectionState.Closed)
@@ -34,11 +38,10 @@ namespace DAO
                 conexion.Close();
             }
 
-            
-
-
-            return "";
+            return promedioPeso;
         }
+
+        
 
     }
 }
