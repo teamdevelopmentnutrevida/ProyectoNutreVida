@@ -10,11 +10,12 @@ namespace BL
     public class Reportes
     {
 
-        public String obtenerPromedioPesoEdad20() {
+        public String obtenerPromedioPesoEdad(int edad1,int edad2) {
             DAOReportes reporte = new DAOReportes();
 
-            return reporte.obtenerPromedioPesoEdad(20,30);
+            return reporte.obtenerPromedioPesoEdad(edad1, edad2);
         }
+
 
     }
 }
