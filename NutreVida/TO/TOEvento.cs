@@ -8,84 +8,19 @@ namespace TO
 {
     public class TOEvento
     {
-        string nombreEvento;
-        string decripcionEvento;
-        string horaInicio;
-        string horaFin;
-        string fecha;
-
-        public string NombreEvento
-        {
-            get
-            {
-                return nombreEvento;
-            }
-
-            set
-            {
-                nombreEvento = value;
-            }
-        }
-
-        public string DecripcionEvento
-        {
-            get
-            {
-                return decripcionEvento;
-            }
-
-            set
-            {
-                decripcionEvento = value;
-            }
-        }
-
-        public string HoraInicio
-        {
-            get
-            {
-                return horaInicio;
-            }
-
-            set
-            {
-                horaInicio = value;
-            }
-        }
-
-        public string HoraFin
-        {
-            get
-            {
-                return horaFin;
-            }
-
-            set
-            {
-                horaFin = value;
-            }
-        }
-
-        public string Fecha
-        {
-            get
-            {
-                return fecha;
-            }
-
-            set
-            {
-                fecha = value;
-            }
-        }
+       public string nombreEvento { set;  get;}
+        public string decripcionEvento { set; get; }
+        public string horaInicio { set; get; }
+        public string horaFin { set; get; }
+        public string fecha { set; get; }
 
         public TOEvento(string nombreEvento, string decripcionEvento, string horaInicio, string horaFin, string fecha)
         {
-            this.NombreEvento = nombreEvento;
-            this.DecripcionEvento = decripcionEvento;
-            this.HoraInicio = horaInicio;
-            this.HoraFin = horaFin;
-            this.Fecha = fecha;
+            this.nombreEvento = nombreEvento;
+            this.decripcionEvento = decripcionEvento;
+            this.horaInicio = horaInicio;
+            this.horaFin = horaFin;
+            this.fecha = fecha;
         }
     }
 }

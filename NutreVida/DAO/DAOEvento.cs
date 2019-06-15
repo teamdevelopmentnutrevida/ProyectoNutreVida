@@ -15,7 +15,7 @@ namespace DAO
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
 
 
-        public Boolean gurdarEvento(TOEvento evento)
+        public Boolean guardarEvento(TOEvento evento)
         {
 
             string query1 = "Insert into Evento values(@tit,@des,@horaInicio,@horaFina,@fecha);";
@@ -26,11 +26,11 @@ namespace DAO
             {
 
                 //Asignacion de parametros.
-                cmd.Parameters.AddWithValue("@antec", evento.NombreEvento);
-                cmd.Parameters.AddWithValue("@patol", evento.DecripcionEvento);
-                cmd.Parameters.AddWithValue("@consLic", evento.HoraInicio);
-                cmd.Parameters.AddWithValue("@fum", evento.HoraFin);
-                cmd.Parameters.AddWithValue("@fechEx", evento.Fecha);
+                cmd.Parameters.AddWithValue("@antec", evento.nombreEvento);
+                cmd.Parameters.AddWithValue("@patol", evento.decripcionEvento);
+                cmd.Parameters.AddWithValue("@consLic", evento.horaInicio);
+                cmd.Parameters.AddWithValue("@fum", evento.horaFin);
+                cmd.Parameters.AddWithValue("@fechEx", evento.fecha);
 
                 //Validacion del estado de la conexion.
                 if (conexion.State != ConnectionState.Open)
@@ -51,14 +51,37 @@ namespace DAO
         }
 
 
-        public List<TOEvento> listaEventos() {
+        public List<TOEvento> listaEventos()
+        {
             List<TOEvento> lista = new List<TOEvento>();
 
 
+            try
+            {
+                SqlCommand buscar = new SqlCommand("SELECT * FROM Evento", conexion);
+                conexion.Open();
+                SqlDataReader lector = buscar.ExecuteReader();
 
-            return lista;
+                if (lector.HasRows)
+                {
+                    while (lector.Read())
+                    {
+                        lista.Add(new TOEvento(lector.GetString(0), lector.GetString(1), lector.GetString(2), lector.GetString(3), lector.GetString(4)));
+                    }
 
+                    lector.Close();
+                }
+                conexion.Close();
+
+                return lista;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
+
+
     }
 
 }
