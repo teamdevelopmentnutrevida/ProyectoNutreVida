@@ -65,7 +65,7 @@ namespace UI
                 catch (FormatException)
                 {
                     string y = manejError.ErrorIngresoNumero();
-                    Response.Write("<script>alert('"+y +"')</script>");
+                    Response.Write(y);
                     peso = 0;
                     
                 }
@@ -89,6 +89,21 @@ namespace UI
                 }
             }
             sPeso.Text = string.Empty; sOreja.Text = string.Empty; sEjercicio.Text = string.Empty;
+        }
+
+        protected void DropLicor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void DropFuma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
