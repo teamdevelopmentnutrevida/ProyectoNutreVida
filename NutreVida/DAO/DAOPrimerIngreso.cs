@@ -24,7 +24,7 @@ namespace DAO
             SqlCommand cmd = new SqlCommand(query1, conexion);
             SqlCommand cmd2 = new SqlCommand(query2, conexion);
 
-            //try
+            try
             {
 
                 cmd.Parameters.AddWithValue("@ced", tOCliente.Cedula);
@@ -58,10 +58,10 @@ namespace DAO
 
                 return true;
             }
-            //catch (SqlException)
-            //{
-            //    return false;
-            //}
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
         public bool GuardarHistorial(TOHistorialMedico historial, List<TOMedicamento> listaMedicamento)
