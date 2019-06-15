@@ -15,8 +15,8 @@ namespace UI
         {
             if (!IsPostBack)
             {
-                
-               
+
+
             }
         }
 
@@ -43,49 +43,49 @@ namespace UI
             }
         }
 
-		protected void capturarRecordatorio()
-		{
-			string horaAyunas = txtHoraAyunas.Text.ToString();
-			string descAyunas = txtDescAyunas.Text;
-			string horaDes = txtHoraDesayuno.Text.ToString();
-			string descDesay = txtDescDesay.Text;
-			string horaMediaM = txtHoraMediaM.Text.ToString();
-			string descMediaM = txtDescMediaM.Text;
-			string horaAlm = txtHoraAlmmuerzo.Text.ToString();
-			string descAlmuerzo = txtDescAlmuerzo.Text;
-			string horaTarde = txtHoraTarde.Text.ToString();
-			string descTarde = txtDescTarde.Text;
-			string horaCena = txtHoraCena.Text.ToString();
-			string descCena = txtDescCena.Text;
-			string horaColac = txtHoraColacion.Text.ToString();
-			string descColac = txtDescColacion.Text;
-
-
-			
-		}
-
-		protected void capturarRecordatorioAntrop()
-		{
-			string horaAyunasA = txtHoraAyunasA.Text.ToString();
-			string descAyunasA = txtDescAyunasA.Text;
-			string horaDesA = txtHoraDesayunoA.Text.ToString();
-			string descDesayA = txtDescDesayA.Text;
-			string horaMediaMA = txtHoraMediaMA.Text.ToString();
-			string descMediaMA = txtDescMediaMA.Text;
-			string horaAlmuerzoA = txtHoraAlmmuerzoA.Text.ToString();
-			string descAlmuerzoA = txtDescAlmuerzoA.Text;
-			string horaTardeA = txtHoraTardeA.Text.ToString();
-			string descTardeA = txtDescTardeA.Text;
-			string horaCenaA = txtHoraCenaA.Text.ToString();
-			string descCenaA = txtDescCenaA.Text;
-			string horaColacA = txtHoraColacionA.Text.ToString();
-			string descColacA = txtDescColacionA.Text;
+        protected void capturarRecordatorio()
+        {
+            string horaAyunas = txtHoraAyunas.Text.ToString();
+            string descAyunas = txtDescAyunas.Text;
+            string horaDes = txtHoraDesayuno.Text.ToString();
+            string descDesay = txtDescDesay.Text;
+            string horaMediaM = txtHoraMediaM.Text.ToString();
+            string descMediaM = txtDescMediaM.Text;
+            string horaAlm = txtHoraAlmmuerzo.Text.ToString();
+            string descAlmuerzo = txtDescAlmuerzo.Text;
+            string horaTarde = txtHoraTarde.Text.ToString();
+            string descTarde = txtDescTarde.Text;
+            string horaCena = txtHoraCena.Text.ToString();
+            string descCena = txtDescCena.Text;
+            string horaColac = txtHoraColacion.Text.ToString();
+            string descColac = txtDescColacion.Text;
 
 
 
-		}
+        }
 
-		protected void btnGuardar_Click(object sender, EventArgs e)
+        protected void capturarRecordatorioAntrop()
+        {
+            string horaAyunasA = txtHoraAyunasA.Text.ToString();
+            string descAyunasA = txtDescAyunasA.Text;
+            string horaDesA = txtHoraDesayunoA.Text.ToString();
+            string descDesayA = txtDescDesayA.Text;
+            string horaMediaMA = txtHoraMediaMA.Text.ToString();
+            string descMediaMA = txtDescMediaMA.Text;
+            string horaAlmuerzoA = txtHoraAlmmuerzoA.Text.ToString();
+            string descAlmuerzoA = txtDescAlmuerzoA.Text;
+            string horaTardeA = txtHoraTardeA.Text.ToString();
+            string descTardeA = txtDescTardeA.Text;
+            string horaCenaA = txtHoraCenaA.Text.ToString();
+            string descCenaA = txtDescCenaA.Text;
+            string horaColacA = txtHoraColacionA.Text.ToString();
+            string descColacA = txtDescColacionA.Text;
+
+
+
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
             BL.PrimerIngreso ingreso = new BL.PrimerIngreso();
 
@@ -111,7 +111,8 @@ namespace UI
             if (string.IsNullOrEmpty(iFechaNac.Value))
             {
                 fecha_Nacimiento = DateTime.Now;
-            }else
+            }
+            else
                 fecha_Nacimiento = DateTime.Parse(iFechaNac.Value);
 
             char sexo = char.Parse(dropSexo.SelectedValue);
@@ -126,7 +127,8 @@ namespace UI
             if (string.IsNullOrEmpty(txtTel.Text))
             {
                 telefono = 0;
-            }else
+            }
+            else
                 telefono = int.Parse(txtTel.Text);
             string residencia = txtResid.Text;
             string ocupacion = txtOcup.Text;
@@ -166,7 +168,8 @@ namespace UI
             if (string.IsNullOrEmpty(numeroComidas.Text))
             {
                 ComidaDiaria = 0;
-            }else
+            }
+            else
                 ComidaDiaria = int.Parse(numeroComidas.Text);
 
             char ComidaHorasDia = '0'; //drop
@@ -285,14 +288,16 @@ namespace UI
             if (string.IsNullOrEmpty(txtTalla.Text))
             {
                 talla = 0;
-            } else
+            }
+            else
                 talla = decimal.Parse(txtTalla.Text);
 
             decimal pesoIdeal;
             if (string.IsNullOrEmpty(txtPesoIdeal.Text))
             {
                 pesoIdeal = 0;
-            } else
+            }
+            else
                 pesoIdeal = decimal.Parse(txtPesoIdeal.Text);
 
             decimal edad;
@@ -333,7 +338,7 @@ namespace UI
                 iMC = 0;
             }
             else
-                 iMC = decimal.Parse(txtIMC.Text);
+                iMC = decimal.Parse(txtIMC.Text);
 
             decimal porcGrasaAnalizador;
             if (string.IsNullOrEmpty(txtGrasaAnalizador.Text))
@@ -341,7 +346,7 @@ namespace UI
                 porcGrasaAnalizador = 0;
             }
             else
-                 porcGrasaAnalizador = decimal.Parse(txtGrasaAnalizador.Text);
+                porcGrasaAnalizador = decimal.Parse(txtGrasaAnalizador.Text);
 
             decimal porcGr_Bascula;
             if (string.IsNullOrEmpty(txtGrasaBascula.Text))
@@ -349,7 +354,7 @@ namespace UI
                 porcGr_Bascula = 0;
             }
             else
-                 porcGr_Bascula = decimal.Parse(txtGrasaBascula.Text);
+                porcGr_Bascula = decimal.Parse(txtGrasaBascula.Text);
 
             decimal gB_BI;
             if (string.IsNullOrEmpty(txtGB_BI.Text))
@@ -359,9 +364,9 @@ namespace UI
 
             decimal gB_BD;
             if (string.IsNullOrEmpty(txtGB_BD.Text))
-            {  gB_BD = 0; }
+            { gB_BD = 0; }
             else
-                 gB_BD = decimal.Parse(txtGB_BD.Text);
+                gB_BD = decimal.Parse(txtGB_BD.Text);
 
             decimal gB_PI;
             if (string.IsNullOrEmpty(txtGB_PI.Text))
@@ -451,7 +456,7 @@ namespace UI
             if (string.IsNullOrEmpty(txtMuslo.Text))
             { porcentMusculo = 0; }
             else
-                 porcentMusculo = decimal.Parse(txtMuslo.Text);
+                porcentMusculo = decimal.Parse(txtMuslo.Text);
 
             decimal pM_BI;
             if (string.IsNullOrEmpty(txtPM_BI.Text))
@@ -484,8 +489,8 @@ namespace UI
                 pM_Tronco = decimal.Parse(txtPM_Tronco.Text);
 
 
-            
-                string observaciones = txtObservaciones.Text;
+
+            string observaciones = txtObservaciones.Text;
 
             decimal gEB;
             if (string.IsNullOrEmpty(txtGEB.Text))
@@ -497,7 +502,7 @@ namespace UI
             if (string.IsNullOrEmpty(txtGET.Text))
             { gET = 0; }
             else
-                 gET = decimal.Parse(txtGET.Text);
+                gET = decimal.Parse(txtGET.Text);
 
             decimal cHOPorc;
             if (string.IsNullOrEmpty(choPorc.Text))
@@ -593,7 +598,7 @@ namespace UI
                 azucar = 0;
             }
             else
-                 azucar = decimal.Parse(txtPorcAzuca.Text);
+                azucar = decimal.Parse(txtPorcAzuca.Text);
 
             decimal harina;
             if (string.IsNullOrEmpty(txtPorcHarinas.Text))
@@ -601,7 +606,7 @@ namespace UI
                 harina = 0;
             }
             else
-                harina= decimal.Parse(txtPorcHarinas.Text);
+                harina = decimal.Parse(txtPorcHarinas.Text);
 
             decimal suplemento;
             if (string.IsNullOrEmpty(txtPorcSuplem.Text))
@@ -636,9 +641,9 @@ namespace UI
             //Colacion nocturna
             distribucion.Add(new DistribucionPorciones(cedula, "Colasión nocturna", txtHoraColacionA.Text, txtDescColacionA.Text));
 
-            Antropometria antro = new Antropometria(cedula, talla, pesoIdeal, edad, pMB, peso, pesoMaxTeoria, iMC, porcGrasaAnalizador, 
-                porcGr_Bascula, gB_BI, gB_BD, gB_PI, gB_PD, gB_Tronco, aguaCorporal, masaOsea, complexión, edadMetabolica, cintura, abdomen, cadera, 
-                muslo, cBM, circunfMunneca, porcentGViceral, porcentMusculo, pM_BI, pM_PD, pM_BD, pM_PI, pM_Tronco, observaciones, 
+            Antropometria antro = new Antropometria(cedula, talla, pesoIdeal, edad, pMB, peso, pesoMaxTeoria, iMC, porcGrasaAnalizador,
+                porcGr_Bascula, gB_BI, gB_BD, gB_PI, gB_PD, gB_Tronco, aguaCorporal, masaOsea, complexión, edadMetabolica, cintura, abdomen, cadera,
+                muslo, cBM, circunfMunneca, porcentGViceral, porcentMusculo, pM_BI, pM_PD, pM_BD, pM_PI, pM_Tronco, observaciones,
                 gEB, gET, cHOPorc, cHOGram, cHO_kcal, proteinaPorc, proteinaGram, proteinakcal, grasaPorc, grasaGram, grasakcal);
 
             Porciones porcion = new Porciones(cedula, leche, carne, vegetales, grasa, fruta, azucar, harina, suplemento);
@@ -668,8 +673,8 @@ namespace UI
                     //mensaje de error
                     Response.Write("<script>window.alert('Debe registrar un número de cedula');</script>");
                     return;
-                   
-                } 
+
+                }
 
                 medicamSupl.Cedula = int.Parse(txtCed.Text);
 
