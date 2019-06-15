@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAOClienteNutricion.cs" />
+    <Compile Include="DAOEvento.cs" />
     <Compile Include="DAOLogin.cs" />
     <Compile Include="DAOPrimerIngreso.cs" />
     <Compile Include="DAOSeguimientos.cs" />
