@@ -93,15 +93,40 @@ namespace UI
 
         protected void DropLicor_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (DropLicor.SelectedValue == "Sí")
+            {
+                txtFrecLicor.Enabled = true;
+            }
+            else
+            {
+                txtFrecLicor.Enabled = false;
+            }
         }
 
         protected void DropFuma_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (DropFuma.SelectedValue == "Sí")
+            {
+                txtFrecFuma.Enabled = true;
+            }
+            else
+            {
+                txtFrecFuma.Enabled = false;
+            }
+        }
+
+
+        protected void OkButton_Click(object sender, EventArgs e)
+        {
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void BackButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void MedicButton_Click(object sender, EventArgs e)
         {
 
         }

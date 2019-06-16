@@ -23,6 +23,14 @@ namespace BL
             return promedio;
         }
 
+        public int obtenerCantidadPersonasEdad(int edad1, int edad2)
+        {
+            DAOReportes reporte = new DAOReportes();
+
+            return reporte.obtenerCantidadPersonasEdad(edad1,edad2);
+
+        }
+
         public List<Antropometria> obtenerIMCEdades() {
             DAOReportes reporte = new DAOReportes();
 

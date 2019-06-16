@@ -25,7 +25,8 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                Cantidad:
+                                <asp:Label ID="lbCantidadMenor20" runat="server" Text="0"></asp:Label>
                             </div>
                         </div>
                     </div>
@@ -44,7 +45,8 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                Cantidad:
+                                <asp:Label ID="lbCantidad20_30" runat="server" Text="0"></asp:Label>
                             </div>
                         </div>
                     </div>
@@ -63,7 +65,8 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                Cantidad:
+                                <asp:Label ID="lbCantidad30_40" runat="server" Text="0"></asp:Label>
                             </div>
                         </div>
                     </div>
@@ -82,7 +85,8 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                Cantidad:
+                                <asp:Label ID="lbCantidadMayor40" runat="server" Text="0"></asp:Label>
                             </div>
                         </div>
                     </div>

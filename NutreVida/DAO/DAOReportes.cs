@@ -42,6 +42,35 @@ namespace DAO
             return promedioPeso;
         }
 
+        public int obtenerCantidadPersonasEdad(int edad1, int edad2)
+        {
+
+            String query = "select count(cedula) from Antropometria where edad > @edad1 and edad < @edad2 ";
+
+            SqlCommand cmd = new SqlCommand(query, conexion);
+
+            cmd.Parameters.AddWithValue("@edad1", edad1);
+
+            cmd.Parameters.AddWithValue("@edad2", edad2);
+
+            int cantidadPersonas;
+
+            if (conexion.State != ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+
+            cantidadPersonas =  int.Parse(cmd.ExecuteScalar().ToString());
+
+
+            if (conexion.State != ConnectionState.Closed)
+            {
+                conexion.Close();
+            }
+
+            return cantidadPersonas;
+        }
+
         public List<TOAntropometria> obtenerIMCEdades()
         {
 

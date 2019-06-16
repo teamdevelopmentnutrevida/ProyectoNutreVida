@@ -32,12 +32,12 @@
         {
             string evento = Calendar1.SelectedDate.ToShortDateString();
 
-            DateTime evento2 = DateTime.Parse( Calendar1.SelectedDate.ToShortDateString());
+            DateTime evento2 = DateTime.Parse(Calendar1.SelectedDate.ToShortDateString());
 
             string anno = Calendar1.SelectedDate.Year.ToString();
             string dia = Calendar1.SelectedDate.Day.ToString();
             string mes = Calendar1.SelectedDate.Month.ToString();
-            
+
             string Valor = anno + "-" + mes + "-" + dia;
             Response.Redirect("Evento.aspx?Valor=" + Valor);
 
@@ -65,7 +65,8 @@
 
             <h1>Agenda Nutre Vida</h1>
             <div id="holder" class="row">
-                <asp:Calendar ID="Calendar1" runat="server"
+                <div class="col-md-5">
+                    <asp:Calendar ID="Calendar1" runat="server"
                     SelectionMode="Day"
                     ShowGridLines="True"
                     OnSelectionChanged="Selection_Change" OnDayRender="DayRender" Height="664px" Width="582px">
@@ -77,12 +78,49 @@
 
                     <TodayDayStyle BorderColor="#3366ff" Font-Underline="true" BackColor="#3366ff"/>
 
-
                 </asp:Calendar>
+                    <div class="fc-button-group">
+                        <div class="fc-button-group">
+                            <button type="button" class="fc-month-button fc-button fc-state-default fc-corner-left fc-state-active">month</button>
+                            <button type="button" class="fc-basicWeek-button fc-button fc-state-default">week</button>
+                            <button type="button" class="fc-basicDay-button fc-button fc-state-default">day</button>
+                            <button type="button" class="fc-agenda-button fc-button fc-state-default fc-corner-right">agenda</button>
+                            <%--bucar como implementar al calendario--%>
+                        </div>
+                    </div>
+                     
+
+                </div>
+                
                 <br />
-                <div>
+                <div class="col-md-2">
                     <asp:Button ID="btnAgregarEvento" runat="server" Text="Agregar Evento" OnClick="btnAgregarEvento_Click"/>
                 </div>
+
+                <div class="card shadow mb-4">
+             <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Lista de Eventos:></h6>
+            </div>
+              <div class="card-body">
+                  <div class="table-responsive">
+                      <table class="table table-bordered" id="dataTable" style="width:100%; padding:0";>
+                          <thead>
+                            <tr>
+                              <th>Hora</th>
+                              <th>Evento</th>
+                              <th>Descripción</th>
+                              <th>Acción</th>
+                            </tr>
+                          </thead>
+                           <tbody>
+                               <asp:Literal runat="server" ID="LitListaEventos"></asp:Literal>
+                               </tbody>
+                       </table>
+                  </div>
+            </div> 
+        </div>
+
+
                 
                 &nbsp;
             </div>

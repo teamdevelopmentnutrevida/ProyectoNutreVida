@@ -17,5 +17,28 @@ namespace BL
         }
 
 
+        public List<Evento> ListaEvento(string fecha)
+        {
+            List<Evento> ListaEvento = new List<Evento>();
+            List<TOEvento> listaTO = daoEvento.listaEventos(fecha);
+            if (listaTO != null)
+            {
+                foreach (TOEvento evento in listaTO)
+                {
+                    ListaEvento.Add(new Evento(evento.nombreEvento, evento.decripcionEvento, evento.horaInicio, evento.horaFin, evento.fecha));
+                }
+                return ListaEvento;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public void eliminarEvento(string nombre, string fecha) {
+            daoEvento.eliminarEvento(nombre, fecha);
+        }
+
+
     }
 }
