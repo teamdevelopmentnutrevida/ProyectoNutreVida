@@ -8,10 +8,27 @@ namespace BL
 {
     public class ClasificacionIMC
     {
+
+        private double[] insuficiencia = { 0, 18.5 };
+
         private double[] normal = {18.5,24.9};
 
         private double[] sobrepeso = { 25, 29.9 };
 
+        private double[] obesidadI = { 30, 34.9 };
+
+        private double[] obesidadII = { 35, 39.9 };
+
+        private double[] obesidadIII = { 40, 100 };
+
+
+        public double[] Insuficiencia
+        {
+            get
+            {
+                return insuficiencia;
+            }
+        }
 
         public double[] Normal
         {
@@ -26,6 +43,30 @@ namespace BL
             get
             {
                 return sobrepeso;
+            }
+        }
+
+        public double[] ObesidadI
+        {
+            get
+            {
+                return obesidadI;
+            }
+        }
+
+        public double[] ObesidadII
+        {
+            get
+            {
+                return obesidadII;
+            }
+        }
+
+        public double[] ObesidadIII
+        {
+            get
+            {
+                return obesidadIII;
             }
         }
     }

@@ -101,6 +101,14 @@ namespace BL
             GrasaGram = grasaGram;
             Grasakcal = grasakcal;
         }
+
+        public Antropometria(int cedula, decimal talla,decimal peso, decimal edad) {
+            Cedula = cedula;
+            Talla = talla;
+            Peso = peso;
+            Edad = edad;
+        }
+
         public Antropometria() { }
 
     }
