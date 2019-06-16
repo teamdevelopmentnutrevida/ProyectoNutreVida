@@ -57,8 +57,8 @@ namespace BL
                     tallaFormato = talla;
                 }
                 else {
-                    String x = (talla + "").Insert(1, ".");
-                    tallaFormato = double.Parse(x);
+                    
+                    tallaFormato = (talla/100);
                 }               
 
                 double IMC = peso / Math.Pow(tallaFormato, 2);
