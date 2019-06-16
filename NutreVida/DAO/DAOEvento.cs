@@ -22,15 +22,15 @@ namespace DAO
 
             SqlCommand cmd = new SqlCommand(query1, conexion);
 
-            try
-            {
+            //try
+            //{
 
                 //Asignacion de parametros.
-                cmd.Parameters.AddWithValue("@antec", evento.nombreEvento);
-                cmd.Parameters.AddWithValue("@patol", evento.decripcionEvento);
-                cmd.Parameters.AddWithValue("@consLic", evento.horaInicio);
-                cmd.Parameters.AddWithValue("@fum", evento.horaFin);
-                cmd.Parameters.AddWithValue("@fechEx", evento.fecha);
+                cmd.Parameters.AddWithValue("@tit", evento.nombreEvento);
+                cmd.Parameters.AddWithValue("@des", evento.decripcionEvento);
+                cmd.Parameters.AddWithValue("@horaInicio", evento.horaInicio);
+                cmd.Parameters.AddWithValue("@horaFina", evento.horaFin);
+                cmd.Parameters.AddWithValue("@fecha", evento.fecha);
 
                 //Validacion del estado de la conexion.
                 if (conexion.State != ConnectionState.Open)
@@ -43,11 +43,11 @@ namespace DAO
                 conexion.Close();
 
                 return true;
-            }
-            catch (SqlException)
-            {
-                return false;
-            }
+            //}
+            //catch (SqlException)
+            //{
+            //    return false;
+            //}
         }
 
 

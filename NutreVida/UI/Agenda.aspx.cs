@@ -16,9 +16,12 @@ namespace UI
 
         protected void btnAgregarEvento_Click(object sender, EventArgs e)
         {
-            string evento = Calendar1.SelectedDate.ToShortDateString();
-            string Valor = Calendar1.SelectedDate.ToShortDateString();
-            Response.Redirect("Evento.aspx?Valor=" + Valor);
+            string dia = DateTime.Now.Day + "";
+            string mes = DateTime.Now.Month + "";
+            string anno = DateTime.Now.Year + "";
+            string valor = anno + "-" + mes + "-" + dia;
+
+            Response.Redirect("Evento.aspx?Valor=" + valor);
         }
     }
 }

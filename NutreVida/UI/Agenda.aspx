@@ -13,18 +13,11 @@
 
         public void cargarCalendario()
         {
-            BL.Evento eve1 = new BL.Evento("Cita", "Odontologia", "inicio", "fin", "16/06/2019");
-            quemados.Add(eve1);
-
-
-            quemados.Add(new BL.Evento("Spa", "sdc", "sdc", "sdc", "17/06/2019"));
-            quemados.Add(new BL.Evento("fiesta", "sdc", "sdc", "sdc", "18/06/2019"));
-            quemados.Add(new BL.Evento("cumpleaños", "sd", "sdc", "sd", "30/06/2019"));
         }
 
         void DayRender(Object source, DayRenderEventArgs e)
         {
-            //recorrre para insertar
+            //recorrre para insertar directamente al calendario
 
             cargarCalendario();
 
@@ -48,13 +41,6 @@
             string Valor = anno + "-" + mes + "-" + dia;
             Response.Redirect("Evento.aspx?Valor=" + Valor);
 
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            string evento = Calendar1.SelectedDate.Year.ToString();
-            string Valor = Calendar1.SelectedDate.ToShortDateString();
-            Response.Redirect("Evento.aspx?Valor=" + Valor);
         }
 
     </script>
@@ -86,7 +72,12 @@
 
                     <SelectedDayStyle BackColor="Yellow"
                         ForeColor="Red"></SelectedDayStyle>
+
                     <WeekendDayStyle BackColor="gray"></WeekendDayStyle>
+
+                    <TodayDayStyle BorderColor="#3366ff" Font-Underline="true" BackColor="#3366ff"/>
+
+
                 </asp:Calendar>
                 <br />
                 <div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace UI
     {
 
         public string value = "";
-        
+        public ManejadorEvento agenda = new ManejadorEvento();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -109,7 +110,8 @@ namespace UI
             string droInicio = DropDownList1.SelectedValue;
             string driFin = DropDownList2.SelectedValue;
             string fecha = value;
-            //agenda.GuardarEvento(evento, descripcion, droInicio, driFin, fecha);
+            agenda.guardarEvento(evento, descripcion, droInicio, driFin, fecha);
+            Response.Redirect("Agenda.aspx");
         }
     }
 }
