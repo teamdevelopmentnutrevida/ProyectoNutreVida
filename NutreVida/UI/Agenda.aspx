@@ -16,6 +16,7 @@
             BL.Evento eve1 = new BL.Evento("Cita", "Odontologia", "inicio", "fin", "16/06/2019");
             quemados.Add(eve1);
 
+
             quemados.Add(new BL.Evento("Spa", "sdc", "sdc", "sdc", "17/06/2019"));
             quemados.Add(new BL.Evento("fiesta", "sdc", "sdc", "sdc", "18/06/2019"));
             quemados.Add(new BL.Evento("cumpleaños", "sd", "sdc", "sd", "30/06/2019"));
