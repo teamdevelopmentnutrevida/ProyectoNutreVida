@@ -100,6 +100,16 @@ namespace TO
             GrasaGram = grasaGram;
             Grasakcal = grasakcal;
         }
+
+
+        public TOAntropometria(int cedula, decimal talla, decimal peso, decimal edad)
+        {
+            Cedula = cedula;
+            Talla = talla;
+            Peso = peso;
+            Edad = edad;
+        }
+
         public TOAntropometria() { }
 
     }
