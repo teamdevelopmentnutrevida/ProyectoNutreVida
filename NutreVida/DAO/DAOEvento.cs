@@ -51,11 +51,10 @@ namespace DAO
         }
 
 
-        public List<TOEvento> listaEventos()
+        public List<TOEvento> listaEventos(string fecha)
         {
             List<TOEvento> lista = new List<TOEvento>();
-
-
+            
             try
             {
                 SqlCommand buscar = new SqlCommand("SELECT * FROM Evento", conexion);
@@ -66,7 +65,7 @@ namespace DAO
                 {
                     while (lector.Read())
                     {
-                        lista.Add(new TOEvento(lector.GetString(0), lector.GetString(1), lector.GetString(2), lector.GetString(3), lector.GetString(4)));
+                        lista.Add(new TOEvento(lector["Titulo"].ToString(), lector["Descripcion"].ToString(), lector["HoraInicio"].ToString(), lector["HoraFin"].ToString(), lector["Fecha"].ToString()));
                     }
 
                     lector.Close();
@@ -78,6 +77,22 @@ namespace DAO
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+
+        public Boolean eliminarEvento(string nombre, string fecha) {
+            try
+            {
+                SqlCommand eliminar = new SqlCommand("delete from Evento where Titulo = @nom and Fecha = @fec;", conexion);
+                conexion.Open();
+                eliminar.ExecuteNonQuery();
+                conexion.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 

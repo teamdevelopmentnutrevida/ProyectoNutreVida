@@ -22,6 +22,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label lbMenor20;
         
         /// <summary>
+        /// lbCantidadMenor20 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCantidadMenor20;
+        
+        /// <summary>
         /// lb20_30 control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lb20_30;
+        
+        /// <summary>
+        /// lbCantidad20_30 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCantidad20_30;
         
         /// <summary>
         /// lb30_40 control.
@@ -40,6 +58,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label lb30_40;
         
         /// <summary>
+        /// lbCantidad30_40 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCantidad30_40;
+        
+        /// <summary>
         /// lbMayor40 control.
         /// </summary>
         /// <remarks>
@@ -47,5 +74,14 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbMayor40;
+        
+        /// <summary>
+        /// lbCantidadMayor40 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCantidadMayor40;
     }
 }

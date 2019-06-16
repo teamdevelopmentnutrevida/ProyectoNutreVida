@@ -21,13 +21,21 @@ namespace UI
         {
             BL.Reportes report = new BL.Reportes();
 
-            lbMenor20.Text = (report.obtenerPromedioPesoEdad(0, 20).Contains(",") ? decimal.Parse(report.obtenerPromedioPesoEdad(0, 20)).ToString("N2") : report.obtenerPromedioPesoEdad(0, 20));
-            
-            lb20_30.Text = (report.obtenerPromedioPesoEdad(20, 30).Contains(",") ? decimal.Parse(report.obtenerPromedioPesoEdad(20, 30)).ToString("N2") : report.obtenerPromedioPesoEdad(20, 30));
+            lbMenor20.Text = (report.obtenerPromedioPesoEdad(0, 20).Contains(",") || report.obtenerPromedioPesoEdad(0, 20).Contains(".") ? decimal.Parse(report.obtenerPromedioPesoEdad(0, 20)).ToString("N2") : report.obtenerPromedioPesoEdad(0, 20));
 
-            lb30_40.Text = (report.obtenerPromedioPesoEdad(30, 40).Contains(",") ? decimal.Parse(report.obtenerPromedioPesoEdad(30, 40)).ToString("N2") : report.obtenerPromedioPesoEdad(30, 40));
+            lbCantidadMenor20.Text = report.obtenerCantidadPersonasEdad(0, 20) + "";
 
-            lbMayor40.Text = (report.obtenerPromedioPesoEdad(40, 100).Contains(",") ? decimal.Parse(report.obtenerPromedioPesoEdad(40, 100)).ToString("N2") : report.obtenerPromedioPesoEdad(40, 100));
+            lb20_30.Text = (report.obtenerPromedioPesoEdad(20, 30).Contains(",") || report.obtenerPromedioPesoEdad(20, 30).Contains(".") ? decimal.Parse(report.obtenerPromedioPesoEdad(20, 30)).ToString("N2") : report.obtenerPromedioPesoEdad(20, 30));
+
+            lbCantidad20_30.Text = report.obtenerCantidadPersonasEdad(20, 30) + "";
+
+            lb30_40.Text = (report.obtenerPromedioPesoEdad(30, 40).Contains(",") || report.obtenerPromedioPesoEdad(30, 40).Contains(".") ? decimal.Parse(report.obtenerPromedioPesoEdad(30, 40)).ToString("N2") : report.obtenerPromedioPesoEdad(30, 40));
+
+            lbCantidad30_40.Text = report.obtenerCantidadPersonasEdad(30, 40) + "";
+
+            lbMayor40.Text = (report.obtenerPromedioPesoEdad(40, 100).Contains(",") || report.obtenerPromedioPesoEdad(40, 100).Contains(".") ? decimal.Parse(report.obtenerPromedioPesoEdad(40, 100)).ToString("N2") : report.obtenerPromedioPesoEdad(40, 100));
+
+            lbCantidadMayor40.Text = report.obtenerCantidadPersonasEdad(40, 100) + "";
 
             contarClasificacion(report);
 
