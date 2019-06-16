@@ -52,12 +52,13 @@ namespace BL
 
                 double tallaFormato;
 
-                if ((talla + "").Contains(","))
+                if ((talla + "").Contains(",") || (talla + "").Contains("."))
                 {
                     tallaFormato = talla;
                 }
                 else {
-                    tallaFormato = double.Parse((talla + "").Insert(1, ","));
+                    String x = (talla + "").Insert(1, ".");
+                    tallaFormato = double.Parse(x);
                 }               
 
                 double IMC = peso / Math.Pow(tallaFormato, 2);
