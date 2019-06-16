@@ -420,7 +420,7 @@
 							 <div class="row">
                                 <div class="col-form-label">
                                     <label class="form-label margen" for="tEdad">Edad:</label>
-                                    <asp:TextBox ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" step="any" oninput="validity.valid||(value='');" step="any" data-toggle="tooltip" title="Edad"></asp:TextBox>
+                                    <asp:TextBox ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" step="any" data-toggle="tooltip" title="Edad"></asp:TextBox>
                                     <label class="form-label margen" for="tPesoActual">Peso Actual:</label>
                                     <asp:TextBox ID="txtPesoActual" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" step="any" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso actual"></asp:TextBox>
                                     <label class="form-label" for="tPesoMaxTeoria">Peso máximo en teoría:</label>
