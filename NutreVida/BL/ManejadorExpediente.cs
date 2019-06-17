@@ -12,6 +12,12 @@ namespace BL
     {
 
         DAOClienteNutricion daoClienteNutricion = new DAOClienteNutricion();
+
+
+        /**
+                * Método publico que trae de la Base de datos la lista de los clientes 
+                * @param ced, cedula del cliente
+                */
         public List<ClienteNutricion> ListaClientes()
         {
             List<ClienteNutricion> ListaClient = new List<ClienteNutricion>();
