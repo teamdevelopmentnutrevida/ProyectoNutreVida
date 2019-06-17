@@ -35,7 +35,7 @@ namespace UI
                          "<ul class=\"navbar-nav ml-auto\"><li class=\"nav-item dropdown\">" +
                          "<a class=\"dropdown-toggle\" href=\"#\" id=\"" + "drop" + c.nombreEvento + "\" role=\"button\" data-toggle=\"dropdown\" ></a>" +
                          "<ul class=\"dropdown-menu\" role=\"menu\">" +
-                         "<li class=\"dropdown-item\" onclick=\"EliminarEvento(" + c.nombreEvento + ", " + c.fecha + ")\">Eliminar</li>" +
+                         "<li class=\"dropdown-item\" onclick=\"href='#'\">Eliminar</li>" +
                          "<li class=\"dropdown-item\" onclick=\"ModificarEvento(" + c.nombreEvento + ", " + c.fecha + ")\">Modificar</li>" +
                          "</ul></li></ul></td></tr>";
                 }

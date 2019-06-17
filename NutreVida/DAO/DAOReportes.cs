@@ -71,6 +71,8 @@ namespace DAO
             return cantidadPersonas;
         }
 
+
+
         public List<TOAntropometria> obtenerIMCEdades()
         {
 

@@ -101,7 +101,7 @@
         <div class="row">
 
             <div class="col-xl-8 col-lg-7">
-                
+
                 <!-- Bar Chart -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -113,10 +113,25 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            
+            <!-- Donut Chart -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
         </div>
 
@@ -124,13 +139,14 @@
     <!-- /.container-fluid -->
 
     <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/chart-bar-demo.js"></script>
 
+    <!-- Script Bar chart -->
     <script type="text/javascript">
         // Bar Chart Example
         var ctx = document.getElementById("myBarChart");
@@ -205,6 +221,38 @@
         });
     </script>
 
-
+    <!-- Script Bar chart -->
+    <script>
+        var ctx = document.getElementById("myPieChart");
+        var myPieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ["Hombres", "Mujeres"],
+                datasets: [{
+                    data: [10, 50],
+                    backgroundColor: ['#4e73df', '#1cc88a'],
+                    hoverBackgroundColor: ['#2e59d9', '#17a673'],
+                    hoverBorderColor: "rgba(234, 236, 244, 1)",
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    caretPadding: 10,
+                },
+                legend: {
+                    display: true
+                },
+                cutoutPercentage: 80,
+            },
+        });
+    </script>
 
 </asp:Content>

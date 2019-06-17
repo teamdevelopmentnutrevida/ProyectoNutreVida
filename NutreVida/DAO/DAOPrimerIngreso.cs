@@ -15,9 +15,6 @@ namespace DAO
 
         public bool CrearUsuario(TOClienteNutricion tOCliente)
         {
-            //falta en la parte grafica ape1,ape2,estadoCivil
-            //rol se quema
-            //ingres se toma del sistema
             String query1 = "Insert into Usuario values(@ced,@cor,@nomb,@whats,@tel,@ape1,@ape2,@rol);";
             String query2 = "Insert into Cliente_Nutricion values(@fechNac,@sexo,@estCiv,@resid,@ocup,@ced,@ingres);";
 
@@ -179,6 +176,7 @@ namespace DAO
 
         public bool GuardarAntropometria(TOAntropometria antropom, TOPorciones porcion, List<TODistribucionPorciones> listDistrib)
         {
+            //muslos
             String query1 = "Insert into Antropometria values(@ced, @talla, @pesIdeal, @edad,@pmb, @peso,@pesmax,@imc, @gAnaliz, @grbascu, @gbbi,@gbbd, @gbpi, @gbpd," +
                 "@gbtronc, @aguacorp, @masaOsea, @complex,@edadMetab,@cint,@abdomn,@cader,@muslo,@cbm,@circunf,@grviser,@pormuscul,@pmbi,@pmpd,@pmbd," +
                  "@pmpi,@pmtronco,@observ,@geb,@get,@chopor,@chogram,@chokcal,@protpor,@protgram,@protkcal,@grporc,@grgram,@grkcal)";
@@ -190,8 +188,8 @@ namespace DAO
             SqlCommand cmd = new SqlCommand(query1, conexion);
             SqlCommand cmd2 = new SqlCommand(query2, conexion);
 
-            try
-            {
+            //try
+            //{
 
                 cmd.Parameters.AddWithValue("@ced", antropom.Cedula); cmd.Parameters.AddWithValue("@talla", antropom.Talla);
                 cmd.Parameters.AddWithValue("@pesIdeal", antropom.PesoIdeal); cmd.Parameters.AddWithValue("@edad", antropom.Edad);
@@ -250,11 +248,11 @@ namespace DAO
                     }
                 }
                 return true;
-        }
-            catch (SqlException)
-            {
-                return false;
-            }
+        //}
+            //catch (SqlException)
+            //{
+            //    return false;
+            //}
         }
 
 
