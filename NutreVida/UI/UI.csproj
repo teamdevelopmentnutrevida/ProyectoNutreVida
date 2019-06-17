@@ -77,6 +77,7 @@
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="Evento.aspx" />
     <Content Include="Expedientes.aspx" />
     <Content Include="img\favicon.ico" />
     <Content Include="img\fondo.jpg" />
@@ -93,6 +94,7 @@
     <Content Include="Notificacion.aspx" />
     <Content Include="PrimerIngreso.aspx" />
     <Content Include="OlvidoContrasena.aspx" />
+    <Content Include="Reportes.aspx" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
@@ -1696,6 +1698,13 @@
     <Compile Include="ControlSeguridad.aspx.designer.cs">
       <DependentUpon>ControlSeguridad.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Evento.aspx.cs">
+      <DependentUpon>Evento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Evento.aspx.designer.cs">
+      <DependentUpon>Evento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Expedientes.aspx.cs">
       <DependentUpon>Expedientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1739,6 +1748,13 @@
       <DependentUpon>Principal.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes.aspx.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes.aspx.designer.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
