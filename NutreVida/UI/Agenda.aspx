@@ -79,6 +79,11 @@
                     <TodayDayStyle BorderColor="#3366ff" Font-Underline="true" BackColor="#3366ff"/>
 
                 </asp:Calendar>
+                   
+
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+                   
+
                     <div class="fc-button-group">
                         <div class="fc-button-group">
                             <button type="button" class="fc-month-button fc-button fc-state-default fc-corner-left fc-state-active">month</button>
@@ -122,6 +127,31 @@
                 &nbsp;
             </div>
         </div>
-
+      
     </form>
+
+
+
+      <script type="text/javascript">
+          function Eliminar_Click(nombre, fecha) {
+              $.ajax({
+                  type: "POST",
+                  url: '/Agenda.aspx/EliminarEvento',
+                  data: nombre + fecha,
+                  contentType: "application/json; charset=utf-8",
+                  dataType: "json",
+                  async: true,
+                  success: function () {
+                      location.reload();
+                      mensaje();
+                  },
+                  error: function () {
+                      error();
+                  }
+              });
+          }
+
+      </script>
+
+
 </asp:Content>

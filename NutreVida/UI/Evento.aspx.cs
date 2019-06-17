@@ -11,34 +11,51 @@ namespace UI
     public partial class Evento : System.Web.UI.Page
     {
 
-        public string value = "";
+        public Object value = "";
+        string val = "";
+        BL.Evento evento = new BL.Evento();
         public ManejadorEvento agenda = new ManejadorEvento();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             value = Request.QueryString["Valor"];
 
-            String fecha = "";
+            if (value.Equals("BL.Evento")) // hacer validacion
+            {
+                evento = (BL.Evento)value;
+            }
+            else {
+                val = value.ToString();
+                string fecha = formatoFecha(val);
+                iFecha.Value = fecha;
+            }
+           
+            llenarDrop(DropDownList1);
+            llenarDrop(DropDownList2);
+        }
 
-            String[] fechaDividida = value.Split('-');
-            foreach (String x in fechaDividida) {
+
+        public string formatoFecha(string fechaPre) {
+            string fechaNue = "";
+
+            String[] fechaDividida = fechaPre.Split('-');
+            foreach (String x in fechaDividida)
+            {
                 if (x.Count() == 2)
                 {
 
-                    fecha += "-" + x;
+                    fechaNue += "-" + x;
                 }
-                else if(x.Count() == 1) {
+                else if (x.Count() == 1)
+                {
 
-                    fecha += "-0" + x;
+                    fechaNue += "-0" + x;
                 }
                 else
-                    fecha += x;
+                    fechaNue += x;
 
             }
-
-            iFecha.Value = fecha;
-            llenarDrop(DropDownList1);
-            llenarDrop(DropDownList2);
+            return fechaNue;
         }
 
 
@@ -109,7 +126,7 @@ namespace UI
             string descripcion = txtDescripcion.Text;
             string droInicio = DropDownList1.SelectedValue;
             string driFin = DropDownList2.SelectedValue;
-            string fecha = value;
+            string fecha = val;
             agenda.guardarEvento(evento, descripcion, droInicio, driFin, fecha);
             Response.Redirect("Agenda.aspx");
         }
