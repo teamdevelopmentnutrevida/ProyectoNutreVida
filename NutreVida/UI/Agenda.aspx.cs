@@ -10,7 +10,7 @@ namespace UI
 {
     public partial class Agenda : System.Web.UI.Page
     {
-        ManejadorEvento manejador = new ManejadorEvento();
+        public static ManejadorEvento manejador = new ManejadorEvento();
         List<BL.Evento> lista = new List<BL.Evento>();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,8 +35,8 @@ namespace UI
                          "<ul class=\"navbar-nav ml-auto\"><li class=\"nav-item dropdown\">" +
                          "<a class=\"dropdown-toggle\" href=\"#\" id=\"" + "drop" + c.nombreEvento + "\" role=\"button\" data-toggle=\"dropdown\" ></a>" +
                          "<ul class=\"dropdown-menu\" role=\"menu\">" +
-                         "<li class=\"dropdown-item\" onclick=\"EliminarEvento(" + c.nombreEvento + ", " + c.fecha + ")\">Eliminar</li>" +
-                         "<li class=\"dropdown-item\" onclick=\"ModificarEvento(" + c.nombreEvento + ", " + c.fecha + ")\">Modificar</li>" +
+                        "<div><li class=\"dropdown-item\" onclick=\"Eliminar_Click(" + c.nombreEvento + ", " + c.fecha + ")\">Eliminar</li> </div>" +
+                         "<li class=\"dropdown-item\" onclick=\" ModificarEvento(" + c.nombreEvento + ", " + c.decripcionEvento + ", " + c.horaInicio + ", " + c.horaFin + ", " + c.fecha + ")\">Modificar </li>" +
                          "</ul></li></ul></td></tr>";
                 }
 
@@ -44,13 +44,16 @@ namespace UI
         }
 
 
-        private void EliminarEvento(string nombre, string fecha)
+        [System.Web.Services.WebMethod]
+        public static void EliminarEvento(string nombre, string fecha)
         {
             manejador.eliminarEvento(nombre, fecha);
         }
-        private void ModificarEvento(string nombre, string fecha)
+        private void ModificarEvento(string nombre, string descripcion, string horaInicio, string horaFin, string fecha)
         {
-
+            BL.Evento evento = new BL.Evento(nombre, descripcion, horaInicio, horaFin, fecha);
+            Response.Redirect("Evento.aspx?Valor=" + evento);
+            manejador.eliminarEvento(nombre, fecha);
         }
 
         protected void btnAgregarEvento_Click(object sender, EventArgs e)
@@ -65,6 +68,12 @@ namespace UI
             string anno = DateTime.Now.Year + "";
             string valor = anno + "-" + mes + "-" + dia;
             return valor;
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            BL.Evento eve = new BL.Evento("d", "h", "12", "11", DateTime.Now.ToShortDateString());
+            Response.Redirect("Evento.aspx?Valor=" + eve);
         }
     }
 }

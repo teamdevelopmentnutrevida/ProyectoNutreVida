@@ -107,6 +107,7 @@ namespace UI
             string apellido1 = txtPrimerApellido.Text;
             string apellido2 = txtSegundoApellido.Text;
             DateTime fecha_Nacimiento;
+
             //Validacion de fecha vacia, guarda la fecha del sistema
             if (string.IsNullOrEmpty(iFechaNac.Value))
             {
@@ -115,7 +116,10 @@ namespace UI
             else
                 fecha_Nacimiento = DateTime.Parse(iFechaNac.Value);
 
+			
+
             char sexo = char.Parse(dropSexo.SelectedValue);
+
             string estado_Civil = dropEstadoCivil.SelectedValue;
             char whatsApp = '0';
             if (dropWhats.SelectedValue.Equals("Sí"))
@@ -300,15 +304,23 @@ namespace UI
             else
                 pesoIdeal = decimal.Parse(txtPesoIdeal.Text);
 
-            decimal edad;
-            if (string.IsNullOrEmpty(txtEdad.Text))
-            {
-                edad = 0;
-            }
-            else
-                edad = decimal.Parse(txtEdad.Text);
 
-            decimal pMB;
+
+			//if (string.IsNullOrEmpty(txtEdad.Text))
+			//{
+			//    edad = 0;
+			//}
+			//else
+			//    edad = decimal.Parse(txtEdad.Text);
+
+			//edad calculada
+			int edad;
+			edad = DateTime.Now.Year - fecha_Nacimiento.Year;
+
+			txtEdad.Text = edad.ToString();
+
+
+			decimal pMB;
             if (string.IsNullOrEmpty(txtPMB.Text))
             {
                 pMB = 0;
@@ -332,13 +344,16 @@ namespace UI
             else
                 pesoMaxTeoria = decimal.Parse(txtPesoMaxTeoria.Text);
 
+			//IMC calculado
             decimal iMC;
-            if (string.IsNullOrEmpty(txtIMC.Text))
-            {
-                iMC = 0;
-            }
-            else
-                iMC = decimal.Parse(txtIMC.Text);
+			iMC = peso / (decimal)Math.Sqrt((double)talla);
+
+            //if (string.IsNullOrEmpty(txtIMC.Text))
+            //{
+            //    iMC = 0;
+            //}
+            //else
+            //    iMC = decimal.Parse(txtIMC.Text);
 
             decimal porcGrasaAnalizador;
             if (string.IsNullOrEmpty(txtGrasaAnalizador.Text))
@@ -492,19 +507,36 @@ namespace UI
 
             string observaciones = txtObservaciones.Text;
 
-            decimal gEB;
-            if (string.IsNullOrEmpty(txtGEB.Text))
-            { gEB = 0; }
-            else
-                gEB = decimal.Parse(txtGEB.Text);
 
-            decimal gET;
-            if (string.IsNullOrEmpty(txtGET.Text))
-            { gET = 0; }
-            else
-                gET = decimal.Parse(txtGET.Text);
+			//GEB calculado
+            decimal gEB= 0;
 
-            decimal cHOPorc;
+			if (edad > 10 && sexo.Equals('F'))
+			{
+				gEB = 655 + ((decimal)(9.6) * pesoIdeal) + ((decimal)(1.8) * talla) - (decimal)(4.7 * edad);
+			} else if (edad > 10 && sexo.Equals('M'))
+			{
+				gEB = (decimal)(66.5) + ((decimal)(13.7) * pesoIdeal) + (5 * talla) - (decimal)(6.8 * edad);
+			} else if (edad < 10)
+			{
+				gEB = (decimal)22.1 + ((decimal)(31.05) * pesoIdeal) + ((decimal)(1.16) * talla);
+
+			}
+
+			//if (string.IsNullOrEmpty(txtGEB.Text))
+			//{ gEB = 0; }
+			//else
+			//    gEB = decimal.Parse(txtGEB.Text);
+
+
+			
+			decimal gET = 0;
+			if (string.IsNullOrEmpty(txtGET.Text))
+			{ gET = 0; }
+			else
+				gET = decimal.Parse(txtGET.Text);
+
+			decimal cHOPorc;
             if (string.IsNullOrEmpty(choPorc.Text))
             { cHOPorc = 0; }
             else
@@ -692,5 +724,69 @@ namespace UI
         }
 
 
-    }
+		//metodo para calcular geb y mostrarlo en el textbox
+		public void calcularGEB()
+		{
+			DateTime fecha_Nacimiento;
+
+			if (string.IsNullOrEmpty(iFechaNac.Value))
+			{
+				fecha_Nacimiento = DateTime.Now;
+			}
+			else
+				fecha_Nacimiento = DateTime.Parse(iFechaNac.Value);
+
+			decimal talla;
+			if (string.IsNullOrEmpty(txtTalla.Text))
+			{
+				talla = 0;
+			}
+			else
+				talla = decimal.Parse(txtTalla.Text);
+
+			decimal pesoIdeal;
+			if (string.IsNullOrEmpty(txtPesoIdeal.Text))
+			{
+				pesoIdeal = 0;
+			}
+			else
+				pesoIdeal = decimal.Parse(txtPesoIdeal.Text);
+
+			char sexo = char.Parse(dropSexo.SelectedValue);
+			decimal gEB = 0;
+			int edad;
+			edad = DateTime.Now.Year - fecha_Nacimiento.Year;
+
+			if (edad > 10 && sexo.Equals('F'))
+			{
+				gEB = 655 + ((decimal)(9.6) * pesoIdeal) + ((decimal)(1.8) * talla) - (decimal)(4.7 * edad);
+			}
+			else if (edad > 10 && sexo.Equals('M'))
+			{
+				gEB = (decimal)(66.5) + ((decimal)(13.7) * pesoIdeal) + (5 * talla) - (decimal)(6.8 * edad);
+			}
+			else if (edad < 10)
+			{
+				gEB = (decimal)22.1 + ((decimal)(31.05) * pesoIdeal) + ((decimal)(1.16) * talla);
+
+			}
+			txtGEB.Text = gEB.ToString();
+			
+		}
+
+		protected void dropSexo_TextChanged(object sender, EventArgs e)
+		{
+			calcularGEB();
+		}
+
+		protected void txtPesoIdeal_TextChanged(object sender, EventArgs e)
+		{
+			calcularGEB();
+		}
+
+		protected void txtTalla_TextChanged(object sender, EventArgs e)
+		{
+			calcularGEB();
+		}
+	}
 }
