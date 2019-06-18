@@ -24,7 +24,6 @@ namespace UI
                 lblIncorrecto.Text = "Usuario incorrecto";
             }
             else {
-                lblIncorrecto.Text = "Usuario correcto! Se le enviará un correo con una contraseña temporal";
             }
         }
     }

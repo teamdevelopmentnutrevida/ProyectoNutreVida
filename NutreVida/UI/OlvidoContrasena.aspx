@@ -18,6 +18,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
     <link href="css/InicioSesionStyles.css" rel="stylesheet" />
 
+    <link rel="shortcut icon" href="img/favicon.ico" />
 
     <title>NutreVida</title>
 </head>
@@ -67,14 +68,20 @@
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtCorreo" runat="server" placeholder="Digite el correo" CssClass="form-control form-control-user col-md-10"></asp:TextBox>
                                             <br />
-                                            <asp:Label ID="lblIncorrecto" runat="server" Text="" style="color:red"></asp:Label>
+                                            <asp:Label ID="lblIncorrecto" runat="server" Text="" Style="color: red"></asp:Label>                                            
                                         </div>
+                                        
                                     </div>
-
                                     <div class="form-group">
                                         <div class="col-sm-10 divBoton">
                                             <asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass=" btn btn-primary btn-user btn-block col-md-5" OnClick="btnEnviar_Click" />
                                         </div>
+
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <div class="col-sm-10 ">
+                                        <asp:Label ID="lblCorrecto" runat="server" Text="Se le enviará un correo con una contraseña temporal" style="font-size:larger; font-stretch:extra-condensed"></asp:Label>
                                     </div>
 
                                 </div>
