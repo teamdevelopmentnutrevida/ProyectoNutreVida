@@ -12,13 +12,13 @@ namespace BL
     {
         DAOPrimerIngreso daoClienteNutricion = new DAOPrimerIngreso();
 
-        public Boolean CrearCliente(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso)
+        public Boolean CrearCliente(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso, string consultorio)
         {
             if (cedula.Equals(""))
             {
                 return false;
             }  
-            TOClienteNutricion usuario = new TOClienteNutricion(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso);
+            TOClienteNutricion usuario = new TOClienteNutricion(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso, consultorio);
             return daoClienteNutricion.CrearUsuario(usuario);
         }
 
@@ -84,8 +84,8 @@ namespace BL
             antropom.GB_PD = antrop.GB_PD; antropom.GB_Tronco = antrop.GB_Tronco; antropom.AguaCorporal = antrop.AguaCorporal;
             antropom.MasaOsea = antrop.MasaOsea; antropom.Complexión = antrop.Complexión; antropom.EdadMetabolica = antrop.EdadMetabolica;
             antropom.Cintura = antrop.Cintura; antropom.Abdomen = antrop.Abdomen; antropom.Cadera = antrop.Cadera;
-            antropom.Muslo = antrop.Muslo; antropom.CBM = antrop.CBM; antropom.CircunfMunneca = antrop.CircunfMunneca;
-            antropom.PorcentMusculo = antrop.PorcentMusculo; antropom.PM_BI = antrop.PM_BI; antropom.PM_PD = antrop.PM_PD; antropom.PM_BD = antrop.PM_BD;
+            antropom.MusloDer = antrop.MusloDer; antropom.MusloIzq = antrop.MusloIzq; antropom.CBM = antrop.CBM; antropom.CircunfMunneca = antrop.CircunfMunneca;
+			antropom.PorcentGViceral = antrop.PorcentGViceral; antropom.PorcentMusculo = antrop.PorcentMusculo; antropom.PM_BI = antrop.PM_BI; antropom.PM_PD = antrop.PM_PD; antropom.PM_BD = antrop.PM_BD;
             antropom.PM_PI = antrop.PM_PI; antropom.PM_Tronco = antrop.PM_Tronco; antropom.Observaciones = antrop.Observaciones;
             antropom.GEB = antrop.GEB; antropom.GET = antrop.GET; antropom.CHOPorc = antrop.CHOPorc;
             antropom.CHOGram = antrop.CHOGram; antropom.CHO_kcal = antrop.CHO_kcal; antropom.ProteinaPorc = antrop.ProteinaPorc;
@@ -99,11 +99,6 @@ namespace BL
             return daoClienteNutricion.GuardarAntropometria(antropom, porci, lista);
 
         }
-
-		public int calcularEdad()
-		{
-			return 0;
-		}
 
     }
 }

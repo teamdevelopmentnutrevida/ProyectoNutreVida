@@ -84,12 +84,14 @@ namespace DAO
         public Boolean eliminarEvento(string nombre, string fecha) {
             try
             {
-                SqlCommand eliminar = new SqlCommand("delete from Evento where Titulo = @nom and Fecha = @fec;", conexion);
-                conexion.Open();
+            SqlCommand eliminar = new SqlCommand("delete from Evento where Titulo = @nom and Fecha = @fec;", conexion);
+            eliminar.Parameters.AddWithValue("@nom", nombre);
+            eliminar.Parameters.AddWithValue("@fec", fecha);
+            conexion.Open();
                 eliminar.ExecuteNonQuery();
                 conexion.Close();
                 return true;
-            }
+        }
             catch (Exception)
             {
                 return false;
@@ -97,6 +99,24 @@ namespace DAO
         }
 
 
-    }
+        public void modificarEvento(string nombre, string descripcion, string horaInicio, string horaFin, string fecha) {
+            try
+            {
+                SqlCommand eliminar = new SqlCommand("UPDATE Evento set Titulo = @nom, Descripcion = @dec, HoraInicio = @horaInicio, HoraFin = @horaFin, Fecha = @fecha where Titulo = @nom  AND fecha = @fecha;", conexion);
+                eliminar.Parameters.AddWithValue("@nom", nombre);
+                eliminar.Parameters.AddWithValue("@fec", fecha);
+                conexion.Open();
+                eliminar.ExecuteNonQuery();
+                conexion.Close();
+                
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+
+}
 
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL;
 
 namespace UI
 {
@@ -16,7 +17,15 @@ namespace UI
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
+            BL.ManjeadorOlvidoContrasenna mane = new ManjeadorOlvidoContrasenna();
 
+            if (!mane.validarCorreoCorrecto(txtCorreo.Text))
+            {
+                lblIncorrecto.Text = "Usuario incorrecto";
+            }
+            else {
+                lblIncorrecto.Text = "Usuario correcto! Se le enviará un correo con una contraseña temporal";
+            }
         }
     }
 }
