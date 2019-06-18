@@ -1,16 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="Cliente.aspx.cs" Inherits="UI.Cliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+                <script type="text/javascript">
+                    function GetCliente() {
+                        var ced = localStorage.getItem("Ced");
+                        alert(ced);
+                       $('ced1').val(ced);
+                    }
+                </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form3" runat="server">
+        <asp:HiddenField ID="HiddenCed" runat="server" />
          <div class="container">
 
              <h2>Información Personal</h2>
              
                 <div class="row">
                     <div class="col-form-label">
-                        <label class="form-label" for="tCedula">Cédula:</label>
+                        <label class="form-label" for="tCedula">Cédula:</label> 
                         <asp:TextBox ID="ced1" oninput="validity.valid||(value='');" runat="server" CssClass="form-control" Font-Size="Small" type="number" min="0" data-toggle="tooltip" title="Cedula de identidad"></asp:TextBox>
                         <label class="form-label" for="tOcup">Ocupación:</label>
                         <asp:TextBox ID="txtOcup" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Ocupación"></asp:TextBox>                          
@@ -104,33 +111,29 @@
                         <br />
                         <h5>Consumo de:</h5>
 
-                        <div class="col-11" style="width: 50%;">
+                        <div class="row">
+                          <div class="col-form-label">
                             <label class="form-label" for="tLicor">Licor:</label>
                             <asp:DropDownList runat="server" ID="DropLicor" CssClass="form-control" Font-Size="Small" OnSelectedIndexChanged="DropLicor_SelectedIndexChanged" AutoPostBack="true" data-toggle="tooltip" title="Licor">
                                 <asp:ListItem Value="Sí"> Sí </asp:ListItem>
                                 <asp:ListItem Selected="True" Value="No"> No </asp:ListItem>
                             </asp:DropDownList>
-                        </div>
-
-                        <div class="col-11 margen" style="width: 50%;">
-                            <br />
-                            <label class="form-label" for="tFrecLic">Frecuencia:</label>
-                            <asp:TextBox ID="txtFrecLicor" runat="server" CssClass="form-control" Font-Size="Small" Enabled="false" data-toggle="tooltip" title="Frecuencia de licor"></asp:TextBox>
-                        </div>
-                        <div class="col-11" style="width: 50%;">
-                            <label class="form-label" for="tFum">Fumado:</label>
+                               <label class="form-label" for="tFum">Fumado:</label>
                             <asp:DropDownList runat="server" ID="DropFuma" CssClass="form-control" Font-Size="Small" OnSelectedIndexChanged="DropFuma_SelectedIndexChanged" AutoPostBack="true" data-toggle="tooltip" title="Fumado">
                                 <asp:ListItem Value="Sí"> Sí </asp:ListItem>
                                 <asp:ListItem Selected="True" Value="No"> No </asp:ListItem>
                             </asp:DropDownList>
-                        </div>
-
-                        <div class="col-11 margen" style="width: 50%;">
-                            <br />
-                            <label class="form-label" for="tfrecFum">Frecuencia:</label>
+                         </div>
+                          <div class="col-1"></div>
+                         <div class="col-form-label" style="width:50%">
+                          
+                            <label class="form-label" for="tFrecLic">Frecuencia:</label>
+                            <asp:TextBox ID="txtFrecLicor" runat="server"  CssClass="form-control" Font-Size="Small" Enabled="false" data-toggle="tooltip" title="Frecuencia de licor"></asp:TextBox>
+                         <label class="form-label" for="tfrecFum">Frecuencia:</label>
                             <asp:TextBox ID="txtFrecFuma" runat="server" CssClass="form-control" Font-Size="Small" Enabled="false" data-toggle="tooltip" title="Frecuencia de fumado"></asp:TextBox>
+                       
                         </div>
-
+                    </div>
                         <br />
 
                         <h3>Medicamentos o suplementos que consume:</h3>
@@ -178,141 +181,90 @@
 
                   <%--   Habitos alimentarios--%>
                  <div id="HA" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-HA">
-                     <h5>Habitos Alimentarios</h5>
-                     <div class="col-11 margen" style="width: 50%; float: left;">
-                            <div class="col-11 margen" style="width: 100%;">
-                                <br />
-                                <label class="form-label" for="tComD">¿Cuántas veces come al día? </label>
+                   <%--  <h5>Habitos Alimentarios</h5>--%>
+                    <div class="row">
+                          <div class="col-form-label">
+                              <h5>Habitos Alimentarios:</h5>  
+                              <label class="form-label" for="tComD">¿Cuántas veces come al día? </label>
                                 <asp:TextBox ID="numeroComidas" runat="server" type="number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Cantidad de comidas al día" />
-                            </div>
-                            <div class="col-11 margen" style="width: 100%;">
-                                <label class="form-label" for="tComeHoraDia">¿Acostumbra a comer a las horas al día? </label>
-                                <br />
-                                <asp:DropDownList runat="server" ID="ComeHoras" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="¿Come al día?">
+                               <label class="form-label" for="tComeHoraDia">¿Acostumbra a comer a las horas al día? </label>
+                               <asp:DropDownList runat="server" ID="ComeHoras" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="¿Come al día?">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
-                            </div>
-                            <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tComeExprss">¿Cuántas veces a la semana come fuera o pide un express? </label>
-                                <br />
                                 <asp:TextBox ID="txtEspres" runat="server" CssClass="form-control" Font-Size="Small" type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cantidad de consumo"></asp:TextBox>
-                            </div>
-                            <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tGenerComeAfuera">¿Generalmente que come fuera de la casa?</label>
-                                <br />
                                 <asp:TextBox ID="txtQueComeFuera" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Comida fuera de la casa"></asp:TextBox>
-                            </div>
-                            <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tAzucarB">¿Cuánta azúcar le agrega a las bebidas?</label>
-                                <br />
                                 <asp:TextBox ID="cantAzucar" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Cantidad de azúcar en las bebidas"></asp:TextBox>
-                            </div>
-                            <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tAzucarB">¿Los alimentos que cocina los elabora generalmente? </label>
-                                <br />
-                                <asp:DropDownList runat="server" ID="dropCocinaCon" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Elaboración de alimentos">
+                               <asp:DropDownList runat="server" ID="dropCocinaCon" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Elaboración de alimentos">
                                     <asp:ListItem Selected="True" Value="aceite">Aceite</asp:ListItem>
                                     <asp:ListItem Value="horneado"> Horneado </asp:ListItem>
                                     <asp:ListItem Value="hervido"> Hervido </asp:ListItem>
                                     <asp:ListItem Value="micro"> Microondas </asp:ListItem>
                                 </asp:DropDownList>
-                            </div>
-                            <div class="col-11 margen" style="width: 100%;">
                                 <label class="form-label" for="tAguaDia">¿Cuántos vasos de agua toma al día? </label>
-                                <br />
-                                <asp:TextBox ID="txtCuantaAgua" runat="server" type="number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Agua por día" />
-                            </div>
-                            <div class="col-11 margen" style="width: 100%;">
-                                <label class="form-label" for="tAder">¿Agrega salsa tomate, mayonesa, mantequilla o natilla a la comida? </label>
-                                <br />
+                               <asp:TextBox ID="txtCuantaAgua" runat="server" type="number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Agua por día" />
+                               <label class="form-label" for="tAder">¿Agrega salsa tomate, mayonesa, mantequilla o natilla a la comida? </label>
                                 <asp:DropDownList runat="server" ID="dropAderezos" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Aderezos a la comida">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                            <br />
-                        </div>
-
-                        <div style="width: 50%; float: left;">
+                            <div class="col-1"></div>
+                            <div class="col-form-label">
                             <h5>Le gusta la mayoría de:</h5>
-
-                            <div class="margen">
-                                <asp:Label ID="lbFrutas" runat="server" Text="Frutas:"></asp:Label>
+                                <label class="form-label" for="lbFrutas">Frutas:</label>
                                 <asp:DropDownList runat="server" ID="dropFrutas" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="frutas">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
-                            </div>
-
-                            <div class="margen">
-                                <asp:Label ID="lbVeget" runat="server" Text="Vegetales:"></asp:Label>
+                                <label class="form-label" for="lbVeget">Vegetales:</label>
                                 <asp:DropDownList runat="server" ID="dropVeget" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Vegetales">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
-                            </div>
-
-                            <div class="margen">
-                                <asp:Label ID="lbLeche" runat="server" Text="Leche:"></asp:Label>
+                                <label class="form-label" for="lbLeche">Leche:</label>
                                 <asp:DropDownList runat="server" ID="dropLeche" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Leche">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
-                            </div>
-
-                            <div class="margen">
-                                <asp:Label ID="lbHuevo" runat="server" Text="Huevo:"></asp:Label>
+                                 <label class="form-label" for="lbHuevo">Huevo:</label>
                                 <asp:DropDownList runat="server" ID="dropHuevo" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Huevo">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
-                            </div>
-
-                            <div class="margen">
-                                <asp:Label ID="lbYogurt" runat="server" Text="Yogurt:"></asp:Label>
+                                 <label class="form-label" for="lbYogurt">Yogurt:</label>
                                 <asp:DropDownList runat="server" ID="dropYogurt" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Yogurt">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
-                            </div>
-
-                            <div class="margen">
-                                <asp:Label ID="lbCarne" runat="server" Text="Carne:"></asp:Label>
+                                 <label class="form-label" for="lbCarne">Carne:</label>
                                 <asp:DropDownList runat="server" ID="dropCarne" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Carne">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
-                            </div>
-
-                            <div class="margen">
-                                <asp:Label ID="lbQueso" runat="server" Text="Queso:"></asp:Label>
+                                 <label class="form-label" for="lbQueso">Queso:</label>
                                 <asp:DropDownList runat="server" ID="dropQueso" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Queso">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
-                            </div>
-
-                            <div class="margen">
-                                <asp:Label ID="lbAguacate" runat="server" Text="Aguacate:"></asp:Label>
+                                 <label class="form-label" for="lbAguacate">Aguacate:</label>
                                 <asp:DropDownList runat="server" ID="dropAguacate" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Aguacate">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
-                            </div>
-
-                            <div class="margen">
-                                <asp:Label ID="lbSemillas" runat="server" Text="Semillas:"></asp:Label>
+                                 <label class="form-label" for="lbSemillas">Semillas:</label>
                                 <asp:DropDownList runat="server" ID="dropSemillas" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Semillas">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-
                         </div>
-                     <br />
-                     <br />
-                    <%-- <div class="row">--%>
+
+                     <div class="row">
                         <h5>Recordatorio de 24 Horas</h5>
                         <table class="table">
                             <tr>
@@ -370,7 +322,7 @@
                                     <asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescColacion" runat="server"></asp:TextBox></td>
                             </tr>
                         </table>
-                   <%-- </div>--%>
+                    </div>
          
             
                   </div> <%--tab hab aliment--%>
@@ -381,78 +333,78 @@
                       <div class="row">
                                 <div class="col-form-label">
                                     <label class="form-label" for="tEdad">Edad:</label>
-                                    <asp:TextBox ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad"></asp:TextBox>
+                                    <asp:TextBox ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad"></asp:TextBox>
                                     <label class="form-label" for="tPesoActual">Peso Actual:</label>
-                                    <asp:TextBox ID="txtPesoActual" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso actual"></asp:TextBox>
+                                    <asp:TextBox ID="txtPesoActual" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso actual"></asp:TextBox>
                                     <label class="form-label" for="tPesoMaxTeoria">Peso máximo en teoría:</label>
-                                    <asp:TextBox ID="txtPesoMaxTeoria" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso Máximo en teoría"></asp:TextBox>
+                                    <asp:TextBox ID="txtPesoMaxTeoria" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso Máximo en teoría"></asp:TextBox>
                                     <label class="form-label" for="tPesoIdeal">Peso meta o ideal: </label>
-                                    <asp:TextBox ID="txtPesoIdeal" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso meta o ideal"></asp:TextBox>
+                                    <asp:TextBox ID="txtPesoIdeal" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso meta o ideal"></asp:TextBox>
                                     <label class="form-label" for="tEdadMetab">Edad metabólica: </label>
-                                    <asp:TextBox ID="txtEdadMetabolica" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad metabólica"></asp:TextBox>
+                                    <asp:TextBox ID="txtEdadMetabolica" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad metabólica"></asp:TextBox>
                                     <label class="form-label" for="tCintura">Cintura:</label>
-                                    <asp:TextBox ID="txtCintura" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cintura"></asp:TextBox>
+                                    <asp:TextBox ID="txtCintura" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cintura"></asp:TextBox>
                                     <label class="form-label" for="tAbdm">Abdomen:</label>
-                                    <asp:TextBox ID="txtAbdomen" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Abdomen"></asp:TextBox>
+                                    <asp:TextBox ID="txtAbdomen" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Abdomen"></asp:TextBox>
                                     <label class="form-label" for="tCadera">Cadera:</label>
-                                    <asp:TextBox ID="txtCadera" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cadera"></asp:TextBox>
+                                    <asp:TextBox ID="txtCadera" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cadera"></asp:TextBox>
                                    </div>
                                   <div class="col-1"></div>
                                 <div class="col-form-label">
                                     <label class="form-label" for="tMusloIzq">Muslo Izquierdo:</label>
-                                    <asp:TextBox ID="txtMusloIzq" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Muslo Izquierdo"></asp:TextBox>
+                                    <asp:TextBox ID="txtMusloIzq" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Muslo Izquierdo"></asp:TextBox>
                                     <label class="form-label" for="tMusloDer">Muslo Derecho:</label>
-                                    <asp:TextBox ID="txtMusloDer" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Muslo Derecho"></asp:TextBox>
+                                    <asp:TextBox ID="txtMusloDer" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Muslo Derecho"></asp:TextBox>
                                     <label class="form-label" for="tPMB">PMB: </label>
-                                    <asp:TextBox ID="txtPMB" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PMB"></asp:TextBox>
+                                    <asp:TextBox ID="txtPMB" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PMB"></asp:TextBox>
                                     <label class="form-label" for="tCMB">CMB: </label>
-                                    <asp:TextBox ID="txtCMB" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="CMB"></asp:TextBox>
+                                    <asp:TextBox ID="txtCMB" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="CMB"></asp:TextBox>
                                     <label class="form-label" for="tAgua">Agua: </label>
-                                    <asp:TextBox ID="txtAgua" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Agua"></asp:TextBox>
+                                    <asp:TextBox ID="txtAgua" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Agua"></asp:TextBox>
                                     <label class="form-label" for="tComplexión">Complexión: </label>
-                                    <asp:TextBox ID="txtComplexion" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Complexión"></asp:TextBox>
+                                    <asp:TextBox ID="txtComplexion" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Complexión"></asp:TextBox>
                                    <label class="form-label" for="tMasaOsea">Masa ósea: </label>
-                                    <asp:TextBox ID="txtMasaOsea" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Masa ósea"></asp:TextBox>
+                                    <asp:TextBox ID="txtMasaOsea" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Masa ósea"></asp:TextBox>
                                      <label class="form-label" for="tTalla">Talla: </label>
-                                    <asp:TextBox ID="txtTalla" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Talla"></asp:TextBox>
+                                    <asp:TextBox ID="txtTalla" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Talla"></asp:TextBox>
                                     </div>
                           <div class="col-1"></div>
                                <div class="col-form-label">
                                    <label class="form-label" for="tGrasaAnalizador">%Grasa analizador:</label>
-                                    <asp:TextBox ID="txtGrasaAnalizador" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Grasa analizador"></asp:TextBox>
+                                    <asp:TextBox ID="txtGrasaAnalizador" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Grasa analizador"></asp:TextBox>
                                      <label class="form-label" for="tGrasVisceral">% Grasa Visceral:</label>
-                                    <asp:TextBox ID="txtGarsaViceral" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Grasa visceral"></asp:TextBox>
+                                    <asp:TextBox ID="txtGarsaViceral" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Grasa visceral"></asp:TextBox>
                                      <label class="form-label" for="tGrasBascu">% Grasa báscula: </label>
-                                    <asp:TextBox ID="txtGrasaBascula" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Grasa báscula"></asp:TextBox>
+                                    <asp:TextBox ID="txtGrasaBascula" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Grasa báscula"></asp:TextBox>
                                     <label class="form-label" for="tGB_BI">BI:</label>
-                                    <asp:TextBox ID="txtGB_BI" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="GB_BI"></asp:TextBox>
+                                    <asp:TextBox ID="txtGB_BI" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="GB_BI"></asp:TextBox>
                                     <label class="form-label" for="tGB_BD">BD:</label>
-                                    <asp:TextBox ID="txtGB_BD" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="GB_BD"></asp:TextBox>
+                                    <asp:TextBox ID="txtGB_BD" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="GB_BD"></asp:TextBox>
                                     <label class="form-label" for="tGB_PI">PI:</label>
                                     <asp:TextBox ID="txtGB_PI" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="GB_PI"></asp:TextBox>
                                     <label class="form-label" for="tGB_PD">PD:</label>
                                     <asp:TextBox ID="txtGB_PD" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="GB_PD"></asp:TextBox>
                                     <label class="form-label" for="tGB_Tronco">Tronco:</label>
-                                    <asp:TextBox ID="txtGB_Trono" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="GB_Tronco"></asp:TextBox>
+                                    <asp:TextBox ID="txtGB_Trono" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="GB_Tronco"></asp:TextBox>
                                     </div>
                                 <div class="col-1"></div>
                                 <div class="col-form-label">
                                      <label class="form-label" for="tCircunfMun">Circunferencia muñeca: </label>
-                                    <asp:TextBox ID="txtCircunferencia" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Circunferencia de la muñeca"></asp:TextBox>
+                                    <asp:TextBox ID="txtCircunferencia" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Circunferencia de la muñeca"></asp:TextBox>
                                      <label class="form-label" for="tIMC">IMC:</label>
-                                    <asp:TextBox ID="txtIMC" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="IMC"></asp:TextBox>
+                                    <asp:TextBox ID="txtIMC" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="IMC"></asp:TextBox>
                                     <label class="form-label" for="tPorcentMusculo">% Músculo:</label>
-                                    <asp:TextBox ID="txtPorcentaje" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Músculo"></asp:TextBox>
+                                    <asp:TextBox ID="txtPorcentaje" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Músculo"></asp:TextBox>
                                     <label class="form-label" for="tPM_BI">BI: </label>
-                                    <asp:TextBox ID="txtPM_BI" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_BI"></asp:TextBox>
+                                    <asp:TextBox ID="txtPM_BI" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_BI"></asp:TextBox>
                                     <label class="form-label" for="tPM_BD">BD:</label>
-                                    <asp:TextBox ID="txtPM_BD" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_BD"></asp:TextBox>
+                                    <asp:TextBox ID="txtPM_BD" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_BD"></asp:TextBox>
                                     <label class="form-label" for="tPM_PI">PI:</label>
-                                    <asp:TextBox ID="txtPM_PI" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_PI"></asp:TextBox>
+                                    <asp:TextBox ID="txtPM_PI" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_PI"></asp:TextBox>
                                     <label class="form-label" for="tPM_PD">PD:</label>
-                                    <asp:TextBox ID="txtPM_PD" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_PD"></asp:TextBox>
+                                    <asp:TextBox ID="txtPM_PD" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_PD"></asp:TextBox>
                                     <label class="form-label" for="tPM_Tronco">Tronco</label>
-                                    <asp:TextBox ID="txtPM_Tronco" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_Tronco"></asp:TextBox>      
+                                    <asp:TextBox ID="txtPM_Tronco" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_Tronco"></asp:TextBox>      
                                 </div>
                             </div>
                        
@@ -464,12 +416,12 @@
 
                             <div class="col-form-label">
                                 <label class="form-label" for="tGEB">GEB:</label>
-                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" ID="txtGEB" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="GEB"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" step="any" ID="txtGEB" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="GEB"></asp:TextBox>
                            </div>
                                 <div class="col-1"></div>
                                 <div class="col-form-label">
                                 <label class="form-label" for="tGET">GET:</label>
-                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" ID="txtGET" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="GET"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" step="any" ID="txtGET" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="GET"></asp:TextBox>
                             </div>
                         </div>
                      <br />
@@ -483,29 +435,29 @@
                             <tr>
                                 <th scope="row">CHO</th>
                                 <td>
-                                    <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="choPorc" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox TextMode="Number" step="any" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="choPorc" runat="server"></asp:TextBox></td>
                                 <td>
-                                    <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="choGram" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox TextMode="Number" step="any" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="choGram" runat="server"></asp:TextBox></td>
                                 <td>
-                                    <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="choKcal" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox TextMode="Number" step="any" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="choKcal" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <th scope="row">Proteínas</th>
                                 <td>
-                                    <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="ProtPorc" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="ProtPorc" runat="server"></asp:TextBox></td>
                                 <td>
-                                    <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="ProtGram" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="ProtGram" runat="server"></asp:TextBox></td>
                                 <td>
-                                    <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="protKcal" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="protKcal" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <th scope="row">Grasas</th>
                                 <td>
-                                    <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="GrasPorc" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="GrasPorc" runat="server"></asp:TextBox></td>
                                 <td>
-                                    <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="GrasGram" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="GrasGram" runat="server"></asp:TextBox></td>
                                 <td>
-                                    <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="GrasKcal" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="GrasKcal" runat="server"></asp:TextBox></td>
                             </tr>
                         </table>
 
@@ -514,42 +466,41 @@
                         <div style="width: 25%; float: left;">
                             <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tLeche">Leche:</label><asp:Label runat="server" ID="Leche" Font-Size="Medium"></asp:Label>
-                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcLeche" runat="server"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcLeche" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tCarnes">Carnes:</label><asp:Label runat="server" ID="Carnes" Font-Size="Medium"></asp:Label>
-                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcCarnes" runat="server"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcCarnes" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div style="width: 25%; float: left;">
                             <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tVegetales">Vegetales:</label><asp:Label runat="server" ID="PVegetales" Font-Size="Medium"></asp:Label>
-                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcVeget" runat="server"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcVeget" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tGrasas">Grasas:</label><asp:Label runat="server" ID="PGrasas" Font-Size="Medium"></asp:Label>
-                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcGrasas" runat="server"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcGrasas" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div style="width: 25%; float: left;">
                             <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tFruts">Frutas:</label><asp:Label runat="server" ID="PFrutas" Font-Size="Medium"></asp:Label>
-                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcFrutas" runat="server"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcFrutas" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tAzucares">Azúcares:</label><asp:Label runat="server" ID="PAzucares" Font-Size="Medium"></asp:Label>
-                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcAzuca" runat="server"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcAzuca" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div style="width: 25%; float: left;">
                             <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tHarinas">Harinas:</label><asp:Label runat="server" ID="PHarinas" Font-Size="Medium"></asp:Label>
-                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcHarinas" runat="server"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcHarinas" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tSuplem">Suplementos:</label><asp:Label runat="server" ID="PSuplemnt" Font-Size="Medium"></asp:Label>
-                                <asp:TextBox TextMode="Number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcSuplem" runat="server"></asp:TextBox>
-
+                                <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcSuplem" runat="server"></asp:TextBox>
                                 <br />
                                 <br />
 
@@ -620,7 +571,7 @@
 
                 <%-- Seguimiento Semanal--%>
                  <div id="SS" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-SS">
-                      <div class="form-container">
+               
                             <h5>Seguimiento de pesaje semanal:</h5>
                             
                             <div class="row">
@@ -658,7 +609,7 @@
                                 <asp:Literal ID="LitSeguimiento" runat="server" ></asp:Literal>
                         </table>
 
-                        </div>
+                    
                      
                         
                   </div> <%--tab Seg Semanal--%>
@@ -786,8 +737,8 @@
                                </div>
                                 <div class="col-1"></div>
                                 <div class="col-form-label">
-                                     <label class="form-label" for="tCircunfMun">Circunferencia muñeca: </label>
-                                    <asp:TextBox ID="SegAntCircunfM" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Circunferencia de la muñeca"></asp:TextBox>
+                                     <label class="form-label" for="tCircunfCintura">Circunferencia cintura: </label>
+                                    <asp:TextBox ID="SegAntCircunfCint" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Circunferencia de la cintura"></asp:TextBox>
                                      <label class="form-label" for="tCadeSegAnt">Cadera:</label>
                                     <asp:TextBox ID="SegAntCadera" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cadera"></asp:TextBox>
                                     <label class="form-label" for="tMusloIzq">Muslo Izquierdo:</label>

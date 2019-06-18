@@ -30,15 +30,10 @@ namespace UI
                 foreach (ClienteNutricion c in lista)
                 {
                  
-                    LitListaCliente.Text += "<tr><td><a href=\"Cliente.aspx?Cedula="+c.Cedula+"\">"+c.Cedula+"</a></td>" +
+                    LitListaCliente.Text += "<tr><td onclick=\"CargarCliente()\"><a href=\"\" onclick=\"CargarCliente()\"> "+c.Cedula+"</a></td>" +
                          "<td>"+c.Nombre +" "+c.Apellido1+"</td>"+
-                         "<td>" +
-                         "<ul class=\"navbar-nav ml-auto\"><li class=\"nav-item dropdown\">"+
-                         "<a class=\"dropdown-toggle\" href=\"#\" id=\""+"drop"+c.Cedula+"\" role=\"button\" data-toggle=\"dropdown\" ></a>"+
-                         "<ul class=\"dropdown-menu\" role=\"menu\">"+
-                         "<li class=\"dropdown-item\" onclick=\"EliminarCliente("+c.Cedula+")\">Eliminar</li>"+
-                         "<li class=\"dropdown-item\" onclick=\"Deshabilitar("+c.Cedula+")\">Deshabilitar</li>"+
-                         "</ul></li></ul></td></tr>";
+                         "<td><a href=\"\" onclick=\"EliminarCliente("+c.Cedula+")\">Eliminar<a>" +
+                        "</td></tr>";
                 }
 
             }
@@ -46,13 +41,18 @@ namespace UI
 
         private void EliminarCliente(string ced)
         {
-
+            Response.Write(ced+"prueba eliminar");
         }
         private void Deshabilitar(string ced)
         {
 
         }
 
+        protected void hyperlink1_Click(object sender, EventArgs e,string r)
+        {
+            string ced = r;
+            Response.Write(ced + "prueba eliminar");
 
+        }
     }
 }

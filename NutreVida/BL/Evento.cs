@@ -24,6 +24,6 @@ namespace BL
         public string fecha { set; get; }
 
 
-
+        public Evento() { }
     }
 }

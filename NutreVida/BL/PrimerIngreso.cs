@@ -100,5 +100,10 @@ namespace BL
 
         }
 
+		public int calcularEdad()
+		{
+			return 0;
+		}
+
     }
 }
