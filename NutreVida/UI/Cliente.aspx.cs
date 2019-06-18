@@ -18,24 +18,44 @@ namespace UI
         private string Cedula = "";
         private static List<SeguimientoSemanal> listaSeguimientos = new List<SeguimientoSemanal>();
         private static ManejadorSeguimientos manejadorSeg = new ManejadorSeguimientos();
+        private static ManejadorExpediente manejExpediente = new ManejadorExpediente();
         private static ManejadorErrores manejError = new ManejadorErrores();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Cedula = Convert.ToString(Request.QueryString["Cedula"]);
-            ced1.Text = Cedula;
             if (!IsPostBack)
             {
-                if (Cedula != "")
+                string key = "";
+                string javascript = "GetCliente();";
+                if (!Page.ClientScript.IsStartupScriptRegistered(key))
                 {
-                    CargarSeguimientoSemanal(Convert.ToInt32(Cedula));
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), key, javascript, true);
                 }
             }
+            
+            Cedula = HiddenCed.Value;
+            ced1.Text = 55 +"";
+            //if (!IsPostBack)
+            //{
+            //    if (Cedula != "")
+            //    {
+            //        CargarSeguimientoSemanal(Convert.ToInt32(Cedula));
+            //    }
+            //}
            
 
         }
+
+
+        /**
+        * Método publico que carga la seccion de la información personal del cliente seleccionado 
+        * @param ced, cedula del cliente
+        */
         public void CargarInfoPersonal()
         {
-
+            if (Cedula != "")
+            {
+               
+            }
         }
         public void CargarHistorialMedico() { }
         public void CargarHabitosAlimentarios() { }
