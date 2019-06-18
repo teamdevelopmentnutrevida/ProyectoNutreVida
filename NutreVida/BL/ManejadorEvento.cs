@@ -40,5 +40,10 @@ namespace BL
         }
 
 
+        public void modificarEvento(string nombre, string descripcion, string horaInicio, string horaFin, string fecha) {
+            daoEvento.modificarEvento(nombre,  descripcion,  horaInicio, horaFin, fecha);
+        }
+
+
     }
 }

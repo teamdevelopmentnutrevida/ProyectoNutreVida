@@ -19,7 +19,7 @@ namespace UI
                 CargarLista();
             }
         }
-
+      
         private void CargarLista()
         {
             LitListaEventos.Text = "";
@@ -29,14 +29,14 @@ namespace UI
                 foreach (BL.Evento c in lista)
                 {
 
-                    LitListaEventos.Text += "<tr><td> " + c.horaInicio + "-" + c.horaFin + "</a></td>" +
+                    LitListaEventos.Text += "<tr><td> " + c.horaInicio + "-" + c.horaFin + "</td>" +
                          "<td>" + c.nombreEvento + "</td>" + "<td>" + c.decripcionEvento + "</td>" +
                          "<td>" +
                          "<ul class=\"navbar-nav ml-auto\"><li class=\"nav-item dropdown\">" +
                          "<a class=\"dropdown-toggle\" href=\"#\" id=\"" + "drop" + c.nombreEvento + "\" role=\"button\" data-toggle=\"dropdown\" ></a>" +
                          "<ul class=\"dropdown-menu\" role=\"menu\">" +
-                        "<div><li class=\"dropdown-item\" onclick=\"Eliminar_Click(" + c.nombreEvento + ", " + c.fecha + ")\">Eliminar</li> </div>" +
-                         "<li class=\"dropdown-item\" onclick=\" ModificarEvento(" + c.nombreEvento + ", " + c.decripcionEvento + ", " + c.horaInicio + ", " + c.horaFin + ", " + c.fecha + ")\">Modificar </li>" +
+                        "<div><li class=\"dropdown-item\" onclick=\"Eliminar_Click('" + c.nombreEvento + "', '" + c.fecha + "')\">Eliminar</li> </div>" +
+                         "<li class=\"dropdown-item\" onclick=\" ModificarEvento('" + c.nombreEvento + "', '" + c.decripcionEvento + "', '" + c.horaInicio + "', '" + c.horaFin + "', '" + c.fecha + ")\">Modificar </li>" +
                          "</ul></li></ul></td></tr>";
                 }
 
@@ -48,12 +48,13 @@ namespace UI
         public static void EliminarEvento(string nombre, string fecha)
         {
             manejador.eliminarEvento(nombre, fecha);
+
         }
         private void ModificarEvento(string nombre, string descripcion, string horaInicio, string horaFin, string fecha)
         {
             BL.Evento evento = new BL.Evento(nombre, descripcion, horaInicio, horaFin, fecha);
             Response.Redirect("Evento.aspx?Valor=" + evento);
-            manejador.eliminarEvento(nombre, fecha);
+            manejador.modificarEvento(nombre, descripcion, horaInicio, horaFin, fecha);
         }
 
         protected void btnAgregarEvento_Click(object sender, EventArgs e)
@@ -70,10 +71,6 @@ namespace UI
             return valor;
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            BL.Evento eve = new BL.Evento("d", "h", "12", "11", DateTime.Now.ToShortDateString());
-            Response.Redirect("Evento.aspx?Valor=" + eve);
-        }
+
     }
 }

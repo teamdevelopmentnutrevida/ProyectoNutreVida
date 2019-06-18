@@ -53,6 +53,7 @@
     <Compile Include="ManejadorEvento.cs" />
     <Compile Include="ManejadorExpediente.cs" />
     <Compile Include="ManejadorSeguimientos.cs" />
+    <Compile Include="ManjeadorOlvidoContrasenna.cs" />
     <Compile Include="Medicamento.cs" />
     <Compile Include="Porciones.cs" />
     <Compile Include="PrimerIngreso.cs" />
