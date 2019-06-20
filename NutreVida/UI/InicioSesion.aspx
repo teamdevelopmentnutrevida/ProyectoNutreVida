@@ -64,7 +64,7 @@
 							<br />
 							<asp:TextBox TextMode="Password" ID="txtContras" runat="server" data-toggle="tooltip" title="Contraseña"></asp:TextBox>
 							<br />
-							<asp:Label ID="lblIncorrecto" runat="server" Text=""></asp:Label>
+							<asp:Label ID="lblIncorrecto" runat="server" Text="" Style="color: red"></asp:Label>
 							<br />
 							<asp:Label ID="lbOlvidoCont" runat="server" Text="<a href='/OlvidoContrasena.aspx'>Olvidé mi contraseña</a>" CssClass="control-label col-sm-2 small"></asp:Label>
 							<br />
