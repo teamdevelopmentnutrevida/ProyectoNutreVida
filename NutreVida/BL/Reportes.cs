@@ -31,10 +31,10 @@ namespace BL
 
         }
 
-        public List<Antropometria> obtenerIMCEdades() {
+        public List<Antropometria> obtenerIMCEdades(int edad1, int edad2) {
             DAOReportes reporte = new DAOReportes();
 
-            List<TOAntropometria> lisTO = reporte.obtenerIMCEdades();
+            List<TOAntropometria> lisTO = reporte.obtenerIMCEdades( edad1, edad2);
             List<Antropometria> list = new List<Antropometria>();
 
             foreach (TOAntropometria to in lisTO) {
@@ -44,11 +44,11 @@ namespace BL
             return list;
         }
 
-        public List<String> clasificacionIMC() {
+        public List<String> clasificacionIMC(int edad1, int edad2) {
 
             ClasificacionIMC clasificacion = new ClasificacionIMC();
 
-            List<Antropometria> list  = obtenerIMCEdades();
+            List<Antropometria> list  = obtenerIMCEdades( edad1, edad2);
 
             List<String> listClasi = new List<string>();
         
@@ -97,6 +97,13 @@ namespace BL
             }
 
             return listClasi;
+        }
+
+        public List<string> cantidadSexo(int edad1,int edad2) {
+
+            DAOReportes repo = new DAOReportes() { };
+
+            return repo.obtenerCantidadSexo( edad1, edad2);
         }
 
         

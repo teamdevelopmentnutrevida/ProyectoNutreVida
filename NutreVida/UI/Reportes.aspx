@@ -104,9 +104,24 @@
 
                 <!-- Bar Chart -->
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Clasificación</h6>
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Clasificación IMC</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Edad:</div>
+                                <a class="dropdown-item" href="#" onclick="Modificar_Edad(0,100)">Todo</a>
+                                <a class="dropdown-item" href="#" onclick="Modificar_Edad(0,20)">Menor a 20</a>
+                                <a class="dropdown-item" href="#" onclick="Modificar_Edad(20,30)">20 a 30</a>
+                                <a class="dropdown-item" href="#" onclick="Modificar_Edad(30,40)">30 a 40</a>
+                                <a class="dropdown-item" href="#" onclick="Modificar_Edad(40,100)">Mayor a 40</a>
+                            </div>
+                        </div>
                     </div>
+                    <!-- Card Body -->
                     <div class="card-body">
                         <div class="chart-bar">
                             <canvas id="myBarChart"></canvas>
@@ -120,7 +135,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Sexo</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -135,6 +150,29 @@
 
         </div>
 
+        <!-- Script modificar -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+        <script type="text/javascript">
+            function Modificar_Edad(edad1, edad2) {
+                let jsonData = JSON.stringify({ Edad1: edad1, Edad2: edad2 })
+                $.ajax({
+                    type: "POST",
+                    url: '/Reportes.aspx/ModificarEdad',
+                    data: jsonData,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: true,
+                    success: function () {                        
+                        location.reload();
+                    },
+                    error: function (response) {
+                        alert("No funciona")
+                    }
+                });
+            }
+
+        </script>
+
     </div>
     <!-- /.container-fluid -->
 
@@ -145,6 +183,8 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/chart-bar-demo.js"></script>
+
+
 
     <!-- Script Bar chart -->
     <script type="text/javascript">
@@ -188,7 +228,7 @@
                     yAxes: [{
                         ticks: {
                             min: 0,
-                            max: 50,
+                            max: 25,
                             maxTicksLimit: 10,
                             padding: 10,
                         },
@@ -221,7 +261,7 @@
         });
     </script>
 
-    <!-- Script Bar chart -->
+    <!-- Script Donut chart -->
     <script>
         var ctx = document.getElementById("myPieChart");
         var myPieChart = new Chart(ctx, {
@@ -229,7 +269,7 @@
             data: {
                 labels: ["Hombres", "Mujeres"],
                 datasets: [{
-                    data: [10, 50],
+                    data: [<%= M  %>, <%= F  %>],
                     backgroundColor: ['#4e73df', '#1cc88a'],
                     hoverBackgroundColor: ['#2e59d9', '#17a673'],
                     hoverBorderColor: "rgba(234, 236, 244, 1)",
