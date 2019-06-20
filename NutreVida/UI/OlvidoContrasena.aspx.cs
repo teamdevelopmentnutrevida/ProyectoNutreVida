@@ -24,6 +24,8 @@ namespace UI
                 lblIncorrecto.Text = "Usuario incorrecto";
             }
             else {
+                mane.enviarCorreo(txtCorreo.Text);
+                Response.Redirect("InicioSesion.aspx");
             }
         }
     }

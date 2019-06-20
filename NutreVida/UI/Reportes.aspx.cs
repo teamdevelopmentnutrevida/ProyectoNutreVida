@@ -10,6 +10,7 @@ namespace UI
 {
     public partial class Reportes : System.Web.UI.Page
     {
+        //Atributos clasificacion IMC
         public int Insuficiencia = 0;
         public int Normal = 0;
         public int Sobrepeso = 0;
@@ -17,8 +18,18 @@ namespace UI
         public int ObesidadII = 0;
         public int ObesidadIII = 0;
 
+        //Cantidad sexo
+        public int F = 0;
+        public int M = 0;
+
+        //Edad
+        public static int edad1;
+        public static int edad2;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            
             BL.Reportes report = new BL.Reportes();
 
             lbMenor20.Text = (report.obtenerPromedioPesoEdad(0, 20).Contains(",") || report.obtenerPromedioPesoEdad(0, 20).Contains(".") ? decimal.Parse(report.obtenerPromedioPesoEdad(0, 20)).ToString("N2") : report.obtenerPromedioPesoEdad(0, 20));
@@ -39,10 +50,12 @@ namespace UI
 
             contarClasificacion(report);
 
+            CantidadSexo();
+
         }
 
         private void contarClasificacion(BL.Reportes repo) {
-            List<String> listClasi = repo.clasificacionIMC();
+            List<String> listClasi = repo.clasificacionIMC(edad1,edad2);
 
             Insuficiencia = 0;
             Normal = 0;
@@ -76,6 +89,31 @@ namespace UI
                     ObesidadIII++;
                 }
             }
+        }
+
+        private void CantidadSexo() {
+            BL.Reportes repo = new BL.Reportes();
+            F = 0;
+            M = 0;
+
+            List<string> list = repo.cantidadSexo(edad1,edad2);
+
+            foreach (String x in list) {
+                if (x.Equals("F"))
+                {
+                    F++;
+                }
+                else
+                    M++;
+            }
+
+        }
+        [System.Web.Services.WebMethod]
+        public static void ModificarEdad(string Edad1, string Edad2)
+        {
+            edad1 = int.Parse(Edad1);
+            edad2 = int.Parse(Edad2);
+            
         }
     }
 }
