@@ -43,7 +43,7 @@
 
 					<div class="col-md-12 divlogo">
 
-						<asp:Image ID="Logo" runat="server" ImageUrl="~/img/nutriVital.jfif" data-toggle="tooltip" title="Nutre Vida" />
+						<asp:Image ID="Logo" runat="server" ImageUrl="~/img/orage 2.png" data-toggle="tooltip" title="Nutre Vida" />
 
 					</div>
 
@@ -56,7 +56,7 @@
 						<h3>Inicio de Sesión</h3>
 
 						<form id="InicioSesionForm" runat="server">
-							<asp:Label ID="lbCorreo" runat="server" Text="Correo electrónico:"></asp:Label>
+							<asp:Label ID="lbCorreo" runat="server" Text="Correo electrónico:" ></asp:Label>
 							<br />
 							<asp:TextBox ID="txtCorreo" TextMode="Email" runat="server" data-toggle="tooltip" title="Correo electrónico"></asp:TextBox>
                             <br />
