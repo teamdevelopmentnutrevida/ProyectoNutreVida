@@ -82,7 +82,9 @@
     <Content Include="img\favicon.ico" />
     <Content Include="img\fondo.jpg" />
     <Content Include="img\InicioSesion.jpg" />
+    <Content Include="img\Nombre.JPG" />
     <Content Include="img\nutriVital.jfif" />
+    <Content Include="img\orage 2.png" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="js\CambioClase.js" />

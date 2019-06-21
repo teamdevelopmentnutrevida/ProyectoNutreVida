@@ -11,13 +11,13 @@ namespace BL
 
         private double[] insuficiencia = { 0, 18.5 };
 
-        private double[] normal = {18.5,24.9};
+        private double[] normal = {18.5,25};
 
-        private double[] sobrepeso = { 25, 29.9 };
+        private double[] sobrepeso = { 25, 30 };
 
-        private double[] obesidadI = { 30, 34.9 };
+        private double[] obesidadI = { 30, 35 };
 
-        private double[] obesidadII = { 35, 39.9 };
+        private double[] obesidadII = { 35, 40 };
 
         private double[] obesidadIII = { 40, 100 };
 

@@ -22,15 +22,6 @@ namespace UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form3;
         
         /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
         /// txtCed control.
         /// </summary>
         /// <remarks>
@@ -40,67 +31,13 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtCed;
         
         /// <summary>
-        /// Label3 control.
+        /// txtOcup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
-        /// txtNombre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// txtPrimerApellido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrimerApellido;
-        
-        /// <summary>
-        /// Label13 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label13;
-        
-        /// <summary>
-        /// txtSegundoApellido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSegundoApellido;
-        
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.TextBox txtOcup;
         
         /// <summary>
         /// txtTel control.
@@ -112,13 +49,22 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtTel;
         
         /// <summary>
-        /// Label10 control.
+        /// ConsultDropList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
+        protected global::System.Web.UI.WebControls.DropDownList ConsultDropList;
+        
+        /// <summary>
+        /// txtNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
         
         /// <summary>
         /// txtEmail control.
@@ -128,6 +74,33 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        
+        /// <summary>
+        /// dropWhats control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropWhats;
+        
+        /// <summary>
+        /// txtPrimerApellido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrimerApellido;
+        
+        /// <summary>
+        /// dropEstadoCivil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropEstadoCivil;
         
         /// <summary>
         /// Label9 control.
@@ -148,58 +121,13 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtResid;
         
         /// <summary>
-        /// Label7 control.
+        /// txtSegundoApellido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
-        
-        /// <summary>
-        /// txtOcup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOcup;
-        
-        /// <summary>
-        /// dropEstadoCivil control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropEstadoCivil;
-        
-        /// <summary>
-        /// dropWhats control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropWhats;
-        
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// iFechaNac control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl iFechaNac;
+        protected global::System.Web.UI.WebControls.TextBox txtSegundoApellido;
         
         /// <summary>
         /// dropSexo control.
@@ -209,6 +137,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropSexo;
+        
+        /// <summary>
+        /// iFechaNac control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox iFechaNac;
         
         /// <summary>
         /// AntecedF control.
@@ -274,24 +211,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.DropDownList DropLicor;
         
         /// <summary>
-        /// labelFrecLic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelFrecLic;
-        
-        /// <summary>
-        /// txtFrecLicor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFrecLicor;
-        
-        /// <summary>
         /// DropFuma control.
         /// </summary>
         /// <remarks>
@@ -301,13 +220,13 @@ namespace UI {
         protected global::System.Web.UI.WebControls.DropDownList DropFuma;
         
         /// <summary>
-        /// labelFreFum control.
+        /// txtFrecLicor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelFreFum;
+        protected global::System.Web.UI.WebControls.TextBox txtFrecLicor;
         
         /// <summary>
         /// txtFrecFuma control.
@@ -463,15 +382,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.DropDownList dropAderezos;
         
         /// <summary>
-        /// lbFrutas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbFrutas;
-        
-        /// <summary>
         /// dropFrutas control.
         /// </summary>
         /// <remarks>
@@ -479,15 +389,6 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropFrutas;
-        
-        /// <summary>
-        /// lbVeget control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbVeget;
         
         /// <summary>
         /// dropVeget control.
@@ -499,15 +400,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.DropDownList dropVeget;
         
         /// <summary>
-        /// lbLeche control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbLeche;
-        
-        /// <summary>
         /// dropLeche control.
         /// </summary>
         /// <remarks>
@@ -515,15 +407,6 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropLeche;
-        
-        /// <summary>
-        /// lbHuevo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbHuevo;
         
         /// <summary>
         /// dropHuevo control.
@@ -535,15 +418,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.DropDownList dropHuevo;
         
         /// <summary>
-        /// lbYogurt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbYogurt;
-        
-        /// <summary>
         /// dropYogurt control.
         /// </summary>
         /// <remarks>
@@ -551,15 +425,6 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropYogurt;
-        
-        /// <summary>
-        /// lbCarne control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbCarne;
         
         /// <summary>
         /// dropCarne control.
@@ -571,15 +436,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.DropDownList dropCarne;
         
         /// <summary>
-        /// lbQueso control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbQueso;
-        
-        /// <summary>
         /// dropQueso control.
         /// </summary>
         /// <remarks>
@@ -589,15 +445,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.DropDownList dropQueso;
         
         /// <summary>
-        /// lbAguacate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAguacate;
-        
-        /// <summary>
         /// dropAguacate control.
         /// </summary>
         /// <remarks>
@@ -605,15 +452,6 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropAguacate;
-        
-        /// <summary>
-        /// lbSemillas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSemillas;
         
         /// <summary>
         /// dropSemillas control.
@@ -823,13 +661,22 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtCadera;
         
         /// <summary>
-        /// txtMuslo control.
+        /// txtMusloIzq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMuslo;
+        protected global::System.Web.UI.WebControls.TextBox txtMusloIzq;
+        
+        /// <summary>
+        /// txtMusloDer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMusloDer;
         
         /// <summary>
         /// txtPMB control.

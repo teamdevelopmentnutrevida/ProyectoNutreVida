@@ -15,11 +15,8 @@ namespace DAO
 
         public bool CrearUsuario(TOClienteNutricion tOCliente)
         {
-            //falta en la parte grafica ape1,ape2,estadoCivil
-            //rol se quema
-            //ingres se toma del sistema
             String query1 = "Insert into Usuario values(@ced,@cor,@nomb,@whats,@tel,@ape1,@ape2,@rol);";
-            String query2 = "Insert into Cliente_Nutricion values(@fechNac,@sexo,@estCiv,@resid,@ocup,@ced,@ingres);";
+            String query2 = "Insert into Cliente_Nutricion values(@fechNac,@sexo,@estCiv,@resid,@ocup,@ced,@ingres,@consult);";
 
             SqlCommand cmd = new SqlCommand(query1, conexion);
             SqlCommand cmd2 = new SqlCommand(query2, conexion);
@@ -44,8 +41,9 @@ namespace DAO
                 cmd2.Parameters.AddWithValue("@ocup", tOCliente.Ocupacion);
                 cmd2.Parameters.AddWithValue("@ced", tOCliente.Cedula);
                 cmd2.Parameters.AddWithValue("@ingres", DateTime.Now);
+				cmd2.Parameters.AddWithValue("@consult", tOCliente.Consultorio);
 
-                if (conexion.State != ConnectionState.Open)
+				if (conexion.State != ConnectionState.Open)
                 {
                     conexion.Open();
                 }
@@ -179,8 +177,9 @@ namespace DAO
 
         public bool GuardarAntropometria(TOAntropometria antropom, TOPorciones porcion, List<TODistribucionPorciones> listDistrib)
         {
+            //muslos
             String query1 = "Insert into Antropometria values(@ced, @talla, @pesIdeal, @edad,@pmb, @peso,@pesmax,@imc, @gAnaliz, @grbascu, @gbbi,@gbbd, @gbpi, @gbpd," +
-                "@gbtronc, @aguacorp, @masaOsea, @complex,@edadMetab,@cint,@abdomn,@cader,@muslo,@cbm,@circunf,@grviser,@pormuscul,@pmbi,@pmpd,@pmbd," +
+				"@gbtronc, @aguacorp, @masaOsea, @complex,@edadMetab,@cint,@abdomn,@cader,@muslo_Der,@muslo_Izq,@cbm,@circunf,@grviser,@pormuscul,@pmbi,@pmpd,@pmbd," +
                  "@pmpi,@pmtronco,@observ,@geb,@get,@chopor,@chogram,@chokcal,@protpor,@protgram,@protkcal,@grporc,@grgram,@grkcal)";
 
             String query2 = "Insert into Porciones values( @pced,@pleche,@pcarne,@pveget,@pgrasa,@pfruta,@pazuc,@pharina, @psuplem)";
@@ -190,8 +189,8 @@ namespace DAO
             SqlCommand cmd = new SqlCommand(query1, conexion);
             SqlCommand cmd2 = new SqlCommand(query2, conexion);
 
-            try
-            {
+            //try
+            //{
 
                 cmd.Parameters.AddWithValue("@ced", antropom.Cedula); cmd.Parameters.AddWithValue("@talla", antropom.Talla);
                 cmd.Parameters.AddWithValue("@pesIdeal", antropom.PesoIdeal); cmd.Parameters.AddWithValue("@edad", antropom.Edad);
@@ -204,7 +203,7 @@ namespace DAO
                 cmd.Parameters.AddWithValue("@masaOsea", antropom.MasaOsea); cmd.Parameters.AddWithValue("@complex", antropom.Complexión);
                 cmd.Parameters.AddWithValue("@edadMetab", antropom.EdadMetabolica); cmd.Parameters.AddWithValue("@cint", antropom.Cintura);
                 cmd.Parameters.AddWithValue("@abdomn", antropom.Abdomen); cmd.Parameters.AddWithValue("@cader", antropom.Cadera);
-                cmd.Parameters.AddWithValue("@muslo", antropom.Muslo); cmd.Parameters.AddWithValue("@cbm", antropom.CBM);
+                cmd.Parameters.AddWithValue("@muslo_Der", antropom.MusloDer); cmd.Parameters.AddWithValue("@muslo_Izq", antropom.MusloIzq); cmd.Parameters.AddWithValue("@cbm", antropom.CBM);
                 cmd.Parameters.AddWithValue("@circunf", antropom.CircunfMunneca); cmd.Parameters.AddWithValue("@grviser", antropom.PorcentGViceral);
                 cmd.Parameters.AddWithValue("@pormuscul", antropom.PorcentMusculo); cmd.Parameters.AddWithValue("@pmbi", antropom.PM_BI);
                 cmd.Parameters.AddWithValue("@pmpd", antropom.PM_PD); cmd.Parameters.AddWithValue("@pmbd", antropom.PM_BD);
@@ -250,11 +249,11 @@ namespace DAO
                     }
                 }
                 return true;
-        }
-            catch (SqlException)
-            {
-                return false;
-            }
+        //}
+            //catch (SqlException)
+            //{
+            //    return false;
+            //}
         }
 
 

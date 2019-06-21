@@ -69,7 +69,7 @@
                     <asp:Calendar ID="Calendar1" runat="server"
                     SelectionMode="Day"
                     ShowGridLines="True"
-                    OnSelectionChanged="Selection_Change" OnDayRender="DayRender" Height="664px" Width="582px">
+                    OnSelectionChanged="Selection_Change" OnDayRender="DayRender" Height="284px" Width="421px">
 
                     <SelectedDayStyle BackColor="Yellow"
                         ForeColor="Red"></SelectedDayStyle>
@@ -79,9 +79,6 @@
                     <TodayDayStyle BorderColor="#3366ff" Font-Underline="true" BackColor="#3366ff"/>
 
                 </asp:Calendar>
-                   
-
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
                    
 
                     <div class="fc-button-group">
@@ -131,13 +128,49 @@
     </form>
 
 
+    <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Open modal
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modificar evento</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+         <label class="control-label" for="nombreEven">Nombre del evento</label>
+        <input type="text" class="form-control" id="nombreEven" placeholder="Nombre del evento" />
+
+          <label class="control-label" for="descripcionEven">Descripción del evento</label>
+        <input type="text" class="form-control" id="descripcionEven" placeholder="Nombre del evento" />
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+       <a href="#" class="btn" data-dismiss="modal">Cerrar</a>
+       <a href="#" class="btn btn-primary">Guardar cambios</a>
+    </div>
+
+    </div>
+  </div>
+</div>
+
 
       <script type="text/javascript">
           function Eliminar_Click(nombre, fecha) {
+              let jsonData = JSON.stringify({ nombre: nombre, fecha: fecha })
               $.ajax({
                   type: "POST",
                   url: '/Agenda.aspx/EliminarEvento',
-                  data: nombre + fecha,
+                  data: jsonData,
                   contentType: "application/json; charset=utf-8",
                   dataType: "json",
                   async: true,
@@ -145,8 +178,31 @@
                       location.reload();
                       mensaje();
                   },
-                  error: function () {
-                      error();
+                  error: function (response) {
+                      console.log(response);
+                  }
+              });
+          }
+
+      </script>
+
+
+      <script type="text/javascript">
+          function Modificar_Click(nombre, descripcion, horaInicio, horaFin, fecha) {
+              let jsonData = JSON.stringify({ nombre: nombre, descripcion: descripcion, horaInicio: horaInicio, horaFin: horaFin, fecha: fecha })
+              $.ajax({
+                  type: "POST",
+                  url: '/Agenda.aspx/EliminarEvento',
+                  data: jsonData,
+                  contentType: "application/json; charset=utf-8",
+                  dataType: "json",
+                  async: true,
+                  success: function () {
+                      location.reload();
+                      mensaje();
+                  },
+                  error: function (response) {
+                      console.log(response);
                   }
               });
           }
