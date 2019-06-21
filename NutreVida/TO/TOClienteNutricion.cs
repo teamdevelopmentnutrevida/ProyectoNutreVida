@@ -22,9 +22,27 @@ namespace TO
         public string Ocupacion { set; get; }
         public DateTime FechaIngreso { set; get; }
         public string Correo { set; get; }
+        public string Consultorio { set; get; }
 
+        public TOClienteNutricion(int cedula,string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil,char whatsApp ,int telefono, string residencia, string ocupacion, DateTime fechaIngreso, string consultorio)
+        {
+            Cedula = cedula;
+            Correo = correo;
+            Nombre = nombre;
+            Apellido1 = apellido1;
+            Apellido2 = apellido2;
+            Fecha_Nacimiento = fecha_Nacimiento;
+            Sexo = sexo;
+            Estado_Civil = estado_Civil;
+            WhatsApp = whatsApp;
+            Telefono = telefono;
+            Residencia = residencia;
+            Ocupacion = ocupacion;
+            FechaIngreso = fechaIngreso;
+            Consultorio = consultorio;
+        }
 
-        public TOClienteNutricion(int cedula,string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil,char whatsApp ,int telefono, string residencia, string ocupacion, DateTime fechaIngreso)
+        public TOClienteNutricion(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso)
         {
             Cedula = cedula;
             Correo = correo;
@@ -40,8 +58,6 @@ namespace TO
             Ocupacion = ocupacion;
             FechaIngreso = fechaIngreso;
         }
-
-
 
         public TOClienteNutricion()
         {

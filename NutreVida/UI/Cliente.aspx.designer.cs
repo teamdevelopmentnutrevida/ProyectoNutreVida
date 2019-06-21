@@ -22,15 +22,6 @@ namespace UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form3;
         
         /// <summary>
-        /// HiddenCed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenCed;
-        
-        /// <summary>
         /// ced1 control.
         /// </summary>
         /// <remarks>
@@ -64,7 +55,7 @@ namespace UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ConsultDropList;
+        protected global::System.Web.UI.WebControls.TextBox ConsultDropList;
         
         /// <summary>
         /// txtNombre control.
@@ -137,6 +128,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtResid;
+        
+        /// <summary>
+        /// FechIngreso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FechIngreso;
         
         /// <summary>
         /// txtSegundoApellido control.

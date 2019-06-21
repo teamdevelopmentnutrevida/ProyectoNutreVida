@@ -26,9 +26,37 @@ namespace BL
             {
                 foreach (TOClienteNutricion cliente in listaTO)
                 {
-                    ListaClient.Add(new ClienteNutricion(cliente.Cedula, cliente.Correo,cliente.Nombre, cliente.Apellido1, cliente.Apellido2, cliente.Fecha_Nacimiento, cliente.Sexo, cliente.Estado_Civil,cliente.WhatsApp, cliente.Telefono, cliente.Residencia, cliente.Ocupacion, cliente.FechaIngreso));
+                    ListaClient.Add(new ClienteNutricion(cliente.Cedula, cliente.Correo,cliente.Nombre, cliente.Apellido1, cliente.Apellido2, cliente.Fecha_Nacimiento, cliente.Sexo, cliente.Estado_Civil,cliente.WhatsApp, cliente.Telefono, cliente.Residencia, cliente.Ocupacion, cliente.FechaIngreso,cliente.Consultorio));
                 }
                 return ListaClient;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public ClienteNutricion TraerInformación(string ced)
+        {
+            ClienteNutricion cliente = new ClienteNutricion();
+            TOClienteNutricion TOcliente = daoClienteNutricion.TraerInfoPersonal(ced);
+            if (TOcliente != null) {
+                cliente.Cedula = TOcliente.Cedula;
+                cliente.Correo = TOcliente.Correo;
+                cliente.Nombre = TOcliente.Nombre;
+                cliente.Apellido1 = TOcliente.Apellido1;
+                cliente.Apellido2 = TOcliente.Apellido2;
+                cliente.Fecha_Nacimiento = TOcliente.Fecha_Nacimiento;
+                cliente.Sexo = TOcliente.Sexo;
+                cliente.Estado_Civil = TOcliente.Estado_Civil;
+                cliente.WhatsApp = TOcliente.WhatsApp;
+                cliente.Telefono = TOcliente.Telefono;
+                cliente.Residencia = TOcliente.Residencia;
+                cliente.Ocupacion = TOcliente.Ocupacion;
+                cliente.FechaIngreso = TOcliente.FechaIngreso;
+                cliente.Consultorio = TOcliente.Consultorio;
+
+                return cliente;
             }
             else
             {
