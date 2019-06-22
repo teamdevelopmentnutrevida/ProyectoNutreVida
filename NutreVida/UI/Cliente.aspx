@@ -1,16 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="Cliente.aspx.cs" Inherits="UI.Cliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-                <script type="text/javascript">
-                    function GetCliente() {
-                        var ced = localStorage.getItem("Ced");
-                        alert(ced);
-                       $('ced1').val(ced);
-                    }
-                </script>
+   
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <form id="form3" runat="server">
-        <asp:HiddenField ID="HiddenCed" runat="server" />
          <div class="container">
 
              <h2>Información Personal</h2>
@@ -18,16 +11,14 @@
                 <div class="row">
                     <div class="col-form-label">
                         <label class="form-label" for="tCedula">Cédula:</label> 
-                        <asp:TextBox ID="ced1" oninput="validity.valid||(value='');" runat="server" CssClass="form-control" Font-Size="Small" type="number" min="0" data-toggle="tooltip" title="Cedula de identidad"></asp:TextBox>
+                        <asp:TextBox ID="ced1" oninput="validity.valid||(value='');" runat="server" CssClass="form-control" Font-Size="Small" type="number" min="0" data-toggle="tooltip" title="Cedula de identidad" Enabled="false"></asp:TextBox>
                         <label class="form-label" for="tOcup">Ocupación:</label>
                         <asp:TextBox ID="txtOcup" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Ocupación"></asp:TextBox>                          
                          <label class="form-label" for="tTel">Teléfono:</label>
                          <asp:TextBox ID="txtTel" runat="server" CssClass="form-control" Font-Size="Small" type="number" oninput="validity.valid||(value='');" min="0" data-toggle="tooltip" title="Número telefónico"></asp:TextBox>    
-                       <label class="form-label" for="Consult">Consultorio:</label>
-                     <asp:DropDownList runat="server" ID="ConsultDropList" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Consultorio">
-                                        <asp:ListItem Selected="True" Value="San Ramón"> San Ramón </asp:ListItem>
-                                        <asp:ListItem Value="Alajuela"> Alajuela </asp:ListItem>
-                                    </asp:DropDownList>    
+                        <label class="form-label" for="Consult">Consultorio:</label>
+                        <asp:TextBox ID="ConsultDropList" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Consultorio"></asp:TextBox>    
+                      
                     </div>
                     <div class="col-1"></div>
                     <div class="col-form-label">
@@ -37,10 +28,10 @@
                         <asp:TextBox ID="txtEmail" onkeyup="validarEmail(this)" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Correo electrónico"></asp:TextBox>
                         <a id='resultado' style="color:red"></a>
                         <label class="form-label" for="tWhats">Utiliza whatsapp:</label>
-                                    <asp:DropDownList runat="server" ID="dropWhats" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Usa whatsapp">
-                                        <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
-                                        <asp:ListItem Value="No"> No </asp:ListItem>
-                                    </asp:DropDownList>
+                         <asp:DropDownList runat="server" ID="dropWhats" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Usa whatsapp">
+                            <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
+                            <asp:ListItem Value="No"> No </asp:ListItem>
+                        </asp:DropDownList>
                         <label class="form-label" for="tEdad">Edad:</label>
                         <asp:TextBox ID="EdadCliente" runat="server" TextMode="Number" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Edad"></asp:TextBox>
                         </div>
@@ -56,8 +47,10 @@
                                         <asp:ListItem Value="Otro"> Otro </asp:ListItem>
                                     </asp:DropDownList>
                          <label class="form-label" for="tResid">Residencia:</label><asp:Label runat="server" ID="Label9" Font-Size="Medium"></asp:Label>
-                                    <asp:TextBox ID="txtResid" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Lugar de residencia"></asp:TextBox>
-                         </div>
+                        <asp:TextBox ID="txtResid" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Lugar de residencia"></asp:TextBox>
+                        <label class="form-label" for="iFechaIngreso">Fecha de Ingreso:</label>
+                        <asp:TextBox runat="server" ID="FechIngreso" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de ingreso"></asp:TextBox>               
+                        </div>
                     <div class="col-1"></div>
                     <div class="col-form-label">
                         <label class="form-label" for="tSegundoApellido">Segundo apellido:</label>
@@ -69,7 +62,7 @@
                                         <asp:ListItem Value="O"> Otro </asp:ListItem>
                                     </asp:DropDownList> 
                         <label class="form-label" for="iFechaNac">Fecha de Nacimiento:</label>
-                        <asp:TextBox runat="server" ID="FechNacimi" TextMode="Date" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de nacimiento"></asp:TextBox>               
+                        <asp:TextBox runat="server" ID="FechNacimi" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de nacimiento"></asp:TextBox>               
                     <br />
                     <br />
                         <div class="col-11" style="width:100%; float:right;">
@@ -762,5 +755,6 @@
              </div> <%--div del nav--%>
           </div><%--div container--%>
      
-   </form> 
+   </form>
+   
 </asp:Content>

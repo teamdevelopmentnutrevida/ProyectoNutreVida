@@ -72,6 +72,7 @@
     <Content Include="Agenda.aspx" />
     <Content Include="Cliente.aspx" />
     <Content Include="ControlSeguridad.aspx" />
+    <Content Include="css\alertify.min.css" />
     <Content Include="css\InicioSesionStyles.css" />
     <Content Include="css\Margen.css" />
     <Content Include="css\sb-admin-2.css" />
@@ -87,7 +88,8 @@
     <Content Include="img\orage 2.png" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="InicioSesion.aspx" />
-    <Content Include="js\CambioClase.js" />
+    <Content Include="js\alertify.js" />
+    <Content Include="js\alertify.min.js" />
     <Content Include="js\demo\chart-area-demo.js" />
     <Content Include="js\demo\chart-bar-demo.js" />
     <Content Include="js\demo\chart-pie-demo.js" />

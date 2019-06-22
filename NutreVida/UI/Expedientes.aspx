@@ -5,6 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form runat="server">
     <div class="container-fluid">
         <h1 class="h3 mb-2 text-gray-800">Expedientes</h1>
          <div class="card shadow mb-4">
@@ -23,7 +24,7 @@
                           </thead>
                            <tbody>
                                <tr>
-                                    <td><a href="Cliente.aspx" onclick="CargarCliente(22)">1122</a></td>
+                                   <td><asp:LinkButton runat="server" OnClientClick="Redirigir_Click" Enabled="true" CommandArgument="201110222" ID="Red" OnClick="Redirigir_Click" Text="22"></asp:LinkButton></td>
                                    <td>prueba de prueba</td>
                                    <td>Eliminar</td>
                                </tr>
@@ -31,13 +32,30 @@
                                </tbody>
                        </table>
                   </div>
-                   <script type="text/javascript">
-                       function CargarCliente(ced) {
-                           alert(ced)
-                           localStorage.setItem("Ced", ced);
-                       }
-                   </script>
+                 
+                   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                  <script type="text/javascript">
+                      
+                      function Eliminar_Click(num) {
+                             $.ajax({
+                                type: "POST",
+                                url: '/Expedientes.aspx/EliminarCliente',
+                                data: '{ced:' + num + '}',
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                async: true,
+                                success: function () {
+                                    location.reload();
+                                    alert("funciona");
+                                },
+                                error: function () {
+                                    alert("No funciona");
+                                }
+                             });
+                      }
+                </script>
             </div> 
         </div>
     </div>
+        </form>
 </asp:Content>

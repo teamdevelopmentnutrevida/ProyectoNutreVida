@@ -24,37 +24,64 @@ namespace UI
         {
             if (!IsPostBack)
             {
-                string key = "";
-                string javascript = "GetCliente();";
-                if (!Page.ClientScript.IsStartupScriptRegistered(key))
-                {
-                    Page.ClientScript.RegisterStartupScript(Page.GetType(), key, javascript, true);
-                }
-            }
-            
-            Cedula = HiddenCed.Value;
-            ced1.Text = 55 +"";
-            //if (!IsPostBack)
-            //{
-            //    if (Cedula != "")
-            //    {
-            //        CargarSeguimientoSemanal(Convert.ToInt32(Cedula));
-            //    }
-            //}
-           
+                CargarDatos();
 
+            }
+           
         }
 
+        private void CargarDatos()
+        {
+            Cedula = (string)Session["ced"];
+            CargarInfoPersonal();
+        }
 
         /**
         * Método publico que carga la seccion de la información personal del cliente seleccionado 
         * @param ced, cedula del cliente
         */
-        public void CargarInfoPersonal()
+        
+        private void CargarInfoPersonal()
         {
             if (Cedula != "")
             {
-               
+                ClienteNutricion c = manejExpediente.TraerInformación(Cedula);
+                if (c != null)
+                {
+                    ced1.Text = c.Cedula + "";
+                    txtOcup.Text = c.Ocupacion;
+                    txtTel.Text = c.Telefono + "";
+                    ConsultDropList.Text = c.Consultorio;
+                    txtNombre.Text = c.Nombre;
+                    txtEmail.Text = c.Correo;
+                    if (c.WhatsApp == '1') { dropWhats.Text = "Sí"; } else { dropWhats.Text = "No"; }
+                    EdadCliente.Text = CalcularEdad(c.Fecha_Nacimiento);
+                    txtPrimerApellido.Text = c.Apellido1;
+                    dropEstadoCivil.Text = c.Estado_Civil;
+                    txtResid.Text = c.Residencia;
+                    FechIngreso.Text = c.FechaIngreso.Day+" / "+c.FechaIngreso.Month+" / "+c.FechaIngreso.Year;
+                    txtSegundoApellido.Text = c.Apellido2;
+                    if (c.Sexo == 'F') { dropSexo.Text = "Femenino"; } else { if (c.Sexo == 'M') { dropSexo.Text = "Masculino"; } else { dropSexo.Text = "Otro"; } }
+                    FechNacimi.Text = c.Fecha_Nacimiento.Day + " / " + c.Fecha_Nacimiento.Month + " / " + c.Fecha_Nacimiento.Year;
+                }
+                
+            }
+        }
+        private string CalcularEdad(DateTime fechaNac)
+        {
+            if (fechaNac.Equals("")) { return "";}
+            else
+            {
+                 int años = DateTime.Now.Year - fechaNac.Year;
+                if (fechaNac.Month > DateTime.Now.Month) { return años - 1 + "";}
+                else{
+                    if (fechaNac.Month == DateTime.Now.Month)
+                    {
+                        if (fechaNac.Day < DateTime.Now.Day) { return años - 1 + ""; }
+                        else { return años + ""; }
+                    }
+                    else { return años + ""; }
+                }
             }
         }
         public void CargarHistorialMedico() { }
@@ -152,7 +179,7 @@ namespace UI
 
         protected void OkButton_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void BackButton_Click(object sender, EventArgs e)

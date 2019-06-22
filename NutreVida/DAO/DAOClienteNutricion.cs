@@ -43,5 +43,34 @@ namespace DAO
                 return null;
             }
         }
+
+        public TOClienteNutricion TraerInfoPersonal(string ced)
+        {
+            TOClienteNutricion cliente = new TOClienteNutricion();
+            string qry = "Select * from Cliente_Nutricion c,Usuario u where c.Cedula = u.Cedula AND u.Cedula = "+ced;
+            SqlCommand buscar = new SqlCommand(qry, conexion);
+            SqlDataReader lector;
+
+            if (conexion.State != ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+            lector = buscar.ExecuteReader();
+            if (lector.HasRows)
+            {
+                lector.Read();
+                cliente = new TOClienteNutricion(Int32.Parse(lector["Cedula"].ToString()), lector["Correo"].ToString(), lector["Nombre"].ToString(), lector["Apellido1"].ToString(),
+                        lector["Apellido2"].ToString(), DateTime.Parse(lector["Fecha_Nacimiento"].ToString()), Char.Parse(lector["Sexo"].ToString()),
+                        lector["Estado_Civil"].ToString(), Char.Parse(lector["WhatsApp"].ToString()), Int32.Parse(lector["Telefono"].ToString()), lector["Residencia"].ToString(), lector["Ocupacion"].ToString(), DateTime.Parse(lector["FechaIngreso"].ToString()), lector["Consultorio"].ToString());
+               
+                conexion.Close();
+                return cliente;
+            }
+            else
+            {
+                conexion.Close();
+                return null;
+            }
+        }
     }
 }
