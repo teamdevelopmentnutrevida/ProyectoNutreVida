@@ -21,7 +21,7 @@
     <link rel="shortcut icon" href="img/favicon.ico" />
 
 	<title>NutreVida</title>
-</head>
+</head>    
 <body>
 
 	<div class="container-fluid">
