@@ -87,7 +87,8 @@
     <Content Include="img\orage 2.png" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="InicioSesion.aspx" />
-    <Content Include="js\CambioClase.js" />
+    <Content Include="js\alertify.js" />
+    <Content Include="js\alertify.min.js" />
     <Content Include="js\demo\chart-area-demo.js" />
     <Content Include="js\demo\chart-bar-demo.js" />
     <Content Include="js\demo\chart-pie-demo.js" />
