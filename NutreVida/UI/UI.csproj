@@ -72,6 +72,7 @@
     <Content Include="Agenda.aspx" />
     <Content Include="Cliente.aspx" />
     <Content Include="ControlSeguridad.aspx" />
+    <Content Include="css\alertify.min.css" />
     <Content Include="css\InicioSesionStyles.css" />
     <Content Include="css\Margen.css" />
     <Content Include="css\sb-admin-2.css" />
