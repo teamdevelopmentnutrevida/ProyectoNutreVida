@@ -29,7 +29,9 @@ namespace UI
             }
            
         }
-
+        /**
+        * Método privado que carga la seccion de la información personal del cliente seleccionado 
+        */
         private void CargarDatos()
         {
             Cedula = (string)Session["ced"];
@@ -37,6 +39,7 @@ namespace UI
             CargarHistorialMedico();
             CargarHabitosAlimentarios();
             CargarAntropometría();
+            CargarSeguimientoSemanal();
         }
 
         /**

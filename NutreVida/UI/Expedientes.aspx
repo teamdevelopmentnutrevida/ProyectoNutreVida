@@ -18,7 +18,7 @@
                         CellPadding="10" 
                         GridLines="Both"
                         HorizontalAlign="Center"
-                         CssClass="table table-bordered">
+                        CssClass="table table-bordered">
 
                         <asp:TableRow>
                             <asp:TableHeaderCell>

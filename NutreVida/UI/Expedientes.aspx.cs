@@ -31,7 +31,7 @@ namespace UI
                 LinkButton cedBoton = new LinkButton();
                 cedBoton.Text = cl.Cedula + "";
                 cedBoton.CommandArgument = cl.Cedula+"";
-                cedBoton.Click += new EventHandler(Redirigir_Click);
+                cedBoton.OnClientClick = "Redirigir_Click";
                 c.Controls.Add(cedBoton);
                 r.Cells.Add(c);
                 
