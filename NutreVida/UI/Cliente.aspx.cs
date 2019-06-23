@@ -15,7 +15,7 @@ namespace UI
     public partial class Cliente : System.Web.UI.Page
     {
         
-        private string Cedula = "";
+        private static string Cedula = "";
         private static List<SeguimientoSemanal> listaSeguimientos = new List<SeguimientoSemanal>();
         private static ManejadorSeguimientos manejadorSeg = new ManejadorSeguimientos();
         private static ManejadorExpediente manejExpediente = new ManejadorExpediente();
@@ -34,13 +34,14 @@ namespace UI
         {
             Cedula = (string)Session["ced"];
             CargarInfoPersonal();
+            CargarHistorialMedico();
+            CargarHabitosAlimentarios();
+            CargarAntropometría();
         }
 
         /**
         * Método publico que carga la seccion de la información personal del cliente seleccionado 
-        * @param ced, cedula del cliente
         */
-        
         private void CargarInfoPersonal()
         {
             if (Cedula != "")
@@ -67,6 +68,10 @@ namespace UI
                 
             }
         }
+        /**
+        * Método privado para calcular la edad
+        * @param fechaNac, fecha de nacimiento del cliente para calcular la edad
+        */
         private string CalcularEdad(DateTime fechaNac)
         {
             if (fechaNac.Equals("")) { return "";}
@@ -84,18 +89,196 @@ namespace UI
                 }
             }
         }
-        public void CargarHistorialMedico() { }
-        public void CargarHabitosAlimentarios() { }
-        public void CargarAntropometría() { }
+        /**
+        * Método privado que carga la seccion de la Historial Médico del cliente seleccionado 
+        */
+        private void CargarHistorialMedico()
+        {
+            if (Cedula != "")
+            {
+                HistorialMedico hm = manejExpediente.TraerHistorial(Cedula);
+                if (hm != null)
+                {
+                    string l = "";
+                    string f = "";
+                    if (hm.ConsumeLicor == 1) { l = "Sí"; } else { l = "No"; }
+                    if (hm.Fuma == 1) { f = "Sí"; } else { f = "No"; }
+                    txtAntec.Text = hm.Antecedentes;
+                    txtPatol.Text = hm.Patologias;
+                    txtActividadFisica.Text = hm.ActividadFisica;
+                    DropLicor.Text = l;
+                    DropFuma.Text = f;
+                    txtFrecLicor.Text = hm.FrecLicor;
+                    txtFrecFuma.Text = hm.FrecFuma;
+                    FechRevMedica.Text = hm.UltimoExamen;
+                }
+                CargarTablaMedicamentos();
+            }
+        }
+        /**
+       * Método privado que carga la lista de medicamentos o suplementos que el cliente consume
+       */
+        private void CargarTablaMedicamentos()
+        {
+            List<Medicamento> medicamSupl = new List<Medicamento>();
+            medicamSupl = manejExpediente.TraerSuplMed(Cedula);
+            if (medicamSupl != null)
+            {
+                foreach (Medicamento med in medicamSupl)
+                {
+                    tSuplementoMedico.Text += "<tr><td>" + med.Nombre + "</td><td>" + med.Motivo + "</td><td>" + med.Frecuencia + "</td><td>" + med.Dosis + "</td></tr>";
+                }
+               
+            }
+            else
+            {
+                tSuplementoMedico.Text = "No consume medicamentos ni suplementos";
+            }
+           
+        }
+        /**
+       * Método privado que carga los hábitos alimentarios del cliente seleccionado 
+       */
+        private void CargarHabitosAlimentarios()
+        {
+            HabitoAlimentario hab = manejExpediente.TraerHabitosAlimentario(Cedula);    
+            if (hab != null)
+            {
+                numeroComidas.Text = hab.ComidaDiaria + "";
+                string horasdia = ""; if (hab.ComidaHorasDia == 1) { horasdia = "Sí"; } else { horasdia = "No"; }
+                ComeHoras.Text = horasdia;
+                txtEspres.Text = hab.AfueraExpress+"";
+                txtQueComeFuera.Text = hab.ComidaFuera;
+                cantAzucar.Text = hab.AzucarBebida;
+                dropCocinaCon.Text = hab.ComidaElaboradCon;
+                txtCuantaAgua.Text = hab.AguaDiaria+"";
+                string aderez = ""; if (hab.Aderezos.Equals('1')) { aderez = "Sí"; } else { aderez = "No"; }
+                dropAderezos.Text = aderez;
+                string fruta = ""; if (hab.Fruta.Equals('1')) { fruta = "Sí"; } else { fruta = "No"; }
+                dropFrutas.Text = fruta;
+                string verdur = ""; if (hab.Verdura.Equals('1')) { verdur = "Sí"; } else { verdur = "No"; }
+                dropVeget.Text = verdur;
+                string leche = ""; if (hab.Leche.Equals('1')) { leche = "Sí"; } else { leche = "No"; }
+                dropLeche.Text = leche;
+                string huevo = ""; if (hab.Huevo.Equals('1')) { huevo = "Sí"; } else { huevo = "No"; }
+                dropHuevo.Text = huevo;
+                string yogurt = ""; if (hab.Yogurt.Equals('1')) { yogurt = "Sí"; } else { yogurt = "No"; }
+                dropYogurt.Text = yogurt;
+                string carne = ""; if (hab.Carne.Equals('1')) { carne = "Sí"; } else { carne = "No"; }
+                dropCarne.Text = carne;
+                string queso = ""; if (hab.Queso.Equals('1')) { queso = "Sí"; } else { queso = "No"; }
+                dropQueso.Text = queso;
+                string aguacate = ""; if (hab.Aguacate.Equals('1')) { aguacate = "Sí"; } else { aguacate = "No"; }
+                dropAguacate.Text = aguacate;
+                string semillas = ""; if (hab.Semillas.Equals('1')) { semillas = "Sí"; } else { semillas = "No"; }
+                dropSemillas.Text = semillas;
 
+                List<Recordatorio24H> record = manejExpediente.TraerRecordatorio24h(Cedula);
+                if (record != null)
+                {
+                   foreach(Recordatorio24H r in record)
+                    {
+                        if (r.TiempoComida.Equals("Ayunas")) { txtHoraAyunas.Text = r.Hora; txtDescAyunas.Text = r.Descripcion; }
+                        if (r.TiempoComida.Equals("Desayuno")) { txtHoraDesayuno.Text = r.Hora; txtDescDesay.Text = r.Descripcion; }
+                        if (r.TiempoComida.Equals("Media mañana")) { txtHoraMediaM.Text = r.Hora; txtDescMediaM.Text = r.Descripcion; }
+                        if (r.TiempoComida.Equals("Almuerzo")) { txtHoraAlmmuerzo.Text = r.Hora; txtDescAlmuerzo.Text = r.Descripcion; }
+                        if (r.TiempoComida.Equals("Tarde")) { txtHoraTarde.Text = r.Hora; txtDescTarde.Text = r.Descripcion; }
+                        if (r.TiempoComida.Equals("Cena")) { txtHoraCena.Text = r.Hora; txtDescCena.Text = r.Descripcion; }
+                        if (r.TiempoComida.Equals("Colasión nocturna")) { txtHoraColacion.Text = r.Hora; txtDescColacion.Text = r.Descripcion; }
+                    }
+                }
+            }
+            
+        }
+        /**
+        * Método privado que carga los datos de antropometría del cliente seleccionado 
+        */
+        private void CargarAntropometría()
+        {
+            Antropometria antrop = ManejadorExpediente.TraerAntrop(Cedula);
+            if (antrop != null)
+            {
+                txtEdad.Text = antrop.Edad +"";
+                txtPesoActual.Text = antrop.Peso + "";
+                txtPesoMaxTeoria.Text = antrop.PesoMaxTeoria + "";
+                txtPesoIdeal.Text = antrop.PesoIdeal+"";
+                txtEdadMetabolica.Text = antrop.EdadMetabolica + "";
+                txtCintura.Text = antrop.Cintura + "";
+                txtAbdomen.Text = antrop.Abdomen + "";
+                txtCadera.Text = antrop.Cadera + "";
+                txtMusloIzq.Text = antrop.MusloIzq + "";
+                txtMusloDer.Text = antrop.MusloDer + "";
+                txtPMB.Text = antrop.PMB + "";
+                txtCMB.Text = antrop.CBM + "";
+                txtAgua.Text = antrop.AguaCorporal + "";
+                txtComplexion.Text = antrop.Complexión + "";
+                txtMasaOsea.Text = antrop.MasaOsea + "";
+                txtTalla.Text = antrop.Talla + "";
+                txtGrasaAnalizador.Text = antrop.PorcGrasaAnalizador + "";
+                txtGarsaViceral.Text = antrop.PorcentGViceral + "";
+                txtGrasaBascula.Text = antrop.PorcGr_Bascula + "";
+                txtGB_BI.Text = antrop.GB_BI + "";
+                txtGB_BD.Text = antrop.GB_BD + "";
+                txtGB_PI.Text = antrop.GB_PI + "";
+                txtGB_PD.Text = antrop.GB_PD + "";
+                txtGB_Trono.Text = antrop.GB_Tronco + "";
+                txtCircunferencia.Text = antrop.CircunfMunneca + "";
+                txtIMC.Text = antrop.IMC + "";
+                txtPorcentajeMusculo.Text = antrop.PorcentMusculo + "";
+                txtPM_BI.Text = antrop.PM_BI + "";
+                txtPM_BD.Text = antrop.PM_BD + "";
+                txtPM_PI.Text = antrop.PM_PI + "";
+                txtPM_PD.Text = antrop.PM_PD + "";
+                txtPM_Tronco.Text = antrop.PM_Tronco + "";
+                txtObservaciones.Text = antrop.Observaciones;
+                txtGEB.Text = antrop.GEB + "";
+                txtGET.Text = antrop.GET+"";
+                choPorc.Text = antrop.CHOPorc+"";
+                choGram.Text = antrop.CHOGram + "";
+                choKcal.Text = antrop.CHO_kcal + "";
+                ProtPorc.Text = antrop.ProteinaPorc + "";
+                ProtGram.Text = antrop.ProteinaGram + "";
+                protKcal.Text = antrop.Proteinakcal + "";
+                GrasPorc.Text = antrop.GrasaPorc + "";
+                GrasGram.Text = antrop.GrasaGram + "";
+                GrasKcal.Text = antrop.Grasakcal + "";
+                Porciones porcion = manejExpediente.TraerPorciones(Cedula);
+                if (porcion != null)
+                {
+                    txtPorcLeche.Text = porcion.Leche+"";
+                    txtPorcCarnes.Text = porcion.Carne + "";
+                    txtPorcVeget.Text = porcion.Vegetales + "";
+                    txtPorcGrasas.Text = porcion.Grasa + "";
+                    txtPorcFrutas.Text = porcion.Fruta + "";
+                    txtPorcAzucar.Text = porcion.Azucar + "";
+                    txtPorcHarinas.Text = porcion.Harina + "";
+                    txtPorcSuplem.Text = porcion.Suplemento + "";
+                }
 
+                List<DistribucionPorciones> distrib = manejExpediente.TraerDistribPorc(Cedula);
+                if (distrib != null)
+                {
+                    foreach (DistribucionPorciones distr in distrib)
+                    {
+                        if (distr.TiempoComida.Equals("Ayunas")) { txtHoraAyunasA.Text = distr.Hora; txtDescAyunasA.Text = distr.Descripcion; }
+                        if (distr.TiempoComida.Equals("Desayuno")) { txtHoraDesayunoA.Text = distr.Hora; txtDescDesayA.Text = distr.Descripcion; }
+                        if (distr.TiempoComida.Equals("Media mañana")) { txtHoraMediaMA.Text = distr.Hora; txtDescMediaMA.Text = distr.Descripcion; }
+                        if (distr.TiempoComida.Equals("Almuerzo")) { txtHoraAlmmuerzoA.Text = distr.Hora; txtDescAlmuerzoA.Text = distr.Descripcion; }
+                        if (distr.TiempoComida.Equals("Tarde")) { txtHoraTardeA.Text = distr.Hora; txtDescTardeA.Text = distr.Descripcion; }
+                        if (distr.TiempoComida.Equals("Cena")) { txtHoraCenaA.Text = distr.Hora; txtDescCenaA.Text = distr.Descripcion; }
+                        if (distr.TiempoComida.Equals("Colasión nocturna")) { txtHoraColacionA.Text = distr.Hora; txtDescColacionA.Text = distr.Descripcion; }
+
+                    }
+                }
+            }
+            
+        }
         /**
         * Método publico que carga la lista del seguimiento semanal del cliente seleccionado 
-        * @param ced, cedula del cliente
         */
-        public void CargarSeguimientoSemanal(int ced)
+        private void CargarSeguimientoSemanal()
         {
-            listaSeguimientos = manejadorSeg.TraerLista(ced);
+            listaSeguimientos = manejadorSeg.TraerLista(Int32.Parse(Cedula));
             if (listaSeguimientos != null){
                 foreach (SeguimientoSemanal seg in listaSeguimientos) {
                     LitSeguimiento.Text += "<tr><td>" + seg.Sesion + "</td><td>" + seg.Fecha.ToString("dd/MM/yyyy") + "</td><td>" + seg.Peso + "</td><td>" + seg.Oreja + "</td><td>" + seg.Ejercicio + "</td></tr>";} 

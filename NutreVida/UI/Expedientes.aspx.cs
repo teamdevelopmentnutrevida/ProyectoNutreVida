@@ -23,32 +23,58 @@ namespace UI
 
         private void CargarLista()
         {
-            LitListaCliente.Text = "";
             lista = manejador.ListaClientes();
-            if (lista != null)
+           foreach (ClienteNutricion cl in lista)
             {
-                foreach (ClienteNutricion c in lista)
-                {
-                 
-                    LitListaCliente.Text += "<tr>" +
-                        "<td><asp:LinkButton runat=\"server\" Enabled=\"true\" CommandArgument=\"" + c.Cedula+"\" ID=\"R"+c.Cedula+ "\" OnClick=\"Redirigir_Click\">" + c.Cedula + "</asp:LinkButton></td>" +
-                         "<td>" +c.Nombre +" "+c.Apellido1+"</td>"+
-                         "<td><a href=\"\" onclick=\"Eliminar_Click(" + c.Cedula+ ")\">Eliminar</a></td></tr>";
-                }
+                TableRow r = new TableRow();
+                TableCell c = new TableCell();
+                LinkButton cedBoton = new LinkButton();
+                cedBoton.Text = cl.Cedula + "";
+                cedBoton.CommandArgument = cl.Cedula+"";
+                cedBoton.Click += new EventHandler(Redirigir_Click);
+                c.Controls.Add(cedBoton);
+                r.Cells.Add(c);
+                
+                TableCell c2 = new TableCell();
+                c2.Controls.Add(new LiteralControl(cl.Nombre + " " + cl.Apellido1 + " " + cl.Apellido2));
+                r.Cells.Add(c2);
 
+                
+                TableCell c3 = new TableCell();
+                LinkButton ElimBoton = new LinkButton();
+                ElimBoton.Text = "Eliminar";
+                ElimBoton.CommandArgument = cl.Cedula + "";
+                ElimBoton.Click += new EventHandler(EliminarCliente);
+                c3.Controls.Add(ElimBoton);
+                r.Cells.Add(c3);
+
+                dataTable.Rows.Add(r);
             }
-        }
-        [System.Web.Services.WebMethod]
-        public static void EliminarCliente(string ced)
-        {
-            Console.Write("Funciona");
-        }
-        private void Deshabilitar(string ced)
-        {
+            
+            //LitListaCliente.Text = "";
+            //lista = manejador.ListaClientes();
+            //if (lista != null)
+            //{
+            //    foreach (ClienteNutricion c in lista)
+            //    {
+            //        LitListaCliente.Text += "<tr>" +
+            //            "<td><asp:LinkButton runat=\"server\" Enabled=\"true\" CommandArgument=\"" + c.Cedula+"\" ID=\"R"+c.Cedula+ "\" OnClick=\"Redirigir_Click\">" + c.Cedula + "</asp:LinkButton></td>" +
+            //             "<td>" +c.Nombre +" "+c.Apellido1+"</td>"+
+            //             "<td><a href=\"\" onclick=\"Eliminar_Click(" + c.Cedula+ ")\">Eliminar</a></td></tr>";
+            //    }
 
+            //}
         }
+        //[System.Web.Services.WebMethod]
+        public void EliminarCliente(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)(sender);
+            string yourValue = btn.CommandArgument;
+            Console.Write("Funciona "+ yourValue);
+        }
+       
 
-        protected void Redirigir_Click(object sender, EventArgs e)
+        public void Redirigir_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)(sender);
             string yourValue = btn.CommandArgument;

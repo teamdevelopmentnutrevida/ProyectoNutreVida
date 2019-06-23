@@ -165,7 +165,7 @@
                         <br />
                         <div class="col-11 margen" style="width: 70%;">
                             <label class="form-label" for="tFechExm">Fecha de últimos examenes de sangre o revisión médica: </label>
-                            <asp:TextBox runat="server" ID="FechRevMedica" TextMode="Date" CssClass="form-control" Font-Size="Small"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="FechRevMedica" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                             
                         </div>
                         <br />
@@ -387,7 +387,7 @@
                                      <label class="form-label" for="tIMC">IMC:</label>
                                     <asp:TextBox ID="txtIMC" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="IMC"></asp:TextBox>
                                     <label class="form-label" for="tPorcentMusculo">% Músculo:</label>
-                                    <asp:TextBox ID="txtPorcentaje" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Músculo"></asp:TextBox>
+                                    <asp:TextBox ID="txtPorcentajeMusculo" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Músculo"></asp:TextBox>
                                     <label class="form-label" for="tPM_BI">BI: </label>
                                     <asp:TextBox ID="txtPM_BI" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="PM_BI"></asp:TextBox>
                                     <label class="form-label" for="tPM_BD">BD:</label>
@@ -483,7 +483,7 @@
                             </div>
                             <div class="col-11" style="width: 80%;">
                                 <label class="form-label" for="tAzucares">Azúcares:</label><asp:Label runat="server" ID="PAzucares" Font-Size="Medium"></asp:Label>
-                                <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcAzuca" runat="server"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" ID="txtPorcAzucar" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div style="width: 25%; float: left;">

@@ -823,13 +823,13 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtIMC;
         
         /// <summary>
-        /// txtPorcentaje control.
+        /// txtPorcentajeMusculo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPorcentaje;
+        protected global::System.Web.UI.WebControls.TextBox txtPorcentajeMusculo;
         
         /// <summary>
         /// txtPM_BI control.
@@ -1084,13 +1084,13 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label PAzucares;
         
         /// <summary>
-        /// txtPorcAzuca control.
+        /// txtPorcAzucar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPorcAzuca;
+        protected global::System.Web.UI.WebControls.TextBox txtPorcAzucar;
         
         /// <summary>
         /// PHarinas control.
