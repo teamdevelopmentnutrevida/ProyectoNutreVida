@@ -85,30 +85,12 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label lblCorrecto;
         
         /// <summary>
-        /// lbNombre control.
+        /// Image5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbNombre;
-        
-        /// <summary>
-        /// lbCod control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbCod;
-        
-        /// <summary>
-        /// lbTel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTel;
+        protected global::System.Web.UI.WebControls.Image Image5;
     }
 }
