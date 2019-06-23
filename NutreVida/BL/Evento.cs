@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+
+    /**
+    * Crea un objeto evento Evento, además de sus metodos set y get
+    * @author Tannia
+    */
     public class Evento
     {
+
         public Evento(string nombreEvento, string decripcionEvento, string horaInicio, string horaFin, string fecha)
         {
             this.nombreEvento = nombreEvento;
