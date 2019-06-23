@@ -21,7 +21,7 @@
     <link rel="shortcut icon" href="img/favicon.ico" />
 
 	<title>NutreVida</title>
-</head>
+</head>    
 <body>
 
 	<div class="container-fluid">
@@ -75,19 +75,19 @@
 				</div>
 
 
-				<div class="row">
-					<div class="col-md-11 info-inicio " data-toggle="tooltip" title="Información médica">
-                        <asp:Image ID="Image5" runat="server" ImageUrl="~/img/Nombre.JPG" data-toggle="tooltip" title="Nombre"/>
-						<asp:Label ID="lbNombre" runat="server" Text="Dra. Elky Fernández Palma" CssClass="control-label"></asp:Label>
-						<asp:Label ID="lbCod" runat="server" Text="Nutricionista Cód CNP 1187-12" CssClass="control-label"></asp:Label>
-						<asp:Label ID="lbTel" runat="server" Text="Tel:7076-1100" CssClass="control-label"></asp:Label>
+                <div class="row">
+
+					<div class="col-md-12 divlogo">
+
+						  <asp:Image ID="Image5" runat="server" ImageUrl="~/img/inicio.png" data-toggle="tooltip" title="Información"/>
+
 					</div>
+
 				</div>
 			</div>
 		</div>
 	</div>
 
-		
 	</div>
 
 </body>
