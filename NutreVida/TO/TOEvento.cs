@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+    /**
+   * Crea un objeto de tranferencia de Evento, además de sus metodos set y get
+   * @author Tannia
+   */
     public class TOEvento
     {
        public string nombreEvento { set;  get;}

@@ -49,10 +49,10 @@
                     <div class="row">
                         <div class="col-md-12">
 
-                            <h3 style="font-size: XX-Large">Inicio de Sesión</h3>
+                            <h3 style="font-size: x-large">Olvidó su contraseña</h3>
                             <br />
                             <form id="OlvidoContrForm" runat="server" class="margen">
-                                <asp:Label ID="lbCorreo" runat="server" Text="Correo electrónico:" Font-Size="X-Large"></asp:Label>
+                                <asp:Label ID="lbCorreo" runat="server" Text="Correo electrónico:" Font-Size="Large"></asp:Label>
                                 <br />
                                 <asp:TextBox ID="txtCorreo" TextMode="Email" runat="server" data-toggle="tooltip" title="Correo electrónico" Font-Size="Large"></asp:TextBox>
                                 <div class="col-sm-10">
@@ -62,7 +62,7 @@
                                 <asp:Button ID="btnEnviar" CssClass=" btn btn-primary" runat="server" Text="Enviar" OnClick="btnEnviar_Click" data-toggle="tooltip" title="Enviar" />
                                 <br /> <br /> 
                                 <div class="col-sm-10 ">
-                                    <asp:Label ID="lblCorrecto" runat="server" Text="Se le enviará un correo con una contraseña temporal" Style="font-size: larger; font-stretch: extra-condensed"></asp:Label>
+                                    <asp:Label ID="lblCorrecto" runat="server" Text="Se le enviará un correo con una contraseña temporal" Style="font-size: Large; font-stretch: extra-condensed"></asp:Label>
                                 </div>
                             </form>
                         </div>

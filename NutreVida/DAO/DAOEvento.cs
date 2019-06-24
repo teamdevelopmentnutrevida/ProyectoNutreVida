@@ -9,12 +9,20 @@ using TO;
 
 namespace DAO
 {
+    /**
+   * Clase que permite la conexión con la base de datos para los objetos de tipo Evento.
+   * @author Tannia
+   */
     public class DAOEvento
     {
 
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
 
-
+        /**
+        * Método público que permite la conexión con la base de datos para almacenar los eventos
+        * @param evento TOEvento
+        * @return un parámetro de tipo booleano que devuelve un true si se guradó en la base o flase si no se guardó.
+        */
         public Boolean guardarEvento(TOEvento evento)
         {
 
@@ -22,8 +30,8 @@ namespace DAO
 
             SqlCommand cmd = new SqlCommand(query1, conexion);
 
-            //try
-            //{
+            try
+            {
 
                 //Asignacion de parametros.
                 cmd.Parameters.AddWithValue("@tit", evento.nombreEvento);
@@ -43,14 +51,18 @@ namespace DAO
                 conexion.Close();
 
                 return true;
-            //}
-            //catch (SqlException)
-            //{
-            //    return false;
-            //}
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-
+        /**
+        * Método público que permite recuperar de la base de datos la lista de eventos
+        * @param fecha String
+        * @return una lista de eventos
+        */
         public List<TOEvento> listaEventos(string fecha)
         {
             List<TOEvento> lista = new List<TOEvento>();
@@ -80,7 +92,12 @@ namespace DAO
             }
         }
 
-
+        /**
+        * Método público que permite eliminar de la base de datos un determinado evento de acuerdo a las parámetros que recibe
+        * @param nombre String
+        * @param fecha String
+        * @return un parámetro de tipo booleano que devuelve un true si se eliminó en la base o false si no se eliminó
+        */
         public Boolean eliminarEvento(string nombre, string fecha) {
             try
             {
@@ -91,14 +108,21 @@ namespace DAO
                 eliminar.ExecuteNonQuery();
                 conexion.Close();
                 return true;
-        }
+            }
             catch (Exception)
             {
                 return false;
             }
         }
 
-
+        /**
+        * Método público que permite modificar un elemento de la base de datos de acuerdo a ciertos parámetros
+        * @param nombre String
+        * @param descripción String
+        * @param horaInicio String
+        * @param horaFin String
+        * @param fecha String
+        */
         public void modificarEvento(string nombre, string descripcion, string horaInicio, string horaFin, string fecha) {
             try
             {
@@ -117,6 +141,6 @@ namespace DAO
         }
 
 
-}
+    }
 
 }

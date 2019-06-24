@@ -8,7 +8,7 @@
             var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
             if (!regex.test(texto)) {
-                document.getElementById("resultado").innerHTML = "Correo invalido";
+                document.getElementById("resultado").innerHTML = "Correo invalido<br/>";
                 
             } else {
                 document.getElementById("resultado").innerHTML = "";
@@ -16,14 +16,14 @@
 
         }
     </script>
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <form id="form3" runat="server">
         <div class="container">
             <h3>Complete la información del cliente</h3>
             <br />
-
 
 			   <%--    Datos Personales --%>
 
@@ -35,7 +35,8 @@
                         <asp:TextBox ID="txtOcup" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Ocupación"></asp:TextBox>                          
                          <label class="form-label" for="tTel">Teléfono:</label>
                          <asp:TextBox ID="txtTel" runat="server" CssClass="form-control" Font-Size="Small" type="number" oninput="validity.valid||(value='');" min="0" data-toggle="tooltip" title="Número telefónico"></asp:TextBox>    
-                       <label class="form-label" for="Consult">Consultorio:</label>
+						<asp:Label ID="telObligado" runat="server" Text=""></asp:Label>
+						<label class="form-label" for="Consult">Consultorio:</label>
                      <asp:DropDownList runat="server" ID="ConsultDropList" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Consultorio">
                                         <asp:ListItem Selected="True" Value="San Ramón"> San Ramón </asp:ListItem>
                                         <asp:ListItem Value="Alajuela"> Alajuela </asp:ListItem>
@@ -48,10 +49,11 @@
                         <label class="form-label" for="tEmail">Email:</label>
                         <asp:TextBox ID="txtEmail" onkeyup="validarEmail(this)" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Correo electrónico"></asp:TextBox>
                         <a id='resultado' style="color:red"></a>
+					
                         <label class="form-label" for="tWhats">Utiliza whatsapp:</label>
                                     <asp:DropDownList runat="server" ID="dropWhats" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Usa whatsapp">
-                                        <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
-                                        <asp:ListItem Value="No"> No </asp:ListItem>
+                                        <asp:ListItem Value="Sí"> Sí </asp:ListItem>
+                                        <asp:ListItem Selected="True" Value="No"> No </asp:ListItem>
                                     </asp:DropDownList>
                        </div>
                     <div class="col-1"></div>
