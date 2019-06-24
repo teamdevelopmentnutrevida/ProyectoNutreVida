@@ -38,7 +38,6 @@
                             <asp:Image ID="Logo" runat="server" ImageUrl="~/img/orage 2.png" data-toggle="tooltip" title="Nutre Vida" />
                         </div>
                     </div>
-
                     <div class="row">
 
                         <div class="col-md-12">
@@ -64,19 +63,12 @@
                         </div>
                     </div>
 
-
                     <div class="row">
 
                         <div class="col-md-12 divlogo">
 
                             <asp:Image ID="Image5" runat="server" ImageUrl="~/img/inicio.png" data-toggle="tooltip" title="Información" />
 
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-11 info-inicio " data-toggle="tooltip" title="Información médica">
                         </div>
                     </div>
                 </div>

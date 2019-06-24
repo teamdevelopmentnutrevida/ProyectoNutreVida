@@ -49,7 +49,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <form id="form1" runat="server">
+
+<form id="form1" runat="server">
 
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -127,8 +128,7 @@
       
     </form>
 
-
-    <!-- Button to Open the Modal -->
+<!-- Button to Open the Modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
   Open modal
 </button>
@@ -163,7 +163,6 @@
   </div>
 </div>
 
-
       <script type="text/javascript">
           function Eliminar_Click(nombre, fecha) {
               let jsonData = JSON.stringify({ nombre: nombre, fecha: fecha })
@@ -185,7 +184,6 @@
           }
 
       </script>
-
 
       <script type="text/javascript">
           function Modificar_Click(nombre, descripcion, horaInicio, horaFin, fecha) {
