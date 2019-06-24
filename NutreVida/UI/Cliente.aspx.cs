@@ -34,7 +34,7 @@ namespace UI
         */
         private void CargarDatos()
         {
-            Cedula = (string)Session["ced"];
+            Cedula = HttpContext.Current.Session["ced"] as string;
             CargarInfoPersonal();
             CargarHistorialMedico();
             CargarHabitosAlimentarios();

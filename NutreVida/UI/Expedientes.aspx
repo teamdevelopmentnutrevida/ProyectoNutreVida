@@ -14,7 +14,7 @@
             </div>
               <div class="card-body">
                   <div class="table-responsive">
-                      <asp:Table id="dataTable" runat="server"
+                      <%--<asp:Table id="dataTable" runat="server"
                         CellPadding="10" 
                         GridLines="Both"
                         HorizontalAlign="Center"
@@ -42,8 +42,8 @@
                                Eliminar
                             </asp:TableCell>
                         </asp:TableRow>
-                    </asp:Table>
-                     <%-- <table class="table table-bordered" id="dataTable" style="width:100%; padding:0";>
+                    </asp:Table>--%>
+                      <table class="table table-bordered" id="dataTable" style="width:100%; padding:0";>
                           <thead>
                             <tr>
                               <th>Cédula</th>
@@ -52,16 +52,31 @@
                             </tr>
                           </thead>
                            <tbody>
-                               <tr>
-                                   <td><asp:LinkButton runat="server" OnClientClick="Redirigir_Click" Enabled="true" CommandArgument="201110222" ID="Red" OnClick="Redirigir_Click" Text="22"></asp:LinkButton></td>
-                                   <td>prueba de prueba</td>
-                                   <td>Eliminar</td>
-                               </tr>
+
                                <asp:Literal runat="server" ID="LitListaCliente"></asp:Literal>
-                               </tbody>
-                       </table>--%>
+                            </tbody>
+                       </table>
                   </div>
-                 
+                 <script type="text/javascript">
+                      
+                     function redig(num) {
+                          $.ajax({
+                                type: "POST",
+                                url: '/Expedientes.aspx/redirige',
+                                data: '{ced:' + num + '}',
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                async: true,
+                              success: function () {
+                                  location.href = "Cliente.aspx";
+                                    
+                                },
+                                error: function () {
+                                    alert("No funciona");
+                                }
+                             });
+                     }
+                 </script>
                   <%-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
                   <script type="text/javascript">
                       

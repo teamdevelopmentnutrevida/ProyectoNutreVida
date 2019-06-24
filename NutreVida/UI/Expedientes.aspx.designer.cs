@@ -13,21 +13,12 @@ namespace UI {
     public partial class Expedientes {
         
         /// <summary>
-        /// dataTable control.
+        /// LitListaCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table dataTable;
-        
-        /// <summary>
-        /// Red control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Red;
+        protected global::System.Web.UI.WebControls.Literal LitListaCliente;
     }
 }
