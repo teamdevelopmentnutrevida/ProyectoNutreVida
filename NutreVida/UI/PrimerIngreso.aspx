@@ -667,7 +667,6 @@
                             </tr>
                         </table>
 
-                        <asp:Button ID="btnGuardar" CssClass=" btn btn-primary" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                         <br />
                         <br />
                         <br />
@@ -677,6 +676,34 @@
                 <%--div tab content--%>
             </div>
             <%--div del nav--%>
+
+
+				
+				<div class="footer">
+					  <asp:Button ID="btnGuardar" CssClass="boton btn btn-primary" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                    <br />  
+				</div>
+
+
+					<style>
+		.footer {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 50px;
+			background-color: #E6E8E7;
+			color: black;
+			text-align: right;
+		}
+
+		.boton {
+			margin:10px;
+			margin-right:120px;
+			
+		}
+
+	</style>
         </div>
         <%--div container--%>
     </form>
