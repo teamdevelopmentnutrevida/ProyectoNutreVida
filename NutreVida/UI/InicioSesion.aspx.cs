@@ -15,6 +15,9 @@ namespace UI
 
         }
 
+        /**
+            *Este metodo se encarga de hacer validaciones necesarias para el inicio de sesion
+        */
 		protected void btnIngresar_Click(object sender, EventArgs e)
 		{
 

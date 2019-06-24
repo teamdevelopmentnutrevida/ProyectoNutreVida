@@ -11,12 +11,21 @@ namespace BL
 {
     public class ManjeadorOlvidoContrasenna
     {
+        /**
+            *Este metodo se encarga de validar que el correo ingresado para cambiar la contrasenna si sea el correcto
+            *@param correo Es el correo ingresado
+            @return un boolean que dice si el correo es el correcto o no
+            */
         public Boolean validarCorreoCorrecto(String correo) {
             DAOLogin login = new DAOLogin();
 
             return login.validarCorreoCorrecto(correo);
         }
 
+        /**
+            *Este metodo se encarga de crear la contrasenna temporal y enviarsela al correo inicado
+            *@param correo Es el correo indicado                
+            */
         public void enviarCorreo(String correo) {
 
             //Crear contrasenna temporal
@@ -61,6 +70,10 @@ namespace BL
             cambiarClave(token);
         }
 
+        /** 
+            *Este metedo se encarga de cambiar la clave por la temporal
+            *@param clave Es la clave temporal
+            */
         private void cambiarClave(String clave) {
             DAOCambioDatosAdministrador cambio = new DAOCambioDatosAdministrador();
             cambio.cambiarClave(clave);

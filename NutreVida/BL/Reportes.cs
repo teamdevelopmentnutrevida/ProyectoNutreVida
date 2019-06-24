@@ -10,7 +10,12 @@ namespace BL
 {
     public class Reportes
     {
-
+        /**
+            *Este metodo obtiene el promedio de peso de las personas segun la edad
+            *@param edad1 Es la edad inicio por la que se hara la busqueda
+            *@param edad2 Es la edad final por la que se hara la busqueda
+            *@return Retorna el digito del promedio de peso      
+            */
         public String obtenerPromedioPesoEdad(int edad1,int edad2) {
             DAOReportes reporte = new DAOReportes();
 
@@ -23,6 +28,12 @@ namespace BL
             return promedio;
         }
 
+        /**
+            *Este metodo obtiene la cantidad de personas que hay segun la edad
+            *@param edad1 Es la edad inicio por la que se hara la busqueda
+            *@param edad2 Es la edad final por la que se hara la busqueda
+            *@return Retorna la cantidad de personas
+            */
         public int obtenerCantidadPersonasEdad(int edad1, int edad2)
         {
             DAOReportes reporte = new DAOReportes();
@@ -31,7 +42,13 @@ namespace BL
 
         }
 
-        public List<Antropometria> obtenerIMCEdades(int edad1, int edad2) {
+        /**
+            *Este metodo obtiene una lista conlos datos necesarios para obtener el IMC de las personas
+            *@param edad1 Es la edad inicio por la que se hara la busqueda
+            *@param edad2 Es la edad final por la que se hara la busqueda
+            *@return Lista de datos necesarios para calcular el IMC
+            */
+        private List<Antropometria> obtenerIMCEdades(int edad1, int edad2) {
             DAOReportes reporte = new DAOReportes();
 
             List<TOAntropometria> lisTO = reporte.obtenerIMCEdades( edad1, edad2);
@@ -44,6 +61,12 @@ namespace BL
             return list;
         }
 
+        /**
+            *Este metodo obtiene el IMC y lo clasifica segun corresponda
+            *@param edad1 Es la edad inicio por la que se hara la busqueda
+            *@param edad2 Es la edad final por la que se hara la busqueda
+            *@return Lista de clasificacion de IMC
+            */
         public List<String> clasificacionIMC(int edad1, int edad2) {
 
             ClasificacionIMC clasificacion = new ClasificacionIMC();
@@ -99,6 +122,12 @@ namespace BL
             return listClasi;
         }
 
+        /**
+            *Este metodo clasifica segun sea el sexo de la persona
+            *@param edad1 Es la edad inicio por la que se hara la busqueda
+            *@param edad2 Es la edad final por la que se hara la busqueda
+            *@return Lista con la clasificacion de genero
+            */
         public List<string> cantidadSexo(int edad1,int edad2) {
 
             DAOReportes repo = new DAOReportes() { };
