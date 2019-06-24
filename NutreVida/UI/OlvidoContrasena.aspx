@@ -36,77 +36,42 @@
 
             <div class="col-lg-3 contenido">
 
-                <div class="container">
+                <div class="container" align="center">
 
                     <div class="row">
 
                         <div class="col-md-12 divlogo">
-
-                            <asp:Image ID="Logo" runat="server" ImageUrl="~/img/nutriVital.jfif" />
-
+                            <asp:Image ID="Logo" runat="server" ImageUrl="~/img/orage 2.png" data-toggle="tooltip" title="Nutre Vida" />
                         </div>
 
                     </div>
 
                     <div class="row">
-
                         <div class="col-md-12">
 
-                            <form id="OlvidoContrForm" runat="server">
-
-                                <div class="formInicio">
-
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Olvido 
-                            <span class="textoPrimario">Contraseña</span>
-                                        </h1>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <asp:Label ID="lbCorreo" runat="server" Text="Correo Electrónico:" CssClass="control-label col-sm-2"></asp:Label>
-
-                                        <div class="col-sm-10">
-                                            <asp:TextBox ID="txtCorreo" runat="server" placeholder="Digite el correo" CssClass="form-control form-control-user col-md-10"></asp:TextBox>
-                                            <br />
-                                            <asp:Label ID="lblIncorrecto" runat="server" Text="" Style="color: red"></asp:Label>                                            
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-10 divBoton">
-                                            <asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass=" btn btn-primary btn-user btn-block col-md-5" OnClick="btnEnviar_Click" />
-                                        </div>
-
-                                    </div>
-                                    <br />
-                                    <br />
-                                    <div class="col-sm-10 ">
-                                        <asp:Label ID="lblCorrecto" runat="server" Text="Se le enviará un correo con una contraseña temporal" style="font-size:larger; font-stretch:extra-condensed"></asp:Label>
-                                    </div>
-
+                            <h3 style="font-size: x-large">Olvidó su contraseña</h3>
+                            <br />
+                            <form id="OlvidoContrForm" runat="server" class="margen">
+                                <asp:Label ID="lbCorreo" runat="server" Text="Correo electrónico:" Font-Size="Large"></asp:Label>
+                                <br />
+                                <asp:TextBox ID="txtCorreo" TextMode="Email" runat="server" data-toggle="tooltip" title="Correo electrónico" Font-Size="Large"></asp:TextBox>
+                                <div class="col-sm-10">
+                                    <asp:Label ID="lblIncorrecto" runat="server" Text="" Style="color: red"></asp:Label>
                                 </div>
-
+                                <br />
+                                <asp:Button ID="btnEnviar" CssClass=" btn btn-primary" runat="server" Text="Enviar" OnClick="btnEnviar_Click" data-toggle="tooltip" title="Enviar" />
+                                <br /> <br /> 
+                                <div class="col-sm-10 ">
+                                    <asp:Label ID="lblCorrecto" runat="server" Text="Se le enviará un correo con una contraseña temporal" Style="font-size: Large; font-stretch: extra-condensed"></asp:Label>
+                                </div>
                             </form>
-
                         </div>
-
                     </div>
 
                     <div class="row">
-
-                        <div class="col-md-11 info-olvido texto">
-                            <div class="col-md-10">
-                                <asp:Label ID="lbNombre" runat="server" Text="Dra. Elky Fernández Palma" CssClass="control-label col-sm-2 texto"></asp:Label>
-                            </div>
-                            <div class="col-md-10">
-                                <asp:Label ID="lbCod" runat="server" Text="Nutricionista Cód CNP 1187-12" CssClass="control-label col-sm-2 texto"></asp:Label>
-                            </div>
-                            <div class="col-md-10">
-                                <asp:Label ID="lbTel" runat="server" Text="Tel:7076-1100" CssClass="control-label col-sm-2 texto"></asp:Label>
-                            </div>
-
+                        <div class="col-md-12 divlogo">
+                            <asp:Image ID="Image5" runat="server" ImageUrl="~/img/inicio.png" data-toggle="tooltip" title="Información" />
                         </div>
-
                     </div>
                 </div>
             </div>

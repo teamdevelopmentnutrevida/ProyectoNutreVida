@@ -82,6 +82,7 @@
     <Content Include="Expedientes.aspx" />
     <Content Include="img\favicon.ico" />
     <Content Include="img\fondo.jpg" />
+    <Content Include="img\inicio.png" />
     <Content Include="img\InicioSesion.jpg" />
     <Content Include="img\Nombre.JPG" />
     <Content Include="img\nutriVital.jfif" />
