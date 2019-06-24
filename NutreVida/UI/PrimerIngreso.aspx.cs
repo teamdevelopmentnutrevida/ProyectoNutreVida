@@ -100,7 +100,23 @@ namespace UI
 
             }
 
-            int cedula = int.Parse(txtCed.Text);
+			if (txtCed.Text.Length > 9)
+			{
+				//mensaje de error
+				Response.Write("<script>window.alert('Numero de cedula invalido');</script>");
+				return;
+
+			}
+
+			if (ingreso.buscarCliente(txtCed.Text))
+			{
+				Response.Write("<script>window.alert('Ya existe un registro con ese número de cédula');</script>");
+				return;
+			}
+
+			int cedula = int.Parse(txtCed.Text);
+
+			
 
             string correo = txtEmail.Text;
             string nombre = txtNombre.Text;
@@ -121,19 +137,23 @@ namespace UI
             char sexo = char.Parse(dropSexo.SelectedValue);
 
             string estado_Civil = dropEstadoCivil.SelectedValue;
+
             char whatsApp = '0';
+
             if (dropWhats.SelectedValue.Equals("Sí"))
             {
                 whatsApp = '1';
             }
             int telefono;
 
-            if (string.IsNullOrEmpty(txtTel.Text))
+            if (whatsApp == '1' && string.IsNullOrEmpty(txtTel.Text))
             {
                 telefono = 0;
+				telObligado.Text = "Campo requerido";
             }
             else
                 telefono = int.Parse(txtTel.Text);
+
             string residencia = txtResid.Text;
             string ocupacion = txtOcup.Text;
             DateTime fechaIngreso = DateTime.Now;
@@ -663,25 +683,25 @@ namespace UI
             List<DistribucionPorciones> distribucion = new List<DistribucionPorciones>();
 
             //ayunas
-            distribucion.Add(new DistribucionPorciones(cedula, "Ayunas", txtHoraAyunasA.Text, txtDescAyunasA.Text));
+            distribucion.Add(new DistribucionPorciones(txtDescAyunasA.Text, "Ayunas", txtHoraAyunasA.Text, cedula));
 
             //desayuno
-            distribucion.Add(new DistribucionPorciones(cedula, "Desayuno", txtHoraDesayunoA.Text, txtDescDesayA.Text));
+            distribucion.Add(new DistribucionPorciones(txtDescDesayA.Text, "Desayuno", txtHoraDesayunoA.Text, cedula));
 
             //Media mañana
-            distribucion.Add(new DistribucionPorciones(cedula, "Media mañana", txtHoraMediaMA.Text, txtDescMediaMA.Text));
+            distribucion.Add(new DistribucionPorciones(txtDescMediaMA.Text, "Media mañana", txtHoraMediaMA.Text, cedula));
 
             //almuerzo
-            distribucion.Add(new DistribucionPorciones(cedula, "Almuerzo", txtHoraAlmmuerzoA.Text, txtDescAlmuerzoA.Text));
+            distribucion.Add(new DistribucionPorciones(txtDescAlmuerzoA.Text, "Almuerzo", txtHoraAlmmuerzoA.Text, cedula));
 
             //Media tarde
-            distribucion.Add(new DistribucionPorciones(cedula, "Tarde", txtHoraTardeA.Text, txtDescTardeA.Text));
+            distribucion.Add(new DistribucionPorciones(txtDescTardeA.Text, "Tarde", txtHoraTardeA.Text, cedula));
 
             //Cena
-            distribucion.Add(new DistribucionPorciones(cedula, "Cena", txtHoraCenaA.Text, txtDescCenaA.Text));
+            distribucion.Add(new DistribucionPorciones(txtDescCenaA.Text, "Cena", txtHoraCenaA.Text, cedula));
 
             //Colacion nocturna
-            distribucion.Add(new DistribucionPorciones(cedula, "Colasión nocturna", txtHoraColacionA.Text, txtDescColacionA.Text));
+            distribucion.Add(new DistribucionPorciones(txtDescColacionA.Text, "Colasión nocturna", txtHoraColacionA.Text, cedula));
 
             Antropometria antro = new Antropometria(cedula, talla, pesoIdeal, edad, pMB, peso, pesoMaxTeoria, iMC, porcGrasaAnalizador,
                 porcGr_Bascula, gB_BI, gB_BD, gB_PI, gB_PD, gB_Tronco, aguaCorporal, masaOsea, complexión, edadMetabolica, cintura, abdomen, cadera,
@@ -692,8 +712,18 @@ namespace UI
 
             ingreso.AgregarAntropometria(antro, porcion, distribucion);
 
+			Response.Write(@"<script language='javascript'>alert('Guardado Correctamente');</script>");
+			foreach (Control c in Page.Form.Controls)
+			{
 
-        }
+				if (c is TextBox)
+				{
+					var tmpb = c as TextBox;
+					tmpb.Text = string.Empty;
+				}
+			}
+
+		}
 
 
 
@@ -732,6 +762,17 @@ namespace UI
                 tDosisMed.Text = "";
             }
         }
+
+
+		public void limpiarCampos()
+		{
+
+
+		}
+
+
+
+
 
 		protected void iFechaNac_TextChanged(object sender, EventArgs e)
 		{

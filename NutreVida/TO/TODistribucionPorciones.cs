@@ -14,13 +14,14 @@ namespace TO
         public string Hora { set; get; }
 
 
-        public TODistribucionPorciones(int cedula, string descripcion, string tiempoComida, string hora)
+        public TODistribucionPorciones(string descripcion, string tiempoComida, string hora, int cedula)
         {
-            Cedula = cedula;
+            
             Descripcion = descripcion;
             TiempoComida = tiempoComida;
             Hora = hora;
-        }
+			Cedula = cedula;
+		}
         public TODistribucionPorciones() { }
 
     }

@@ -239,11 +239,13 @@ namespace DAO
                     {
                         String query3 = "Insert into DistribucionPorcion values(@desc,@tiempCom,@hora,@ced)";
                         SqlCommand cmd3 = new SqlCommand(query3, conexion);
-                        cmd3.Parameters.AddWithValue("@ced", distribucion.Cedula);
-                        cmd3.Parameters.AddWithValue("@tiempCom", distribucion.TiempoComida);
+						cmd3.Parameters.AddWithValue("@desc", distribucion.Descripcion);
+						cmd3.Parameters.AddWithValue("@tiempCom", distribucion.TiempoComida);
                         cmd3.Parameters.AddWithValue("@hora", distribucion.Hora);
-                        cmd3.Parameters.AddWithValue("@desc", distribucion.Descripcion);
-                        conexion.Open();
+						cmd3.Parameters.AddWithValue("@ced", distribucion.Cedula);
+
+
+					conexion.Open();
                         cmd3.ExecuteNonQuery();
                         conexion.Close();
                     }
@@ -257,5 +259,30 @@ namespace DAO
         }
 
 
+		public Boolean buscarCedula(String cedula)
+		{
+				try
+				{
+				TOClienteNutricion cliente = new TOClienteNutricion();
+				String query = "select * from Cliente_Nutricion where Cedula = @ced";
+				SqlCommand cmd = new SqlCommand(query, conexion);
+				cmd.Parameters.AddWithValue("ced", cedula);
+				conexion.Open();
+				SqlDataReader lector = cmd.ExecuteReader();
+
+				if (lector.HasRows)
+				{
+					return true;
+				}
+				conexion.Close();
+				return false;
+			}
+				catch (Exception)
+				{
+					return false;
+				}
+			}
+
+			
     }
 }
