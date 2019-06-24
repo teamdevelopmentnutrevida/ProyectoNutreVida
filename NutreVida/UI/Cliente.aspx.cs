@@ -365,12 +365,12 @@ namespace UI
 
         protected void OkButton_Click(object sender, EventArgs e)
         {
-           
+            Response.Redirect("Expedientes.aspx");
         }
 
         protected void BackButton_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Expedientes.aspx");
         }
 
         protected void MedicButton_Click(object sender, EventArgs e)
