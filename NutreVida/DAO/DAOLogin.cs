@@ -13,7 +13,12 @@ namespace DAO
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
 
-
+        /**
+            *Este metodo se encarga de buscar el usuario con el que se inicia sesion
+            *@param correo Es el correo del usuario
+            *@param contras Es la contrasenna del usuario
+            *@return Devuelve un objeto de tipo TOLogin
+            */
         public TOLogin BuscarUsuario(String correo, String contras)
         {
             try
@@ -44,6 +49,11 @@ namespace DAO
             }
         }
 
+        /**
+            *Este metodo se encarga de validar si el correo ingresado coincide con el guardado
+            *@param correo Es el correo a validar
+            *@return Es un boolean que dice si coincide o no
+            */
         public Boolean validarCorreoCorrecto(String correo)
         {
             String query = "select count(Nombre_usuario) from Login where Nombre_usuario = @cor";

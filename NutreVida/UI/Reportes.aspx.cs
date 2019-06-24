@@ -22,13 +22,12 @@ namespace UI
         public int F = 0;
         public int M = 0;
 
-        //Edad
-        public static int edad1;
-        public static int edad2;
+        //Edad por la que se va a filtrar los reportea 
+        public static int edad1 = 0;
+        public static int edad2 = 100;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             
             BL.Reportes report = new BL.Reportes();
 
@@ -53,7 +52,10 @@ namespace UI
             CantidadSexo();
 
         }
-
+        /**
+            *Se encarga de contar la cantidad de personas segun la clasificacion IMC
+            *@param repo Es un objeto de tipo Reportes
+        */
         private void contarClasificacion(BL.Reportes repo) {
             List<String> listClasi = repo.clasificacionIMC(edad1,edad2);
 
@@ -91,6 +93,9 @@ namespace UI
             }
         }
 
+        /**
+            *Se encarga de contar la cantidad de hombres y mujeres que hay
+            */
         private void CantidadSexo() {
             BL.Reportes repo = new BL.Reportes();
             F = 0;
@@ -108,6 +113,10 @@ namespace UI
             }
 
         }
+
+        /**
+            *Este metodo se encarga de modificar la edad por la que se van a filtrar los reportes
+        */
         [System.Web.Services.WebMethod]
         public static void ModificarEdad(string Edad1, string Edad2)
         {

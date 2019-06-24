@@ -13,6 +13,12 @@ namespace DAO
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
 
+        /**
+            *Es el metodo que obtiene el promedio de peso segun edades
+            *@param edad1 Es la edad inicio por la que se hara la busqueda
+            *@param edad2 Es la edad final por la que se hara la busqueda
+            *@return Un texto con el promedio
+            */
         public String obtenerPromedioPesoEdad(int edad1, int edad2)
         {
 
@@ -42,6 +48,12 @@ namespace DAO
             return promedioPeso;
         }
 
+        /**
+            *Este metodo se encarga de obtener la cantidad de personas segun la edad
+            *@param edad1 Es la edad inicio por la que se hara la busqueda
+            *@param edad2 Es la edad final por la que se hara la busqueda
+            *@return La cantidad de personas
+            */
         public int obtenerCantidadPersonasEdad(int edad1, int edad2)
         {
 
@@ -72,7 +84,12 @@ namespace DAO
         }
 
 
-
+        /**
+            *Este metodo se encarga de obtener los datos necesarios para saber el IMC de las personas segun la deda ,y con esto su clasificacion
+            *@param edad1 Es la edad inicio por la que se hara la busqueda
+            *@param edad2 Es la edad final por la que se hara la busqueda
+            *@return Una lista con los datos necesarios para obtener el IMC
+            */
         public List<TOAntropometria> obtenerIMCEdades(int edad1, int edad2)
         {
 
@@ -122,6 +139,12 @@ namespace DAO
             return listAntrop;
         }
 
+        /**
+            *Este metodo se encarga de obtener la cantidad de personas segun el sexo y la edad
+            *@param edad1 Es la edad inicio por la que se hara la busqueda
+            *@param edad2 Es la edad final por la que se hara la busqueda
+            *@return Retorna una lista de cantidad de mujeres y hombres
+            */
         public List<String> obtenerCantidadSexo(int edad1, int edad2)
         {
             String query = "select cliente_nutricion.Sexo from cliente_nutricion, Antropometria where Cliente_Nutricion.Cedula = Antropometria.Cedula and edad > @edad1 and edad < @edad2 ";

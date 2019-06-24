@@ -15,6 +15,9 @@ namespace UI
 
         }
 
+        /**
+            *El metodo se encarga de hacer validaciones necesarias para recuperar contrasenna
+        */
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
             BL.ManjeadorOlvidoContrasenna mane = new ManjeadorOlvidoContrasenna();
