@@ -29,14 +29,17 @@ namespace UI
             }
            
         }
-
+        /**
+        * Método privado que carga la seccion de la información personal del cliente seleccionado 
+        */
         private void CargarDatos()
         {
-            Cedula = (string)Session["ced"];
+            Cedula = HttpContext.Current.Session["ced"] as string;
             CargarInfoPersonal();
             CargarHistorialMedico();
             CargarHabitosAlimentarios();
             CargarAntropometría();
+            CargarSeguimientoSemanal();
         }
 
         /**

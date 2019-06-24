@@ -68,7 +68,7 @@ namespace BL
             {
                 foreach (DistribucionPorciones porciones in Listdistrib)
                 {
-                    lista.Add(new TODistribucionPorciones(porciones.Cedula, porciones.TiempoComida, porciones.Hora, porciones.Descripcion));
+                    lista.Add(new TODistribucionPorciones(porciones.Descripcion, porciones.TiempoComida, porciones.Hora, porciones.Cedula));
                 }
             }
             else
@@ -99,6 +99,13 @@ namespace BL
             return daoClienteNutricion.GuardarAntropometria(antropom, porci, lista);
 
         }
+
+
+		public Boolean buscarCliente(string cedula)
+		{
+			Boolean cliente = daoClienteNutricion.buscarCedula(cedula);
+			return cliente;
+		}
 
     }
 }

@@ -14,13 +14,13 @@ namespace BL
         public string Hora { set; get; }
 
 
-        public DistribucionPorciones(int cedula, string tiempoComida, string hora, string descripcion)
-        {
-            Cedula = cedula;
+        public DistribucionPorciones(string descripcion, string tiempoComida, string hora, int cedula)
+        { 
             Descripcion = descripcion;
             TiempoComida = tiempoComida;
             Hora = hora;
-        }
+			Cedula = cedula;
+		}
         public DistribucionPorciones() { }
 
     }
