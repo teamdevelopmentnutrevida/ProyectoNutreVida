@@ -335,8 +335,8 @@ namespace DAO
                 {
                     while (lector.Read())
                     {
-                        lista.Add(new TODistribucionPorciones(Int32.Parse(lector["Cedula"].ToString()), lector["Descripcion"].ToString(),
-                        lector["TiempoComida"].ToString(), lector["Hora"].ToString()));
+                        lista.Add(new TODistribucionPorciones(lector["Descripcion"].ToString(),
+                        lector["TiempoComida"].ToString(), lector["Hora"].ToString(),Int32.Parse(lector["Cedula"].ToString())));
                     }
                     conexion.Close();
                     return lista;
