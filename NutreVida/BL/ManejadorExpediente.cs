@@ -203,7 +203,7 @@ namespace BL
             {
                 foreach (TODistribucionPorciones distribuc in dis)
                 {
-                    lista.Add(new DistribucionPorciones(distribuc.Cedula, distribuc.TiempoComida, distribuc.Hora, distribuc.Descripcion));
+                    lista.Add(new DistribucionPorciones(distribuc.Descripcion, distribuc.TiempoComida, distribuc.Hora, distribuc.Cedula));
                 }
                 return lista;
             }
