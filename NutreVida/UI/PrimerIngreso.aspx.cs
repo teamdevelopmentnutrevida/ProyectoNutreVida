@@ -13,10 +13,10 @@ namespace UI
         private static List<Medicamento> ListaMedicamSuplem = new List<Medicamento>();
         protected void Page_Load(object sender, EventArgs e)
         {
-			if (new ControlSeguridad().validarNutri() == true)
+
+           if (new ControlSeguridad().validarNutri() == true)
 			{
 				Response.Redirect("~/InicioSesion.aspx");
-
 
 			}
 
@@ -722,8 +722,9 @@ namespace UI
 
             ingreso.AgregarAntropometria(antro, porcion, distribucion);
 
-			Response.Write(@"<script language='javascript'>alert('Guardado Correctamente');</script>");
-			foreach (Control c in Page.Form.Controls)
+			//Response.Write(@"<script language='javascript'>alert('Guardado Correctamente');</script>");
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien', ''Datos guardados correctamente')", true);
+            foreach (Control c in Page.Form.Controls)
 			{
 
 				if (c is TextBox)
