@@ -102,22 +102,25 @@ namespace UI
             if (string.IsNullOrEmpty(txtCed.Text))
             {
                 //mensaje de error
-                Response.Write("<script>window.alert('Debe registrar un número de cedula');</script>");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos faltantes', 'Debe registrar un número de cédula')", true);
+               // Response.Write("<script>window.alert('Debe registrar un número de cedula');</script>");
                 return;
 
             }
 
 			if (txtCed.Text.Length > 9)
 			{
-				//mensaje de error
-				Response.Write("<script>window.alert('Numero de cedula invalido');</script>");
-				return;
+                //mensaje de error
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', ''Número de cédula inválido')", true);
+                //Response.Write("<script>window.alert('Numero de cedula invalido');</script>");
+                return;
 
 			}
 
 			if (ingreso.buscarCliente(txtCed.Text))
 			{
-				Response.Write("<script>window.alert('Ya existe un registro con ese número de cédula');</script>");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', ''Ya existe un registro con el número de cédula ingresado')", true);
+                //Response.Write("<script>window.alert('Ya existe un registro con ese número de cédula');</script>");
 				return;
 			}
 
