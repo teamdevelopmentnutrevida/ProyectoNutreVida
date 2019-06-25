@@ -36,7 +36,6 @@ namespace UI
             else {
                 txtFrecLicor.Enabled = false;
             }
-
         }
 
         protected void DropFuma_SelectedIndexChanged(object sender, EventArgs e)
