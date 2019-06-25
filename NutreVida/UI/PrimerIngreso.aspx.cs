@@ -112,7 +112,7 @@ namespace UI
 			{
                 //mensaje de error
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', ''Número de cédula inválido')", true);
-                //Response.Write("<script>window.alert('Numero de cedula invalido');</script>");
+                //Response.Write("<script>window.alert('Numero de cedula invalido');</script>");       
                 return;
 
 			}
