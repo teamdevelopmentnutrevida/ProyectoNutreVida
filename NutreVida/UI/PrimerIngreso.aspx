@@ -378,7 +378,7 @@
                                   <div class="col-1"></div>
                                 <div class="col-form-label">
                                     <label class="form-label" for="tMusloIzq">Muslo Izquierdo:</label>
-                                    <asp:TextBox  step="any"ID="txtMusloIzq" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Muslo Izquierdo"></asp:TextBox>
+                                    <asp:TextBox  step="any" ID="txtMusloIzq" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Muslo Izquierdo"></asp:TextBox>
                                     <label class="form-label" for="tMusloDer">Muslo Derecho:</label>
                                     <asp:TextBox step="any" ID="txtMusloDer" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Muslo Derecho"></asp:TextBox>
                                     <label class="form-label" for="tPMB">PMB: </label>
