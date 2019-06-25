@@ -22,7 +22,14 @@ namespace UI
         private static ManejadorErrores manejError = new ManejadorErrores();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+			if (new ControlSeguridad().validarNutri() == true)
+			{
+				Response.Redirect("~/InicioSesion.aspx");
+
+
+			}
+
+			if (!IsPostBack)
             {
                // CargarDatos();
 

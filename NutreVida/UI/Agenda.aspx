@@ -64,7 +64,7 @@
 
         <div class="container-fluid theme-showcase">
 
-            <h1>Agenda Nutre Vida</h1>
+            <h1 class="h3 mb-2 text-gray-800">Agenda Nutre Vida</h1>
             <div id="holder" class="row">
                 <div class="col-md-5">
                     <asp:Calendar ID="Calendar1" runat="server"

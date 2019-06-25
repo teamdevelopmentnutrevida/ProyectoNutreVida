@@ -14,12 +14,19 @@ namespace UI
         List<BL.Evento> lista = new List<BL.Evento>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+			if (new ControlSeguridad().validarNutri() == true)
+			{
+				Response.Redirect("~/InicioSesion.aspx");
+
+
+			}
+
+			if (!IsPostBack)
             {
                 CargarLista();
             }
         }
-      
+
         private void CargarLista()
         {
             LitListaEventos.Text = "";

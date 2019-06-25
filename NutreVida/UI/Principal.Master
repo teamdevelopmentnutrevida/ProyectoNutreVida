@@ -24,6 +24,9 @@
 
     <link rel="shortcut icon" href="img/favicon.ico" />
 
+      <%-- librería para mostrar mensajes al usuario--%>
+    <script src="js/sweetalert28.js"></script>
+
 </head>
 <body id="page-top">
 
@@ -34,7 +37,7 @@
 
         <!-- Sidebar -->
         <ul class="w3-sidebar navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-          
+
 			<%--  <div class="fixed-top">--%>
 
                 <!-- Sidebar - Brand -->
@@ -318,8 +321,6 @@
             });
         });
     </script>
-
-
 
 
 </body>
