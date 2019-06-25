@@ -13,7 +13,14 @@ namespace UI
         private static List<Medicamento> ListaMedicamSuplem = new List<Medicamento>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+			if (new ControlSeguridad().validarNutri() == true)
+			{
+				Response.Redirect("~/InicioSesion.aspx");
+
+
+			}
+
+			if (!IsPostBack)
             {
 
 

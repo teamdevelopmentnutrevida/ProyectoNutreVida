@@ -22,7 +22,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form3" runat="server">
         <div class="container">
-            <h3>Complete la información del cliente</h3>
+            <h1 class="h3 mb-2 text-gray-800">Complete la información del cliente</h1>
             <br />
 
 			   <%--    Datos Personales --%>
@@ -204,7 +204,7 @@
 
 						 <div class="row">
                           <div class="col-form-label">
-                              <h5>Habitos Alimentarios:</h5>  
+                              <%--<h5>Habitos Alimentarios:</h5>--%>  
                               <label class="form-label" for="tComD">¿Cuántas veces come al día? </label>
                                 <asp:TextBox ID="numeroComidas" runat="server" type="number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Cantidad de comidas al día" />
                                <label class="form-label" for="tComeHoraDia">¿Acostumbra a comer a las horas al día? </label>
@@ -285,7 +285,7 @@
                         </div>
 
                   						
-                        <h5>Recordatorio de 24 Horas</h5>
+                        <%--<h5>Recordatorio de 24 Horas</h5>--%>
 						<br />
                         <table class="table">
                             <tr>
@@ -343,6 +343,10 @@
                                     <asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescColacion" runat="server"></asp:TextBox></td>
                             </tr>
                         </table>
+				
+                                <br /> <br />
+                                <br /> <br />
+                                <br />
                     </div>
                     <%--tab hab aliment--%>
 
