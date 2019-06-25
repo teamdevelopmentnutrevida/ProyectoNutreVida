@@ -13,9 +13,9 @@ namespace BL
 
         public static DAOClienteNutricion daoClienteNutricion = new DAOClienteNutricion();
         /**
-                * Método publico que trae de la Base de datos la lista de los clientes 
-                * @param ced, cedula del cliente
-                */
+         * Método publico que trae de la Base de datos la lista de los clientes 
+         * @param ced, cedula del cliente
+         */
         public List<ClienteNutricion> ListaClientes()
         {
             List<ClienteNutricion> ListaClient = new List<ClienteNutricion>();
@@ -34,6 +34,10 @@ namespace BL
             }
         }
 
+        /**
+        * Método publico que trae de la Base de datos la información personal del cliente
+        * @param ced, cedula del cliente
+        */
         public ClienteNutricion TraerInformación(string ced)
         {
             ClienteNutricion cliente = new ClienteNutricion();
@@ -62,6 +66,20 @@ namespace BL
             }
         }
 
+        /**
+        * Método publico que elimina o deshabilita a los clientes de la base de datos
+        * @param ced, cedula del cliente
+        * @return bol, si el cliente se dehabilito con éxito o no.
+        */
+        public bool EliminarCliente(string ced)
+        {
+            return daoClienteNutricion.DeshabilitarCliente(ced);
+        }
+
+        /**
+        * Método publico que trae de la Base de datos el historial médico del cliente seleccionado. 
+        * @param ced, cedula del cliente
+        */
         public HistorialMedico TraerHistorial(string ced)
         {
             HistorialMedico hist = new HistorialMedico();
@@ -82,6 +100,10 @@ namespace BL
             else { return null; }
         }
 
+        /**
+        * Método publico que trae de la Base de datos la lista de los medicacmentos o suplementos q consume el cliente seleccionado.
+        * @param ced, cedula del cliente
+        */
         public List<Medicamento> TraerSuplMed(string cedula)
         {
             List<Medicamento> MedList = new List<Medicamento>();
@@ -98,6 +120,10 @@ namespace BL
             return MedList;
         }
 
+        /**
+        * Método publico que trae de la Base de datos la información del hábito alimentario del cliente seleccionado.
+        * @param ced, cedula del cliente
+        */
         public HabitoAlimentario TraerHabitosAlimentario(string cedula)
         {
             TOHabitoAlimentario hab = daoClienteNutricion.ConsultarHabitoAlimentario(cedula);
@@ -111,6 +137,10 @@ namespace BL
             return null;
         }
 
+        /**
+        * Método publico que trae de la Base de datos la lista del recordatorio de 24 horas para el cliente seleccionado.
+        * @param ced, cedula del cliente
+        */
         public List<Recordatorio24H> TraerRecordatorio24h(string cedula)
         {
             List<TORecordatorio24H> list = daoClienteNutricion.TraerRecord24H(cedula);
@@ -129,6 +159,10 @@ namespace BL
             }
         }
 
+        /**
+        * Método público que trae de la Base de datos la información de antropomentría del cliente seleccionado. 
+        * @param ced, cedula del cliente
+        */
         public static Antropometria TraerAntrop(string cedula)
         {
             Antropometria antropom = new Antropometria();
@@ -181,6 +215,10 @@ namespace BL
             else { return null; }
         }
 
+        /**
+        * Método público que trae de la Base de datos las porciones asignadas al cliente.
+        * @param ced, cedula del cliente
+        */
         public Porciones TraerPorciones(string cedula)
         {
             TOPorciones porcion = daoClienteNutricion.TraerPorciones(cedula);
@@ -195,6 +233,10 @@ namespace BL
             }
         }
 
+        /**
+        * Método publico que trae de la Base de datos la lista de la distribución de porciones del cliente seleccionado.
+        * @param ced, cedula del cliente
+        */
         public List<DistribucionPorciones> TraerDistribPorc(string cedula)
         {
             List<DistribucionPorciones> lista = new List<DistribucionPorciones>();

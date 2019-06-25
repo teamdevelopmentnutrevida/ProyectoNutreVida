@@ -12,7 +12,7 @@ namespace UI
     {
      
         private List<ClienteNutricion> lista = new List<ClienteNutricion>();
-        ManejadorExpediente manejador = new ManejadorExpediente();
+        public static ManejadorExpediente manejador = new ManejadorExpediente();
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (new ControlSeguridad().validarNutri() == true)
@@ -28,37 +28,11 @@ namespace UI
             }
 		}
 
+        /**
+         * Método privado, que carga la lista de clientes en la tabla.
+         */
         private void CargarLista()
         {
-            //lista = manejador.ListaClientes();
-           //foreach (ClienteNutricion cl in lista)
-           // {
-            //    TableRow r = new TableRow();
-            //    TableCell c = new TableCell();
-            //    LinkButton cedBoton = new LinkButton();
-            //    cedBoton.Text = cl.Cedula + "";
-            //    cedBoton.CommandArgument = cl.Cedula+"";
-            //    cedBoton.Click += delegate{ redirige(cl.Cedula+""); };
-            //    cedBoton.OnClientClick = "Redirigir_Click";
-            //    c.Controls.Add(cedBoton);
-            //    r.Cells.Add(c);
-                
-            //    TableCell c2 = new TableCell();
-            //    c2.Controls.Add(new LiteralControl(cl.Nombre + " " + cl.Apellido1 + " " + cl.Apellido2));
-            //    r.Cells.Add(c2);
-
-                
-            //    TableCell c3 = new TableCell();
-            //    LinkButton ElimBoton = new LinkButton();
-            //    ElimBoton.Text = "Eliminar";
-            //    ElimBoton.CommandArgument = cl.Cedula + "";
-            //    ElimBoton.OnClientClick += new EventHandler(EliminarCliente);
-            //       c3.Controls.Add(ElimBoton);
-            //    r.Cells.Add(c3);
-
-            //    dataTable.Rows.Add(r);
-            //}
-
             LitListaCliente.Text = "";
             lista = manejador.ListaClientes();
             if (lista != null)
@@ -66,38 +40,37 @@ namespace UI
                 foreach (ClienteNutricion c in lista)
                 {
                     LitListaCliente.Text += "<tr>" +
-                        // "<td><asp:LinkButton runat=\"server\" Enabled=\"true\" CommandArgument=\"" + c.Cedula + "\" ID=\"R" + c.Cedula + "\" OnClick=\"Redirigir_Click\">" + c.Cedula + "</asp:LinkButton></td>" +
-                        "<td><a href=\"\" onclick=\"redig(" + c.Cedula + ")\">"+c.Cedula+"</a></td>" +
+                       "<td><a href=\"\" onclick=\"Redirige(" + c.Cedula + ")\">" + c.Cedula + "</a></td>" +
                             "<td>" + c.Nombre + " " + c.Apellido1 + "</td>" +
-                         "<td><a href=\"\" onclick=\"Eliminar_Click(" + c.Cedula + ")\">Eliminar</a></td></tr>";
+                         "<td><a href=\"\" onclick=\"Eliminar_Click(" + c.Cedula + ")\">Deshabilitar</a></td></tr>";
                 }
 
             }
         }
-        //[System.Web.Services.WebMethod]
-        public void EliminarCliente(object sender, EventArgs e)
+
+        /**
+         * Método WEB público y estático, es el evento de seleccionar la 
+         * @param acciones y eventos del boton
+         */
+        [System.Web.Services.WebMethod]
+        public static void EliminarCliente(string ced)
         {
-            LinkButton btn = (LinkButton)(sender);
-            string yourValue = btn.CommandArgument;
-            Console.Write("Funciona "+ yourValue);
+            bool exito = manejador.EliminarCliente(ced);
+            //LinkButton btn = (LinkButton)(sender);
+            //string yourValue = btn.CommandArgument;
+            //Console.Write("Funciona "+ yourValue);
         }
 
-        //[System.Web.Services.WebMethod]
+        /**
+         * Método WEB público y estático, es el evento de seleccionar la cedula del cliente el cual redirige a la información del expediente
+         * @param acciones y eventos del boton
+         */
         [System.Web.Services.WebMethod(EnableSession = true)]
-        public static void redirige(string ced)
+        public static void Redirigir_Click(string ced)
         {
             HttpContext.Current.Session["ced"] = ced;
-            //Session["ced"] = ced;
-            
-            //Response.Redirect("Cliente.aspx");
-        }
-
-        public void Redirigir_Click(object sender, EventArgs e)
-        {
-            LinkButton btn = (LinkButton)(sender);
-            string yourValue = btn.CommandArgument;
-            Session["ced"] = yourValue;
-            Response.Redirect("Cliente.aspx");
-        }
+         }
+        
+        
     }
 }

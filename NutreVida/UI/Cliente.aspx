@@ -65,10 +65,7 @@
                         <asp:TextBox runat="server" ID="FechNacimi" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de nacimiento"></asp:TextBox>               
                     <br />
                     <br />
-                        <div class="col-11" style="width:100%; float:right;">
-                 <asp:Button ID="BackButton" Text="Atrás" runat="server"  OnClick="BackButton_Click"  CssClass="btn btn-primary colorBoton" />
-                 <asp:Button ID="OkButton" Text="OK" runat="server"  OnClick="OkButton_Click"  CssClass="btn btn-primary colorBoton" />
-                 </div>   
+                       
                     </div>
                 </div>
             <br />
@@ -607,12 +604,104 @@
                         
                   </div> <%--tab Seg Semanal--%>
 
+    <style>
 
+
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: page;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>            
                    <%-- Seguimiento Mensual--%>
                  <div id="SM" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-SM">
                       <h4>Seguimientos Nutricionales</h4>
-           
-                <div class="row">
+                        <button onclick="openForm()" class="boton btn btn-primary">Nuevo</button>
+
+                <div class="form-popup" id="myForm">
+                     <%--<form action="/action_page.php" class="form-container">--%>
+    <h5> Nuevo Seguimiento Mensual</h5>
+      <label for="email"><b>Días de ejercicio semanales:</b></label>
+   <asp:TextBox runat="server" ID="DiasEjerSem" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Días de ejercicio semanal"></asp:TextBox>
+     
+
+    <label for="psw"><b>Comidas Extras:</b></label>
+    <%--<asp:TextBox runat="server" ID="ComidasExtras" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Comidas Extras"></asp:TextBox>--%>
+     <asp:TextBox runat="server" ID="ComidasExtras" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Días de ejercicio semanal"></asp:TextBox>
+   <br />
+    
+                     <input type="text" placeholder="Enter Email" name="email" required hidden="hidden">
+
+
+                 
+      <br />
+    <button type="submit" class="btn">Guardar</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
+         <br />
+
+  <%--</form>--%>
+</div>
+<br />
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+               <%-- <div class="row">
                    <div class="col-form-label">
                     <label class="form-label" for="tejeSem">Días de ejercicio semanales: </label>
                     <asp:TextBox runat="server" ID="DiasEjerSem" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Días de ejercicio semanal"></asp:TextBox>
@@ -622,8 +711,8 @@
                         <label class="form-label" for="tejeSem">Comidas Extras: </label>
                         <asp:TextBox runat="server" ID="ComidasExtras" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Comidas Extras"></asp:TextBox>
                     </div>
-              </div>
-               <div class="col-11" style="width:50%;">
+              </div>--%>
+               <%--<div class="col-11" style="width:50%;">
                 <label class="form-label" for="tejeSem">Niveles de Ansiedad semanal y tiempo de comida en donde lo siente : </label>
                 <asp:TextBox runat="server" ID="NivAnsiedad" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Niveles de Ansiedad"></asp:TextBox>
                </div>
@@ -745,14 +834,53 @@
                                    <label class="form-label" for="tPesoMeta">Peso Meta o Ideal:</label>
                                     <asp:TextBox ID="SegAntPesoIdeal" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso Meta o Ideal"></asp:TextBox>
                                 </div>
-                            </div>
+                            </div>--%>
           <%-- </div>--%>
             <br />
-           <br />
+                     <h6>Lista Seguimientos Nutricionales:</h6>
+                        <table class="table">
+                            <tr>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Nombre</th> 
+                                <th scope="col">Primer Apellido</th>
+                                <th scope="col">Segundo Apellido</th>
+                                <th scope="col">Ver</th>
+                           </tr>
+                                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+                        </table>
+           <br /><asp:Literal ID="Literal2" runat="server" Text="No hay registros" ></asp:Literal>
+                     <br />
+                     <br />
                   </div> <%--tab Seg Mensual--%>
               
              </div> <%--div tab content--%>
              </div> <%--div del nav--%>
+
+     <div class="footer">
+	    <asp:Button ID="btnGuardar" CssClass="boton btn btn-primary" runat="server" Text="Atrás" OnClick="BackButton_Click" />
+        <br />  
+	</div>
+
+
+	 <style>
+		.footer {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 50px;
+			background-color: #E6E8E7;
+			color: black;
+			text-align: right;
+		}
+
+		.boton {
+			margin:10px;
+			margin-right:120px;
+			
+		}
+
+	</style>
           </div><%--div container--%>
      
    </form>
