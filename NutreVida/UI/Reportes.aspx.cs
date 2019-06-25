@@ -28,8 +28,14 @@ namespace UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            BL.Reportes report = new BL.Reportes();
+			if (new ControlSeguridad().validarNutri() == true)
+			{
+				Response.Redirect("~/InicioSesion.aspx");
+
+
+			}
+
+			BL.Reportes report = new BL.Reportes();
 
             lbMenor20.Text = (report.obtenerPromedioPesoEdad(0, 20).Contains(",") || report.obtenerPromedioPesoEdad(0, 20).Contains(".") ? decimal.Parse(report.obtenerPromedioPesoEdad(0, 20)).ToString("N2") : report.obtenerPromedioPesoEdad(0, 20));
 
