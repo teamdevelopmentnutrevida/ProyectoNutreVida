@@ -73,6 +73,11 @@ namespace DAO
             }
         }
 
+        public bool DeshabilitarCliente(string ced)
+        {
+            throw new NotImplementedException();
+        }
+
         public TOHistorialMedico TraerHistorialMed(object ced)
         {
             TOHistorialMedico hm = new TOHistorialMedico();
