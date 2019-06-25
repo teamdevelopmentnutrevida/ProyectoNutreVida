@@ -31,7 +31,7 @@ namespace UI
 
 			if (!IsPostBack)
             {
-               // CargarDatos();
+                CargarDatos();
 
             }
            
