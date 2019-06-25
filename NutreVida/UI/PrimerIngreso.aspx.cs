@@ -13,10 +13,9 @@ namespace UI
         private static List<Medicamento> ListaMedicamSuplem = new List<Medicamento>();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
-
-
             }
         }
 
@@ -90,20 +89,22 @@ namespace UI
             BL.PrimerIngreso ingreso = new BL.PrimerIngreso();
 
 
-            ////Datos personales
+            //Datos personales
 
             if (string.IsNullOrEmpty(txtCed.Text))
             {
                 //mensaje de error
-                Response.Write("<script>window.alert('Debe registrar un número de cedula');</script>");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError( 'Algo salió mal', 'error', 'Debe registrar un número de cédula');", true);
+                //Response.Write("<script>mensajeError( 'Algo salió mal', 'error', 'Debe registrar un número de cedula');</script>");
                 return;
 
             }
 
 			if (txtCed.Text.Length > 9)
 			{
-				//mensaje de error
-				Response.Write("<script>window.alert('Numero de cedula invalido');</script>");
+                //mensaje de error
+              
+                Response.Write("<script>mensajeError( 'Algo salió mal', 'error', 'Número de cedula invalido');</script>");
 				return;
 
 			}

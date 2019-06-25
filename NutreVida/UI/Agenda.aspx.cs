@@ -19,7 +19,7 @@ namespace UI
                 CargarLista();
             }
         }
-      
+
         private void CargarLista()
         {
             LitListaEventos.Text = "";

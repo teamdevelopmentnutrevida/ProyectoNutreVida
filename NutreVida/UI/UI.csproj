@@ -97,6 +97,7 @@
     <Content Include="js\demo\datatables-demo.js" />
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
+    <Content Include="js\sweetalert28.js" />
     <Content Include="Notificacion.aspx" />
     <Content Include="PrimerIngreso.aspx" />
     <Content Include="OlvidoContrasena.aspx" />
