@@ -44,7 +44,7 @@ namespace UI
                             "<td>" + c.Nombre + " " + c.Apellido1 + "</td>" +
                          "<td><a href=\"\" onclick=\"Eliminar_Click(" + c.Cedula + ")\">Deshabilitar</a></td></tr>";
                 }
-
+                
             }
         }
 
@@ -56,6 +56,7 @@ namespace UI
         public static void EliminarCliente(string ced)
         {
             bool exito = manejador.EliminarCliente(ced);
+            
             //LinkButton btn = (LinkButton)(sender);
             //string yourValue = btn.CommandArgument;
             //Console.Write("Funciona "+ yourValue);

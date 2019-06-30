@@ -15,7 +15,7 @@
               <div class="card-body">
                   <div class="table-responsive">
                       
-                      <table class="table table-bordered" id="dataTable" style="width:100%; padding:0";>
+                      <table class="table table-bordered" id="dataTable" style="width:100%; padding:0;">
                           <thead>
                             <tr>
                               <th>Cédula</th>
