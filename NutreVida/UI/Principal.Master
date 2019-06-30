@@ -50,11 +50,11 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
-                <!-- Nav Item - Reportes Collapse Menu -->
+                <!-- Nav Item - Estadisticas Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link" href="Reportes.aspx">
                         <i class="fas fa-chart-bar" style="font-size: 1em"></i>
-                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Reportes</span>
+                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Estadísticas</span>
                     </a>
                 </li>
 
