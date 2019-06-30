@@ -123,7 +123,6 @@
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="css\style.css" />
-    <Content Include="Evento.aspx" />
     <Content Include="Expedientes.aspx" />
     <Content Include="img\agenda-calendar-hov.svg" />
     <Content Include="img\agenda-calendar.svg" />
@@ -1782,13 +1781,6 @@
     </Compile>
     <Compile Include="ControlSeguridad.aspx.designer.cs">
       <DependentUpon>ControlSeguridad.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Evento.aspx.cs">
-      <DependentUpon>Evento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Evento.aspx.designer.cs">
-      <DependentUpon>Evento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Expedientes.aspx.cs">
       <DependentUpon>Expedientes.aspx</DependentUpon>
