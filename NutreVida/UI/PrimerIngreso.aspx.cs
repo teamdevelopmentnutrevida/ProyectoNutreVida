@@ -107,7 +107,7 @@ namespace UI
             BL.PrimerIngreso ingreso = new BL.PrimerIngreso();
 
 
-            ////Datos personales
+            //Datos personales
 
             if (string.IsNullOrEmpty(txtCed.Text))
             {
