@@ -30,11 +30,11 @@ namespace UI
 				Session["usuario"] = usua;
 				if (usua.rol.Equals("admin"))
 				{
-					Response.Redirect("~/Agenda.aspx");
+					Response.Redirect("~/Reportes.aspx");
 				}
 				else if (usua.rol.Equals("nutricionista"))
 				{
-					Response.Redirect("~/Agenda.aspx");
+					Response.Redirect("~/Reportes.aspx");
 				}
 
 			}

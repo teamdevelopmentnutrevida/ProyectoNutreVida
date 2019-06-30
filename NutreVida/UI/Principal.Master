@@ -28,7 +28,7 @@
     <script src="js/sweetalert28.js"></script>
 
 </head>
-<body id="page-top">
+<body id="page-top" >
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -46,21 +46,20 @@
                     <i class="fas fa-apple-alt"></i>
 
                 </a>
-
+            
                 <!-- Divider -->
-                <hr class="sidebar-divider my-0">
+                <hr class="sidebar-divider">
 
-                <!-- Nav Item - Agenda -->
+                <!-- Nav Item - Estadisticas Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link" href="Agenda.aspx">
-                        <i class="fas fa-calendar-alt" style="font-size: 1em"></i>
-                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Agenda</span></a>
+                    <a class="nav-link" href="Reportes.aspx">
+                        <i class="fas fa-chart-bar" style="font-size: 1em"></i>
+                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Estadísticas</span>
+                    </a>
                 </li>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-
-
 
                 <!-- Nav Item - Expedientes Collapse Menu -->
                 <li class="nav-item">
@@ -94,15 +93,15 @@
                         <span class="sidebar-brand-text mx-3" style="font-size: 1em">Notificación</span>
                     </a>
                 </li>
+            
                 <!-- Divider -->
-                <hr class="sidebar-divider">
+                <hr class="sidebar-divider my-0">
 
-                <!-- Nav Item - Reportes Collapse Menu -->
+              <!-- Nav Item - Agenda -->
                 <li class="nav-item">
-                    <a class="nav-link" href="Reportes.aspx">
-                        <i class="fas fa-chart-bar" style="font-size: 1em"></i>
-                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Reportes</span>
-                    </a>
+                    <a class="nav-link" href="Agenda.aspx">
+                        <i class="fas fa-calendar-alt" style="font-size: 1em"></i>
+                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Agenda</span></a>
                 </li>
                 <!-- Divider -->
                 <hr class="sidebar-divider">
@@ -129,7 +128,7 @@
 
                 
 
-       <%--     </div>--%>
+         <!--   </div> -->
 
         </ul>
 
@@ -143,7 +142,7 @@
             <div id="content" style="background-color: white">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow" style="height:50px">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -310,15 +309,30 @@
     <script src="js/demo/datatables-demo.js"></script>
 
     <script>
+        if (window.innerWidth <= 768) {
+            document.querySelector('#main-container').style.paddingLeft = '220px';
+        } else {
+            document.querySelector('#main-container').style.paddingLeft = '60px';
+        }
         $('#sidebarToggle').on('click', function () {
             var uni = $('#accordionSidebar li span');
             $.each(uni, function (index, value) {
                 if (value.classList.contains('d-none')) {
                     value.classList.remove('d-none');
-                } else {
+                    document.querySelector('#main-container').style.paddingLeft='220px';
+        } else {
                     value.classList.add('d-none');
-                }
-            });
+                    document.querySelector('#main-container').style.paddingLeft = '100px';
+        }
+        });
+        });
+        $('#sidebarToggleTop').on('click', function () {
+            var style =  document.querySelector('#main-container').style.paddingLeft;
+            if (style == '60px') {
+                document.querySelector('#main-container').style.paddingLeft = '0px';
+            } else {
+                document.querySelector('#main-container').style.paddingLeft = '60px';
+            }
         });
     </script>
 
