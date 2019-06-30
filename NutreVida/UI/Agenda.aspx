@@ -1,211 +1,103 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="Agenda.aspx.cs" Inherits="UI.Agenda" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Agenda.aspx.cs" Inherits="UI.WebForm1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<!DOCTYPE html>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="css/style.css" rel="stylesheet" />
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
-    <script language="C#" runat="server">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>NutreVida</title>
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-        List<BL.Evento> quemados = new List<BL.Evento>();
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/Margen.css" rel="stylesheet" />
 
-        public void cargarCalendario()
-        {
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+      <%-- librería para mostrar mensajes al usuario--%>
+    <script src="js/sweetalert28.js"></script>
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Mini calendar outside the scheduler</title>
+    <script src='codebase/dhtmlxscheduler.js?v=5.2.1' type="text/javascript" charset="utf-8"></script>
+    <link rel='STYLESHEET' type='text/css' href='codebase/dhtmlxscheduler_material.css?v=5.2.1'>
+
+    <script src="codebase/ext/dhtmlxscheduler_minical.js?v=5.2.1" type="text/javascript" charset="utf-8"></script>
+
+    <style type="text/css">
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            overflow: hidden;
         }
 
-        void DayRender(Object source, DayRenderEventArgs e)
-        {
-            //recorrre para insertar directamente al calendario
-
-            cargarCalendario();
-
-            //Add custom text to cell in the Calendar control.
-            //if (e.Day.Date.Day == 18)
-            //    e.Cell.Controls.Add(new LiteralControl("<br />Holiday"));
-
+        .dhx_calendar_click {
+            /* background-color: #C2D5FC !important; */
         }
+    </style>
 
+    <script type="text/javascript" charset="utf-8">
+        var prev = null;
+        var curr = null;
+        var next = null;
 
-        void Selection_Change(Object sender, EventArgs e)
-        {
-            string evento = Calendar1.SelectedDate.ToShortDateString();
+        function doOnLoad() {
+            scheduler.config.multi_day = true;
 
-            DateTime evento2 = DateTime.Parse(Calendar1.SelectedDate.ToShortDateString());
+            scheduler.init('scheduler_here', new Date(2017, 9, 11), "week");
+            scheduler.load("../common/events.json")
 
-            string anno = Calendar1.SelectedDate.Year.ToString();
-            string dia = Calendar1.SelectedDate.Day.ToString();
-            string mes = Calendar1.SelectedDate.Month.ToString();
+            var calendar = scheduler.renderCalendar({
+                container: "cal_here",
+                navigation: true,
+                handler: function (date) {
+                    scheduler.setCurrentView(date, scheduler.getState().mode);
+                }
+            });
+            scheduler.linkCalendar(calendar);
 
-            string Valor = anno + "-" + mes + "-" + dia;
-            Response.Redirect("Evento.aspx?Valor=" + Valor);
-
+            scheduler.setCurrentView();
         }
-
     </script>
-
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</head>
 
 
-<form id="form1" runat="server">
-
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-        <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-
-
-
-        <div class="container-fluid theme-showcase">
-
-            <h1 class="h3 mb-2 text-gray-800">Agenda Nutre Vida</h1>
-            <div id="holder" class="row">
-                <div class="col-md-5">
-                    <asp:Calendar ID="Calendar1" runat="server"
-                    SelectionMode="Day"
-                    ShowGridLines="True"
-                    OnSelectionChanged="Selection_Change" OnDayRender="DayRender" Height="284px" Width="421px">
-
-                    <SelectedDayStyle BackColor="Yellow"
-                        ForeColor="Red"></SelectedDayStyle>
-
-                    <WeekendDayStyle BackColor="gray"></WeekendDayStyle>
-
-                    <TodayDayStyle BorderColor="#3366ff" Font-Underline="true" BackColor="#3366ff"/>
-
-                </asp:Calendar>
-                   
-
-                    <div class="fc-button-group">
-                        <div class="fc-button-group">
-                            <button type="button" class="fc-month-button fc-button fc-state-default fc-corner-left fc-state-active">month</button>
-                            <button type="button" class="fc-basicWeek-button fc-button fc-state-default">week</button>
-                            <button type="button" class="fc-basicDay-button fc-button fc-state-default">day</button>
-                            <button type="button" class="fc-agenda-button fc-button fc-state-default fc-corner-right">agenda</button>
-                            <%--bucar como implementar al calendario--%>
-                        </div>
-                    </div>
-                     
-
-                </div>
-                
-                <br />
-                <div class="col-md-2">
-                    <asp:Button ID="btnAgregarEvento" runat="server" Text="Agregar Evento" OnClick="btnAgregarEvento_Click"/>
-                </div>
-
-                <div class="card shadow mb-4">
-             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Lista de Eventos:></h6>
-            </div>
-              <div class="card-body">
-                  <div class="table-responsive">
-                      <table class="table table-bordered" id="dataTable" style="width:100%; padding:0";>
-                          <thead>
-                            <tr>
-                              <th>Hora</th>
-                              <th>Evento</th>
-                              <th>Descripción</th>
-                              <th>Acción</th>
-                            </tr>
-                          </thead>
-                           <tbody>
-                               <asp:Literal runat="server" ID="LitListaEventos"></asp:Literal>
-                               </tbody>
-                       </table>
-                  </div>
-            </div> 
-        </div>
-                &nbsp;
-            </div>
-        </div>
-      
-    </form>
-
-<!-- Button to Open the Modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Open modal
-</button>
-
-<!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Modificar evento</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-         <label class="control-label" for="nombreEven">Nombre del evento</label>
-        <input type="text" class="form-control" id="nombreEven" placeholder="Nombre del evento" />
-
-          <label class="control-label" for="descripcionEven">Descripción del evento</label>
-        <input type="text" class="form-control" id="descripcionEven" placeholder="Nombre del evento" />
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-       <a href="#" class="btn" data-dismiss="modal">Cerrar</a>
-       <a href="#" class="btn btn-primary">Guardar cambios</a>
+<body onload="doOnLoad();">
+    <div style='float: left; padding: 10px;'>
+        <div id="cal_here" style='width: 250px;'></div>
+        <br />
+        <br />
+        <br />
+        <form runat="server">
+            <asp:Button ID="btn1" CssClass="boton btn btn-primary"  runat="server" Text="Regresar" OnClick="btn1_Click" />
+        </form>
     </div>
 
+    <div id="scheduler_here" class="dhx_cal_container" style='width: auto; height: 100%;'>
+        <div class="dhx_cal_navline">
+            <div class="dhx_cal_prev_button">&nbsp;</div>
+            <div class="dhx_cal_next_button">&nbsp;</div>
+            <div class="dhx_cal_today_button"></div>
+            <div class="dhx_cal_date"></div>
+            <div class="dhx_cal_tab" name="day_tab" style="right: 204px;"></div>
+            <div class="dhx_cal_tab" name="week_tab" style="right: 140px;"></div>
+            <div class="dhx_cal_tab" name="month_tab" style="right: 76px;"></div>
+        </div>
+        <div class="dhx_cal_header">
+        </div>
+        <div class="dhx_cal_data">
+        </div>
     </div>
-  </div>
-</div>
+</body>
 
-      <script type="text/javascript">
-          function Eliminar_Click(nombre, fecha) {
-              let jsonData = JSON.stringify({ nombre: nombre, fecha: fecha })
-              $.ajax({
-                  type: "POST",
-                  url: '/Agenda.aspx/EliminarEvento',
-                  data: jsonData,
-                  contentType: "application/json; charset=utf-8",
-                  dataType: "json",
-                  async: true,
-                  success: function () {
-                      location.reload();
-                      mensaje();
-                  },
-                  error: function (response) {
-                      console.log(response);
-                  }
-              });
-          }
-
-      </script>
-
-      <script type="text/javascript">
-          function Modificar_Click(nombre, descripcion, horaInicio, horaFin, fecha) {
-              let jsonData = JSON.stringify({ nombre: nombre, descripcion: descripcion, horaInicio: horaInicio, horaFin: horaFin, fecha: fecha })
-              $.ajax({
-                  type: "POST",
-                  url: '/Agenda.aspx/EliminarEvento',
-                  data: jsonData,
-                  contentType: "application/json; charset=utf-8",
-                  dataType: "json",
-                  async: true,
-                  success: function () {
-                      location.reload();
-                      mensaje();
-                  },
-                  error: function (response) {
-                      console.log(response);
-                  }
-              });
-          }
-
-      </script>
-
-
-</asp:Content>
+</html>

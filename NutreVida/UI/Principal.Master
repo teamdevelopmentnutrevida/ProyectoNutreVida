@@ -28,7 +28,7 @@
     <script src="js/sweetalert28.js"></script>
 
 </head>
-<body id="page-top">
+<body id="page-top" >
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -129,7 +129,7 @@
 
                 
 
-       <%--     </div>--%>
+         <!--   </div> -->
 
         </ul>
 
@@ -246,7 +246,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid" style="padding-top:100px; padding-left:220px;">
+                <div class="container-fluid" style="padding-top:100px;" id="main-container">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
@@ -310,15 +310,30 @@
     <script src="js/demo/datatables-demo.js"></script>
 
     <script>
+        if (window.innerWidth <= 768) {
+            document.querySelector('#main-container').style.paddingLeft = '220px';
+        } else {
+            document.querySelector('#main-container').style.paddingLeft = '60px';
+        }
         $('#sidebarToggle').on('click', function () {
             var uni = $('#accordionSidebar li span');
             $.each(uni, function (index, value) {
                 if (value.classList.contains('d-none')) {
                     value.classList.remove('d-none');
-                } else {
+                    document.querySelector('#main-container').style.paddingLeft='220px';
+        } else {
                     value.classList.add('d-none');
-                }
-            });
+                    document.querySelector('#main-container').style.paddingLeft = '100px';
+        }
+        });
+        });
+        $('#sidebarToggleTop').on('click', function () {
+            var style =  document.querySelector('#main-container').style.paddingLeft;
+            if (style == '60px') {
+                document.querySelector('#main-container').style.paddingLeft = '0px';
+            } else {
+                document.querySelector('#main-container').style.paddingLeft = '60px';
+            }
         });
     </script>
 
