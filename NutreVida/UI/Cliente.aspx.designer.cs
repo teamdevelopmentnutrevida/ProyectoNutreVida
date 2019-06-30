@@ -1282,24 +1282,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Literal LitSeguimiento;
         
         /// <summary>
-        /// DiasEjerSem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DiasEjerSem;
-        
-        /// <summary>
-        /// ComidasExtras control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ComidasExtras;
-        
-        /// <summary>
         /// Literal1 control.
         /// </summary>
         /// <remarks>

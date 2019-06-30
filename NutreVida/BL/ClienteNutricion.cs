@@ -22,6 +22,7 @@ namespace BL
         public DateTime FechaIngreso { set; get; }
         public string Correo { set; get; }
         public string Consultorio { set; get; }
+        public int Estado { set; get; }
 
         public ClienteNutricion(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso, string consultorio)
         {
@@ -40,7 +41,7 @@ namespace BL
             FechaIngreso = fechaIngreso;
             Consultorio = consultorio;
         }
-        public ClienteNutricion(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso)
+        public ClienteNutricion(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso, string consultorio, int estado)
         {
             Cedula = cedula;
             Correo = correo;
@@ -55,6 +56,8 @@ namespace BL
             Residencia = residencia;
             Ocupacion = ocupacion;
             FechaIngreso = fechaIngreso;
+            Consultorio = consultorio;
+            Estado = estado;
         }
         public ClienteNutricion() {}
 

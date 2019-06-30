@@ -675,42 +675,12 @@
                    <%-- Seguimiento Mensual--%>
                  <div id="SM" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-SM">
 					 <br />
-                      <h4>Seguimientos Nutricionales</h4>
-                        <button onclick="openForm()" class="boton btn btn-primary">Nuevo</button>
-
-                <div class="form-popup" id="myForm">
-                     <%--<form action="/action_page.php" class="form-container">--%>
-    <h5> Nuevo Seguimiento Mensual</h5>
-      <label for="email"><b>Días de ejercicio semanales:</b></label>
-   <asp:TextBox runat="server" ID="DiasEjerSem" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Días de ejercicio semanal"></asp:TextBox>
-     
-
-    <label for="psw"><b>Comidas Extras:</b></label>
-    <%--<asp:TextBox runat="server" ID="ComidasExtras" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Comidas Extras"></asp:TextBox>--%>
-     <asp:TextBox runat="server" ID="ComidasExtras" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Días de ejercicio semanal"></asp:TextBox>
-   <br />
+                     
+                         <button onclick="openForm()" class="btn btn-primary btn-lg pull-right">Nuevo</button>
+                    
+                        
     
-                     <input type="text" placeholder="Enter Email" name="email" required hidden="hidden">
-
-
-                 
-      <br />
-    <button type="submit" class="btn">Guardar</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
-         <br />
-
-  <%--</form>--%>
-</div>
-<br />
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
+                
 
                <%-- <div class="row">
                    <div class="col-form-label">
