@@ -82,8 +82,9 @@
               
              <div class="tab-content" id="nav-tabContent">
                   <%--    Historial Medico--%>
+
                   <div id="HM" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-HM">
-                       <h5>Historial Médico</h5>
+					    <br />
             <div class="col-11 margen" style="width: 100%;">
                             <label class="form-label" for="tAntFam">Antecedentes Familiares:</label>
                             <asp:TextBox Width="700px" ID="txtAntec" TextMode="MultiLine" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Antecedentes Familiares"></asp:TextBox>
@@ -165,6 +166,8 @@
                             <asp:TextBox runat="server" ID="FechRevMedica" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                             
                         </div>
+                        <br /> <br />
+                        <br />
                         <br />
                    
                     </div> <%--tab hist medico--%>
@@ -172,9 +175,9 @@
                   <%--   Habitos alimentarios--%>
                  <div id="HA" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-HA">
                    <%--  <h5>Habitos Alimentarios</h5>--%>
-                    <div class="row">
+                      <br />
+					 <div class="row">
                           <div class="col-form-label">
-                              <h5>Habitos Alimentarios:</h5>  
                               <label class="form-label" for="tComD">¿Cuántas veces come al día? </label>
                                 <asp:TextBox ID="numeroComidas" runat="server" type="number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Cantidad de comidas al día" />
                                <label class="form-label" for="tComeHoraDia">¿Acostumbra a comer a las horas al día? </label>
@@ -312,15 +315,19 @@
                                     <asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescColacion" runat="server"></asp:TextBox></td>
                             </tr>
                         </table>
+
                     </div>
-         
+						   <br />
+                        <br />
+                        <br />
             
                   </div> <%--tab hab aliment--%>
 
              <%--    Antropometria--%>
                  <div id="Ant" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-Ant">
-                      <h5>Antropometría</h5>
+					   <br />
                       <div class="row">
+						
                                 <div class="col-form-label">
                                     <label class="form-label" for="tEdad">Edad:</label>
                                     <asp:TextBox ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" step="any" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad"></asp:TextBox>
@@ -556,14 +563,15 @@
                                     <asp:TextBox CssClass="form-control" Font-Size="Small" ID="txtDescColacionA" runat="server"></asp:TextBox></td>
                             </tr>
                         </table>
-            
+					     <br />
+                        <br />
+                        <br />
                   </div> <%--tab Antrop--%>
 
                 <%-- Seguimiento Semanal--%>
                  <div id="SS" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-SS">
                
-                            <h5>Seguimiento de pesaje semanal:</h5>
-                            
+                               <br />
                             <div class="row">
                                 <div class="col-form-label-lg">
                                     <asp:TextBox ID="sPeso" runat="server"  placeholder="Peso" Font-Size="Small" CssClass="form-control"></asp:TextBox>
@@ -598,7 +606,9 @@
                            </tr>
                                 <asp:Literal ID="LitSeguimiento" runat="server" ></asp:Literal>
                         </table>
-
+					  <br />
+                        <br />
+                        <br />
                     
                      
                         
@@ -664,6 +674,7 @@
 </style>            
                    <%-- Seguimiento Mensual--%>
                  <div id="SM" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-SM">
+					 <br />
                       <h4>Seguimientos Nutricionales</h4>
                         <button onclick="openForm()" class="boton btn btn-primary">Nuevo</button>
 
@@ -850,14 +861,16 @@ function closeForm() {
                         </table>
            <br /><asp:Literal ID="Literal2" runat="server" Text="No hay registros" ></asp:Literal>
                      <br />
-                     <br />
+                     <br /> <br />
+                        <br />
+                        <br />
                   </div> <%--tab Seg Mensual--%>
               
              </div> <%--div tab content--%>
              </div> <%--div del nav--%>
 
-     <div class="footer">
-	    <asp:Button ID="btnGuardar" CssClass="boton btn btn-primary" runat="server" Text="Atrás" OnClick="BackButton_Click" />
+     <div class="footer navbar-light bg-white shadow">
+	    <asp:Button ID="btnGuardar" CssClass="boton btn btn-primary" runat="server" Text="Guardar" OnClick="BackButton_Click" />
         <br />  
 	</div>
 
@@ -868,15 +881,15 @@ function closeForm() {
 			left: 0;
 			bottom: 0;
 			width: 100%;
-			height: 50px;
+			height: 45px;
 			background-color: #E6E8E7;
 			color: black;
 			text-align: right;
 		}
 
 		.boton {
-			margin:10px;
-			margin-right:120px;
+			margin:5px;
+			margin-right:55px;
 			
 		}
 

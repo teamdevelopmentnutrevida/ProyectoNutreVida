@@ -9,7 +9,7 @@ using BL;
 namespace UI
 {
     /**
-     * Client Class, shows the information of the file and manage the button´s action.
+     * Clase Cliente, muestra la información del expediente y administra la acción del botón.
      * @author Yoselyn
     */
     public partial class Cliente : System.Web.UI.Page

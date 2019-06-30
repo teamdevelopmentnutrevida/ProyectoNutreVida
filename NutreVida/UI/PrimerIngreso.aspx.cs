@@ -8,17 +8,21 @@ using BL;
 
 namespace UI
 {
-    public partial class PrimerIngreso : System.Web.UI.Page
+	/**
+     * Clase Primer Ingreso, toma los datos del cliente cuando son ingresados por primera vez y administra la acción del botón guardar.
+     * @author Yoselyn
+    */
+	public partial class PrimerIngreso : System.Web.UI.Page
     {
         private static List<Medicamento> ListaMedicamSuplem = new List<Medicamento>();
         protected void Page_Load(object sender, EventArgs e)
         {
 
-           if (new ControlSeguridad().validarNutri() == true)
-			{
-				Response.Redirect("~/InicioSesion.aspx");
+			//if (new ControlSeguridad().validarNutri() == true)
+			//{
+			//	Response.Redirect("~/InicioSesion.aspx");
 
-			}
+			//}
 
 			if (!IsPostBack)
             {
@@ -27,7 +31,10 @@ namespace UI
             }
         }
 
-        protected void DropLicor_SelectedIndexChanged(object sender, EventArgs e)
+	  /**
+	  * Método privado que carga la opcion seleccionada en el dropdown de licor 
+	  */
+		protected void DropLicor_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DropLicor.SelectedValue == "Sí")
             {
@@ -38,7 +45,11 @@ namespace UI
             }
         }
 
-        protected void DropFuma_SelectedIndexChanged(object sender, EventArgs e)
+
+		/**
+	 * Método privado que carga la opcion seleccionada en el dropdown de fumado 
+	 */
+		protected void DropFuma_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DropFuma.SelectedValue == "Sí")
             {
