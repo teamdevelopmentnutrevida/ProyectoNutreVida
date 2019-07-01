@@ -14,7 +14,7 @@
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -24,111 +24,106 @@
 
     <link rel="shortcut icon" href="img/favicon.ico" />
 
-      <%-- librería para mostrar mensajes al usuario--%>
+    <%-- librería para mostrar mensajes al usuario--%>
     <script src="js/sweetalert28.js"></script>
 
 </head>
-<body id="page-top" >
+<body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-		<%--w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-right--%>
+        <%--w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-right--%>
 
         <!-- Sidebar -->
         <ul class="w3-sidebar navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-			<%--  <div class="fixed-top">--%>
+            <!-- <div class="fixed-top"> -->
 
-                <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-inline-block align-items-center justify-content-center" href="#">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-inline-block align-items-center justify-content-center" href="#">
 
-                    <i class="fas fa-apple-alt"></i>
+                <i class="fas fa-apple-alt"></i>
 
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Reportes Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="Reportes.aspx">
+                    <i class="fas fa-chart-bar" style="font-size: 1em"></i>
+                    <span class="sidebar-brand-text mx-3" style="font-size: 1em">Reportes</span>
                 </a>
-            
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            </li>
 
-                <!-- Nav Item - Estadisticas Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link" href="Reportes.aspx">
-                        <i class="fas fa-chart-bar" style="font-size: 1em"></i>
-                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Estadísticas</span>
-                    </a>
-                </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Nav Item - Expedientes Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="Expedientes.aspx">
+                    <i class="fas fa-folder-open" style="font-size: 1em"></i>
+                    <span class="sidebar-brand-text mx-3" style="font-size: 1em">Expedientes</span>
+                </a>
 
-                <!-- Nav Item - Expedientes Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link" href="Expedientes.aspx">
-                        <i class="fas fa-folder-open" style="font-size: 1em"></i>
-                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Expedientes</span>
-                    </a>
+            </li>
 
-                </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Nav Item - Primer Ingreso Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="PrimerIngreso.aspx">
+                    <i class="fas fa-file-alt" style="font-size: 1em"></i>
+                    <span class="sidebar-brand-text mx-3" style="font-size: 1em">Primer Ingreso</span>
+                </a>
 
-                <!-- Nav Item - Primer Ingreso Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link" href="PrimerIngreso.aspx">
-                        <i class="fas fa-file-alt" style="font-size: 1em"></i>
-                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Primer Ingreso</span>
-                    </a>
+            </li>
 
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
 
-                <!-- Nav Item - Notificacion Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link" href="Notificacion.aspx">
-                        <i class="fas fa-bell" style="font-size: 1em"></i>
-                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Notificación</span>
-                    </a>
-                </li>
-            
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Notificacion Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="Notificacion.aspx">
+                    <i class="fas fa-bell" style="font-size: 1em"></i>
+                    <span class="sidebar-brand-text mx-3" style="font-size: 1em">Notificación</span>
+                </a>
+            </li>
 
-              <!-- Nav Item - Agenda -->
-                <li class="nav-item">
-                    <a class="nav-link" href="Agenda.aspx">
-                        <i class="fas fa-calendar-alt" style="font-size: 1em"></i>
-                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Agenda</span></a>
-                </li>
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-                <!-- Nav Item - Cerrar Sesion -->
-                <li class="nav-item">
-                    <a class="nav-link" onclick="cerrar" href="InicioSesion.aspx">
-                        <i class="fas fa-sign-out-alt" style="font-size: 1em"></i>
-                        <span class="sidebar-brand-text mx-3" style="font-size: 1em">Cerrar Sesión</span></a>
-                </li>
+            <!-- Nav Item - Agenda -->
+            <li class="nav-item">
+                <a class="nav-link" href="Agenda.aspx">
+                    <i class="fas fa-calendar-alt" style="font-size: 1em"></i>
+                    <span class="sidebar-brand-text mx-3" style="font-size: 1em">Agenda</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Cerrar Sesion -->
+            <li class="nav-item">
+                <a class="nav-link" onclick="cerrar" href="InicioSesion.aspx">
+                    <i class="fas fa-sign-out-alt" style="font-size: 1em"></i>
+                    <span class="sidebar-brand-text mx-3" style="font-size: 1em">Cerrar Sesión</span></a>
+            </li>
 
 
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
 
-                <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline">
-                     <button class="rounded-circle border-0" style="right:50px;" id="sidebarToggle"></button>
-                </div>
+            <!-- Sidebar Toggler (Sidebar) -->
 
-                <div class="w-100">
-                   
-                </div>
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" style="right: 50px;" id="sidebarToggle"></button>
+            </div>
 
-                
-
-         <!--   </div> -->
+            <!--     </div> -->
 
         </ul>
 
@@ -142,22 +137,19 @@
             <div id="content" style="background-color: white">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow" style="height:50px">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <%--<a class="mr-auto d-none d-md-inline">
+                     <!--  <a class="mr-auto d-none d-md-inline">
                          <i class="fas fa-apple-alt"></i>
-                    </a>--%>
+                    </a> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
-
-
 
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -245,7 +237,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid" style="padding-top:100px; padding-left:220px;">
+                <div class="container-fluid" id="main-container" style="padding-top: 100px; padding-left: 220px;">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
@@ -309,25 +301,29 @@
     <script src="js/demo/datatables-demo.js"></script>
 
     <script>
-        if (window.innerWidth <= 768) {
-            document.querySelector('#main-container').style.paddingLeft = '220px';
-        } else {
-            document.querySelector('#main-container').style.paddingLeft = '60px';
-        }
-        $('#sidebarToggle').on('click', function () {
+            if (window.innerWidth > 768) {
+                document.querySelector('#main-container').style.paddingLeft = '220px';
+            } else {
+                document.querySelector('#main-container').style.paddingLeft = '60px';
+            }
+            $('#sidebarToggle').on('click', function () {
+                console.log("entra");
             var uni = $('#accordionSidebar li span');
             $.each(uni, function (index, value) {
                 if (value.classList.contains('d-none')) {
+                    console.log("entro1");
                     value.classList.remove('d-none');
-                    document.querySelector('#main-container').style.paddingLeft='220px';
-        } else {
+                    console.log("entro2");
+                    document.querySelector('#main-container').style.paddingLeft = '220px';
+                } else {
+                    console.log("entr3");
                     value.classList.add('d-none');
                     document.querySelector('#main-container').style.paddingLeft = '100px';
-        }
-        });
+                }
+            });
         });
         $('#sidebarToggleTop').on('click', function () {
-            var style =  document.querySelector('#main-container').style.paddingLeft;
+            var style = document.querySelector('#main-container').style.paddingLeft;
             if (style == '60px') {
                 document.querySelector('#main-container').style.paddingLeft = '0px';
             } else {

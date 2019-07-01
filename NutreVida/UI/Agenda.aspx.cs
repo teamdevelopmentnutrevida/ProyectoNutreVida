@@ -18,7 +18,7 @@ namespace UI
             ManejadorEvento maneja = new ManejadorEvento();
             String url = Server.MapPath("~/");
             maneja.ListaEvento(url);
-            
+
             //Json = ManejadorEvento.Json;
         }
 

@@ -27,7 +27,7 @@
     <script src="js/sweetalert28.js"></script>
 
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <title>Mini calendar outside the scheduler</title>
+    <title>Calendario Nutre Vida</title>
     <script src='codebase/dhtmlxscheduler.js?v=5.2.1' type="text/javascript" charset="utf-8"></script>
     <link rel='STYLESHEET' type='text/css' href='codebase/dhtmlxscheduler_material.css?v=5.2.1'>
 
@@ -81,7 +81,7 @@
         <br />
         <br />
         <form runat="server">
-            <asp:Button ID="btn1" CssClass="boton btn btn-primary"  runat="server" Text="Regresar" OnClick="btn1_Click" />
+            <asp:Button ID="btn1" CssClass="boton btn btn-primary" runat="server" Text="Regresar" OnClick="btn1_Click" />
         </form>
     </div>
 
