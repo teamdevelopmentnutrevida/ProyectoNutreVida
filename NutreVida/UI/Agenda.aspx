@@ -54,8 +54,10 @@
         function doOnLoad() {
             scheduler.config.multi_day = true;
 
-            scheduler.init('scheduler_here', new Date(2017, 9, 11), "week");
-            scheduler.load("../common/events.json")
+            var hoy = new Date();
+
+            scheduler.init('scheduler_here', hoy, "month");
+            scheduler.load("../Eventos.json")
 
             var calendar = scheduler.renderCalendar({
                 container: "cal_here",
