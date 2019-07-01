@@ -5,17 +5,20 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <form runat="server">
     <div class="container-fluid">
         <h1 class="h3 mb-2 text-gray-800">Expedientes</h1>
          <div class="card shadow mb-4">
-             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Lista de Clientes</h6>
+             <div class="card-header py-3" style="text-align:right;">
+              <%--<h6 class="m-0 font-weight-bold text-primary">Lista de Clientes</h6>--%>
+              <asp:Button ID="NuevoCliente" runat="server" OnClick="NuevoCliente_Click" CssClass="boton btn btn-primary" Text="+"></asp:Button>
             </div>
+             
               <div class="card-body">
                   <div class="table-responsive">
                       
-                      <table class="table table-bordered" id="dataTable" style="width:100%; padding:0";>
+                      <table class="table table-bordered" id="dataTable" style="width:100%; padding:0;">
                           <thead>
                             <tr>
                               <th>Cédula</th>

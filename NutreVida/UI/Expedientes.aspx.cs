@@ -15,12 +15,12 @@ namespace UI
         public static ManejadorExpediente manejador = new ManejadorExpediente();
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (new ControlSeguridad().validarNutri() == true)
-			{
-				Response.Redirect("~/InicioSesion.aspx");
+			//if (new ControlSeguridad().validarNutri() == true)
+			//{
+			//	Response.Redirect("~/InicioSesion.aspx");
 
 
-			}
+			//}
 
 			if (!IsPostBack)
             {
@@ -44,7 +44,7 @@ namespace UI
                             "<td>" + c.Nombre + " " + c.Apellido1 + "</td>" +
                          "<td><a href=\"\" onclick=\"Eliminar_Click(" + c.Cedula + ")\">Deshabilitar</a></td></tr>";
                 }
-
+                
             }
         }
 
@@ -56,6 +56,7 @@ namespace UI
         public static void EliminarCliente(string ced)
         {
             bool exito = manejador.EliminarCliente(ced);
+            
             //LinkButton btn = (LinkButton)(sender);
             //string yourValue = btn.CommandArgument;
             //Console.Write("Funciona "+ yourValue);
@@ -70,7 +71,10 @@ namespace UI
         {
             HttpContext.Current.Session["ced"] = ced;
          }
-        
-        
+
+        protected void NuevoCliente_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PrimerIngreso.aspx");
+        }
     }
 }
