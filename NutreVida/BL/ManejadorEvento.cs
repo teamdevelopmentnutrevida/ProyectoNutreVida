@@ -16,6 +16,11 @@ namespace BL
             daoEvento.guardarEvento(new TOEvento(nombreEvento, descripcionEvento, horaInicio, horaFin, fecha));
         }
 
+        public String cargarDatos(){
+            string eventos = "";
+
+            return eventos;
+        }
 
         public List<Evento> ListaEvento(string fecha)
         {
