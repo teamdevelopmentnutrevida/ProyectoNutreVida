@@ -23,47 +23,47 @@ namespace DAO
         * @param evento TOEvento
         * @return un parámetro de tipo booleano que devuelve un true si se guradó en la base o flase si no se guardó.
         */
-        public Boolean guardarEvento(TOEvento evento)
-        {
+        //public Boolean guardarEvento(TOEvento evento)
+        //{
 
-            string query1 = "Insert into Evento values(@tit,@des,@horaInicio,@horaFina,@fecha);";
+        //    string query1 = "Insert into Evento values(@tit,@des,@horaInicio,@horaFina,@fecha);";
 
-            SqlCommand cmd = new SqlCommand(query1, conexion);
+        //    SqlCommand cmd = new SqlCommand(query1, conexion);
 
-            try
-            {
+        //    try
+        //    {
 
-                //Asignacion de parametros.
-                cmd.Parameters.AddWithValue("@tit", evento.nombreEvento);
-                cmd.Parameters.AddWithValue("@des", evento.decripcionEvento);
-                cmd.Parameters.AddWithValue("@horaInicio", evento.horaInicio);
-                cmd.Parameters.AddWithValue("@horaFina", evento.horaFin);
-                cmd.Parameters.AddWithValue("@fecha", evento.fecha);
+        //        //Asignacion de parametros.
+        //        cmd.Parameters.AddWithValue("@tit", evento.nombreEvento);
+        //        cmd.Parameters.AddWithValue("@des", evento.decripcionEvento);
+        //        cmd.Parameters.AddWithValue("@horaInicio", evento.horaInicio);
+        //        cmd.Parameters.AddWithValue("@horaFina", evento.horaFin);
+        //        cmd.Parameters.AddWithValue("@fecha", evento.fecha);
 
-                //Validacion del estado de la conexion.
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
+        //        //Validacion del estado de la conexion.
+        //        if (conexion.State != ConnectionState.Open)
+        //        {
+        //            conexion.Open();
+        //        }
 
-                //Insercion del historial medico.
-                cmd.ExecuteNonQuery();
-                conexion.Close();
+        //        //Insercion del historial medico.
+        //        cmd.ExecuteNonQuery();
+        //        conexion.Close();
 
-                return true;
-            }
-            catch (SqlException)
-            {
-                return false;
-            }
-        }
+        //        return true;
+        //    }
+        //    catch (SqlException)
+        //    {
+        //        return false;
+        //    }
+        //}
 
         /**
         * Método público que permite recuperar de la base de datos la lista de eventos
         * @param fecha String
         * @return una lista de eventos
         */
-        public List<TOEvento> listaEventos(string fecha)
+        public List<TOEvento> listaEventos()
         {
             List<TOEvento> lista = new List<TOEvento>();
             
@@ -77,7 +77,13 @@ namespace DAO
                 {
                     while (lector.Read())
                     {
-                        lista.Add(new TOEvento(lector["Titulo"].ToString(), lector["Descripcion"].ToString(), lector["HoraInicio"].ToString(), lector["HoraFin"].ToString(), lector["Fecha"].ToString()));
+                        DateTime fechaInicio = DateTime.Parse(lector["FechaInicio"].ToString());
+                        String stringFechaInicio = fechaInicio.ToString("yyyy-MM-dd HH:mm:ss");
+
+                        DateTime FechaFin = DateTime.Parse(lector["FechaFin"].ToString());
+                        String stringFechaFin = FechaFin.ToString("yyyy-MM-dd HH:mm:ss");
+
+                        lista.Add(new TOEvento(int.Parse(lector["IDEvento"].ToString()), stringFechaInicio, stringFechaFin, lector["Titulo"].ToString(), lector["Descripcion"].ToString()));
                     }
 
                     lector.Close();
