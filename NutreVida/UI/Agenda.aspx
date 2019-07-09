@@ -53,8 +53,8 @@
 
         function doOnLoad() {
             scheduler.config.multi_day = true;
-
-            scheduler.init('scheduler_here', new Date(2017, 9, 11), "week");
+            var f = new Date();
+            scheduler.init('scheduler_here', new Date(f.getFullYear(), f.getMonth(), f.getDay()), "month");
             scheduler.load(<%=this.json%>)
 
             var calendar = scheduler.renderCalendar({
@@ -78,8 +78,8 @@
         <br />
         <br />
         <br />
-        <form runat="server">
-            <asp:Button ID="btn1" CssClass="boton btn btn-primary" runat="server" Text="Regresar" OnClick="btn1_Click" />
+        <form runat="server"  align="center" >
+            <asp:Button ID="btn1" CssClass="boton btn btn-primary" runat="server" Text="Regresar" OnClick="btn1_Click"/>
         </form>
     </div>
 
