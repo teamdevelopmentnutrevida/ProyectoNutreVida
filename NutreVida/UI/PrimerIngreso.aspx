@@ -41,8 +41,7 @@
                     <br />
                     <label class="form-label" for="tTel">Teléfono:</label>
                     <asp:TextBox ID="txtTel" runat="server" TabIndex="9" CssClass="form-control" Font-Size="Small" type="number" oninput="validity.valid||(value='');" min="0" data-toggle="tooltip" title="Número telefónico"></asp:TextBox>
-					<asp:RequiredFieldValidator ID="valTelef" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="txtTel" Enabled="False" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <br />
+				  <br />
                     <label class="form-label" for="Consult">Consultorio:</label>
                     <asp:DropDownList runat="server" TabIndex="13" ID="ConsultDropList" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Consultorio">
                         <asp:ListItem Selected="True" Value="San Ramón"> San Ramón </asp:ListItem>
@@ -56,7 +55,7 @@
 					<asp:RequiredFieldValidator ID="valNombre" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="txtNombre" ForeColor="Red"></asp:RequiredFieldValidator>
 					 <br />
 					 <label class="form-label" for="tEmail">Email:</label>
-                    <asp:TextBox ID="txtEmail" TabIndex="6" onkeyup="validarEmail(this)" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Correo electrónico"></asp:TextBox>
+                    <asp:TextBox TextMode="Email" ID="txtEmail" TabIndex="6" onkeyup="validarEmail(this)" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Correo electrónico"></asp:TextBox>
                     <br />
 
                     <label class="form-label" for="tWhats">Utiliza whatsapp:</label>

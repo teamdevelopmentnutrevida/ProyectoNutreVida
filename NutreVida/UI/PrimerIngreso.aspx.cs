@@ -119,7 +119,7 @@ namespace UI
 
             }
 
-			if (txtCed.Text.Length > 9)
+			if (txtCed.Text.Length != 9)
 			{
                 //mensaje de error
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', 'Número de cédula inválido')", true);
@@ -175,10 +175,16 @@ namespace UI
             else if (whatsApp == '1' && !string.IsNullOrEmpty(txtTel.Text))
 			{
 				telefono = int.Parse(txtTel.Text);
-			} else 
-                telefono = 0;
+			} else if (whatsApp == '0' && !string.IsNullOrEmpty(txtTel.Text))
+			{
+				telefono = int.Parse(txtTel.Text);
+			} else
+			{
+				telefono = 0;
+			}
+				
 
-            string residencia = txtResid.Text;
+			string residencia = txtResid.Text;
             string ocupacion = txtOcup.Text;
             DateTime fechaIngreso = DateTime.Now;
 
@@ -188,9 +194,7 @@ namespace UI
 			//el estado por defecto es activado/habilitado
 			int estado = 1;
 
-            ingreso.CrearCliente(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso, consultorio, estado);
-
-
+         
             //Historial medico
 
             string antecedentes = txtAntec.Text; ;
@@ -213,8 +217,8 @@ namespace UI
             string actividadFisica = txtActividadFisica.Text;
             List<Medicamento> listaM = ListaMedicamSuplem; // no se si debería validar que la lista tenga al menos un elemento
 
-            HistorialMedico historial = new HistorialMedico(cedula, antecedentes, patologias, consumeLicor, fuma, frecFuma, frecLicor, ultimoExamen, actividadFisica);
-            ingreso.AgregarHistorialMedico(historial, listaM);
+
+			HistorialMedico historial = new HistorialMedico(cedula, antecedentes, patologias, consumeLicor, fuma, frecFuma, frecLicor, ultimoExamen, actividadFisica);
 
             //Habitos alimentarios
             int ComidaDiaria;
@@ -334,8 +338,8 @@ namespace UI
             //Colacion nocturna
             listaRecordatorio.Add(new Recordatorio24H(cedula, "Colasión nocturna", txtHoraColacion.Text, txtDescColacion.Text));
 
-            ingreso.AgregarHabitosAlimentarios(new HabitoAlimentario(cedula, ComidaDiaria, ComidaHorasDia, AfueraExpress, ComidaFuera, AzucarBebida, ComidaElaboradCon, AguaDiaria, Aderezos, Fruta, Verdura, Leche, Huevo, Yogurt, Carne, Queso, Aguacate, Semillas), listaRecordatorio);
 
+		
             //Antropometria
             decimal talla;
 			if (string.IsNullOrEmpty(txtTalla.Text))
@@ -738,7 +742,10 @@ namespace UI
 
             Porciones porcion = new Porciones(cedula, leche, carne, vegetales, grasa, fruta, azucar, harina, suplemento);
 
-            ingreso.AgregarAntropometria(antro, porcion, distribucion);
+			ingreso.CrearCliente(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso, consultorio, estado);
+			ingreso.AgregarHistorialMedico(historial, listaM);
+			ingreso.AgregarHabitosAlimentarios(new HabitoAlimentario(cedula, ComidaDiaria, ComidaHorasDia, AfueraExpress, ComidaFuera, AzucarBebida, ComidaElaboradCon, AguaDiaria, Aderezos, Fruta, Verdura, Leche, Huevo, Yogurt, Carne, Queso, Aguacate, Semillas), listaRecordatorio);
+			ingreso.AgregarAntropometria(antro, porcion, distribucion);
 
 			//Response.Write(@"<script language='javascript'>alert('Guardado Correctamente');</script>");
             Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien', 'Datos guardados correctamente')", true);
