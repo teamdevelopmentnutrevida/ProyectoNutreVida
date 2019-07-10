@@ -28,19 +28,22 @@
              <h2>Información Personal</h2>
             <br />
 
-            <%--    Datos Personales --%>
+            <%--<h5>Habitos Alimentarios:</h5>--%>
 
             <div class="row">
                 <div class="col-form-label">
                     <label class="form-label" for="tCedula">Cédula:</label>
-                    <asp:TextBox ID="txtCed" oninput="validity.valid||(value='');" runat="server" CssClass="form-control" Font-Size="Small" type="number" min="0" data-toggle="tooltip" title="Cedula de identidad"></asp:TextBox>
+                    <asp:TextBox ID="txtCed" oninput="validity.valid||(value='');" runat="server" CssClass="form-control" Font-Size="Small" type="number" min="0" data-toggle="tooltip" title="Cedula de identidad" TabIndex="1"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="valCed" runat="server" ControlToValidate="txtCed" ErrorMessage="Campo obligatorio" ForeColor="Red"></asp:RequiredFieldValidator>
+					<br />
                     <label class="form-label" for="tOcup">Ocupación:</label>
-                    <asp:TextBox ID="txtOcup" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Ocupación"></asp:TextBox>
+                    <asp:TextBox ID="txtOcup" TabIndex="5" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Ocupación"></asp:TextBox>
+                    <br />
                     <label class="form-label" for="tTel">Teléfono:</label>
-                    <asp:TextBox ID="txtTel" runat="server" CssClass="form-control" Font-Size="Small" type="number" oninput="validity.valid||(value='');" min="0" data-toggle="tooltip" title="Número telefónico"></asp:TextBox>
-                    <asp:Label ID="telObligado" runat="server" Text=""></asp:Label>
+                    <asp:TextBox ID="txtTel" runat="server" TabIndex="9" CssClass="form-control" Font-Size="Small" type="number" oninput="validity.valid||(value='');" min="0" data-toggle="tooltip" title="Número telefónico"></asp:TextBox>
+				  <br />
                     <label class="form-label" for="Consult">Consultorio:</label>
-                    <asp:DropDownList runat="server" ID="ConsultDropList" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Consultorio">
+                    <asp:DropDownList runat="server" TabIndex="13" ID="ConsultDropList" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Consultorio">
                         <asp:ListItem Selected="True" Value="San Ramón"> San Ramón </asp:ListItem>
                         <asp:ListItem Value="Alajuela"> Alajuela </asp:ListItem>
                     </asp:DropDownList>
@@ -48,13 +51,15 @@
                 <div class="col-1"></div>
                 <div class="col-form-label">
                     <label class="form-label" for="tnombre">Nombre:</label>
-                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Nombre"></asp:TextBox>
-                    <label class="form-label" for="tEmail">Email:</label>
-                    <asp:TextBox ID="txtEmail" onkeyup="validarEmail(this)" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Correo electrónico"></asp:TextBox>
-                    <a id='resultado' style="color: red"></a>
+                    <asp:TextBox ID="txtNombre" TabIndex="2" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Nombre"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="valNombre" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="txtNombre" ForeColor="Red"></asp:RequiredFieldValidator>
+					 <br />
+					 <label class="form-label" for="tEmail">Email:</label>
+                    <asp:TextBox TextMode="Email" ID="txtEmail" TabIndex="6" onkeyup="validarEmail(this)" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Correo electrónico"></asp:TextBox>
+                    <br />
 
                     <label class="form-label" for="tWhats">Utiliza whatsapp:</label>
-                    <asp:DropDownList runat="server" ID="dropWhats" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Usa whatsapp">
+                    <asp:DropDownList runat="server" TabIndex="10" ID="dropWhats" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Usa whatsapp">
                         <asp:ListItem Value="Sí"> Sí </asp:ListItem>
                         <asp:ListItem Selected="True" Value="No"> No </asp:ListItem>
                     </asp:DropDownList>
@@ -62,30 +67,37 @@
                 <div class="col-1"></div>
                 <div class="col-form-label">
                     <label class="form-label" for="tPrimerApellido">Primer apellido:</label>
-                    <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Primer apellido"></asp:TextBox>
+                    <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Primer apellido" TabIndex="3"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="valApe1" runat="server" ControlToValidate="txtPrimerApellido" ErrorMessage="Campo obligatorio" ForeColor="Red"></asp:RequiredFieldValidator>
+					<br />
                     <label class="form-label" for="tEstadoCivil">Estado Civil:</label>
-                    <asp:DropDownList runat="server" ID="dropEstadoCivil" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Estado civil">
+                    <asp:DropDownList runat="server" TabIndex="7" ID="dropEstadoCivil" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Estado civil">
                         <asp:ListItem Selected="True" Value="Soltero"> Soltero(a) </asp:ListItem>
                         <asp:ListItem Value="Casado"> Casado(a) </asp:ListItem>
                         <asp:ListItem Value="Divorciado"> Divorciado(a) </asp:ListItem>
                         <asp:ListItem Value="Otro"> Otro </asp:ListItem>
                     </asp:DropDownList>
+                    <br />
                     <label class="form-label" for="tResid">Residencia:</label><asp:Label runat="server" ID="Label9" Font-Size="Medium"></asp:Label>
-                    <asp:TextBox ID="txtResid" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Lugar de residencia"></asp:TextBox>
+                    <asp:TextBox ID="txtResid" TabIndex="11" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Lugar de residencia"></asp:TextBox>
                 </div>
                 <div class="col-1"></div>
                 <div class="col-form-label">
                     <label class="form-label" for="tSegundoApellido">Segundo apellido:</label>
-                    <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Segundo apellido"></asp:TextBox>
+                    <asp:TextBox ID="txtSegundoApellido" TabIndex="4" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Segundo apellido"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="valApe2" runat="server" ErrorMessage="Campo obligatorio" ForeColor="Red" ControlToValidate="txtSegundoApellido"></asp:RequiredFieldValidator>
+					<br />
                     <label class="form-label" for="tSex">Sexo:</label>
-                    <asp:DropDownList runat="server" ID="dropSexo" CssClass="form-control" Font-Size="Small" Font-Bold="False" data-toggle="tooltip" title="Sexo">
+                    <asp:DropDownList runat="server" TabIndex="8" ID="dropSexo" CssClass="form-control" Font-Size="Small" Font-Bold="False" data-toggle="tooltip" title="Sexo">
                         <asp:ListItem Selected="True" Value="F"> Femenino </asp:ListItem>
                         <asp:ListItem Value="M"> Masculino </asp:ListItem>
                         <asp:ListItem Value="O"> Otro </asp:ListItem>
                     </asp:DropDownList>
-                    <label class="form-label" for="iFechaNac">Fecha de Nacimiento:</label>
-                    <asp:TextBox runat="server" ID="iFechaNac" TextMode="Date" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de nacimiento" OnTextChanged="iFechaNac_TextChanged"></asp:TextBox>
                     <br />
+                    <label class="form-label" for="iFechaNac">Fecha de Nacimiento:</label>
+                    <asp:TextBox runat="server" TabIndex="12" ID="iFechaNac" TextMode="Date" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de nacimiento" OnTextChanged="iFechaNac_TextChanged"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="valFechaNac" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="iFechaNac" ForeColor="Red"></asp:RequiredFieldValidator>
+					 <br />
                     <br />
                     <div class="col-11" style="width: 100%; float: right;">
                     </div>
@@ -108,7 +120,7 @@
 
 
 
-                    <%--    Historial Medico--%>
+                    <%--<h5>Recordatorio de 24 Horas</h5>--%>
                     <div id="HM" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-HM">
 
                         <br />
@@ -199,15 +211,14 @@
                         <br />
                         <br />
                     </div>
-                    <%--tab hist medico--%>
-
-                    <%--   Habitos alimentarios--%>
+					<%--tab hab aliment--%>
+                    <%--    Antropometria--%>
                     <div id="HA" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-HA">
                         <br />
 
                         <div class="row">
                             <div class="col-form-label">
-                                <%--<h5>Habitos Alimentarios:</h5>--%>
+								<%--tab Antrop--%>
                                 <label class="form-label" for="tComD">¿Cuántas veces come al día? </label>
                                 <asp:TextBox ID="numeroComidas" runat="server" type="number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Cantidad de comidas al día" />
                                 <label class="form-label" for="tComeHoraDia">¿Acostumbra a comer a las horas al día? </label>
@@ -288,7 +299,7 @@
                         </div>
 
 
-                        <%--<h5>Recordatorio de 24 Horas</h5>--%>
+                        <%--div tab content--%>
                         <br />
                         <table class="table">
                             <tr>
@@ -353,9 +364,8 @@
                         <br />
                         <br />
                     </div>
-                    <%--tab hab aliment--%>
-
-                    <%--    Antropometria--%>
+					<%--div del nav--%>
+                    <%--  Funcion que permite mostrar mensajes al usuario--%>
 
 
                     <div id="Ant" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-Ant">
@@ -364,7 +374,7 @@
                             <div class="row">
                                 <div class="col-form-label">
                                     <label class="form-label" for="tEdad">Edad:</label>
-                                    <asp:TextBox step="any" ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad" Enabled="True"></asp:TextBox>
+                                    <asp:TextBox step="any" ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad" Enabled="False"></asp:TextBox>
                                     <label class="form-label" for="tPesoActual">Peso Actual:</label>
                                     <asp:TextBox step="any" ID="txtPesoActual" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso actual"></asp:TextBox>
                                     <label class="form-label" for="tPesoMaxTeoria">Peso máximo en teoría:</label>
@@ -372,7 +382,7 @@
                                     <label class="form-label" for="tPesoIdeal">Peso meta o ideal: </label>
                                     <asp:TextBox step="any" ID="txtPesoIdeal" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso meta o ideal"></asp:TextBox>
                                     <label class="form-label" for="tEdadMetab">Edad metabólica: </label>
-                                    <asp:TextBox step="any" ID="txtEdadMetabolica" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad metabólica"></asp:TextBox>
+                                    <asp:TextBox step="any" ID="txtEdadMetabolica" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad metabólica" Enabled="False"></asp:TextBox>
                                     <label class="form-label" for="tCintura">Cintura:</label>
                                     <asp:TextBox step="any" ID="txtCintura" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cintura"></asp:TextBox>
                                     <label class="form-label" for="tAbdm">Abdomen:</label>
@@ -605,7 +615,7 @@
                             <br />
                             <br />
                         </div>
-                        <%--tab Antrop--%>
+						<%--div container--%>
                     </div>
                     <%--div tab content--%>
                 </div>
