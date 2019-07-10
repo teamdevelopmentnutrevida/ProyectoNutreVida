@@ -72,6 +72,25 @@
                              });
                       }
                 </script>
+                  <script type="text/javascript">
+                      
+                      function Habilitar(num) {
+                             $.ajax({
+                                type: "POST",
+                                url: '/Expedientes.aspx/HabilitarCliente',
+                                data: '{ced:' + num + '}',
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                async: true,
+                                success: function () {
+                                    location.reload();
+                                },
+                                error: function () {
+                                    alert("Error al Habilitar el cliente: "+ num);
+                                }
+                             });
+                      }
+                </script>
             </div> 
         </div>
     </div>

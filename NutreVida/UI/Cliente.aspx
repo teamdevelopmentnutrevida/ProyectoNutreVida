@@ -76,7 +76,7 @@
                     <a class="nav-item nav-link" id="nav-HA" data-toggle="tab" href="#HA" role="tab" aria-controls="nav-profile" aria-selected="false">Hábitos Alimentarios</a>
                     <a class="nav-item nav-link" id="nav-Ant" data-toggle="tab" href="#Ant" role="tab" aria-controls="nav-contact" aria-selected="false">Antropometría</a>
                    <a class="nav-item nav-link" id="nav-SS" data-toggle="tab" href="#SS" role="tab" aria-controls="nav-contact" aria-selected="false">Seguimiento Semanal</a>
-                  <a class="nav-item nav-link" id="nav-SM" data-toggle="tab" href="#SM" role="tab" aria-controls="nav-contact" aria-selected="false">Seguimiento Mensual</a>
+                  <a class="nav-item nav-link" id="nav-SM" data-toggle="tab" href="#SM" role="tab" aria-controls="nav-contact" aria-selected="false">Seguimiento Nutricional</a>
                   </div>
                 </nav>
               
@@ -594,9 +594,10 @@
                                     <asp:Button ID="btnAgreg" Text="Agregar" runat="server"  OnClick="btnAgreg_Click"  CssClass="btn btn-primary colorBoton" />
                                 </div>
                             </div>
-                            
-                            <h6>Lista Seguimientos:</h6>
-                        <table class="table">
+                            <br />
+                            <%--<h6>Lista Seguimientos:</h6>--%>
+                        
+                     <table class="table">
                             <tr>
                                 <th scope="col">Sesión</th>
                                 <th scope="col">Fecha</th> 
@@ -604,150 +605,118 @@
                                 <th scope="col">Oreja</th>
                                 <th scope="col">Ejercicio</th>
                            </tr>
-                                <asp:Literal ID="LitSeguimiento" runat="server" ></asp:Literal>
+                               <asp:Literal ID="LitSeguimiento" runat="server" ></asp:Literal>
                         </table>
-					  <br />
+					  
                         <br />
                         <br />
                     
                      
                         
                   </div> <%--tab Seg Semanal--%>
-
-    <style>
-
-
-
-/* The popup form - hidden by default */
-.form-popup {
-  display: none;
-  position: page;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-
-/* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-}
-
-/* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
-</style>            
+       
                    <%-- Seguimiento Mensual--%>
                  <div id="SM" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-SM">
-					 <br />
-                     
-                         <button onclick="openForm()" class="btn btn-primary btn-lg pull-right">Nuevo</button>
-                    
-                        
-    
-                
+				   
 
-               <%-- <div class="row">
-                   <div class="col-form-label">
-                    <label class="form-label" for="tejeSem">Días de ejercicio semanales: </label>
-                    <asp:TextBox runat="server" ID="DiasEjerSem" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Días de ejercicio semanal"></asp:TextBox>
-                   </div>
-                    <div class="col-1"></div>
-                    <div class="col-form-label">
-                        <label class="form-label" for="tejeSem">Comidas Extras: </label>
-                        <asp:TextBox runat="server" ID="ComidasExtras" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Comidas Extras"></asp:TextBox>
-                    </div>
-              </div>--%>
-               <%--<div class="col-11" style="width:50%;">
-                <label class="form-label" for="tejeSem">Niveles de Ansiedad semanal y tiempo de comida en donde lo siente : </label>
-                <asp:TextBox runat="server" ID="NivAnsiedad" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Niveles de Ansiedad"></asp:TextBox>
-               </div>
-                     <br />
-             <h5>Recordatorio de 24 Horas</h5>
-             <table class="table">
-               <tr>
-                <th scope="col">Tiempo de Comida</th>
-                <th scope="col">Hora</th> 
-                <th scope="col">Descripción</th>
-               </tr>
-             <tr>
-               <td>Ayunas</td>
-               <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="RecordAyunTime" runat="server"></asp:TextBox></td>
-               <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="RecAyunasDescr" runat="server"></asp:TextBox></td>
-            </tr>
-            <tr>
-               <td>Desayuno</td>
-               <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="RecordDesayunTime" runat="server"></asp:TextBox></td>
-               <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="RecordDesayunDescr" runat="server"></asp:TextBox></td>
-            </tr>
-            <tr>
-               <td>Media Mañana</td>
-               <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="RecordMedManTime" runat="server"></asp:TextBox></td>
-               <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="RecordMedManDescr" runat="server"></asp:TextBox></td>
-            </tr>
-            <tr>
-               <td>Almuerzo</td>
-               <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="RecordAlmTime" runat="server"></asp:TextBox></td>
-               <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="RecordAlmDescrip" runat="server"></asp:TextBox></td>
-            </tr>
-            <tr>
-               <td>Media Tarde</td>
-               <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="TextBox9" runat="server"></asp:TextBox></td>
-               <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="TextBox10" runat="server"></asp:TextBox></td>
-            </tr>
+               
+          <%-- </div>--%>
+            <div style="text-align:right;"><button onclick="document.getElementById('id01').style.display='block'" class="btn btn-primary colorBoton" style="width:auto;">+</button></div>
+                        
+                     <table class="table">
                             <tr>
-                                <td>Cena</td>
-                                <td>
-                                    <asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="TextBox11" runat="server"></asp:TextBox></td>
-                                <td>
-                                    <asp:TextBox CssClass="form-control" Font-Size="Small" ID="TextBox12" runat="server"></asp:TextBox></td>
+                                <th scope="col">#</th> 
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Ver</th> 
+                                <th scope="col">Modificar</th>
+                           </tr>
+                                <asp:Literal ID="SeguimMensual" runat="server"></asp:Literal>
+                        </table>
+                        <br />
+                    
+                    <div id="id01" class="modal">
+  
+                      <div class="modal-content animate">
+                         <div class="imgcontainer">
+                          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                          <h4 class="m-0 font-weight-bold text-primary">Nuevo Seguimiento Nutricional </h4>
+                        </div>
+                    
+
+                        <div class="container">
+                      <div class="row">
+                           <div class="col-form-label">
+                            <label class="form-label" for="tejeSem">Días de ejercicio semanales: </label>
+                            <asp:TextBox runat="server" ID="DiasEjerSem" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Días de ejercicio semanal"></asp:TextBox>
+                           </div>
+                           <div class="col-1"></div>
+                            <div class="col-form-label">
+                            <label class="form-label" for="tejeSem">Comidas Extras: </label>
+                            <asp:TextBox runat="server" ID="ComidasExtras" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Comidas Extras"></asp:TextBox>
+                           </div>
+                          <div class="col-9"></div>
+                           <div class="col-form-label">
+                                <label class="form-label" for="tejeSem">Niveles de Ansiedad semanal y tiempo de comida en donde lo siente : </label>
+                                 <asp:TextBox runat="server" ID="NivAnsiedad" TextMode="MultiLine" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Niveles de Ansiedad"></asp:TextBox>
+                           </div>
+                          <div class="col-1"></div>
+                            <div class="col-form-label">
+                                 <button id="verPrim" type="button" >
+                                 <i class="fa fa-eye" aria-hidden="false"></i>
+                                 </button>
+                              </div>
+                         <br />
+                             </div>   
+                             <h5>Recordatorio de 24 Horas</h5>
+                             <table class="table">
+                               <tr>
+                                <th scope="col">Tiempo de Comida</th>
+                                <th scope="col">Hora</th> 
+                                <th scope="col">Descripción</th>
+                               </tr>
+                             <tr>
+                               <td>Ayunas</td>
+                               <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="RecordAyunTime" runat="server"></asp:TextBox></td>
+                               <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="RecAyunasDescr" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <td>Colación Nocturna</td>
-                                <td>
-                                    <asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="TextBox13" runat="server"></asp:TextBox></td>
-                                <td>
-                                    <asp:TextBox CssClass="form-control" Font-Size="Small" ID="TextBox14" runat="server"></asp:TextBox></td>
+                               <td>Desayuno</td>
+                               <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="RecordDesayunTime" runat="server"></asp:TextBox></td>
+                               <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="RecordDesayunDescr" runat="server"></asp:TextBox></td>
                             </tr>
+                            <tr>
+                               <td>Media Mañana</td>
+                               <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="RecordMedManTime" runat="server"></asp:TextBox></td>
+                               <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="RecordMedManDescr" runat="server"></asp:TextBox></td>
+                            </tr>
+                            <tr>
+                               <td>Almuerzo</td>
+                               <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="RecordAlmTime" runat="server"></asp:TextBox></td>
+                               <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="RecordAlmDescrip" runat="server"></asp:TextBox></td>
+                            </tr>
+                            <tr>
+                               <td>Media Tarde</td>
+                               <td><asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="TextBox9" runat="server"></asp:TextBox></td>
+                               <td><asp:TextBox CssClass="form-control" Font-Size="Small" ID="TextBox10" runat="server"></asp:TextBox></td>
+                            </tr>
+                                            <tr>
+                                                <td>Cena</td>
+                                                <td>
+                                                    <asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="TextBox11" runat="server"></asp:TextBox></td>
+                                                <td>
+                                                    <asp:TextBox CssClass="form-control" Font-Size="Small" ID="TextBox12" runat="server"></asp:TextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Colación Nocturna</td>
+                                                <td>
+                                                    <asp:TextBox TextMode="Time" CssClass="form-control" Font-Size="Small" ID="TextBox13" runat="server"></asp:TextBox></td>
+                                                <td>
+                                                    <asp:TextBox CssClass="form-control" Font-Size="Small" ID="TextBox14" runat="server"></asp:TextBox></td>
+                                            </tr>
                 
-            </table>
-             <h5>Seguimiento de Antropometría</h5>
-                     <div class="row">
+                            </table>
+                             <h5>Seguimiento de Antropometría</h5>
+                             <div class="row">
                                 <div class="col-form-label">
                                     <label class="form-label" for="tEdad">Edad:</label>
                                     <asp:TextBox ID="SegAntEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad"></asp:TextBox>
@@ -815,25 +784,21 @@
                                    <label class="form-label" for="tPesoMeta">Peso Meta o Ideal:</label>
                                     <asp:TextBox ID="SegAntPesoIdeal" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso Meta o Ideal"></asp:TextBox>
                                 </div>
-                            </div>--%>
-          <%-- </div>--%>
-            <br />
-                     <h6>Lista Seguimientos Nutricionales:</h6>
-                        <table class="table">
-                            <tr>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Nombre</th> 
-                                <th scope="col">Primer Apellido</th>
-                                <th scope="col">Segundo Apellido</th>
-                                <th scope="col">Ver</th>
-                           </tr>
-                                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-                        </table>
-           <br /><asp:Literal ID="Literal2" runat="server" Text="No hay registros" ></asp:Literal>
+                            </div>
+                            <input type="text" placeholder="Enter Username" name="uname" required hidden="hidden">
+                            <br />
+                        </div>
+         
+
+                        <div class="container" style="background-color:#f1f1f1">
+                          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                         </div>
+                      </div> <%--div content animated--%>
+                    </div><%--div modal--%>
+
                      <br />
-                     <br /> <br />
-                        <br />
-                        <br />
+                     <br />
+                     <br />
                   </div> <%--tab Seg Mensual--%>
               
              </div> <%--div tab content--%>
@@ -844,6 +809,17 @@
         <br />  
 	</div>
 
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
 	 <style>
 		.footer {
@@ -857,13 +833,105 @@
 			text-align: right;
 		}
 
+        /* Full-width input fields */
+
 		.boton {
 			margin:5px;
 			margin-right:55px;
 			
 		}
 
-	</style>
+        button:hover {
+          opacity: 0.8;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+          width: auto;
+          padding: 10px 18px;
+          background-color: #f44336;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+          width: auto;
+          padding: 10px 18px;
+          background-color: #f44336;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+          text-align: center;
+          margin: 24px 0 12px 0;
+          position: relative;
+        }
+
+        img.avatar {
+          width: 40%;
+          border-radius: 50%;
+        }
+
+        /* The Modal (background) */
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+          padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+          background-color: #fefefe;
+          margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+          border: 1px solid #888;
+          width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button (x) */
+        .close {
+          position: absolute;
+          right: 25px;
+          top: 0;
+          color: #000;
+          font-size: 35px;
+          font-weight: bold;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+          -webkit-animation: animatezoom 0.6s;
+          animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+          from {-webkit-transform: scale(0)} 
+          to {-webkit-transform: scale(1)}
+        }
+  
+        @keyframes animatezoom {
+          from {transform: scale(0)} 
+          to {transform: scale(1)}
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+	     @media screen and (max-width: 300px) {
+	         span.psw {
+	             display: block;
+	             float: none;
+	         }
+
+	         .cancelbtn {
+	             width: 100%;
+	         }
+	     }
+        </style>
           </div><%--div container--%>
      
    </form>

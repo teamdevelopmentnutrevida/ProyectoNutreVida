@@ -87,6 +87,10 @@ namespace BL
             return daoSeguimientos.GuardarSeguimientoMensual(seg, lisSeg, segAnt);
 
         }
-        
+
+        public List<SeguimientoMensual> TraerListaMensual(int cedula)
+        {
+            return null;
+        }
     }
 }
