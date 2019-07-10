@@ -5,29 +5,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TO;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace BL
 {
     public class ManejadorEvento
     {
-        DAOEvento daoEvento = new DAOEvento();
+        private DAOEvento daoEvento = new DAOEvento();
 
-        public void guardarEvento(string nombreEvento, string descripcionEvento, string horaInicio, string horaFin, string fecha) {
-            daoEvento.guardarEvento(new TOEvento(nombreEvento, descripcionEvento, horaInicio, horaFin, fecha));
+
+        //public void guardarEvento(string nombreEvento, string descripcionEvento, string horaInicio, string horaFin, string fecha) {
+        //    daoEvento.guardarEvento(new TOEvento(nombreEvento, descripcionEvento, horaInicio, horaFin, fecha));
+        //}
+
+        public String cargarDatos(){
+            string eventos = "";
+
+            return eventos;
         }
 
-
-        public List<Evento> ListaEvento(string fecha)
+        public List<Evento> ListaEvento(String url)
         {
-            List<Evento> ListaEvento = new List<Evento>();
-            List<TOEvento> listaTO = daoEvento.listaEventos(fecha);
+            List<Evento> data = new List<Evento>();
+            List<TOEvento> listaTO = daoEvento.listaEventos();
+            String Json = string.Empty;
+
             if (listaTO != null)
             {
                 foreach (TOEvento evento in listaTO)
                 {
-                    ListaEvento.Add(new Evento(evento.nombreEvento, evento.decripcionEvento, evento.horaInicio, evento.horaFin, evento.fecha));
+                    Evento ev = new Evento(evento.id, evento.start_date, evento.end_date, evento.text, evento.details);
+                    data.Add(ev);
+
                 }
-                return ListaEvento;
+
+                Json = "{\"data\":" + JsonConvert.SerializeObject(data) + "}";
+                String path = url + "Eventos.json";
+                File.WriteAllText(path, Json);
+                return data;
             }
             else
             {
@@ -35,14 +51,14 @@ namespace BL
             }
         }
 
-        public void eliminarEvento(string nombre, string fecha) {
-            daoEvento.eliminarEvento(nombre, fecha);
-        }
+        //public void eliminarEvento(string nombre, string fecha) {
+        //    daoEvento.eliminarEvento(nombre, fecha);
+        //}
 
 
-        public void modificarEvento(string nombre, string descripcion, string horaInicio, string horaFin, string fecha) {
-            daoEvento.modificarEvento(nombre,  descripcion,  horaInicio, horaFin, fecha);
-        }
+        //public void modificarEvento(string nombre, string descripcion, string horaInicio, string horaFin, string fecha) {
+        //    daoEvento.modificarEvento(nombre,  descripcion,  horaInicio, horaFin, fecha);
+        //}
 
 
     }
