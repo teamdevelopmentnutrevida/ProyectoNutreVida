@@ -14,20 +14,21 @@ namespace BL
     public class Evento
     {
 
-        public Evento(string nombreEvento, string decripcionEvento, string horaInicio, string horaFin, string fecha)
+        public Evento(int id, string start_date, string end_date, string text, string details)
         {
-            this.nombreEvento = nombreEvento;
-            this.decripcionEvento = decripcionEvento;
-            this.horaInicio = horaInicio;
-            this.horaFin = horaFin;
-            this.fecha = fecha;
+            this.id = id;
+            this.text = text;
+            this.details = details;
+            this.start_date = start_date;
+            this.end_date = end_date;
         }
 
-        public string nombreEvento { set; get; }
-        public string decripcionEvento { set; get; }
-        public string horaInicio { set; get; }
-        public string horaFin { set; get; }
-        public string fecha { set; get; }
+        public int id { get; set; }
+        public string start_date { set; get; }
+        public string end_date { set; get; }
+        public string text { set; get; }
+        public string details { set; get; }
+        
 
 
         public Evento() { }

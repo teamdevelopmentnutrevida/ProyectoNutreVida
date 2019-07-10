@@ -24,7 +24,7 @@ namespace BL
             {
                 foreach (TOClienteNutricion cliente in listaTO)
                 {
-                    ListaClient.Add(new ClienteNutricion(cliente.Cedula, cliente.Correo,cliente.Nombre, cliente.Apellido1, cliente.Apellido2, cliente.Fecha_Nacimiento, cliente.Sexo, cliente.Estado_Civil,cliente.WhatsApp, cliente.Telefono, cliente.Residencia, cliente.Ocupacion, cliente.FechaIngreso,cliente.Consultorio));
+                    ListaClient.Add(new ClienteNutricion(cliente.Cedula, cliente.Correo,cliente.Nombre, cliente.Apellido1, cliente.Apellido2, cliente.Fecha_Nacimiento, cliente.Sexo, cliente.Estado_Civil,cliente.WhatsApp, cliente.Telefono, cliente.Residencia, cliente.Ocupacion, cliente.FechaIngreso,cliente.Consultorio, cliente.Estado));
                 }
                 return ListaClient;
             }
@@ -57,7 +57,7 @@ namespace BL
                 cliente.Ocupacion = TOcliente.Ocupacion;
                 cliente.FechaIngreso = TOcliente.FechaIngreso;
                 cliente.Consultorio = TOcliente.Consultorio;
-
+                cliente.Estado = TOcliente.Estado;
                 return cliente;
             }
             else
@@ -74,6 +74,16 @@ namespace BL
         public bool EliminarCliente(string ced)
         {
             return daoClienteNutricion.DeshabilitarCliente(ced);
+        }
+
+        /**
+        * Método publico que habilita a los clientes de la base de datos
+        * @param ced, cedula del cliente
+        * @return bol, si el cliente se habilito con éxito o no.
+        */
+        public bool HabilitarCliente(string ced)
+        {
+            return daoClienteNutricion.HabilitarCliente(ced);
         }
 
         /**

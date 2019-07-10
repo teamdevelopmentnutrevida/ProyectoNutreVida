@@ -17,25 +17,27 @@ namespace UI
         
         private static string Cedula = "";
         private static List<SeguimientoSemanal> listaSeguimientos = new List<SeguimientoSemanal>();
+        private static List<SeguimientoMensual> listaSegNutri = new List<SeguimientoMensual>();
         private static ManejadorSeguimientos manejadorSeg = new ManejadorSeguimientos();
         private static ManejadorExpediente manejExpediente = new ManejadorExpediente();
         private static ManejadorErrores manejError = new ManejadorErrores();
         protected void Page_Load(object sender, EventArgs e)
         {
-			//if (new ControlSeguridad().validarNutri() == true)
-			//{
-			//	Response.Redirect("~/InicioSesion.aspx");
+            //if (new ControlSeguridad().validarNutri() == true)
+            //{
+            //	Response.Redirect("~/InicioSesion.aspx");
+            //}
 
-
-			//}
-
-			if (!IsPostBack)
-            {
-                //CargarDatos();
-
-            }
-           
+            //if (!IsPostBack)
+            //{
+            //    CargarDatos();
+            //}
         }
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#mymodal').modal('show');</script> ", false); 
+            }
+
         /**
         * Método privado que carga la seccion de la información personal del cliente seleccionado 
         */
@@ -47,10 +49,11 @@ namespace UI
             CargarHabitosAlimentarios();
             CargarAntropometría();
             CargarSeguimientoSemanal();
+            CargarSeguimientoNutricional();
         }
 
         /**
-        * Método publico que carga la seccion de la información personal del cliente seleccionado 
+        * Método privado que carga la seccion de la información personal del cliente seleccionado 
         */
         private void CargarInfoPersonal()
         {
@@ -78,6 +81,7 @@ namespace UI
                 
             }
         }
+     
         /**
         * Método privado para calcular la edad
         * @param fechaNac, fecha de nacimiento del cliente para calcular la edad
@@ -99,6 +103,7 @@ namespace UI
                 }
             }
         }
+       
         /**
         * Método privado que carga la seccion de la Historial Médico del cliente seleccionado 
         */
@@ -125,6 +130,7 @@ namespace UI
                 CargarTablaMedicamentos();
             }
         }
+       
         /**
        * Método privado que carga la lista de medicamentos o suplementos que el cliente consume
        */
@@ -146,6 +152,7 @@ namespace UI
             }
            
         }
+        
         /**
        * Método privado que carga los hábitos alimentarios del cliente seleccionado 
        */
@@ -200,6 +207,7 @@ namespace UI
             }
             
         }
+        
         /**
         * Método privado que carga los datos de antropometría del cliente seleccionado 
         */
@@ -283,8 +291,9 @@ namespace UI
             }
             
         }
+        
         /**
-        * Método publico que carga la lista del seguimiento semanal del cliente seleccionado 
+        * Método privado que carga la lista del seguimiento semanal del cliente seleccionado 
         */
         private void CargarSeguimientoSemanal()
         {
@@ -293,8 +302,9 @@ namespace UI
                 foreach (SeguimientoSemanal seg in listaSeguimientos) {
                     LitSeguimiento.Text += "<tr><td>" + seg.Sesion + "</td><td>" + seg.Fecha.ToString("dd/MM/yyyy") + "</td><td>" + seg.Peso + "</td><td>" + seg.Oreja + "</td><td>" + seg.Ejercicio + "</td></tr>";} 
             }
-            else{LitSeguimiento.Text = "No existen Seguimientos Semanales de este usuario.";}
+            else{LitSeguimiento.Text = "No existen Seguimientos Semanales de este cliente.";}
         }
+       
         /**
         * Método protegido Es la accion del boton agregar seguimientos semanales
         * @param acciones y eventos del boton
@@ -338,6 +348,7 @@ namespace UI
             }
             sPeso.Text = string.Empty; sOreja.Text = string.Empty; sEjercicio.Text = string.Empty;
         }
+        
         /**
         * Método protegido, accion para habilitar o no el espacio de la frecuencia del consumo de licor 
         * @param acciones y eventos del boton
@@ -353,6 +364,7 @@ namespace UI
                 txtFrecLicor.Enabled = false;
             }
         }
+        
         /**
         * Método protegido, accion para habilitar o no el espacio de la frecuencia de fumar
         * @param acciones y eventos del boton
@@ -369,10 +381,20 @@ namespace UI
             }
         }
 
-
-        protected void OkButton_Click(object sender, EventArgs e)
+        /**
+       * Método privado que carga la lista del seguimiento semanal del cliente seleccionado 
+       */
+        private void CargarSeguimientoNutricional()
         {
-            Response.Redirect("Expedientes.aspx");
+            listaSegNutri = manejadorSeg.TraerListaMensual(Int32.Parse(Cedula));
+            if (listaSegNutri != null)
+            {
+                foreach (SeguimientoMensual seg in listaSegNutri)
+                {
+                    SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td><td>" + seg.Fecha.ToString("dd/MM/yyyy") + "</td><td><a>Ver</a></td><td><a>Modificar</a></td></tr>";
+                }
+            }
+            else { SeguimMensual.Text = "No existen Seguimientos Nutricionales de este cliente."; }
         }
 
         protected void BackButton_Click(object sender, EventArgs e)
@@ -384,5 +406,7 @@ namespace UI
         {
 
         }
+
+        
     }
 }
