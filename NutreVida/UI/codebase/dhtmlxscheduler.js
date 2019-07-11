@@ -1000,6 +1000,7 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                             if (!t.config.dblclick_create) break;
                             this.addEventNow(this.getActionData(e).date, null, e);
                             break;
+                        case "dhx_cal_event_line":
                         case "dhx_cal_event_clear":
                             var n = this._locate_event(i);
                             if (!this.callEvent("onDblClick", [n, e])) return;
@@ -2350,7 +2351,7 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                     this._loading || this.callEvent(d ? "onEventAdded" : "onEventChanged", [s.id, s]), s.id
             }, t.deleteEvent = function(t, e) {
                 var i = this._events[t];
-                console.log(t);
+                //console.log(t);
                 (e || this.callEvent("onBeforeEventDelete", [t, i]) && this.callEvent("onConfirmedBeforeEventDelete", [t, i])) && (i && (this._select_id = null, delete this._events[t], this.event_updated(i), this._drag_id == i.id && (this._drag_id = null, this._drag_mode = null, this._drag_pos = null)), this.callEvent("onEventDeleted", [t, i]))
             }, t.getEvent = function(t) {
                 return this._events[t]
@@ -3382,7 +3383,25 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                 }
             }, t.save_lightbox = function() {
                 var t = this._lightbox_out({}, this._lame_copy(this.getEvent(this._lightbox_id)));
-                console.log(this.getEvent(this._lightbox_id));
+
+                //impresiones
+                //console.log(this.getEvent(this._lightbox_id).end_date.getFullYear);
+               // console.log(t.text);
+               // console.log(t.start_date);
+                //console.log(t.end_date);
+
+                //aqui se arma el objeto json
+              //  console.log("entro");
+                //const fs = require('fs');
+               // console.log("entro");
+                //let objectToSave = { id: '1', start_date: t.start_date, end_date: t.end_date, text:t.text, details: t.text }
+                
+                //fs.writeFile('Eventos.json', JSON.stringify(objectToSave), 'utf8', (err) => {
+                  //  if (err) throw err;
+                   // console.log('The file has been saved!');
+                //});
+
+                // aqui ya se guardó el evento 
 
                 this.checkEvent("onEventSave") && !this.callEvent("onEventSave", [this._lightbox_id, t, this._new_event]) || (this._empty_lightbox(t), this.hide_lightbox())
             }, t.startLightbox = function(t, e) {

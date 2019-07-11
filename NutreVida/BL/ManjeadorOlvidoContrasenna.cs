@@ -27,7 +27,7 @@ namespace BL
             *@param correo Es el correo indicado                
             */
         public void enviarCorreo(String correo) {
-
+            correo = "jandiego199847@gmail.com";
             //Crear contrasenna temporal
             int longitud = 7;
             Guid miGuid = Guid.NewGuid();
@@ -38,7 +38,7 @@ namespace BL
             //Definir instacia de la clase MailMessage
             MailMessage email = new MailMessage();
             email.To.Add(new MailAddress(correo));
-            email.From = new MailAddress("cambiocontrasenna@gmail.com	");
+            email.From = new MailAddress("cambiocontrasenna@gmail.com");
             email.Subject = "Asunto: Cambio de contraseña ";
             email.Body = "Su contraseña ha sido cambiada por: \n" + token;
             email.IsBodyHtml = false;
@@ -48,7 +48,7 @@ namespace BL
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
-            smtp.Credentials = new NetworkCredential("cambiocontrasenna@gmail.com", "NutreVida123");
+            smtp.Credentials = new NetworkCredential("cambiocontrasenna@gmail.com", "ElkyNutreVida123");
             smtp.EnableSsl = true;
 
             string output = null;
