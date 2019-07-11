@@ -173,6 +173,13 @@
 
         </script>
 
+		<div class="footer navbar-light bg-white shadow">
+			<form runat="server">
+                    <asp:Button ID="btnPdf" CssClass="boton btn btn-primary" runat="server" Text="Generar reporte" OnClick="btnPdf_Click"/>
+				</form>
+                    <br />
+                </div>
+
     </div>
     <!-- /.container-fluid -->
 
@@ -294,5 +301,25 @@
             },
         });
     </script>
+
+			    <style>
+		.footer {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 45px;
+			background-color: #E6E8E7;
+			text-align: right;
+		}
+
+		.boton {
+			margin:5px;
+			margin-right:55px;
+			
+		}
+
+	</style>
+
 
 </asp:Content>
