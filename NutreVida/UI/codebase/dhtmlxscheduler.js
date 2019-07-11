@@ -1000,6 +1000,7 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                             if (!t.config.dblclick_create) break;
                             this.addEventNow(this.getActionData(e).date, null, e);
                             break;
+                        case "dhx_cal_event_line":
                         case "dhx_cal_event_clear":
                             var n = this._locate_event(i);
                             if (!this.callEvent("onDblClick", [n, e])) return;
@@ -2351,6 +2352,12 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
             }, t.deleteEvent = function(t, e) {
                 var i = this._events[t];
                 console.log(t);
+                var capa = document.getElementById("Button1");
+
+                capa.onclick = elim(t);
+
+                capa.click();
+
                 (e || this.callEvent("onBeforeEventDelete", [t, i]) && this.callEvent("onConfirmedBeforeEventDelete", [t, i])) && (i && (this._select_id = null, delete this._events[t], this.event_updated(i), this._drag_id == i.id && (this._drag_id = null, this._drag_mode = null, this._drag_pos = null)), this.callEvent("onEventDeleted", [t, i]))
             }, t.getEvent = function(t) {
                 return this._events[t]
@@ -3382,7 +3389,12 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                 }
             }, t.save_lightbox = function() {
                 var t = this._lightbox_out({}, this._lame_copy(this.getEvent(this._lightbox_id)));
-                console.log(this.getEvent(this._lightbox_id));
+                console.log("guarda");
+                var capa = document.getElementById("Button1");
+                capa.onclick = Escib(t, this.getEvent(this._lightbox_id).id);
+
+                capa.click();
+                
 
                 this.checkEvent("onEventSave") && !this.callEvent("onEventSave", [this._lightbox_id, t, this._new_event]) || (this._empty_lightbox(t), this.hide_lightbox())
             }, t.startLightbox = function(t, e) {
@@ -3850,3 +3862,29 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
     })
 }();
 //# sourceMappingURL=sources/dhtmlxscheduler.js.map
+
+
+function Escib(t, id) {
+    var miObjeto = new Object();
+    miObjeto.id = id;
+    miObjeto.start_date = t.start_date;
+    miObjeto.end_date = t.end_date;
+    miObjeto.text = t.text;
+    miObjeto.details = t.text;
+
+    var myString = JSON.stringify(miObjeto);
+
+    var lb = document.getElementById('txtJson');
+
+    lb.innerHTML = myString;
+
+    location.reload();
+}
+
+function elim(id) {
+    var lb = document.getElementById('txtJson');
+
+    lb.innerHTML = id;
+
+    location.reload();
+}

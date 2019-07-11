@@ -10,6 +10,10 @@ using System.IO;
 
 namespace BL
 {
+    /**
+   * Clase ManejadorEvento, posee los metodos que permiten la administracion de os eventos de la agenda
+   * @author Diego
+   */
     public class ManejadorEvento
     {
         private DAOEvento daoEvento = new DAOEvento();
@@ -19,12 +23,17 @@ namespace BL
         //    daoEvento.guardarEvento(new TOEvento(nombreEvento, descripcionEvento, horaInicio, horaFin, fecha));
         //}
 
+
         public String cargarDatos(){
             string eventos = "";
 
             return eventos;
         }
 
+        /**
+        *Este metodo se encarga de devolver una lista con los eventos que se encuentran en la base de datos
+        *@param String url permite buscar bajo la url que recibe por parámetro
+        */
         public List<Evento> ListaEvento(String url)
         {
             List<Evento> data = new List<Evento>();
@@ -35,6 +44,7 @@ namespace BL
             {
                 foreach (TOEvento evento in listaTO)
                 {
+                    
                     Evento ev = new Evento(evento.id, evento.start_date, evento.end_date, evento.text, evento.details);
                     data.Add(ev);
 
@@ -51,9 +61,25 @@ namespace BL
             }
         }
 
-        //public void eliminarEvento(string nombre, string fecha) {
-        //    daoEvento.eliminarEvento(nombre, fecha);
-        //}
+        public void guardarEvento(string json) {
+
+            Evento even = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Evento>(json);
+
+            //DateTime inicio = DateTime.Parse(even.start_date);
+
+            //inicio = inicio.AddHours(-6);
+
+            //DateTime final = DateTime.Parse(even.end_date);
+
+            //final = final.AddHours(-6);
+
+            daoEvento.guardarEvento(new TOEvento(even.id, even.start_date,even.end_date, even.text,even.details));
+        }
+
+        public void eliminarEvento(string id)
+        {
+            daoEvento.eliminarEvento(id);
+        }
 
 
         //public void modificarEvento(string nombre, string descripcion, string horaInicio, string horaFin, string fecha) {

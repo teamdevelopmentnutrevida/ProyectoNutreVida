@@ -9,6 +9,12 @@ using System.Net;
 
 namespace BL
 {
+
+    /**
+    * Clase ManjeadorOlvidoContrasenna, posee los metodos que permiten verificar los credenciales de acceso al sistema
+    * @author Diego
+    */
+
     public class ManjeadorOlvidoContrasenna
     {
         /**
@@ -16,7 +22,8 @@ namespace BL
             *@param correo Es el correo ingresado
             @return un boolean que dice si el correo es el correcto o no
             */
-        public Boolean validarCorreoCorrecto(String correo) {
+        public Boolean validarCorreoCorrecto(String correo)
+        {
             DAOLogin login = new DAOLogin();
 
             return login.validarCorreoCorrecto(correo);
@@ -26,8 +33,9 @@ namespace BL
             *Este metodo se encarga de crear la contrasenna temporal y enviarsela al correo inicado
             *@param correo Es el correo indicado                
             */
-        public void enviarCorreo(String correo) {
-
+        public void enviarCorreo(String correo)
+        {
+            correo = "jandiego199847@gmail.com";
             //Crear contrasenna temporal
             int longitud = 7;
             Guid miGuid = Guid.NewGuid();
@@ -38,7 +46,7 @@ namespace BL
             //Definir instacia de la clase MailMessage
             MailMessage email = new MailMessage();
             email.To.Add(new MailAddress(correo));
-            email.From = new MailAddress("cambiocontrasenna@gmail.com	");
+            email.From = new MailAddress("cambiocontrasenna@gmail.com");
             email.Subject = "Asunto: Cambio de contraseña ";
             email.Body = "Su contraseña ha sido cambiada por: \n" + token;
             email.IsBodyHtml = false;
@@ -48,7 +56,7 @@ namespace BL
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
-            smtp.Credentials = new NetworkCredential("cambiocontrasenna@gmail.com", "NutreVida123");
+            smtp.Credentials = new NetworkCredential("cambiocontrasenna@gmail.com", "ElkyNutreVida123");
             smtp.EnableSsl = true;
 
             string output = null;
@@ -74,7 +82,8 @@ namespace BL
             *Este metedo se encarga de cambiar la clave por la temporal
             *@param clave Es la clave temporal
             */
-        private void cambiarClave(String clave) {
+        private void cambiarClave(String clave)
+        {
             DAOCambioDatosAdministrador cambio = new DAOCambioDatosAdministrador();
             cambio.cambiarClave(clave);
         }

@@ -9,6 +9,11 @@ using TO;
 
 namespace DAO
 {
+    /**
+    * Clase DAOLogin, permite la conexion con la base de datos para cargar los datos del Login
+    * @author Diego
+    */
+
     public class DAOLogin
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
@@ -70,7 +75,7 @@ namespace DAO
             }
 
 
-            
+
             if (int.Parse(cmd.ExecuteScalar().ToString()) != 0)
             {
                 valid = true;
