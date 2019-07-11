@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 using BL;
 
 namespace UI
@@ -18,6 +19,9 @@ namespace UI
             ManejadorEvento maneja = new ManejadorEvento();
             String url = Server.MapPath("~/");
             maneja.ListaEvento(url);
+            //string ruta = "C:\\Users\tanni\\Desktop\\Ingeniería\\Proyecto Ingeniería\\NutreVida\\UI\\common\\Eventos.json";
+            //string contenido = "";
+            //File.WriteAllText(ruta, contenido);
 
             //Json = ManejadorEvento.Json;
         }

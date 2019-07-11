@@ -31,6 +31,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtCed;
         
         /// <summary>
+        /// valCed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valCed;
+        
+        /// <summary>
         /// txtOcup control.
         /// </summary>
         /// <remarks>
@@ -49,15 +58,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtTel;
         
         /// <summary>
-        /// telObligado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label telObligado;
-        
-        /// <summary>
         /// ConsultDropList control.
         /// </summary>
         /// <remarks>
@@ -74,6 +74,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        
+        /// <summary>
+        /// valNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valNombre;
         
         /// <summary>
         /// txtEmail control.
@@ -101,6 +110,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrimerApellido;
+        
+        /// <summary>
+        /// valApe1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valApe1;
         
         /// <summary>
         /// dropEstadoCivil control.
@@ -139,6 +157,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtSegundoApellido;
         
         /// <summary>
+        /// valApe2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valApe2;
+        
+        /// <summary>
         /// dropSexo control.
         /// </summary>
         /// <remarks>
@@ -155,6 +182,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox iFechaNac;
+        
+        /// <summary>
+        /// valFechaNac control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valFechaNac;
         
         /// <summary>
         /// AntecedF control.

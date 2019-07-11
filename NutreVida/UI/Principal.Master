@@ -307,16 +307,12 @@
                 document.querySelector('#main-container').style.paddingLeft = '60px';
             }
             $('#sidebarToggle').on('click', function () {
-                console.log("entra");
             var uni = $('#accordionSidebar li span');
             $.each(uni, function (index, value) {
                 if (value.classList.contains('d-none')) {
-                    console.log("entro1");
                     value.classList.remove('d-none');
-                    console.log("entro2");
                     document.querySelector('#main-container').style.paddingLeft = '220px';
                 } else {
-                    console.log("entr3");
                     value.classList.add('d-none');
                     document.querySelector('#main-container').style.paddingLeft = '100px';
                 }

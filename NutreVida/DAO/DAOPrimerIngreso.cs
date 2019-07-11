@@ -16,7 +16,7 @@ namespace DAO
         public bool CrearUsuario(TOClienteNutricion tOCliente)
         {
             String query1 = "Insert into Usuario values(@ced,@cor,@nomb,@whats,@tel,@ape1,@ape2,@rol);";
-            String query2 = "Insert into Cliente_Nutricion values(@fechNac,@sexo,@estCiv,@resid,@ocup,@ced,@ingres,@consult);";
+            String query2 = "Insert into Cliente_Nutricion values(@fechNac,@sexo,@estCiv,@resid,@ocup,@ced,@ingres,@consult,@estado);";
 
             SqlCommand cmd = new SqlCommand(query1, conexion);
             SqlCommand cmd2 = new SqlCommand(query2, conexion);
@@ -42,6 +42,7 @@ namespace DAO
                 cmd2.Parameters.AddWithValue("@ced", tOCliente.Cedula);
                 cmd2.Parameters.AddWithValue("@ingres", DateTime.Now);
 				cmd2.Parameters.AddWithValue("@consult", tOCliente.Consultorio);
+				cmd2.Parameters.AddWithValue("@estado", tOCliente.Estado);
 
 				if (conexion.State != ConnectionState.Open)
                 {

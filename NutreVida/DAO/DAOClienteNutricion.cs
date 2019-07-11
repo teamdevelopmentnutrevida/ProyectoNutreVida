@@ -15,8 +15,8 @@ namespace DAO
 
         public List<TOClienteNutricion> ListarCliente()
         {
-            List<TOClienteNutricion> ListaMedidas = new List<TOClienteNutricion>();
-            string qry = "Select * from Cliente_Nutricion c,Usuario u where c.Cedula = u.Cedula order by Apellido1";
+            List<TOClienteNutricion> Lista = new List<TOClienteNutricion>();
+            string qry = "Select * from Cliente_Nutricion c,Usuario u where c.Cedula = u.Cedula order by Estado desc";
             SqlCommand buscar = new SqlCommand(qry, conexion);
             SqlDataReader lector;
 
@@ -29,13 +29,14 @@ namespace DAO
             {
                 while (lector.Read())
                 {
-                    ListaMedidas.Add(new TOClienteNutricion(Int32.Parse(lector["Cedula"].ToString()), lector["Correo"].ToString(), lector["Nombre"].ToString(), lector["Apellido1"].ToString(),
+                    Lista.Add(new TOClienteNutricion(Int32.Parse(lector["Cedula"].ToString()), lector["Correo"].ToString(), lector["Nombre"].ToString(), lector["Apellido1"].ToString(),
                         lector["Apellido2"].ToString(), DateTime.Parse(lector["Fecha_Nacimiento"].ToString()), Char.Parse(lector["Sexo"].ToString()),
-                        lector["Estado_Civil"].ToString(), Char.Parse(lector["WhatsApp"].ToString()), Int32.Parse(lector["Telefono"].ToString()), lector["Residencia"].ToString(), lector["Ocupacion"].ToString(), DateTime.Parse(lector["FechaIngreso"].ToString()), lector["Consultorio"].ToString()));
+                        lector["Estado_Civil"].ToString(), Char.Parse(lector["WhatsApp"].ToString()), Int32.Parse(lector["Telefono"].ToString()), lector["Residencia"].ToString(), 
+                        lector["Ocupacion"].ToString(), DateTime.Parse(lector["FechaIngreso"].ToString()), lector["Consultorio"].ToString(), Int32.Parse(lector["Estado"].ToString())));
 
                 }
                 conexion.Close();
-                return ListaMedidas;
+                return Lista;
             }
             else
             {
@@ -75,7 +76,44 @@ namespace DAO
 
         public bool DeshabilitarCliente(string ced)
         {
-            throw new NotImplementedException();
+            string query =  " UPDATE Cliente_Nutricion SET Estado = 0 WHERE Cedula = "+ ced;
+            SqlCommand cmd = new SqlCommand(query, conexion);
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+                return true;
+            } catch
+            {
+                return false;
+            }
+        }
+        public bool HabilitarCliente(string ced)
+        {
+            string query = " UPDATE Cliente_Nutricion SET Estado = 1 WHERE Cedula = " + ced;
+            SqlCommand cmd = new SqlCommand(query, conexion);
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+
         }
 
         public TOHistorialMedico TraerHistorialMed(object ced)

@@ -17,6 +17,7 @@ namespace UI
         private static List<Medicamento> ListaMedicamSuplem = new List<Medicamento>();
         protected void Page_Load(object sender, EventArgs e)
         {
+			Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
 			//if (new ControlSeguridad().validarNutri() == true)
 			//{
@@ -118,10 +119,10 @@ namespace UI
 
             }
 
-			if (txtCed.Text.Length > 9)
+			if (txtCed.Text.Length != 9)
 			{
                 //mensaje de error
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', ''Número de cédula inválido')", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', 'Número de cédula inválido')", true);
                 //Response.Write("<script>window.alert('Numero de cedula invalido');</script>");       
                 return;
 
@@ -129,7 +130,7 @@ namespace UI
 
 			if (ingreso.buscarCliente(txtCed.Text))
 			{
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', ''Ya existe un registro con el número de cédula ingresado')", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', 'Ya existe un registro con el número de cédula ingresado')", true);
                 //Response.Write("<script>window.alert('Ya existe un registro con ese número de cédula');</script>");
 				return;
 			}
@@ -164,26 +165,36 @@ namespace UI
             {
                 whatsApp = '1';
             }
-            int telefono;
+            int telefono = 0;
 
             if (whatsApp == '1' && string.IsNullOrEmpty(txtTel.Text))
             {
-                telefono = 0;
-				telObligado.Text = "Campo requerido";
-            }
-            else
-                telefono = int.Parse(txtTel.Text);
+				Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos faltantes', 'Ingrese un número de teléfono')", true);
+				return;
+			}
+            else if (whatsApp == '1' && !string.IsNullOrEmpty(txtTel.Text))
+			{
+				telefono = int.Parse(txtTel.Text);
+			} else if (whatsApp == '0' && !string.IsNullOrEmpty(txtTel.Text))
+			{
+				telefono = int.Parse(txtTel.Text);
+			} else
+			{
+				telefono = 0;
+			}
+				
 
-            string residencia = txtResid.Text;
+			string residencia = txtResid.Text;
             string ocupacion = txtOcup.Text;
             DateTime fechaIngreso = DateTime.Now;
 
 			string consultorio = ConsultDropList.SelectedValue;
 
 
-            ingreso.CrearCliente(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso, consultorio);
+			//el estado por defecto es activado/habilitado
+			int estado = 1;
 
-
+         
             //Historial medico
 
             string antecedentes = txtAntec.Text; ;
@@ -206,10 +217,10 @@ namespace UI
             string actividadFisica = txtActividadFisica.Text;
             List<Medicamento> listaM = ListaMedicamSuplem; // no se si debería validar que la lista tenga al menos un elemento
 
-            HistorialMedico historial = new HistorialMedico(cedula, antecedentes, patologias, consumeLicor, fuma, frecFuma, frecLicor, ultimoExamen, actividadFisica);
-            ingreso.AgregarHistorialMedico(historial, listaM);
 
-            //Habitos alimentario
+			HistorialMedico historial = new HistorialMedico(cedula, antecedentes, patologias, consumeLicor, fuma, frecFuma, frecLicor, ultimoExamen, actividadFisica);
+
+            //Habitos alimentarios
             int ComidaDiaria;
             if (string.IsNullOrEmpty(numeroComidas.Text))
             {
@@ -327,16 +338,23 @@ namespace UI
             //Colacion nocturna
             listaRecordatorio.Add(new Recordatorio24H(cedula, "Colasión nocturna", txtHoraColacion.Text, txtDescColacion.Text));
 
-            ingreso.AgregarHabitosAlimentarios(new HabitoAlimentario(cedula, ComidaDiaria, ComidaHorasDia, AfueraExpress, ComidaFuera, AzucarBebida, ComidaElaboradCon, AguaDiaria, Aderezos, Fruta, Verdura, Leche, Huevo, Yogurt, Carne, Queso, Aguacate, Semillas), listaRecordatorio);
 
+		
             //Antropometria
             decimal talla;
-            if (string.IsNullOrEmpty(txtTalla.Text))
-            {
-                talla = 0;
-            }
-            else
-                talla = decimal.Parse(txtTalla.Text);
+			if (string.IsNullOrEmpty(txtTalla.Text))
+			{
+				talla = 0;
+			}
+			else {
+				if (txtTalla.Text.Length > 4)
+				{
+					Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', 'Valor inválido')", true);
+					return;
+				} else 
+
+				talla = decimal.Parse(txtTalla.Text);
+			}
 
             decimal pesoIdeal;
             if (string.IsNullOrEmpty(txtPesoIdeal.Text))
@@ -354,12 +372,6 @@ namespace UI
 			}
 			else
 				edad = decimal.Parse(txtEdad.Text);
-
-			//edad calculada
-
-			//edad = DateTime.Now.Year - fecha_Nacimiento.Year;
-
-			//txtEdad.Text = edad.ToString();
 
 
 			decimal pMB;
@@ -730,11 +742,15 @@ namespace UI
 
             Porciones porcion = new Porciones(cedula, leche, carne, vegetales, grasa, fruta, azucar, harina, suplemento);
 
-            ingreso.AgregarAntropometria(antro, porcion, distribucion);
+			ingreso.CrearCliente(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso, consultorio, estado);
+			ingreso.AgregarHistorialMedico(historial, listaM);
+			ingreso.AgregarHabitosAlimentarios(new HabitoAlimentario(cedula, ComidaDiaria, ComidaHorasDia, AfueraExpress, ComidaFuera, AzucarBebida, ComidaElaboradCon, AguaDiaria, Aderezos, Fruta, Verdura, Leche, Huevo, Yogurt, Carne, Queso, Aguacate, Semillas), listaRecordatorio);
+			ingreso.AgregarAntropometria(antro, porcion, distribucion);
 
 			//Response.Write(@"<script language='javascript'>alert('Guardado Correctamente');</script>");
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien', ''Datos guardados correctamente')", true);
-            foreach (Control c in Page.Form.Controls)
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien', 'Datos guardados correctamente')", true);
+
+			foreach (Control c in Page.Form.Controls)
 			{
 
 				if (c is TextBox)
@@ -785,16 +801,6 @@ namespace UI
         }
 
 
-		public void limpiarCampos()
-		{
-
-
-		}
-
-
-
-
-
 		protected void iFechaNac_TextChanged(object sender, EventArgs e)
 		{
 			int edad;
@@ -806,8 +812,8 @@ namespace UI
 			}
 			else
 				fecha_Nacimiento = DateTime.Parse(iFechaNac.Text);
-			edad = DateTime.Now.Year - fecha_Nacimiento.Year;
-			txtEdad.Text = edad.ToString();
+				edad = DateTime.Now.Year - fecha_Nacimiento.Year;
+				txtEdad.Text = edad.ToString();
 		}
 
 
