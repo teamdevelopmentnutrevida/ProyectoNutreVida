@@ -30,6 +30,7 @@
     <title>Calendario Nutre Vida</title>
     <script src='codebase/dhtmlxscheduler.js?v=5.2.1' type="text/javascript" charset="utf-8"></script>
     <link rel='STYLESHEET' type='text/css' href='codebase/dhtmlxscheduler_material.css?v=5.2.1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="codebase/ext/dhtmlxscheduler_minical.js?v=5.2.1" type="text/javascript" charset="utf-8"></script>
 
@@ -72,6 +73,8 @@
             scheduler.setCurrentView();
         }
     </script>
+
+    
 </head>
 
 
@@ -83,6 +86,8 @@
         <br />
         <form runat="server"  align="center" >
             <asp:Button ID="btn1" CssClass="boton btn btn-primary" runat="server" Text="Regresar" OnClick="btn1_Click"/>
+            <asp:Button ID="Button1" runat="server" style="visibility:hidden; width:0; height:0"/>
+            <textarea id="txtJson" runat="server" style="visibility:hidden; width:0; height:0"></textarea>
         </form>
     </div>
 
@@ -101,6 +106,6 @@
         <div class="dhx_cal_data">
         </div>
     </div>
+    
 </body>
-
 </html>

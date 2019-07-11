@@ -23,40 +23,88 @@ namespace DAO
         * @param evento TOEvento
         * @return un parámetro de tipo booleano que devuelve un true si se guradó en la base o flase si no se guardó.
         */
-        //public Boolean guardarEvento(TOEvento evento)
-        //{
+        public Boolean guardarEvento(TOEvento evento)
+        {
 
-        //    string query1 = "Insert into Evento values(@tit,@des,@horaInicio,@horaFina,@fecha);";
+            string query1 = "";
 
-        //    SqlCommand cmd = new SqlCommand(query1, conexion);
+            SqlCommand cmd;
 
-        //    try
-        //    {
+            if (!buscarEvento(evento.id))
+            {
 
-        //        //Asignacion de parametros.
-        //        cmd.Parameters.AddWithValue("@tit", evento.nombreEvento);
-        //        cmd.Parameters.AddWithValue("@des", evento.decripcionEvento);
-        //        cmd.Parameters.AddWithValue("@horaInicio", evento.horaInicio);
-        //        cmd.Parameters.AddWithValue("@horaFina", evento.horaFin);
-        //        cmd.Parameters.AddWithValue("@fecha", evento.fecha);
+                query1 = "Insert into Evento values(@tit,@des,@fechaInicio,@fechaFina,@id);";
 
-        //        //Validacion del estado de la conexion.
-        //        if (conexion.State != ConnectionState.Open)
-        //        {
-        //            conexion.Open();
-        //        }
+            }
+            else
+            {
+                query1 = "update Evento set Titulo = @tit, Descripcion = @des, FechaInicio = @fechaInicio, FechaFin = @fechaFina where IDEvento = @id";
+            }
 
-        //        //Insercion del historial medico.
-        //        cmd.ExecuteNonQuery();
-        //        conexion.Close();
+            cmd = new SqlCommand(query1, conexion);
 
-        //        return true;
-        //    }
-        //    catch (SqlException)
-        //    {
-        //        return false;
-        //    }
-        //}
+            //Asignacion de parametros.
+            cmd.Parameters.AddWithValue("@tit", evento.text);
+            cmd.Parameters.AddWithValue("@id", evento.id);
+            cmd.Parameters.AddWithValue("@des", evento.details);
+            cmd.Parameters.AddWithValue("@fechaInicio", evento.start_date);
+            cmd.Parameters.AddWithValue("@fechaFina", evento.end_date);
+
+            try
+            {
+                //Validacion del estado de la conexion.
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                //Insercion del historial medico.
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+
+        public bool buscarEvento(string id)
+        {
+            string query1 = "select * from Evento where IDEvento = @id;";
+
+            SqlCommand cmd = new SqlCommand(query1, conexion);
+
+            bool existe = false;
+            try
+            {
+
+                //Asignacion de parametros.
+                cmd.Parameters.AddWithValue("@id", id);
+
+                //Validacion del estado de la conexion.
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                string cant = cmd.ExecuteScalar() + "";
+
+                if (!cant.Equals(""))
+                {
+                    existe = true;
+                }
+
+                conexion.Close();
+
+                return existe;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
 
         /**
         * Método público que permite recuperar de la base de datos la lista de eventos
@@ -66,7 +114,7 @@ namespace DAO
         public List<TOEvento> listaEventos()
         {
             List<TOEvento> lista = new List<TOEvento>();
-            
+
             try
             {
                 SqlCommand buscar = new SqlCommand("SELECT * FROM Evento", conexion);
@@ -78,12 +126,14 @@ namespace DAO
                     while (lector.Read())
                     {
                         DateTime fechaInicio = DateTime.Parse(lector["FechaInicio"].ToString());
+                        fechaInicio = fechaInicio.AddHours(-6);
                         String stringFechaInicio = fechaInicio.ToString("yyyy-MM-dd HH:mm:ss");
 
                         DateTime FechaFin = DateTime.Parse(lector["FechaFin"].ToString());
+                        FechaFin = FechaFin.AddHours(-6);
                         String stringFechaFin = FechaFin.ToString("yyyy-MM-dd HH:mm:ss");
 
-                        lista.Add(new TOEvento(int.Parse(lector["IDEvento"].ToString()), stringFechaInicio, stringFechaFin, lector["Titulo"].ToString(), lector["Descripcion"].ToString()));
+                        lista.Add(new TOEvento(lector["IDEvento"].ToString(), stringFechaInicio, stringFechaFin, lector["Titulo"].ToString(), lector["Descripcion"].ToString()));
                     }
 
                     lector.Close();
@@ -104,13 +154,13 @@ namespace DAO
         * @param fecha String
         * @return un parámetro de tipo booleano que devuelve un true si se eliminó en la base o false si no se eliminó
         */
-        public Boolean eliminarEvento(string nombre, string fecha) {
+        public Boolean eliminarEvento(string id)
+        {
             try
             {
-            SqlCommand eliminar = new SqlCommand("delete from Evento where Titulo = @nom and Fecha = @fec;", conexion);
-            eliminar.Parameters.AddWithValue("@nom", nombre);
-            eliminar.Parameters.AddWithValue("@fec", fecha);
-            conexion.Open();
+                SqlCommand eliminar = new SqlCommand("delete from Evento where IDEvento = @id;", conexion);
+                eliminar.Parameters.AddWithValue("@id", id);
+                conexion.Open();
                 eliminar.ExecuteNonQuery();
                 conexion.Close();
                 return true;
@@ -129,7 +179,8 @@ namespace DAO
         * @param horaFin String
         * @param fecha String
         */
-        public void modificarEvento(string nombre, string descripcion, string horaInicio, string horaFin, string fecha) {
+        public void modificarEvento(string nombre, string descripcion, string horaInicio, string horaFin, string fecha)
+        {
             try
             {
                 SqlCommand eliminar = new SqlCommand("UPDATE Evento set Titulo = @nom, Descripcion = @dec, HoraInicio = @horaInicio, HoraFin = @horaFin, Fecha = @fecha where Titulo = @nom  AND fecha = @fecha;", conexion);
@@ -138,7 +189,7 @@ namespace DAO
                 conexion.Open();
                 eliminar.ExecuteNonQuery();
                 conexion.Close();
-                
+
             }
             catch (Exception)
             {
