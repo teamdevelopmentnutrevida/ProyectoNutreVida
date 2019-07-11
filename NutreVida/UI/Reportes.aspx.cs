@@ -64,7 +64,7 @@ namespace UI
 
 
 			}
-
+		
 			BL.Reportes report = new BL.Reportes();
 
             lbMenor20.Text = (report.obtenerPromedioPesoEdad(0, 20).Contains(",") || report.obtenerPromedioPesoEdad(0, 20).Contains(".") ? decimal.Parse(report.obtenerPromedioPesoEdad(0, 20)).ToString("N2") : report.obtenerPromedioPesoEdad(0, 20)) + " kg";
@@ -171,6 +171,9 @@ namespace UI
 			StringWriter sw = new StringWriter();
 			string html = sw.ToString();
 
+			//HtmlTextWriter htmlTextWriter = new HtmlTextWriter(sw);
+			//pruebaPDF.RenderControl(htmlTextWriter);
+
 			Document Doc = new Document();
 
 			PdfWriter.GetInstance
@@ -221,13 +224,13 @@ namespace UI
 			ShowPdf(Path);
 		}
 
+
 		private void ShowPdf(string strS)
 		{
 			Response.ClearContent();
 			Response.ClearHeaders();
 			Response.ContentType = "application/pdf";
-			Response.AddHeader
-			("Content-Disposition", "attachment; filename=" + strS);
+			Response.AddHeader("Content-Disposition", "attachment; filename=" + strS);
 			Response.TransmitFile(strS);
 			Response.End();
 			//Response.WriteFile(strS);
