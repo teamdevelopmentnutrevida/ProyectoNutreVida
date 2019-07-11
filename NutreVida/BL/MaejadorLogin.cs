@@ -34,5 +34,61 @@ namespace BL
 			return new BLLogin(usuarioTO.correo, usuarioTO.contras, usuarioTO.rol);
 		}
 
+		/**
+		  *Este metodo se encarga de buscar el usuario mediante el cual se va a iniciar sesion
+		  *@param correo Es el correo del usuario
+		  *@param contras Es la contrasenna del usuario
+		  *@return Retorna un objeto de tipo BLLogin
+		  */
+		public bool buscarUsuario(string correo)
+		{
+			TOLogin usuarioTO = daoLogin.BuscarUsuario(correo);
+			if (usuarioTO == null)
+			{
+				return false;
+			}
+			return true;
+		}
+
+		/**
+            *Este metodo se encarga de crear un nuevo usuario mediante el cual se va a iniciar sesion
+            *@param correo Es el correo del usuario
+            *@param contras Es la contrasenna del usuario
+			*@param rol el rol del usuario
+            *@return Retorna un objeto de tipo BLLogin
+            */
+		public bool CrearUsuario(string correo, string contras, string rol)
+		{
+			if (correo.Equals(""))
+			{
+				return false;
+			}
+			TOLogin login = new TOLogin(correo, contras, rol);
+			return daoLogin.CrearUsuario(login);	
+		}
+
+
+		/**
+            *Este metodo se encarga de modificar la contraseña de un usuario
+            *@param correo Es el correo del usuario
+            *@param contras Es la contrasenna del usuario
+            *@return true si lo hace bien
+            */
+		public bool ModifUsuario(string correo, string contras)
+		{
+			if (correo.Equals(""))
+			{
+				return false;
+			}
+			return daoLogin.modificarContras(correo, contras);
+		}
+
+
+
+
+
+
+
+
 	}
 }
