@@ -20,7 +20,7 @@ namespace UI
         private static List<SeguimientoMensual> listaSegNutri = new List<SeguimientoMensual>();
         private static ManejadorSeguimientos manejadorSeg = new ManejadorSeguimientos();
         private static ManejadorExpediente manejExpediente = new ManejadorExpediente();
-        private static ManejadorErrores manejError = new ManejadorErrores();
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (new ControlSeguridad().validarNutri() == true)
@@ -322,10 +322,7 @@ namespace UI
                 }
                 catch (FormatException)
                 {
-                    string y = manejError.ErrorIngresoNumero();
-                    Response.Write(y);
-                    peso = 0;
-
+                    Response.Write("Error al ingresar el Peso.");
                 }
 
                 bool creado = manejadorSeg.AgregarSeguimiento(new SeguimientoSemanal(DateTime.Now, Convert.ToDecimal(sPeso.Text), sOreja.SelectedValue, sEjercicio.Text, int.Parse(ced1.Text)));
