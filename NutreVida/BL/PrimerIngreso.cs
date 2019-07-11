@@ -12,13 +12,13 @@ namespace BL
     {
         DAOPrimerIngreso daoClienteNutricion = new DAOPrimerIngreso();
 
-        public Boolean CrearCliente(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso, string consultorio)
+        public Boolean CrearCliente(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso, string consultorio, int estado)
         {
             if (cedula.Equals(""))
             {
                 return false;
             }  
-            TOClienteNutricion usuario = new TOClienteNutricion(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso, consultorio);
+            TOClienteNutricion usuario = new TOClienteNutricion(cedula, correo, nombre, apellido1, apellido2, fecha_Nacimiento, sexo, estado_Civil, whatsApp, telefono, residencia, ocupacion, fechaIngreso, consultorio, estado);
             return daoClienteNutricion.CrearUsuario(usuario);
         }
 
