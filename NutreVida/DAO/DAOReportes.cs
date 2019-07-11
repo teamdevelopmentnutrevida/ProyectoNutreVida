@@ -9,6 +9,11 @@ using TO;
 
 namespace DAO
 {
+
+    /**
+    * Clase DAOReportes, permite la conexion con la base de datos para cargar los reportes del sistema
+    * @author Diego
+    */
     public class DAOReportes
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);

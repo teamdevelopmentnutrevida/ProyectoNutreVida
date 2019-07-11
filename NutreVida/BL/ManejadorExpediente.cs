@@ -8,6 +8,10 @@ using DAO;
 
 namespace BL
 {
+    /**
+     * Clase ManejadorExpediente, maneja los metodos del expediente en general.
+     * @author Yoselyn
+    */
     public class ManejadorExpediente
     {
 

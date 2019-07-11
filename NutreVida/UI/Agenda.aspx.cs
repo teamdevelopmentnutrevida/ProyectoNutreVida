@@ -9,16 +9,38 @@ using BL;
 
 namespace UI
 {
+
+    /**
+     * Clase Agenda, muestra la agenda del consultorio bajo 3 distintas vistas: semana, mes y día y permite crear eventos.
+     * @author Tannia
+    */
     public partial class WebForm1 : System.Web.UI.Page
     {
 
-        public String Json;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             ManejadorEvento maneja = new ManejadorEvento();
+
+            if (IsPostBack)
+            {
+                string json = txtJson.Value;
+
+                if (json.Contains("{"))
+                {
+                    maneja.guardarEvento(json);
+                }
+                else
+                    maneja.eliminarEvento(json);          
+                
+            }
+            
             String url = Server.MapPath("~/");
             maneja.ListaEvento(url);
+            
+
             //string ruta = "C:\\Users\tanni\\Desktop\\Ingeniería\\Proyecto Ingeniería\\NutreVida\\UI\\common\\Eventos.json";
             //string contenido = "";
             //File.WriteAllText(ruta, contenido);
@@ -26,6 +48,11 @@ namespace UI
             //Json = ManejadorEvento.Json;
         }
 
+        /**
+        * Método protegido cuya función es el evento del botón btn1
+        * @param object, sender
+        * @param EventArgs, e
+        */
         protected void btn1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Reportes.aspx");

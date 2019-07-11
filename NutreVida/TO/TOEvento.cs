@@ -12,7 +12,7 @@ namespace TO
    */
     public class TOEvento
     {
-        public TOEvento(int id, string start_date, string end_date, string text, string details)
+        public TOEvento(string id, string start_date, string end_date, string text, string details)
         {
             this.id = id;
             this.text = text;
@@ -21,7 +21,7 @@ namespace TO
             this.end_date = end_date;
         }
 
-        public int id { get; set; }
+        public string id { get; set; }
         public string start_date { set; get; }
         public string end_date { set; get; }
         public string text { set; get; }

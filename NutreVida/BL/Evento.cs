@@ -14,7 +14,7 @@ namespace BL
     public class Evento
     {
 
-        public Evento(int id, string start_date, string end_date, string text, string details)
+        public Evento(string id, string start_date, string end_date, string text, string details)
         {
             this.id = id;
             this.text = text;
@@ -23,7 +23,7 @@ namespace BL
             this.end_date = end_date;
         }
 
-        public int id { get; set; }
+        public string id { get; set; }
         public string start_date { set; get; }
         public string end_date { set; get; }
         public string text { set; get; }

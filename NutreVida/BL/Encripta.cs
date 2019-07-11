@@ -6,9 +6,20 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+
+
+    /**
+    * Clase Encripta, posee los metodos que permiten la encripción de contraseñas
+    * @author Tannia
+    */
+
     public class Encripta
     {
 
+        /**
+        * Método publico cuya función es encriptar un texto
+        * @param string, originalPassword texto a ser encriptado
+        */
         public string EncodePassword(string originalPassword)
         {
             string result = string.Empty;
@@ -17,7 +28,11 @@ namespace BL
             return result;
         }
 
-
+        /**
+        * Método publico cuya función es desencriptar un texto
+        * @param string, originalPassword texto a ser desencriptado
+        * @param string, contra
+        */
         public Boolean desEncode(string contraEncriptada, string contra)
         {
             Boolean coincide = false;

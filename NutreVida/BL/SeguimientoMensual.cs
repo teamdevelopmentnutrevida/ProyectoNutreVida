@@ -22,7 +22,15 @@ namespace BL
             this.antrop = antrop;
             this.record = record;
         }
+        public SeguimientoMensual(SeguimientoNutricional nutri, List<SeguimientoRecordat24H> record, SeguimientoAntrop antrop, int id)
+        {
+            this.idSeg = id;
+            this.nutri = nutri;
+            this.antrop = antrop;
+            this.record = record;
+        }
 
+        public SeguimientoMensual() { }
 
     }
 }
