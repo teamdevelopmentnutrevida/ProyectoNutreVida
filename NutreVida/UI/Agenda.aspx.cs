@@ -9,6 +9,11 @@ using BL;
 
 namespace UI
 {
+
+    /**
+     * Clase Agenda, muestra la agenda del consultorio bajo 3 distintas vistas: semana, mes y día y permite crear eventos.
+     * @author Tannia
+    */
     public partial class WebForm1 : System.Web.UI.Page
     {
 
@@ -28,6 +33,11 @@ namespace UI
             //Json = ManejadorEvento.Json;
         }
 
+        /**
+        * Método protegido cuya función es el evento del botón btn1
+        * @param object, sender
+        * @param EventArgs, e
+        */
         protected void btn1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Reportes.aspx");

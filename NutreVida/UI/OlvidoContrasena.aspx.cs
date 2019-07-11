@@ -10,13 +10,19 @@ namespace UI
 {
     public partial class OlvidoContrasena : System.Web.UI.Page
     {
+        /**
+        * Clase OlvidoContrasena, permite al usuario ingresar un correo electronico para proceder a cambiar sus credenciales de acceso al sistema
+        * @author Diego
+        */
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
         /**
-            *El metodo se encarga de hacer validaciones necesarias para recuperar contrasenna
+        *El metodo se encarga de hacer validaciones necesarias para recuperar contrasenna
+        * @param object, sender
+        * @param EventArgs, e
         */
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
