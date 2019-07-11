@@ -57,7 +57,7 @@ namespace BL
         */
         public bool AgregaSegNutri(SeguimientoMensual seguimiento)
         {
-
+            TOSeguimientoMensual segMen = new TOSeguimientoMensual();
             TOSeguimientoNutricional seg = new TOSeguimientoNutricional();
             List<TOSeguimientoRecordat24H> lisSeg = new List<TOSeguimientoRecordat24H>();
             List<SeguimientoRecordat24H> lista = seguimiento.record;
@@ -106,8 +106,10 @@ namespace BL
             segAnt.PesoIdeal = seguimiento.antrop.PesoIdeal;
             segAnt.Observaciones = seguimiento.antrop.Observaciones;
 
-			return false;
-            //return daoSeguimientos.GuardarSeguimientoMensual(seg, lisSeg, segAnt);
+            segMen.antrop = segAnt;
+            segMen.record = lisSeg;
+            segMen.nutri = seg;         
+            return daoSeguimientos.GuardarSeguimientoMensual(segMen);
 
         }
 
