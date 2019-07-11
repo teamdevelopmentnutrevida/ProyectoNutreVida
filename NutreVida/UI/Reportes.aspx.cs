@@ -8,8 +8,14 @@ using BL;
 
 namespace UI
 {
+
     public partial class Reportes : System.Web.UI.Page
     {
+        /**
+        * Clase Reportes, muestra los principales reportes sobre los clientes registrados en el sistema
+        * @author Diego
+        */
+
         //Atributos clasificacion IMC
         public int Insuficiencia = 0;
         public int Normal = 0;
@@ -122,6 +128,8 @@ namespace UI
 
         /**
             *Este metodo se encarga de modificar la edad por la que se van a filtrar los reportes
+            *@param Edad1 Es un string que contiene una edad
+            *@param Edad2 Es un string que contiene una edad
         */
         [System.Web.Services.WebMethod]
         public static void ModificarEdad(string Edad1, string Edad2)

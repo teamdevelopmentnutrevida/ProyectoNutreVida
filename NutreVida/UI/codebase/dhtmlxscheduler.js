@@ -1000,6 +1000,7 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                             if (!t.config.dblclick_create) break;
                             this.addEventNow(this.getActionData(e).date, null, e);
                             break;
+                        case "dhx_cal_event_line":
                         case "dhx_cal_event_clear":
                             var n = this._locate_event(i);
                             if (!this.callEvent("onDblClick", [n, e])) return;
