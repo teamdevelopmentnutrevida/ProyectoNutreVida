@@ -2146,6 +2146,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox TextBox70;
         
         /// <summary>
+        /// btnGeneraPDF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGeneraPDF;
+        
+        /// <summary>
         /// btnGuardar control.
         /// </summary>
         /// <remarks>

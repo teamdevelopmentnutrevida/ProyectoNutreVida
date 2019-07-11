@@ -993,6 +993,8 @@
 
 
      <div class="footer navbar-light bg-white shadow">
+
+		 <asp:Button  CssClass="boton btn btn-primary" ID="btnGeneraPDF" runat="server" Text="Generar reporte" OnClick="btnGeneraPDF_Click"/>
 	    <asp:Button ID="btnGuardar" CssClass="boton btn btn-primary" runat="server" Text="Atrás" OnClick="BackButton_Click" />
         
          <br />  

@@ -5,6 +5,34 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.VisualBasic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html;
+using iTextSharp.text.xml;
+using System.IO;
+using System.Diagnostics;
+using System.ComponentModel;
+using System.Text;
+using System.Collections;
+using System.Data;
+using System.Configuration;
+using System.Web.Security;
+using System.Web.UI.HtmlControls;
+using System.Xml;
+using System.Net;
+using System.Data.SqlClient;
+using iTextSharp.text.html.simpleparser;
+
+
+
 
 namespace UI
 {
@@ -492,6 +520,182 @@ namespace UI
 
         }
 
-        
-    }
+
+
+		protected void btnGeneraPDF_Click(object sender, EventArgs e)
+		{
+			string oldFile = "C:/Users/Cristel/Source/Repos/ProyectoNutreVida/NutreVida/UI/Plantilla.pdf";
+			string newFile = "C:/Users/Cristel/Source/Repos/ProyectoNutreVida/NutreVida/UI/Reporte.pdf";
+
+
+			var reader = new PdfReader(oldFile);
+			{
+				using (var fileStream = new FileStream(newFile, FileMode.Create, FileAccess.Write))
+				{
+					var document = new Document(reader.GetPageSizeWithRotation(1));
+					var writer = PdfWriter.GetInstance(document, fileStream);
+
+					document.Open();
+
+					for (var i = 1; i <= reader.NumberOfPages; i++)
+					{
+						document.NewPage();
+
+						var baseFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+						var importedPage = writer.GetImportedPage(reader, i);
+
+						var contentByte = writer.DirectContent;
+						contentByte.BeginText();
+						contentByte.SetFontAndSize(baseFont, 12);
+
+						if (i==1)
+						{
+							// select the font properties
+							BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+							contentByte.SetColorFill(Color.BLACK);
+							contentByte.SetFontAndSize(bf, 12);
+
+							// write the text in the pdf content
+							contentByte.BeginText();
+							string nombre = "Nombre: " + txtNombre.Text;
+							string fecha = "Fecha: " + System.DateTime.Today.ToShortDateString();
+							string peso = "Peso: " + txtPesoActual.Text;
+							string imc = "IMC: " + txtIMC.Text;
+							string grasa = "% Grasa: " + txtPorcGrasas.Text + "%";
+							// put the alignment and coordinates here
+							contentByte.ShowTextAligned(Element.ALIGN_LEFT, nombre, 100, 560, 0);
+							contentByte.ShowTextAligned(Element.ALIGN_LEFT, fecha, 100, 540, 0);
+							contentByte.ShowTextAligned(Element.ALIGN_LEFT, peso, 100, 520, 0);
+							contentByte.ShowTextAligned(Element.ALIGN_LEFT, imc, 100, 500, 0);
+							contentByte.ShowTextAligned(Element.ALIGN_LEFT, grasa, 100, 480, 0);
+							contentByte.EndText();
+						
+						}
+
+						contentByte.EndText();
+						contentByte.AddTemplate(importedPage, 0, 0);
+					}
+
+					document.Close();
+					writer.Close();
+				}
+			}
+
+
+
+
+
+
+
+			//// open the reader
+			//PdfReader reader = new PdfReader(oldFile);
+			//Rectangle size = reader.GetPageSizeWithRotation(1);
+			//Document document = new Document(size);
+
+			//// open the writer
+			//FileStream fs = new FileStream(newFile, FileMode.Create, FileAccess.Write);
+			//PdfWriter writer = PdfWriter.GetInstance(document, fs);
+			//document.Open();
+
+			//// the pdf content
+			//PdfContentByte cb = writer.DirectContent;
+
+			//// select the font properties
+			//BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+			//cb.SetColorFill(Color.DARK_GRAY);
+			//cb.SetFontAndSize(bf, 8);
+
+			//// write the text in the pdf content
+			//cb.BeginText();
+			//string text = "AQUI VA LA INFO DEL PACIENTE";
+			//// put the alignment and coordinates here
+			//cb.ShowTextAligned(1, text, 250, 370, 0);
+			//cb.EndText();
+			//cb.BeginText();
+			//text = "Other random blabla...";
+			//// put the alignment and coordinates here
+			//cb.ShowTextAligned(2, text, 100, 200, 0);
+			//cb.EndText();
+
+			//// create the new page and add it to the pdf
+			//PdfImportedPage page = writer.GetImportedPage(reader, 1);
+			//cb.AddTemplate(page, 0, 0);
+
+			//// close the streams and voilá the file should be changed :)
+			//document.Close();
+			//fs.Close();
+			//writer.Close();
+			//reader.Close();
+
+			ShowPdf(newFile);
+		}
+
+
+
+		private void ShowPdf(string strS)
+		{
+			Response.ClearContent();
+			Response.ClearHeaders();
+			Response.ContentType = "application/pdf";
+			Response.AddHeader("Content-Disposition", "attachment; filename=" + strS);
+			Response.TransmitFile(strS);
+			Response.End();
+			Response.Flush();
+			Response.Clear();
+
+		}
+
+	}
 }
+
+//StringWriter sw = new StringWriter();
+//string html = sw.ToString();
+
+//HtmlTextWriter htmlTextWriter = new HtmlTextWriter(sw);
+//txtAbdomen.RenderControl(htmlTextWriter);
+//StringReader stringReader = new StringReader(sw.ToString());
+
+//Document Doc = new Document();
+
+//PdfWriter.GetInstance
+//(Doc, new FileStream(Environment.GetFolderPath
+//(Environment.SpecialFolder.Desktop)
+//+ "\\Prueba.pdf", FileMode.Create));
+//Doc.Open();
+
+//HTMLWorker htmlparser = new HTMLWorker(Doc);
+//htmlparser.Parse(stringReader);
+
+//Chunk c = new Chunk
+//("Prueba de un Documento en PDF \n", FontFactory.GetFont("Verdana", 15));
+
+//Paragraph p = new Paragraph();
+//p.Alignment = Element.ALIGN_CENTER;
+//p.Add(c);
+
+//BaseFont bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
+//Font times = new Font(bfTimes, 12, Font.ITALIC, Color.RED);
+//Font times2 = new Font(bfTimes, 12, Font.NORMAL, Color.BLACK);
+
+//Chunk chunk1 = new Chunk
+//("\nEste es un parrafo (p1) alineado a la derecha, con letra cursiva y de color rojo. \n\n", times);
+//Paragraph p1 = new Paragraph();
+
+//p1.Alignment = Element.ALIGN_RIGHT;
+//p1.Add(chunk1);
+
+//Chunk chunk2 = new Chunk
+//("Este es un parrafo (p2) con letra normal, color negro, en el que estamos concatenando este texto un texto extraido de un textbox, que dice HOLAAAAAAAAAAAAA'", times2);
+//Paragraph p2 = new Paragraph();
+
+//p2.Alignment = Element.ALIGN_JUSTIFIED;
+//p2.Add(chunk2);
+
+//Doc.Add(p);
+//Doc.Add(p1);
+//Doc.Add(p2);
+
+//System.Xml.XmlTextReader xmlReader = new System.Xml.XmlTextReader(new StringReader(html));
+//HtmlParser.Parse(Doc, xmlReader);
+
+//Doc.Close();
