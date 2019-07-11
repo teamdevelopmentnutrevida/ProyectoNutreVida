@@ -33,11 +33,7 @@ namespace UI
             //    CargarDatos();
             //}
         }
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#mymodal').modal('show');</script> ", false);
-        }
-
+        
         /**
         * Método privado que carga la seccion de la información personal del cliente seleccionado 
         */
@@ -395,21 +391,21 @@ namespace UI
             {
                 foreach (SeguimientoMensual seg in listaSegNutri)
                 {
-                    SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td><td>" + seg.Fecha.ToString("dd/MM/yyyy") + "</td><td><a>Ver</a></td><td><a>Modificar</a></td></tr>";
+                    SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td>" +
+                        "<td>" + seg.Fecha.ToString("dd/MM/yyyy")+"</td>"+
+                        "<td><asp:LinkButton runat=\"server\" ID=\"ver"+ seg.idSeg +"\" OnClick=\"Ver_Click\" CommandArgument=\""+seg.idSeg+"\" Text=\"Ver\"></asp:LinkButton></td>" +
+                        "<td><asp:LinkButton runat=\"server\" ID=\"mod"+ seg.idSeg + "\" OnClick=\"Modificar_Click\" CommandArgument=\"" + seg.idSeg + "\" Text=\"Modificar\"></asp:LinkButton></td></tr>";
                 }
+
+                SeguimientoMensual seguim = listaSegNutri.Last<SeguimientoMensual>();
             }
             else { SeguimMensual.Text = "No existen Seguimientos Nutricionales de este cliente."; }
         }
 
         protected void BackButton_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("Expedientes.aspx");
-            string ed = EdadCliente.Text;
-            if(ed != "")
-            {
-                double v = Double.Parse(ed);
-                Response.Write("double parseado: " + v);
-            }
+           
+            Response.Redirect("Expedientes.aspx");
         }
 
         protected void MedicButton_Click(object sender, EventArgs e)
@@ -419,8 +415,82 @@ namespace UI
 
         protected void GuardarSeguimNutri_Click(object sender, EventArgs e)
         {
+            SeguimientoMensual nuevo = new SeguimientoMensual();
+            SeguimientoAntrop nuevoAntrop = new SeguimientoAntrop();
+            List<SeguimientoRecordat24H> nuevoRecord = new List<SeguimientoRecordat24H>();
+            SeguimientoNutricional nuevoNutri = new SeguimientoNutricional();
+
+            nuevoNutri.Cedula = Cedula;
+            nuevoNutri.DiasEjercicio = SNDiasEjerSem.Text;
+            nuevoNutri.ComidaExtra = SNComidasExtras.Text;
+            nuevoNutri.NivelAnsiedad = SNNivAnsiedad.Text;
+
+            nuevoRecord.Add(new SeguimientoRecordat24H("Ayunas", SNRecordAyunTime.Text, SNRecAyunasDescr.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Desayuno", SNRecordDesayunTime.Text, SNRecordDesayunDescr.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Media Mañana", SNRecordMedManTime.Text, SNRecordMedManTime.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Almuerzo", SNRecordAlmTime.Text, SNRecordAlmDescrip.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Media Tarde", SNRecordMedTardeTime.Text, SNRecordMedTardeDescr.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Cena", SNRecordCenaTime.Text, SNRecordCenaDescr.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Colación Nocturna", SNRecordColTime.Text, SNRecordColDescr.Text));
+
+            nuevoAntrop.Fecha_SA = DateTime.Now;
+            if(SegAntEdad.Text != "") { nuevoAntrop.Edad = Decimal.Parse(SegAntEdad.Text); } else { nuevoAntrop.Edad = Decimal.Parse("0"); }
+            if (SegAntTalla.Text != "") { nuevoAntrop.Talla = Decimal.Parse(SegAntTalla.Text); } else { nuevoAntrop.Talla = Decimal.Parse("0"); }
+            if (SegAntCM.Text != "") { nuevoAntrop.CM = Decimal.Parse(SegAntCM.Text); } else { nuevoAntrop.CM = Decimal.Parse("0"); }
+            if (SegAntPeso.Text != "") { nuevoAntrop.Peso = Decimal.Parse(SegAntPeso.Text); } else { nuevoAntrop.Peso = Decimal.Parse("0"); }
+            if (SegAntIMC.Text != "") { nuevoAntrop.IMC = Decimal.Parse(SegAntIMC.Text); } else { nuevoAntrop.IMC = Decimal.Parse("0"); }
+            if (SegAntAgua.Text != "") { nuevoAntrop.Agua = Decimal.Parse(SegAntAgua.Text); } else { nuevoAntrop.Agua = Decimal.Parse("0"); }
+            if (SegAntMasaOsea.Text != "") { nuevoAntrop.MasaOsea = Decimal.Parse(SegAntMasaOsea.Text); } else { nuevoAntrop.MasaOsea = Decimal.Parse("0"); }
+            if (SegAntEdadMetabolica.Text != "") { nuevoAntrop.EdadMetabolica = Decimal.Parse(SegAntEdadMetabolica.Text); } else { nuevoAntrop.EdadMetabolica = Decimal.Parse("0"); }
+            if (SegAntGrasaAnaliz.Text != "") { nuevoAntrop.PorcGrasaAnalizador = Decimal.Parse(SegAntGrasaAnaliz.Text); } else { nuevoAntrop.PorcGrasaAnalizador = Decimal.Parse("0"); }
+            if (SegAntGrasBasc.Text != "") { nuevoAntrop.PorcGr_Bascula = Decimal.Parse(SegAntGrasBasc.Text); } else { nuevoAntrop.PorcGr_Bascula = Decimal.Parse("0"); }
+            if (SegAntGBBI.Text != "") { nuevoAntrop.GB_BI = Decimal.Parse(SegAntGBBI.Text); } else { nuevoAntrop.GB_BI = Decimal.Parse("0"); }
+            if (SegAntGBBD.Text != "") { nuevoAntrop.GB_BD = Decimal.Parse(SegAntGBBD.Text); } else { nuevoAntrop.GB_BD = Decimal.Parse("0"); }
+            if (SegAntGBPI.Text != "") { nuevoAntrop.GB_PI = Decimal.Parse(SegAntGBPI.Text); } else { nuevoAntrop.GB_PI = Decimal.Parse("0"); }
+            if (SegAntGBPD.Text != "") { nuevoAntrop.GB_PD = Decimal.Parse(SegAntGBPD.Text); } else { nuevoAntrop.GB_PD = Decimal.Parse("0"); }
+            if (SegAntGBTronco.Text != "") { nuevoAntrop.GB_Tronco = Decimal.Parse(SegAntGBTronco.Text); } else { nuevoAntrop.GB_Tronco = Decimal.Parse("0"); }
+            if (SegAntGrVisceral.Text != "") { nuevoAntrop.PorcentGViceral = Decimal.Parse(SegAntGrVisceral.Text); } else { nuevoAntrop.PorcentGViceral = Decimal.Parse("0"); }
+            if (SegAntPM.Text != "") { nuevoAntrop.PorcentMusculo = Decimal.Parse(SegAntPM.Text); } else { nuevoAntrop.PorcentMusculo = Decimal.Parse("0"); }
+            if (SegAntPMBI.Text != "") { nuevoAntrop.PM_BI = Decimal.Parse(SegAntPMBI.Text); } else { nuevoAntrop.PM_BI = Decimal.Parse("0"); }
+            if (SegAntPMBD.Text != "") { nuevoAntrop.PM_BD = Decimal.Parse(SegAntPMBD.Text); } else { nuevoAntrop.PM_BD = Decimal.Parse("0"); }
+            if (SegAntPMPI.Text != "") { nuevoAntrop.PM_PI = Decimal.Parse(SegAntPMPI.Text); } else { nuevoAntrop.PM_PI = Decimal.Parse("0"); }
+            if (SegAntPMPD.Text != "") { nuevoAntrop.PM_PD = Decimal.Parse(SegAntPMPD.Text); } else { nuevoAntrop.PM_PD = Decimal.Parse("0"); }
+            if (SegAntPMTronco.Text != "") { nuevoAntrop.PM_Tronco = Decimal.Parse(SegAntPMTronco.Text); } else { nuevoAntrop.PM_Tronco = Decimal.Parse("0"); }
+            if (SegAntCircunfCint.Text != "") { nuevoAntrop.CircunfCintura = Decimal.Parse(SegAntCircunfCint.Text); } else { nuevoAntrop.CircunfCintura = Decimal.Parse("0"); }
+            if (SegAntCadera.Text != "") { nuevoAntrop.Cadera = Decimal.Parse(SegAntCadera.Text); } else { nuevoAntrop.Cadera = Decimal.Parse("0"); }
+            if (SegAntMusloIzq.Text != "") { nuevoAntrop.MusloIzq = Decimal.Parse(SegAntMusloIzq.Text); } else { nuevoAntrop.MusloIzq = Decimal.Parse("0"); }
+            if (SegAntMusloDer.Text != "") { nuevoAntrop.MusloDer = Decimal.Parse(SegAntMusloDer.Text); } else { nuevoAntrop.MusloDer = Decimal.Parse("0"); }
+            if (SegAntBrazoIzq.Text != "") { nuevoAntrop.BrazoIzq = Decimal.Parse(SegAntBrazoIzq.Text); } else { nuevoAntrop.BrazoIzq = Decimal.Parse("0"); }
+            if (SegAntBrazoDer.Text != "") { nuevoAntrop.BrazoDer = Decimal.Parse(SegAntBrazoDer.Text); } else { nuevoAntrop.BrazoDer = Decimal.Parse("0"); }
+            if (SegAntPesoIdeal.Text != "") { nuevoAntrop.PesoIdeal = Decimal.Parse(SegAntPesoIdeal.Text); } else { nuevoAntrop.PesoIdeal = Decimal.Parse("0"); }
+            nuevoAntrop.Observaciones = SNObservacion.Text;
+
+            nuevo.antrop = nuevoAntrop;
+            nuevo.nutri = nuevoNutri;
+            nuevo.record = nuevoRecord;
+            nuevo.Fecha = DateTime.Now;
+
+            bool exito = manejadorSeg.AgregaSegNutri(nuevo);
+            if(exito == true)
+            {
+                Response.Write("Seguimiento Agregado Exitosamente");
+            }
+            else
+            {
+                Response.Write("Error al Agregar Seguimiento Nutricional");
+            }
 
         }
+
+        protected void Ver_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void Modificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 }

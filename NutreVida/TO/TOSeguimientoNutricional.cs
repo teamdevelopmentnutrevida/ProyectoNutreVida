@@ -9,11 +9,11 @@ namespace TO
     public class TOSeguimientoNutricional
     {
         public string Cedula { set; get; }
-        public int DiasEjercicio { set; get; }
+        public string DiasEjercicio { set; get; }
         public string ComidaExtra { set; get; }
         public string NivelAnsiedad { set; get; }
 
-        public TOSeguimientoNutricional(string cedula, int diasEjercicio, string comidaExtra, string nivelAnsiedad)
+        public TOSeguimientoNutricional(string cedula, string diasEjercicio, string comidaExtra, string nivelAnsiedad)
         {
             Cedula = cedula;
             DiasEjercicio = diasEjercicio;

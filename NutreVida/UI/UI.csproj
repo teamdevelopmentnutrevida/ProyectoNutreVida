@@ -1763,6 +1763,7 @@
     <Content Include="vendor\jquery\jquery.slim.min.js" />
     <Content Include="Web.config" />
     <Content Include="Agenda.aspx" />
+    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.aspx.cs">
@@ -1842,6 +1843,13 @@
     </Compile>
     <Compile Include="Agenda.aspx.designer.cs">
       <DependentUpon>Agenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
