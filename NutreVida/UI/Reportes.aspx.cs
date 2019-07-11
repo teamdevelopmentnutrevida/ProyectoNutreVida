@@ -41,7 +41,7 @@ namespace UI
         */
 
         //Atributos clasificacion IMC
-        public int Insuficiencia = 0;
+        public int Insuficiencia = 0;  
         public int Normal = 0;
         public int Sobrepeso = 0;
         public int ObesidadI = 0;
