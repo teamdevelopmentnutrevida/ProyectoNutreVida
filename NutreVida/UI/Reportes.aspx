@@ -131,7 +131,7 @@
             </div>
 
             <!-- Donut Chart -->
-            <div class="col-xl-4 col-lg-5">
+            <div id="pruebaPDF" class="col-xl-4 col-lg-5">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3">
@@ -175,7 +175,7 @@
 
 		<div class="footer navbar-light bg-white shadow">
 			<form runat="server">
-                    <asp:Button ID="btnPdf" CssClass="boton btn btn-primary" runat="server" Text="Generar reporte" OnClick="btnPdf_Click"/>
+				<asp:Button  CssClass="boton btn btn-primary" ID="btnGeneraPDF" runat="server" Text="Generar reporte" OnClick="btnGeneraPDF_Click"/>
 				</form>
                     <br />
                 </div>

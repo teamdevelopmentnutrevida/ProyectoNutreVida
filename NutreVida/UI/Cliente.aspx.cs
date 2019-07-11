@@ -20,7 +20,7 @@ namespace UI
         private static List<SeguimientoMensual> listaSegNutri = new List<SeguimientoMensual>();
         private static ManejadorSeguimientos manejadorSeg = new ManejadorSeguimientos();
         private static ManejadorExpediente manejExpediente = new ManejadorExpediente();
-        private static ManejadorErrores manejError = new ManejadorErrores();
+        //private static ManejadorErrores manejError = new ManejadorErrores();
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (new ControlSeguridad().validarNutri() == true)
@@ -322,7 +322,8 @@ namespace UI
                 }
                 catch (FormatException)
                 {
-                    string y = manejError.ErrorIngresoNumero();
+					string y = "";
+                    //string y = manejError.ErrorIngresoNumero();
                     Response.Write(y);
                     peso = 0;
 

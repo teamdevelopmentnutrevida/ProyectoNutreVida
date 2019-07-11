@@ -106,7 +106,8 @@ namespace BL
             segAnt.PesoIdeal = seguimiento.antrop.PesoIdeal;
             segAnt.Observaciones = seguimiento.antrop.Observaciones;
 
-            return daoSeguimientos.GuardarSeguimientoMensual(seg, lisSeg, segAnt);
+			return false;
+            //return daoSeguimientos.GuardarSeguimientoMensual(seg, lisSeg, segAnt);
 
         }
 
