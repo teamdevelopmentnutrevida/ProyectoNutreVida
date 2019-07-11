@@ -8,6 +8,12 @@ using TO;
 
 namespace BL
 {
+
+    /**
+   * Clase Reportes, posee los metodos que permiten realizar consultas sobre los pacientes en forma de reportes
+   * @author Diego
+   */
+
     public class Reportes
     {
         /**

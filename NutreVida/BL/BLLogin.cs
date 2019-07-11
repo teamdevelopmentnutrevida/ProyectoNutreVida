@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-	public class BLLogin
+
+        /**
+        * Clase BLLogin, crea el objeto login con el cual se puede ingresar al sistema
+        * @author Diego
+        */
+
+    public class BLLogin
 	{
 		public string correo { set; get; }
 		public string contras { set; get; }

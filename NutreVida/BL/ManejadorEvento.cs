@@ -10,6 +10,10 @@ using System.IO;
 
 namespace BL
 {
+    /**
+   * Clase ManejadorEvento, posee los metodos que permiten la administracion de os eventos de la agenda
+   * @author Diego
+   */
     public class ManejadorEvento
     {
         private DAOEvento daoEvento = new DAOEvento();
@@ -19,12 +23,17 @@ namespace BL
         //    daoEvento.guardarEvento(new TOEvento(nombreEvento, descripcionEvento, horaInicio, horaFin, fecha));
         //}
 
+
         public String cargarDatos(){
             string eventos = "";
 
             return eventos;
         }
 
+        /**
+        *Este metodo se encarga de devolver una lista con los eventos que se encuentran en la base de datos
+        *@param String url permite buscar bajo la url que recibe por parámetro
+        */
         public List<Evento> ListaEvento(String url)
         {
             List<Evento> data = new List<Evento>();

@@ -8,7 +8,13 @@ using TO;
 
 namespace BL
 {
-	public class MaejadorLogin
+
+    /**
+   * Clase MaejadorLogin, posee los metodos que permiten la busqueda de login
+   * @author Diego
+   */
+
+    public class MaejadorLogin
 	{
 		DAOLogin daoLogin = new DAOLogin();
 
