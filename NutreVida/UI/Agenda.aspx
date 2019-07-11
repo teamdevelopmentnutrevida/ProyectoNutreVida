@@ -58,6 +58,7 @@
 
             scheduler.init('scheduler_here', hoy, "month");
             scheduler.load("../Eventos.json")
+            //scheduler.toString();
 
             var calendar = scheduler.renderCalendar({
                 container: "cal_here",
