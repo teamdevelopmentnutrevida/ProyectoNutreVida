@@ -156,7 +156,7 @@ namespace DAO
                     }
 
                 }
-                String query3 = "Insert into SeguimAntropom values(@idSe,@sEdad, @sTalla, @sCm, @sFecha_SA, @sPeso, @sIMC, @sEdadMetabolica,"+
+                String query3 = "Insert into SeguimAntropom values(@idSe,@sEdad, @sTalla, @sCm, @sFecha_SA, @sPeso, @sIMC, @sEdadMetabolica," +
                     "@sAgua, @sMasaOsea, @sPorcGrasaAnalizador, @sPorcentGViceral, @sPorcGr_Bascula, @sGB_BI, @sGB_BD, @sGB_PI,@sGB_PD, @sGB_Tronco, "+
                     "@sPorcentMusculo, @sPM_BI, @sPM_bD, @sPM_PI, @sPM_PD, @sPM_Tronco, @sCircunfCintura, @sCadera, @sMusloIzq, @sMusloDer, @sBrazoIzq, @sBrazoDer, "+
                     "@sPesoIdeal, @sObservaciones)";
@@ -213,7 +213,99 @@ namespace DAO
 
         public List<TOSeguimientoMensual> ListarMensual(int cedula)
         {
-            throw new NotImplementedException();
+            List<TOSeguimientoMensual> seguimMensual = new List<TOSeguimientoMensual>();
+            string qry1 = "Select * from SeguimNutricion where Cedula = @ced";
+            SqlCommand command = new SqlCommand(qry1, conexion);
+            command.Parameters.AddWithValue("@ced", cedula);
+
+            SqlDataReader lector;
+            if (conexion.State != ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+            lector = command.ExecuteReader();
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    int idSeg = Int32.Parse(lector["ID_Seguim"].ToString());
+                    TOSeguimientoNutricional nut = new TOSeguimientoNutricional(lector["Cedula"].ToString(), lector["DiasEjercSem"].ToString(), lector["ComidaExtra"].ToString(), lector["NivelAnsiedad"].ToString());
+                    TOSeguimientoMensual d = new TOSeguimientoMensual();
+                    d.nutri = nut;
+                    d.idSeg = idSeg;
+                    seguimMensual.Add(d);
+                }
+                if (conexion.State != ConnectionState.Closed) { conexion.Close(); }
+            }
+            else
+            {
+                seguimMensual = null;
+                if (conexion.State != ConnectionState.Closed) { conexion.Close(); }
+            }
+            if (seguimMensual != null)
+            {
+                foreach (TOSeguimientoMensual seg in seguimMensual)
+                {
+                    //Buscar la lista de los recordatorios de 24 horas del seguimiento nutricional 'nut'
+                    string qry2 = "Select * from SeguimRecordat24H where ID_Seguimiento = @id";
+                    SqlCommand cmd = new SqlCommand(qry2, conexion);
+
+                    cmd.Parameters.AddWithValue("@id", seg.idSeg);
+
+                    if (conexion.State != ConnectionState.Closed) { conexion.Close(); }
+                    SqlDataReader lector2;
+                    List<TOSeguimientoRecordat24H> nutrec = new List<TOSeguimientoRecordat24H>();
+                    if (conexion.State != ConnectionState.Open) { conexion.Open(); }
+                    lector2 = cmd.ExecuteReader();
+                    if (lector2.HasRows)
+                    {
+                        while (lector2.Read())
+                        {
+                            nutrec.Add(new TOSeguimientoRecordat24H(int.Parse(lector2["ID_Seguimiento"].ToString()), lector2["TiempoComida"].ToString(), lector2["Hora"].ToString(), lector2["Descripcion"].ToString()));
+                        }
+                        seg.record = nutrec;
+                        conexion.Close();
+                    }
+                    else { seg.record = null; }
+
+                    //Seleccionar el seguimiento de antropometría del seguiemiento mensual
+                    string qry3 = "Select * from SeguimAntropom where ID_Seguim =  @idAntr";
+                    SqlCommand cmd3 = new SqlCommand(qry3, conexion);
+                    cmd3.Parameters.AddWithValue("@idAntr", seg.idSeg);
+
+                    if (conexion.State != ConnectionState.Closed) { conexion.Close(); }
+                    SqlDataReader lector3;
+                    TOSeguimientoAntrop nutantrop = null;
+                    if (conexion.State != ConnectionState.Open) { conexion.Open(); }
+                    lector3 = cmd3.ExecuteReader();
+                    if (lector3.HasRows)
+                    {
+                        lector3.Read();
+                        //while (lector2.Read())
+                        //{
+                        nutantrop = new TOSeguimientoAntrop(int.Parse(lector3["ID_SegAntrop"].ToString()), int.Parse(lector3["ID_Seguim"].ToString()),
+                            decimal.Parse(lector3["Edad"].ToString()), decimal.Parse(lector3["Talla"].ToString()), decimal.Parse(lector3["CM"].ToString()),
+                         DateTime.Parse(lector3["FechaSeg"].ToString()), decimal.Parse(lector3["Peso"].ToString()), decimal.Parse(lector3["IMC"].ToString()),
+                         decimal.Parse(lector3["EdadMetab"].ToString()), decimal.Parse(lector3["Agua"].ToString()), decimal.Parse(lector3["MasaOsea"].ToString()),
+                         decimal.Parse(lector3["PorcGrasaAnalizador"].ToString()), decimal.Parse(lector3["PGrasaViceral"].ToString()), 
+                         decimal.Parse(lector3["PorcGr_Bascula"].ToString()),decimal.Parse(lector3["GB_BI"].ToString()), decimal.Parse(lector3["GB_BD"].ToString()),
+                         decimal.Parse(lector3["GB_PI"].ToString()), decimal.Parse(lector3["GB_PD"].ToString()), decimal.Parse(lector3["GB_Tronco"].ToString()), 
+                        decimal.Parse(lector3["PorcentMusculo"].ToString()), decimal.Parse(lector3["PM_BI"].ToString()), decimal.Parse(lector3["PM_BD"].ToString()),
+                        decimal.Parse(lector3["PM_PI"].ToString()), decimal.Parse(lector3["PM_PD"].ToString()), decimal.Parse(lector3["PM_Troco"].ToString()),
+                        decimal.Parse(lector3["CircunfCintura"].ToString()), decimal.Parse(lector3["Cadera"].ToString()), decimal.Parse(lector3["MusloIzq"].ToString()),
+                        decimal.Parse(lector3["MusloDer"].ToString()), decimal.Parse(lector3["BrazoIzq"].ToString()), decimal.Parse(lector3["BrazoDer"].ToString()),
+                        decimal.Parse(lector3["PesoIdeal"].ToString()), lector3["Observaciones"].ToString());
+                        //}
+                        seg.antrop = nutantrop;
+                        conexion.Close();
+                        seg.Fecha = nutantrop.Fecha_SA;
+                    }
+                    else { seg.antrop = null; }
+
+                }
+            }
+            if (conexion.State != ConnectionState.Closed) { conexion.Close(); }
+            return seguimMensual;
         }
     }
 }
