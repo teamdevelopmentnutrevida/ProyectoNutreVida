@@ -4,42 +4,57 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL;
 
 namespace UI
 {
 	public partial class Notificacion : System.Web.UI.Page
 	{
+
+		private List<ClienteNutricion> lista = new List<ClienteNutricion>();
+		public static ManejadorExpediente manejador = new ManejadorExpediente();
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (new ControlSeguridad().validarNutri() == true)
-			{
-				Response.Redirect("~/InicioSesion.aspx");
+			//if (new ControlSeguridad().validarNutri() == true)
+			//{
+			//	Response.Redirect("~/InicioSesion.aspx");
 
+
+			//}
+
+			CargarLista();
+			//Fecha.Text = "Fecha del Servidor: " + DateTime.Now;
+		}
+
+
+		private void CargarLista()
+		{
+			DateTime hoy = DateTime.Now.Date;
+			String msj = "Recordatorio de pago";
+			LitListaCliente.Text = "";
+			lista = manejador.ListaClientes();
+			if (lista != null)
+			{
+				foreach (ClienteNutricion c in lista)
+				{
+
+					string est = "";
+					DateTime mensual = c.FechaIngreso.Date;
+					if (mensual >= hoy)
+					{
+						//est = "<a href =\"\" onclick=\"Eliminar_Click(" + c.Nombre + c.Apellido1 + ")\">Deshabilitar</a></td>";
+						LitListaCliente.Text += "<tr>" +
+					   "<td><a>" + c.Nombre + " " + c.Apellido1 + "</a></td>" +
+							"<td>" + c.FechaIngreso + "</td>" +
+						"<td>" + "<a href=\"https://wa.me/506" + c.Telefono + "?text=" + msj + "\">Enviar Mensaje</a> </td></tr>";
+					}
+
+				}
 
 			}
 		}
 
-		//private void CrearTablaDatos()
-		//{
-		//	String msj = "Gimnasio%20Vital%20le%20recuerda%20que%20su%20mensualidad%20ha%20vencido.%20Gracias.";
-		//	List<Cliente> listaCliente = manejCliente.listaClientes();
-		//	if (listaCliente != null)
-		//	{
-		//		DateTime hoy = DateTime.Now.Date;
-		//		Notif.Text = "<thead> <tr class=\"w3-light-grey\">" +
-		//					  "<th>Cliente</th><th>FechaPago</th><th>Eviar Mensaje</th> </tr> </thead>";
-		//		foreach (Cliente cliente in listaCliente)
-		//		{
-		//			DateTime mensual = cliente.Fecha_Mensualidad.Date;
-		//			if (mensual >= hoy)
-		//			{
 
-		//				Notif.Text += "<tr><td>" + cliente.Nombre + cliente.Apellido1 + "</td>" +
-		//					"<td>" + cliente.Fecha_Mensualidad + "</td>" +
-		//					"<td>" + "<a href=\"https://wa.me/506" + cliente.Telefono + "?text=" + msj + "\">Enviar Mensaje</a> </td></tr>";
-		//			}
-		//		}
-		//	}
-		//}
 	}
 }
