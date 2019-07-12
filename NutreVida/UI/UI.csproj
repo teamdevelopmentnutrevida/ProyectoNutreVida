@@ -2030,6 +2030,7 @@
     <Content Include="Principal.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Reporte.pdf" />
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
