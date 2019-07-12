@@ -4,14 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>NutreVida</title>
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -75,7 +75,7 @@
         }
     </script>
 
-    
+
 </head>
 
 
@@ -85,10 +85,10 @@
         <br />
         <br />
         <br />
-        <form runat="server"  align="center" >
-            <asp:Button ID="btn1" CssClass="boton btn btn-primary" runat="server" Text="Regresar" OnClick="btn1_Click"/>
-            <asp:Button ID="Button1" runat="server" style="visibility:hidden; width:0; height:0"/>
-            <textarea id="txtJson" runat="server" style="visibility:hidden; width:0; height:0"></textarea>
+        <form runat="server" align="center">
+            <asp:Button ID="btn1" CssClass="boton btn btn-primary" runat="server" Text="Regresar" OnClick="btn1_Click" />
+            <asp:Button ID="Button1" runat="server" Style="visibility: hidden; width: 0; height: 0" />
+            <textarea id="txtJson" runat="server" style="visibility: hidden; width: 0; height: 0"></textarea>
         </form>
     </div>
 
@@ -107,6 +107,6 @@
         <div class="dhx_cal_data">
         </div>
     </div>
-    
+
 </body>
 </html>
