@@ -14,7 +14,6 @@
               <%--<h6 class="m-0 font-weight-bold text-primary">Lista de Clientes</h6>--%>
               <asp:Button ID="NuevoCliente" runat="server" OnClick="NuevoCliente_Click" CssClass="boton btn btn-primary" Text="+"></asp:Button>
             </div>
-             
               <div class="card-body">
                   <div class="table-responsive">
                       
