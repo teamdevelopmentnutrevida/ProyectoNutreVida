@@ -19,7 +19,7 @@
                     <div class="card-body">
                         <div class="row no-gutters ">
                             <div class="col mr-2">
-                                <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Menor de 20</div>
+                                <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Menor de 20</div> 
                                 <div class="h2 mb-0 font-weight-bold text-gray-800">
                                     <asp:Label ID="lbMenor20" runat="server" Text="0"></asp:Label>
                                 </div>
