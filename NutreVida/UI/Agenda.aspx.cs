@@ -40,12 +40,6 @@ namespace UI
             String url = Server.MapPath("~/");
             maneja.ListaEvento(url);
             
-
-            //string ruta = "C:\\Users\tanni\\Desktop\\Ingeniería\\Proyecto Ingeniería\\NutreVida\\UI\\common\\Eventos.json";
-            //string contenido = "";
-            //File.WriteAllText(ruta, contenido);
-
-            //Json = ManejadorEvento.Json;
         }
 
         /**
