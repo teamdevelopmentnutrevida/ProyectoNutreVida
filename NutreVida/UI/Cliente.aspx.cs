@@ -45,12 +45,12 @@ namespace UI
       
         protected void Page_Load(object sender, EventArgs e)
         {
-			//if (new ControlSeguridad().validarNutri() == true)
-			//{
-			//	Response.Redirect("~/InicioSesion.aspx");
-			//}
+            //if (new ControlSeguridad().validarNutri() == true)
+            //{
+            //	Response.Redirect("~/InicioSesion.aspx");
+            //}
 
-			if (!IsPostBack)
+            if (!IsPostBack)
             {
                 CargarDatos();
             }
@@ -413,8 +413,8 @@ namespace UI
                 {
                     SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td>" +
                         "<td>" + seg.Fecha.ToString("dd/MM/yyyy")+"</td>"+
-                        "<td> <asp:Button runat=\"server\" ID=\"ver"+ seg.idSeg + "\" OnClick=\"Ver_Click\">Ver</asp:Button> </td>" +
-                        "<td> <asp:Button runat=\"server\" ID=\"mod"+ seg.idSeg + "\" OnClick=\"Modificar_Click\" CommandArgument=\"" + seg.idSeg + "\" Text=\"Modificar\"/> </tr>";
+                        "<td> <input id=\"Ver"+seg.idSeg+"\" type= \"submit\" value=\"Ver\" onserverclick=\"Ver_Click\" runat=\"server\" /> </td>" +
+                        "<td> <button runat=\"server\" id=\"mod"+ seg.idSeg + "\" onclick=\"Modificar_Click\" >Modificar</button> </tr>";
                 }
 
                 SeguimientoMensual seguim = listaSegNutri.Last<SeguimientoMensual>();
@@ -565,20 +565,20 @@ namespace UI
 
         protected void Ver_Click(object sender, EventArgs e)
         {
-
+            Response.Write("<script>window.alert('Entra VEr');</script>");       
         }
         protected void Modificar_Click(object sender, EventArgs e)
         {
-
+            Response.Write("<script>window.alert('EntraModif');</script>");       
         }
 
 
-		/**
+        /**
         * Método protegido, accion para generar un pdf con el reporte de la consulta
         * @param acciones y eventos del boton
         */
 
-		protected void btnGeneraPDF_Click(object sender, EventArgs e)
+        protected void btnGeneraPDF_Click(object sender, EventArgs e)
 		{
 			string oldFile = Server.MapPath("~/Plantilla.pdf");
 			string newFile = Server.MapPath("~/Reporte.pdf");
