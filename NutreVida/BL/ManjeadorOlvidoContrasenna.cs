@@ -35,7 +35,6 @@ namespace BL
             */
         public void enviarCorreo(String correo)
         {
-            correo = "jandiego199847@gmail.com";
             //Crear contrasenna temporal
             int longitud = 7;
             Guid miGuid = Guid.NewGuid();
@@ -45,7 +44,7 @@ namespace BL
 
             //Definir instacia de la clase MailMessage
             MailMessage email = new MailMessage();
-            email.To.Add(new MailAddress(correo));
+            email.To.Add(new MailAddress("jandiego199847@gmail.com"));//cambiar por correo
             email.From = new MailAddress("cambiocontrasenna@gmail.com");
             email.Subject = "Asunto: Cambio de contraseña ";
             email.Body = "Su contraseña ha sido cambiada por: \n" + token;
@@ -75,17 +74,17 @@ namespace BL
 
             Console.WriteLine(output);
 
-            cambiarClave(token);
+            cambiarClave(correo,token);
         }
 
         /** 
             *Este metedo se encarga de cambiar la clave por la temporal
             *@param clave Es la clave temporal
             */
-        private void cambiarClave(String clave)
+        private void cambiarClave(String correo,String clave)
         {
-            DAOCambioDatosAdministrador cambio = new DAOCambioDatosAdministrador();
-            cambio.cambiarClave(clave);
+            DAOLogin cambio = new DAOLogin();
+            cambio.modificarContras(correo, clave);
         }
     }
 }

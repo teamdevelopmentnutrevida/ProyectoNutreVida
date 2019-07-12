@@ -59,7 +59,7 @@
             var hoy = new Date();
 
             scheduler.init('scheduler_here', hoy, "month");
-            scheduler.load("../Eventos.json")
+            scheduler.load('../Eventos.json?nocache=' + (new Date()).getTime());
             //scheduler.toString();
 
             var calendar = scheduler.renderCalendar({
