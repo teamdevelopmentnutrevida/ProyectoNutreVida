@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-	    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
     <script type="text/javascript">
         function validarEmail(elemento) {
@@ -12,20 +12,21 @@
 
             if (!regex.test(texto)) {
                 document.getElementById("resultado").innerHTML = "Correo invalido<br/>";
-                
+
             } else {
                 document.getElementById("resultado").innerHTML = "";
             }
 
         }
     </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/formulas.js"></script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form3" runat="server">
         <div class="container">
-             <h2>Información Personal</h2>
+            <h2>Información Personal</h2>
             <br />
 
             <%--<h5>Habitos Alimentarios:</h5>--%>
@@ -35,13 +36,13 @@
                     <label class="form-label" for="tCedula">Cédula:</label>
                     <asp:TextBox ID="txtCed" oninput="validity.valid||(value='');" runat="server" CssClass="form-control" Font-Size="Small" type="number" min="0" data-toggle="tooltip" title="Cedula de identidad" TabIndex="1"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valCed" runat="server" ControlToValidate="txtCed" ErrorMessage="Campo obligatorio" ForeColor="Red"></asp:RequiredFieldValidator>
-					<br />
+                    <br />
                     <label class="form-label" for="tOcup">Ocupación:</label>
                     <asp:TextBox ID="txtOcup" TabIndex="5" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Ocupación"></asp:TextBox>
                     <br />
                     <label class="form-label" for="tTel">Teléfono:</label>
                     <asp:TextBox ID="txtTel" runat="server" TabIndex="9" CssClass="form-control" Font-Size="Small" type="number" oninput="validity.valid||(value='');" min="0" data-toggle="tooltip" title="Número telefónico"></asp:TextBox>
-				  <br />
+                    <br />
                     <label class="form-label" for="Consult">Consultorio:</label>
                     <asp:DropDownList runat="server" TabIndex="13" ID="ConsultDropList" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Consultorio">
                         <asp:ListItem Selected="True" Value="San Ramón"> San Ramón </asp:ListItem>
@@ -52,9 +53,9 @@
                 <div class="col-form-label">
                     <label class="form-label" for="tnombre">Nombre:</label>
                     <asp:TextBox ID="txtNombre" TabIndex="2" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Nombre"></asp:TextBox>
-					<asp:RequiredFieldValidator ID="valNombre" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="txtNombre" ForeColor="Red"></asp:RequiredFieldValidator>
-					 <br />
-					 <label class="form-label" for="tEmail">Email:</label>
+                    <asp:RequiredFieldValidator ID="valNombre" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="txtNombre" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <br />
+                    <label class="form-label" for="tEmail">Email:</label>
                     <asp:TextBox TextMode="Email" ID="txtEmail" TabIndex="6" onkeyup="validarEmail(this)" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Correo electrónico"></asp:TextBox>
                     <br />
 
@@ -69,7 +70,7 @@
                     <label class="form-label" for="tPrimerApellido">Primer apellido:</label>
                     <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Primer apellido" TabIndex="3"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valApe1" runat="server" ControlToValidate="txtPrimerApellido" ErrorMessage="Campo obligatorio" ForeColor="Red"></asp:RequiredFieldValidator>
-					<br />
+                    <br />
                     <label class="form-label" for="tEstadoCivil">Estado Civil:</label>
                     <asp:DropDownList runat="server" TabIndex="7" ID="dropEstadoCivil" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Estado civil">
                         <asp:ListItem Selected="True" Value="Soltero"> Soltero(a) </asp:ListItem>
@@ -86,18 +87,18 @@
                     <label class="form-label" for="tSegundoApellido">Segundo apellido:</label>
                     <asp:TextBox ID="txtSegundoApellido" TabIndex="4" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Segundo apellido"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valApe2" runat="server" ErrorMessage="Campo obligatorio" ForeColor="Red" ControlToValidate="txtSegundoApellido"></asp:RequiredFieldValidator>
-					<br />
+                    <br />
                     <label class="form-label" for="tSex">Sexo:</label>
-                    <asp:DropDownList runat="server" TabIndex="8" ID="dropSexo" CssClass="form-control" Font-Size="Small" Font-Bold="False" data-toggle="tooltip" title="Sexo">
+                    <asp:DropDownList runat="server" onchange="validarGEB(); tipoAct(); validarPesoIdeal()" TabIndex="8" ID="dropSexo" CssClass="form-control" Font-Size="Small" Font-Bold="False" data-toggle="tooltip" title="Sexo">
                         <asp:ListItem Selected="True" Value="F"> Femenino </asp:ListItem>
                         <asp:ListItem Value="M"> Masculino </asp:ListItem>
                         <asp:ListItem Value="O"> Otro </asp:ListItem>
                     </asp:DropDownList>
                     <br />
                     <label class="form-label" for="iFechaNac">Fecha de Nacimiento:</label>
-                    <asp:TextBox runat="server" TabIndex="12" ID="iFechaNac" TextMode="Date" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de nacimiento" OnTextChanged="iFechaNac_TextChanged"></asp:TextBox>
-					<asp:RequiredFieldValidator ID="valFechaNac" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="iFechaNac" ForeColor="Red"></asp:RequiredFieldValidator>
-					 <br />
+                    <asp:TextBox runat="server" onBlur="validarEdad(this); validarGEB()" TabIndex="12" ID="iFechaNac" TextMode="Date" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de nacimiento"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="valFechaNac" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="iFechaNac" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <br />
                     <br />
                     <div class="col-11" style="width: 100%; float: right;">
                     </div>
@@ -211,14 +212,14 @@
                         <br />
                         <br />
                     </div>
-					<%--tab hab aliment--%>
+                    <%--tab hab aliment--%>
                     <%--    Antropometria--%>
                     <div id="HA" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-HA">
                         <br />
 
                         <div class="row">
                             <div class="col-form-label">
-								<%--tab Antrop--%>
+                                <%--tab Antrop--%>
                                 <label class="form-label" for="tComD">¿Cuántas veces come al día? </label>
                                 <asp:TextBox ID="numeroComidas" runat="server" type="number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Cantidad de comidas al día" />
                                 <label class="form-label" for="tComeHoraDia">¿Acostumbra a comer a las horas al día? </label>
@@ -364,7 +365,7 @@
                         <br />
                         <br />
                     </div>
-					<%--div del nav--%>
+                    <%--div del nav--%>
                     <%--  Funcion que permite mostrar mensajes al usuario--%>
 
 
@@ -375,20 +376,20 @@
                                 <div class="col-form-label">
                                     <label class="form-label" for="tEdad">Edad:</label>
                                     <asp:TextBox step="any" ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad" Enabled="False"></asp:TextBox>
+                                    <label class="form-label" for="tTalla">Talla: </label>
+                                    <asp:TextBox step="any" onBlur="validarIMC(); validarGEB(); validarPesoIdeal()" ID="txtTalla" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Talla"></asp:TextBox>
                                     <label class="form-label" for="tPesoActual">Peso Actual:</label>
-                                    <asp:TextBox step="any" ID="txtPesoActual" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso actual"></asp:TextBox>
+                                    <asp:TextBox step="any" onBlur="validarIMC()" ID="txtPesoActual" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso actual"></asp:TextBox>
                                     <label class="form-label" for="tPesoMaxTeoria">Peso máximo en teoría:</label>
                                     <asp:TextBox step="any" ID="txtPesoMaxTeoria" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso Máximo en teoría"></asp:TextBox>
                                     <label class="form-label" for="tPesoIdeal">Peso meta o ideal: </label>
-                                    <asp:TextBox step="any" ID="txtPesoIdeal" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso meta o ideal"></asp:TextBox>
+                                    <asp:TextBox step="any" onBlur="validarGEB()" ID="txtPesoIdeal" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso meta o ideal"></asp:TextBox>
                                     <label class="form-label" for="tEdadMetab">Edad metabólica: </label>
                                     <asp:TextBox step="any" ID="txtEdadMetabolica" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad metabólica"></asp:TextBox>
                                     <label class="form-label" for="tCintura">Cintura:</label>
                                     <asp:TextBox step="any" ID="txtCintura" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cintura"></asp:TextBox>
                                     <label class="form-label" for="tAbdm">Abdomen:</label>
-                                    <asp:TextBox step="any" ID="txtAbdomen" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Abdomen"></asp:TextBox>
-                                    <label class="form-label" for="tCadera">Cadera:</label>
-                                    <asp:TextBox step="any" ID="txtCadera" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cadera"></asp:TextBox>
+                                    <asp:TextBox step="any" ID="txtAbdomen" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Abdomen"></asp:TextBox>                                    
                                 </div>
                                 <div class="col-1"></div>
                                 <div class="col-form-label">
@@ -406,8 +407,8 @@
                                     <asp:TextBox step="any" ID="txtComplexion" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Complexión"></asp:TextBox>
                                     <label class="form-label" for="tMasaOsea">Masa ósea: </label>
                                     <asp:TextBox step="any" ID="txtMasaOsea" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Masa ósea"></asp:TextBox>
-                                    <label class="form-label" for="tTalla">Talla: </label>
-                                    <asp:TextBox step="any" ID="txtTalla" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Talla"></asp:TextBox>
+                                    <label class="form-label" for="tCadera">Cadera:</label>
+                                    <asp:TextBox step="any" ID="txtCadera" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cadera"></asp:TextBox>
                                 </div>
                                 <div class="col-1"></div>
                                 <div class="col-form-label">
@@ -433,7 +434,7 @@
                                     <label class="form-label" for="tCircunfMun">Circunferencia muñeca: </label>
                                     <asp:TextBox step="any" ID="txtCircunferencia" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Circunferencia de la muñeca"></asp:TextBox>
                                     <label class="form-label" for="tIMC">IMC:</label>
-                                    <asp:TextBox step="any" ID="txtIMC" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="IMC"></asp:TextBox>
+                                    <asp:TextBox step="any" Enabled="False" ID="txtIMC" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="IMC"></asp:TextBox>
                                     <label class="form-label" for="tPorcentMusculo">% Músculo:</label>
                                     <asp:TextBox step="any" ID="txtPorcentaje" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Músculo"></asp:TextBox>
                                     <label class="form-label" for="tPM_BI">BI: </label>
@@ -457,7 +458,21 @@
 
                                 <div class="col-form-label">
                                     <label class="form-label" for="tGEB">GEB:</label>
-                                    <asp:TextBox TextMode="Number" min="0" step="any" oninput="validity.valid||(value='');" ID="txtGEB" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="GEB" Enabled="True"></asp:TextBox>
+                                    <asp:TextBox TextMode="Number" onBlur="validarGET()" min="0" step="any" oninput="validity.valid||(value='');" ID="txtGEB" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="GEB" Enabled="True"></asp:TextBox>
+                                </div>
+                                <div class="col-1"></div>
+                                <div class="col-form-label">
+                                    <label class="form-label" for="DropTipoActividad">Tipo de actividad:</label>
+                                    <asp:DropDownList runat="server" onclick="tipoAct()" onchange="validarGET()" TabIndex="14" ID="DropTipoActividad" CssClass="form-control" Font-Size="Small" Font-Bold="False" data-toggle="tooltip" title="TipoActividad">
+                                        <asp:ListItem Selected="True" Value="1.2"> Cama-reposo </asp:ListItem>
+                                        <asp:ListItem Value="1.3"> Muy sedentario </asp:ListItem>
+                                        <asp:ListItem Value="1.4"> Sedentario </asp:ListItem>
+                                        <asp:ListItem Value="1.5"> Ligera </asp:ListItem>
+                                        <asp:ListItem Value="1.6"> Ligera moderada </asp:ListItem>
+                                        <asp:ListItem Value="1.7"> Moderada </asp:ListItem>
+                                        <asp:ListItem Value="1.8"> Pesado </asp:ListItem>
+                                        <asp:ListItem Value="2.3"> Muy pesado </asp:ListItem>
+                                    </asp:DropDownList>
                                 </div>
                                 <div class="col-1"></div>
                                 <div class="col-form-label">
@@ -615,7 +630,7 @@
                             <br />
                             <br />
                         </div>
-						<%--div container--%>
+                        <%--div container--%>
                     </div>
                     <%--div tab content--%>
                 </div>
@@ -628,7 +643,7 @@
                     <br />
                 </div>
 
-              <%--  Funcion que permite mostrar mensajes al usuario--%>
+                <%--  Funcion que permite mostrar mensajes al usuario--%>
                 <script>
                     function mensajeError(tipo, titulo, mensaje) {
                         Swal.fire({
@@ -637,29 +652,93 @@
                             text: mensaje
                         })
                     }
+
+                    function tipoAct() {
+
+                        var t = document.getElementById('ContentPlaceHolder1_DropTipoActividad');
+
+                        var Cama_reposo_H = 1.2;
+
+                        var Muy_sedentario_H = 1.3;
+
+                        var Sedentario_H = 1.4;
+
+                        var Ligera_H = 1.5;
+
+                        var Ligera_moderada_H = 1.7;
+
+                        var Moderada_H = 1.8;
+
+                        var Pesado_H = 2.1;
+
+                        var Muy_pesado_H = 2.3;
+
+
+                        var Cama_reposo_M = 1.2;
+
+                        var Muy_sedentario_M = 1.3;
+
+                        var Sedentario_M = 1.4;
+
+                        var Ligera_M = 1.5;
+
+                        var Ligera_moderada_M = 1.6;
+
+                        var Moderada_M = 1.7;
+
+                        var Pesado_M = 1.8;
+
+                        var Muy_pesado_M = 2.3;
+
+                        var sexo = document.getElementById('ContentPlaceHolder1_dropSexo').value;
+
+                        if (sexo == "M") {
+                            document.getElementById(t.id).options[0].value = Cama_reposo_H;
+                            document.getElementById(t.id).options[1].value = Muy_sedentario_H;
+                            document.getElementById(t.id).options[2].value = Sedentario_H;
+                            document.getElementById(t.id).options[3].value = Ligera_H;
+                            document.getElementById(t.id).options[4].value = Ligera_moderada_H;
+                            document.getElementById(t.id).options[5].value = Moderada_H;
+                            document.getElementById(t.id).options[6].value = Pesado_H;
+                            document.getElementById(t.id).options[7].value = Muy_pesado_H;
+                        } else {
+                            document.getElementById(t.id).options[0].value = Cama_reposo_M;
+                            document.getElementById(t.id).options[1].value = Muy_sedentario_M;
+                            document.getElementById(t.id).options[2].value = Sedentario_M;
+                            document.getElementById(t.id).options[3].value = Ligera_M;
+                            document.getElementById(t.id).options[4].value = Ligera_moderada_M;
+                            document.getElementById(t.id).options[5].value = Moderada_M;
+                            document.getElementById(t.id).options[6].value = Pesado_M;
+                            document.getElementById(t.id).options[7].value = Muy_pesado_M;
+                        }
+
+                        
+                    }
+
                 </script>
+
+
+
             </div>
-			</div>
-            <%--div container--%>
+        </div>
+        <%--div container--%>
 
-			    <style>
-		.footer {
-			position: fixed;
-			left: 0;
-			bottom: 0;
-			width: 100%;
-			height: 45px;
-			background-color: #E6E8E7;
-			text-align: right;
-		}
+        <style>
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 45px;
+                background-color: #E6E8E7;
+                text-align: right;
+            }
 
-		.boton {
-			margin:5px;
-			margin-right:55px;
-			
-		}
-
-	</style>
+            .boton {
+                margin: 5px;
+                margin-right: 55px;
+            }
+        </style>
 
     </form>
 
