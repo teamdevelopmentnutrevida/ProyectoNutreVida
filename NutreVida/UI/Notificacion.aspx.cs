@@ -30,6 +30,8 @@ namespace UI
 
 		private void CargarLista()
 		{
+			DateTime hoy = DateTime.Now.Date;
+			String msj = "Recordatorio de pago";
 			LitListaCliente.Text = "";
 			lista = manejador.ListaClientes();
 			if (lista != null)
@@ -38,13 +40,14 @@ namespace UI
 				{
 
 					string est = "";
-					if (c.Estado == 1)
+					DateTime mensual = c.FechaIngreso.Date;
+					if (mensual >= hoy)
 					{
 						//est = "<a href =\"\" onclick=\"Eliminar_Click(" + c.Nombre + c.Apellido1 + ")\">Deshabilitar</a></td>";
 						LitListaCliente.Text += "<tr>" +
-					   "<td><a href=\"\" onclick=\"Redirige(" + c.Cedula + ")\">" + c.Cedula + "</a></td>" +
-							"<td>" + c.Nombre + " " + c.Apellido1 + "</td>" +
-						 "<td>" + est + "</tr>";
+					   "<td><a>" + c.Nombre + " " + c.Apellido1 + "</a></td>" +
+							"<td>" + c.FechaIngreso + "</td>" +
+						"<td>" + "<a href=\"https://wa.me/506" + c.Telefono + "?text=" + msj + "\">Enviar Mensaje</a> </td></tr>";
 					}
 
 				}
