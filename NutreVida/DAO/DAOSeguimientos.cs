@@ -156,7 +156,7 @@ namespace DAO
                     }
 
                 }
-                String query3 = "Insert into SeguimAntropom values(@idSe,@sEdad, @sTalla, @sCm, @sFecha_SA, @sPeso, @sIMC, @sEdadMetabolica," +
+                String query3 = "Insert into SeguimAntropom values(@idSeg,@sEdad, @sTalla, @sCm, @sFecha_SA, @sPeso, @sIMC, @sEdadMetabolica," +
                     "@sAgua, @sMasaOsea, @sPorcGrasaAnalizador, @sPorcentGViceral, @sPorcGr_Bascula, @sGB_BI, @sGB_BD, @sGB_PI,@sGB_PD, @sGB_Tronco, "+
                     "@sPorcentMusculo, @sPM_BI, @sPM_bD, @sPM_PI, @sPM_PD, @sPM_Tronco, @sCircunfCintura, @sCadera, @sMusloIzq, @sMusloDer, @sBrazoIzq, @sBrazoDer, "+
                     "@sPesoIdeal, @sObservaciones)";
