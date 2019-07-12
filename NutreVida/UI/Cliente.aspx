@@ -1009,7 +1009,25 @@
      
    </form>
    
-
+     <%--<script type="text/javascript">
+         function Redirige(num) {
+             $.ajax({
+                type: "POST",
+                url: '/Cliente.aspx/Ver_Click',
+                data: '{ced:' + num + '}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: true,
+                 success: function (data) {
+                    
+                    //location.href = "Cliente.aspx";
+                },
+                error: function () {
+                    alert("No funciona");
+                }
+             });
+         }
+     </script>--%>
 
 	 <style>
 		.footer {

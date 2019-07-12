@@ -1858,6 +1858,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Eventos.json" />
     <None Include="packages.config" />
     <Content Include="scss\navs\_global.scss" />
     <Content Include="scss\navs\_sidebar.scss" />

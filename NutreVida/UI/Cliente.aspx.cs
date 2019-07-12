@@ -563,9 +563,10 @@ namespace UI
 
         }
 
+
         protected void Ver_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>window.alert('Entra VEr');</script>");       
+            
         }
         protected void Modificar_Click(object sender, EventArgs e)
         {
