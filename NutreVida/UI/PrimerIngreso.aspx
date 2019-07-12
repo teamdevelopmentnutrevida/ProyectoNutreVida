@@ -26,7 +26,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form3" runat="server">
         <div class="container">
-            <h2>Información Personal</h2>
+            <div class="row">
+                <h1 class="h3 mb-2 text-gray-800">Información Personal</h1>
+            </div>
             <br />
 
             <%--<h5>Habitos Alimentarios:</h5>--%>
@@ -389,7 +391,7 @@
                                     <label class="form-label" for="tCintura">Cintura:</label>
                                     <asp:TextBox step="any" ID="txtCintura" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cintura"></asp:TextBox>
                                     <label class="form-label" for="tAbdm">Abdomen:</label>
-                                    <asp:TextBox step="any" ID="txtAbdomen" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Abdomen"></asp:TextBox>                                    
+                                    <asp:TextBox step="any" ID="txtAbdomen" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Abdomen"></asp:TextBox>
                                 </div>
                                 <div class="col-1"></div>
                                 <div class="col-form-label">
@@ -712,7 +714,7 @@
                             document.getElementById(t.id).options[7].value = Muy_pesado_M;
                         }
 
-                        
+
                     }
 
                 </script>

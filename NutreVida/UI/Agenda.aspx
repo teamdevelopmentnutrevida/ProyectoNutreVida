@@ -26,7 +26,6 @@
 
     <%-- librería para mostrar mensajes al usuario--%>
     <script src="js/sweetalert28.js"></script>
-
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>Calendario Nutre Vida</title>
     <script src='codebase/dhtmlxscheduler.js?v=5.2.1' type="text/javascript" charset="utf-8"></script>
