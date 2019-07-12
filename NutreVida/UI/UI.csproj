@@ -116,7 +116,6 @@
     <Content Include="common\controls_styles.css" />
     <Content Include="common\custom.css" />
     <Content Include="common\docs.css" />
-    <Content Include="common\Eventos.json" />
     <Content Include="common\testdata.js" />
     <Content Include="ControlSeguridad.aspx" />
     <Content Include="css\alertify.min.css" />
