@@ -26,32 +26,38 @@ namespace DAO
             */
         public TOLogin BuscarUsuario(String correo, String contras)
         {
-            try
-            {
-                TOLogin usuario = new TOLogin();
-                SqlCommand buscar = new SqlCommand("SELECT * FROM Login WHERE Nombre_usuario = @corrusu and Clave = @contus", conexion);
-                buscar.Parameters.AddWithValue("@corrusu", correo);
-                buscar.Parameters.AddWithValue("@contus", contras);
-                conexion.Open();
-                SqlDataReader lector = buscar.ExecuteReader();
+			try
+			{
+				TOLogin usuario = new TOLogin();
+				SqlCommand buscar = new SqlCommand("SELECT * FROM Login WHERE Nombre_usuario = @corrusu and Clave = @contus", conexion);
+				buscar.Parameters.AddWithValue("@corrusu", correo);
+				buscar.Parameters.AddWithValue("@contus", contras);
+				conexion.Open();
+				SqlDataReader lector = buscar.ExecuteReader();
 
-                if (lector.HasRows)
-                {
-                    while (lector.Read())
-                    {
-                        usuario.correo = lector.GetString(0);
-                        usuario.contras = lector.GetString(1);
-                        usuario.rol = lector.GetString(2);
-                    }
-                    lector.Close();
-                }
-                conexion.Close();
-                return usuario;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+				if (lector.HasRows)
+				{
+					while (lector.Read())
+					{
+						usuario.correo = lector.GetString(0);
+						usuario.contras = lector.GetString(1);
+						usuario.rol = lector.GetString(2);
+					}
+					lector.Close();
+					lector.Close();
+					conexion.Close();
+					return usuario;
+				}
+				else {
+					conexion.Close();
+					return null;
+				}
+			}
+
+			catch (Exception)
+			{
+				return null;
+			}
         }
 
 
@@ -79,10 +85,14 @@ namespace DAO
 						usuario.contras = lector.GetString(1);
 						usuario.rol = lector.GetString(2);
 					}
+
 					lector.Close();
+					conexion.Close();
+					return usuario;
+				} else {
+					conexion.Close();
+					return null;
 				}
-				conexion.Close();
-				return usuario;
 			}
 			catch (Exception)
 			{
