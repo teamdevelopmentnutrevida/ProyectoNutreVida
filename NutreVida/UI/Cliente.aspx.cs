@@ -5,13 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualBasic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -56,10 +50,10 @@ namespace UI
             //	Response.Redirect("~/InicioSesion.aspx");
             //}
 
-            //if (!IsPostBack)
-            //{
-            //    CargarDatos();
-            //}
+            if (!IsPostBack)
+            {
+                CargarDatos();
+            }
         }
         
         /**
@@ -74,6 +68,7 @@ namespace UI
             CargarAntropometría();
             CargarSeguimientoSemanal();
             CargarSeguimientoNutricional();
+            CargarAnterior();
         }
 
         /**
@@ -418,8 +413,8 @@ namespace UI
                 {
                     SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td>" +
                         "<td>" + seg.Fecha.ToString("dd/MM/yyyy")+"</td>"+
-                        "<td><asp:LinkButton runat=\"server\" ID=\"ver"+ seg.idSeg +"\" OnClick=\"Ver_Click\" CommandArgument=\""+seg.idSeg+"\" Text=\"Ver\"></asp:LinkButton></td>" +
-                        "<td><asp:LinkButton runat=\"server\" ID=\"mod"+ seg.idSeg + "\" OnClick=\"Modificar_Click\" CommandArgument=\"" + seg.idSeg + "\" Text=\"Modificar\"></asp:LinkButton></td></tr>";
+                        "<td> <button runat=\"server\" id=\"ver"+ seg.idSeg +"\" onclick=\"Ver_Click\">Ver</button> </td>" +
+                        "<td> <asp:Button runat=\"server\" ID=\"mod"+ seg.idSeg + "\" OnClick=\"Modificar_Click\" CommandArgument=\"" + seg.idSeg + "\" Text=\"Modificar\"/> </tr>";
                 }
 
                 SeguimientoMensual seguim = listaSegNutri.Last<SeguimientoMensual>();
@@ -427,6 +422,67 @@ namespace UI
             else { SeguimMensual.Text = "No existen Seguimientos Nutricionales de este cliente."; }
         }
 
+        private void CargarAnterior()
+        {
+            if (listaSegNutri != null)
+            {
+                SeguimientoMensual anterior = listaSegNutri.Last<SeguimientoMensual>();
+                AntDiasEjer.Text = anterior.nutri.DiasEjercicio;
+                AntComExtra.Text = anterior.nutri.ComidaExtra;
+                AntNAnsied.Text = anterior.nutri.NivelAnsiedad;
+                foreach (SeguimientoRecordat24H rec in anterior.record)
+                {
+                    if (rec.TiempoComida.Equals("Ayunas")) { AntAyunHora.Text = rec.Hora; AntAyunDescr.Text = rec.Descripcion; }
+                    else { if (rec.TiempoComida.Equals("Desayuno")) { AntDesHora.Text = rec.Hora; AntDesDescrp.Text = rec.Descripcion; }
+                        else { if (rec.TiempoComida.Equals("Media Mañana")) { AntMedManHora.Text = rec.Hora; AntMedManDesc.Text = rec.Descripcion; }
+                            else { if (rec.TiempoComida.Equals("Almuerzo")) { AntAlmHora.Text = rec.Hora; AntAlmDesc.Text = rec.Descripcion; }
+                                else { if (rec.TiempoComida.Equals("Media Tarde")) { AntMedTarHora.Text = rec.Hora; AntMedTarDesc.Text = rec.Descripcion; }
+                                    else { if (rec.TiempoComida.Equals("Cena")) { AntCenaHora.Text = rec.Hora; AntCenaDesc.Text = rec.Descripcion; }
+                                        else { if (rec.TiempoComida.Equals("Colación Nocturna")) { AntColNocHora.Text = rec.Hora; AntColNocDesc.Text = rec.Descripcion; }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (anterior.antrop != null)
+                {
+                    AntSAFech.Text = anterior.antrop.Fecha_SA + "";
+                    AntSAEdad.Text = anterior.antrop.Edad + "";
+                    AntSATalla.Text = anterior.antrop.Talla + "";
+                    AntSACM.Text = anterior.antrop.CM + "";
+                    AntSAPeso.Text = anterior.antrop.Peso + "";
+                    AntSAIMC.Text = anterior.antrop.IMC + "";
+                    AntSAAgua.Text = anterior.antrop.Agua + "";
+                    AntSAMasaOsea.Text = anterior.antrop.MasaOsea + "";
+                    AntSAEddMet.Text = anterior.antrop.EdadMetabolica + "";
+                    AntSAGrAnaliz.Text = anterior.antrop.PorcGrasaAnalizador + "";
+                    AntSAGrBasc.Text = anterior.antrop.PorcGr_Bascula + "";
+                    AntSAGBBI.Text = anterior.antrop.GB_BI + "";
+                    AntSAGBBD.Text = anterior.antrop.GB_BD + "";
+                    AntSAGBPI.Text = anterior.antrop.GB_PI + "";
+                    AntSAGBPD.Text = anterior.antrop.GB_PD + "";
+                    AntSAGBTronco.Text = anterior.antrop.GB_Tronco + "";
+                    AntSAGrVisc.Text = anterior.antrop.PorcentGViceral + "";
+                    AntSAPorMusc.Text = anterior.antrop.PorcentMusculo + "";
+                    AntSAPMBI.Text = anterior.antrop.PM_BI + "";
+                    AntSAPMBD.Text = anterior.antrop.PM_BD + "";
+                    AntSAPMPI.Text = anterior.antrop.PM_PI + "";
+                    AntSAPMPD.Text = anterior.antrop.PM_PD + "";
+                    AntSAPMTronco.Text = anterior.antrop.PM_Tronco + "";
+                    AntSACircunfCint.Text = anterior.antrop.CircunfCintura + "";
+                    AntSACadera.Text = anterior.antrop.Cadera + "";
+                    AntSAMusIza.Text = anterior.antrop.MusloIzq + "";
+                    AntSAMusDer.Text = anterior.antrop.MusloDer + "";
+                    AntSABrazIzq.Text = anterior.antrop.BrazoIzq + "";
+                    AntSABrazDer.Text = anterior.antrop.BrazoDer + "";
+                    AntSAPesoMet.Text = anterior.antrop.PesoIdeal + "";
+                    AntSNObserv.Text = anterior.antrop.Observaciones;
+                }
+            }
+        }
+        
         protected void BackButton_Click(object sender, EventArgs e)
         {
            
