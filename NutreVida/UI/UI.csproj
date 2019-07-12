@@ -1857,7 +1857,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="common\Eventos.json" />
+    <Content Include="Doc\Reporte.pdf" />
     <None Include="packages.config" />
     <Content Include="scss\navs\_global.scss" />
     <Content Include="scss\navs\_sidebar.scss" />
@@ -2028,6 +2028,7 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Principal.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Plantilla.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
