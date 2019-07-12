@@ -1076,6 +1076,7 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                     x_unit: "day"
                 }, e = new Date(e);
                 var a = 1;
+                console.log(i._start_correction);
                 return (i._start_correction || i._end_correction) && (a = 60 * (i.last_hour || 0) - (60 * e.getHours() + e.getMinutes()) || 1),
                     1 * e + (t._get_fictional_event_length(e, a, i) - a)
             }, t._correct_drag_end_date = function(e, i) {
@@ -3385,10 +3386,11 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                 var t = this._lightbox_out({}, this._lame_copy(this.getEvent(this._lightbox_id)));
 
                 //impresiones
-                //console.log(this.getEvent(this._lightbox_id).end_date.getFullYear);
+                //console.log(this.getEvent(this._lightbox_id).id);
+                console.log(t);
                // console.log(t.text);
-               // console.log(t.start_date);
-                //console.log(t.end_date);
+                console.log(t.start_date.toLocaleString ());
+                console.log(t.end_date);
 
                 //aqui se arma el objeto json
               //  console.log("entro");
