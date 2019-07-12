@@ -17,9 +17,9 @@
             
             <div class="w3-container" id="listaPed">
 
-                <%--<table class="w3-table-allw3-hoverable">
+                <table class="w3-table-allw3-hoverable">
                     <asp:literal runat="server" ID="Notif"></asp:literal> 
-                </table>--%>
+                </table>
            </div>
         </div>
        </form>

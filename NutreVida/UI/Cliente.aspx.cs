@@ -580,8 +580,8 @@ namespace UI
 
 		protected void btnGeneraPDF_Click(object sender, EventArgs e)
 		{
-			string oldFile = "https://nutrevida-001-site1.btempurl.com/Plantilla.pdf";
-			string newFile = "https://nutrevida-001-site1.btempurl.com/Reporte.pdf";
+			string oldFile = Server.MapPath("~/Plantilla.pdf");
+			string newFile = Server.MapPath("~/Reporte.pdf");
 
 
 			var reader = new PdfReader(oldFile);
