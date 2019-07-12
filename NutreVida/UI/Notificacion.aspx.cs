@@ -10,7 +10,9 @@ namespace UI
 {
 	public partial class Notificacion : System.Web.UI.Page
 	{
-		private ManejadorExpediente manej = new ManejadorExpediente();
+
+		private List<ClienteNutricion> lista = new List<ClienteNutricion>();
+		public static ManejadorExpediente manejador = new ManejadorExpediente();
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -21,31 +23,35 @@ namespace UI
 
 			//}
 
-			CrearTablaDatos();
-			Fecha.Text = "Fecha del Servidor: " + DateTime.Now;
+			CargarLista();
+			//Fecha.Text = "Fecha del Servidor: " + DateTime.Now;
 		}
 
-		private void CrearTablaDatos()
-		{
-			String msj = "Gimnasio%20Vital%20le%20recuerda%20que%20su%20mensualidad%20ha%20vencido.%20Gracias.";
-			List<ClienteNutricion> listaCliente = manej.ListaClientes();
-			if (listaCliente != null)
-			{
-				DateTime hoy = DateTime.Now.Date;
-				Notif.Text = "<thead> <tr class=\"w3-light-grey\">" +
-							  "<th>Cliente</th><th>FechaPago</th><th>Eviar Mensaje</th> </tr> </thead>";
-				foreach (ClienteNutricion cliente in listaCliente)
-				{
-					DateTime mensual = cliente.FechaIngreso.Date;
-					if (mensual >= hoy)
-					{
 
-						Notif.Text += "<tr><td>" + cliente.Nombre + cliente.Apellido1 + "</td>" +
-							"<td>" + cliente.FechaIngreso + "</td>" +
-							"<td>" + "<a href=\"https://wa.me/506" + cliente.Telefono + "?text=" + msj + "\">Enviar Mensaje</a> </td></tr>";
+		private void CargarLista()
+		{
+			LitListaCliente.Text = "";
+			lista = manejador.ListaClientes();
+			if (lista != null)
+			{
+				foreach (ClienteNutricion c in lista)
+				{
+
+					string est = "";
+					if (c.Estado == 1)
+					{
+						//est = "<a href =\"\" onclick=\"Eliminar_Click(" + c.Nombre + c.Apellido1 + ")\">Deshabilitar</a></td>";
+						LitListaCliente.Text += "<tr>" +
+					   "<td><a href=\"\" onclick=\"Redirige(" + c.Cedula + ")\">" + c.Cedula + "</a></td>" +
+							"<td>" + c.Nombre + " " + c.Apellido1 + "</td>" +
+						 "<td>" + est + "</tr>";
 					}
+
 				}
-				}
-	}
+
+			}
+		}
+
+
 	}
 }

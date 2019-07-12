@@ -1,17 +1,43 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="Notificacion.aspx.cs" Inherits="UI.Notificacion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-	 
+	  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-	  <div class="container">
+	<div class="card-body">
+                  <div class="table-responsive">
+                      
+                      <table class="table table-bordered" id="dataTable" style="width:100%; padding:0;">
+                          <thead>
+                            <tr>
+                              <th>Cliente</th>
+                              <th>Fecha de pago</th>
+                              <th>Acción</th>
+                            </tr>
+                          </thead>
+                           <tbody>
+                               <asp:Literal runat="server" ID="LitListaCliente"></asp:Literal>
+                            </tbody>
+                       </table>
+                  </div>
+		</div>
+
+
+
+
+
+
+
+
+
+<%--	  <div class="container">
        <form runat="server">
         <h1 class="title">Notificación de mensualidad</h1>
            <asp:Label ID="Fecha" Text="Fecha del Servidor:" runat="server"></asp:Label>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <asp:Button ID="RecargarNotif" runat="server" Text="Cargar Lista" CssClass="button button1" Height="51px" Width="216px" Font-Size="Small"/>         
-            <br />
+           <%--<asp:Button ID="RecargarNotif" runat="server" Text="Cargar Lista" CssClass="button button1" Height="51px" Width="216px" Font-Size="Small"/>--%>         
+        <%--    <br />
             <br />
            <div class="form-container">
             
@@ -24,8 +50,8 @@
         </div>
        </form>
         
-    </div>
-
+    </div>--%>
+--%>
 
 
 
