@@ -17,11 +17,26 @@ namespace UI
     public partial class WebForm1 : System.Web.UI.Page
     {
 
-        public String Json;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             ManejadorEvento maneja = new ManejadorEvento();
+
+            if (IsPostBack)
+            {
+                string json = txtJson.Value;
+
+                if (json.Contains("{"))
+                {
+                    maneja.guardarEvento(json);
+                }
+                else
+                    maneja.eliminarEvento(json);          
+                
+            }
+            
             String url = Server.MapPath("~/");
             maneja.ListaEvento(url);
             

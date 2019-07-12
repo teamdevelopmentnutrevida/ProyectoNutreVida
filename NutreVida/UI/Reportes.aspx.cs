@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
 
+
 namespace UI
 {
 
@@ -40,7 +41,7 @@ namespace UI
 
 
 			}
-
+		
 			BL.Reportes report = new BL.Reportes();
 
             lbMenor20.Text = (report.obtenerPromedioPesoEdad(0, 20).Contains(",") || report.obtenerPromedioPesoEdad(0, 20).Contains(".") ? decimal.Parse(report.obtenerPromedioPesoEdad(0, 20)).ToString("N2") : report.obtenerPromedioPesoEdad(0, 20)) + " kg";
@@ -138,5 +139,6 @@ namespace UI
             edad2 = int.Parse(Edad2);
             
         }
-    }
+
+	}
 }

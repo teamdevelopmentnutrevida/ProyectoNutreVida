@@ -4,7 +4,33 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-	<form runat="server">
+
+	  <div class="container">
+       <form runat="server">
+        <h1 class="title">Notificación de mensualidad</h1>
+           <asp:Label ID="Fecha" Text="Fecha del Servidor:" runat="server"></asp:Label>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <asp:Button ID="RecargarNotif" runat="server" Text="Cargar Lista" CssClass="button button1" Height="51px" Width="216px" Font-Size="Small"/>         
+            <br />
+            <br />
+           <div class="form-container">
+            
+            <div class="w3-container" id="listaPed">
+
+                <%--<table class="w3-table-allw3-hoverable">
+                    <asp:literal runat="server" ID="Notif"></asp:literal> 
+                </table>--%>
+           </div>
+        </div>
+       </form>
+        
+    </div>
+
+
+
+
+
+	<%--<form runat="server">
 	<div class="container">
 			<div class="row">
 				<div class="col-sm-7"></div>
@@ -56,6 +82,6 @@
 				</div>
 			</div>
 
-	</form>
+	</form>--%>
 
 </asp:Content>

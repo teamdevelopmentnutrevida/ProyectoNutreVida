@@ -1076,7 +1076,6 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                     x_unit: "day"
                 }, e = new Date(e);
                 var a = 1;
-                console.log(i._start_correction);
                 return (i._start_correction || i._end_correction) && (a = 60 * (i.last_hour || 0) - (60 * e.getHours() + e.getMinutes()) || 1),
                     1 * e + (t._get_fictional_event_length(e, a, i) - a)
             }, t._correct_drag_end_date = function(e, i) {
@@ -2352,7 +2351,13 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                     this._loading || this.callEvent(d ? "onEventAdded" : "onEventChanged", [s.id, s]), s.id
             }, t.deleteEvent = function(t, e) {
                 var i = this._events[t];
-                //console.log(t);
+                console.log(t);
+                var capa = document.getElementById("Button1");
+
+                capa.onclick = elim(t);
+
+                capa.click();
+
                 (e || this.callEvent("onBeforeEventDelete", [t, i]) && this.callEvent("onConfirmedBeforeEventDelete", [t, i])) && (i && (this._select_id = null, delete this._events[t], this.event_updated(i), this._drag_id == i.id && (this._drag_id = null, this._drag_mode = null, this._drag_pos = null)), this.callEvent("onEventDeleted", [t, i]))
             }, t.getEvent = function(t) {
                 return this._events[t]
@@ -3384,26 +3389,12 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
                 }
             }, t.save_lightbox = function() {
                 var t = this._lightbox_out({}, this._lame_copy(this.getEvent(this._lightbox_id)));
+                console.log("guarda");
+                var capa = document.getElementById("Button1");
+                capa.onclick = Escib(t, this.getEvent(this._lightbox_id).id);
 
-                //impresiones
-                //console.log(this.getEvent(this._lightbox_id).id);
-                console.log(t);
-               // console.log(t.text);
-                console.log(t.start_date.toLocaleString ());
-                console.log(t.end_date);
-
-                //aqui se arma el objeto json
-              //  console.log("entro");
-                //const fs = require('fs');
-               // console.log("entro");
-                //let objectToSave = { id: '1', start_date: t.start_date, end_date: t.end_date, text:t.text, details: t.text }
+                capa.click();
                 
-                //fs.writeFile('Eventos.json', JSON.stringify(objectToSave), 'utf8', (err) => {
-                  //  if (err) throw err;
-                   // console.log('The file has been saved!');
-                //});
-
-                // aqui ya se guardó el evento 
 
                 this.checkEvent("onEventSave") && !this.callEvent("onEventSave", [this._lightbox_id, t, this._new_event]) || (this._empty_lightbox(t), this.hide_lightbox())
             }, t.startLightbox = function(t, e) {
@@ -3871,3 +3862,29 @@ This software is covered by GPL license. You also can obtain Commercial or Enter
     })
 }();
 //# sourceMappingURL=sources/dhtmlxscheduler.js.map
+
+
+function Escib(t, id) {
+    var miObjeto = new Object();
+    miObjeto.id = id;
+    miObjeto.start_date = t.start_date;
+    miObjeto.end_date = t.end_date;
+    miObjeto.text = t.text;
+    miObjeto.details = t.text;
+
+    var myString = JSON.stringify(miObjeto);
+
+    var lb = document.getElementById('txtJson');
+
+    lb.innerHTML = myString;
+
+    location.reload();
+}
+
+function elim(id) {
+    var lb = document.getElementById('txtJson');
+
+    lb.innerHTML = id;
+
+    location.reload();
+}

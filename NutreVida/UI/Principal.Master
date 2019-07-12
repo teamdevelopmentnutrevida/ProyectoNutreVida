@@ -47,14 +47,13 @@
 
             </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+          
 
             <!-- Nav Item - Reportes Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="Reportes.aspx">
                     <i class="fas fa-chart-bar" style="font-size: 1em"></i>
-                    <span class="sidebar-brand-text mx-3" style="font-size: 1em">Reportes</span>
+                    <span class="sidebar-brand-text mx-3" style="font-size: 1em">Estadísticas</span>
                 </a>
             </li>
 
@@ -108,7 +107,7 @@
 
             <!-- Nav Item - Cerrar Sesion -->
             <li class="nav-item">
-                <a class="nav-link" onclick="cerrar" href="InicioSesion.aspx">
+                <a class="nav-link" onclick="cerrar" href="#" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt" style="font-size: 1em"></i>
                     <span class="sidebar-brand-text mx-3" style="font-size: 1em">Cerrar Sesión</span></a>
             </li>
@@ -137,16 +136,19 @@
             <div id="content" style="background-color: white">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow">
+                <nav style="height:45px" class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-                     <!--  <a class="mr-auto d-none d-md-inline">
-                         <i class="fas fa-apple-alt"></i>
-                    </a> -->
+                       <a class="mr-auto d-none d-md-inline">
+						   <div class="col-md-12 divlogo">
+                            <asp:Image ID="Logo" runat="server" ImageUrl="~/img/orage 2.png" data-toggle="tooltip" Height="40px" Width="100px" title="Nutre Vida" />
+                        </div>
+                         <%--<i class="fas fa-apple-alt"></i>--%>
+                    </a> 
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -217,7 +219,7 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="Admin.aspx">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Administrar
                                 </a>

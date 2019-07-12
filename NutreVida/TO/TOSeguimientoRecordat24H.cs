@@ -10,20 +10,23 @@ namespace TO
     {
         public int Seguimiento { set; get; }
         public string TiempoComida { set; get; }
+        public string Hora { set; get; }
         public string Descripcion { set; get; }
 
 
-        public TOSeguimientoRecordat24H(int seguimiento, string tiempoComida, string descripcion)
+        public TOSeguimientoRecordat24H(int seguimiento, string tiempoComida, string hora, string descripcion)
         {
             Seguimiento = seguimiento;
             TiempoComida = tiempoComida;
+            Hora = hora;
             Descripcion = descripcion;
         }
         public TOSeguimientoRecordat24H() { }
 
-        public TOSeguimientoRecordat24H(string tiempoComida, string descripcion)
+        public TOSeguimientoRecordat24H(string tiempoComida, string hora, string descripcion)
         {
             TiempoComida = tiempoComida;
+            Hora = hora;
             Descripcion = descripcion;
         }
     }

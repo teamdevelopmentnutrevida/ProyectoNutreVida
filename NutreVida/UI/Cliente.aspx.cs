@@ -5,6 +5,28 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
+using Microsoft.VisualBasic;
+using System.Web.UI.WebControls.WebParts;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html;
+using iTextSharp.text.xml;
+using System.IO;
+using System.Diagnostics;
+using System.ComponentModel;
+using System.Text;
+using System.Collections;
+using System.Data;
+using System.Configuration;
+using System.Web.Security;
+using System.Web.UI.HtmlControls;
+using System.Xml;
+using System.Net;
+using System.Data.SqlClient;
+using iTextSharp.text.html.simpleparser;
+
+
+
 
 namespace UI
 {
@@ -20,24 +42,20 @@ namespace UI
         private static List<SeguimientoMensual> listaSegNutri = new List<SeguimientoMensual>();
         private static ManejadorSeguimientos manejadorSeg = new ManejadorSeguimientos();
         private static ManejadorExpediente manejExpediente = new ManejadorExpediente();
-        private static ManejadorErrores manejError = new ManejadorErrores();
+      
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (new ControlSeguridad().validarNutri() == true)
-            //{
-            //	Response.Redirect("~/InicioSesion.aspx");
-            //}
+			if (new ControlSeguridad().validarNutri() == true)
+			{
+				Response.Redirect("~/InicioSesion.aspx");
+			}
 
-            //if (!IsPostBack)
-            //{
-            //    CargarDatos();
-            //}
+			if (!IsPostBack)
+            {
+                CargarDatos();
+            }
         }
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#mymodal').modal('show');</script> ", false);
-        }
-
+        
         /**
         * Método privado que carga la seccion de la información personal del cliente seleccionado 
         */
@@ -50,6 +68,7 @@ namespace UI
             CargarAntropometría();
             CargarSeguimientoSemanal();
             CargarSeguimientoNutricional();
+            CargarAnterior();
         }
 
         /**
@@ -326,10 +345,7 @@ namespace UI
                 }
                 catch (FormatException)
                 {
-                    string y = manejError.ErrorIngresoNumero();
-                    Response.Write(y);
-                    peso = 0;
-
+                    Response.Write("Error al ingresar el Peso.");
                 }
 
                 bool creado = manejadorSeg.AgregarSeguimiento(new SeguimientoSemanal(DateTime.Now, Convert.ToDecimal(sPeso.Text), sOreja.SelectedValue, sEjercicio.Text, int.Parse(ced1.Text)));
@@ -395,21 +411,82 @@ namespace UI
             {
                 foreach (SeguimientoMensual seg in listaSegNutri)
                 {
-                    SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td><td>" + seg.Fecha.ToString("dd/MM/yyyy") + "</td><td><a>Ver</a></td><td><a>Modificar</a></td></tr>";
+                    SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td>" +
+                        "<td>" + seg.Fecha.ToString("dd/MM/yyyy")+"</td>"+
+                        "<td> <button runat=\"server\" id=\"ver"+ seg.idSeg +"\" onclick=\"Ver_Click\">Ver</button> </td>" +
+                        "<td> <asp:Button runat=\"server\" ID=\"mod"+ seg.idSeg + "\" OnClick=\"Modificar_Click\" CommandArgument=\"" + seg.idSeg + "\" Text=\"Modificar\"/> </tr>";
                 }
+
+                SeguimientoMensual seguim = listaSegNutri.Last<SeguimientoMensual>();
             }
             else { SeguimMensual.Text = "No existen Seguimientos Nutricionales de este cliente."; }
         }
 
+        private void CargarAnterior()
+        {
+            if (listaSegNutri != null)
+            {
+                SeguimientoMensual anterior = listaSegNutri.Last<SeguimientoMensual>();
+                AntDiasEjer.Text = anterior.nutri.DiasEjercicio;
+                AntComExtra.Text = anterior.nutri.ComidaExtra;
+                AntNAnsied.Text = anterior.nutri.NivelAnsiedad;
+                foreach (SeguimientoRecordat24H rec in anterior.record)
+                {
+                    if (rec.TiempoComida.Equals("Ayunas")) { AntAyunHora.Text = rec.Hora; AntAyunDescr.Text = rec.Descripcion; }
+                    else { if (rec.TiempoComida.Equals("Desayuno")) { AntDesHora.Text = rec.Hora; AntDesDescrp.Text = rec.Descripcion; }
+                        else { if (rec.TiempoComida.Equals("Media Mañana")) { AntMedManHora.Text = rec.Hora; AntMedManDesc.Text = rec.Descripcion; }
+                            else { if (rec.TiempoComida.Equals("Almuerzo")) { AntAlmHora.Text = rec.Hora; AntAlmDesc.Text = rec.Descripcion; }
+                                else { if (rec.TiempoComida.Equals("Media Tarde")) { AntMedTarHora.Text = rec.Hora; AntMedTarDesc.Text = rec.Descripcion; }
+                                    else { if (rec.TiempoComida.Equals("Cena")) { AntCenaHora.Text = rec.Hora; AntCenaDesc.Text = rec.Descripcion; }
+                                        else { if (rec.TiempoComida.Equals("Colación Nocturna")) { AntColNocHora.Text = rec.Hora; AntColNocDesc.Text = rec.Descripcion; }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (anterior.antrop != null)
+                {
+                    AntSAFech.Text = anterior.antrop.Fecha_SA + "";
+                    AntSAEdad.Text = anterior.antrop.Edad + "";
+                    AntSATalla.Text = anterior.antrop.Talla + "";
+                    AntSACM.Text = anterior.antrop.CM + "";
+                    AntSAPeso.Text = anterior.antrop.Peso + "";
+                    AntSAIMC.Text = anterior.antrop.IMC + "";
+                    AntSAAgua.Text = anterior.antrop.Agua + "";
+                    AntSAMasaOsea.Text = anterior.antrop.MasaOsea + "";
+                    AntSAEddMet.Text = anterior.antrop.EdadMetabolica + "";
+                    AntSAGrAnaliz.Text = anterior.antrop.PorcGrasaAnalizador + "";
+                    AntSAGrBasc.Text = anterior.antrop.PorcGr_Bascula + "";
+                    AntSAGBBI.Text = anterior.antrop.GB_BI + "";
+                    AntSAGBBD.Text = anterior.antrop.GB_BD + "";
+                    AntSAGBPI.Text = anterior.antrop.GB_PI + "";
+                    AntSAGBPD.Text = anterior.antrop.GB_PD + "";
+                    AntSAGBTronco.Text = anterior.antrop.GB_Tronco + "";
+                    AntSAGrVisc.Text = anterior.antrop.PorcentGViceral + "";
+                    AntSAPorMusc.Text = anterior.antrop.PorcentMusculo + "";
+                    AntSAPMBI.Text = anterior.antrop.PM_BI + "";
+                    AntSAPMBD.Text = anterior.antrop.PM_BD + "";
+                    AntSAPMPI.Text = anterior.antrop.PM_PI + "";
+                    AntSAPMPD.Text = anterior.antrop.PM_PD + "";
+                    AntSAPMTronco.Text = anterior.antrop.PM_Tronco + "";
+                    AntSACircunfCint.Text = anterior.antrop.CircunfCintura + "";
+                    AntSACadera.Text = anterior.antrop.Cadera + "";
+                    AntSAMusIza.Text = anterior.antrop.MusloIzq + "";
+                    AntSAMusDer.Text = anterior.antrop.MusloDer + "";
+                    AntSABrazIzq.Text = anterior.antrop.BrazoIzq + "";
+                    AntSABrazDer.Text = anterior.antrop.BrazoDer + "";
+                    AntSAPesoMet.Text = anterior.antrop.PesoIdeal + "";
+                    AntSNObserv.Text = anterior.antrop.Observaciones;
+                }
+            }
+        }
+        
         protected void BackButton_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("Expedientes.aspx");
-            string ed = EdadCliente.Text;
-            if(ed != "")
-            {
-                double v = Double.Parse(ed);
-                Response.Write("double parseado: " + v);
-            }
+           
+            Response.Redirect("Expedientes.aspx");
         }
 
         protected void MedicButton_Click(object sender, EventArgs e)
@@ -419,8 +496,167 @@ namespace UI
 
         protected void GuardarSeguimNutri_Click(object sender, EventArgs e)
         {
+            SeguimientoMensual nuevo = new SeguimientoMensual();
+            SeguimientoAntrop nuevoAntrop = new SeguimientoAntrop();
+            List<SeguimientoRecordat24H> nuevoRecord = new List<SeguimientoRecordat24H>();
+            SeguimientoNutricional nuevoNutri = new SeguimientoNutricional();
+
+            nuevoNutri.Cedula = Cedula;
+            nuevoNutri.DiasEjercicio = SNDiasEjerSem.Text;
+            nuevoNutri.ComidaExtra = SNComidasExtras.Text;
+            nuevoNutri.NivelAnsiedad = SNNivAnsiedad.Text;
+
+            nuevoRecord.Add(new SeguimientoRecordat24H("Ayunas", SNRecordAyunTime.Text, SNRecAyunasDescr.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Desayuno", SNRecordDesayunTime.Text, SNRecordDesayunDescr.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Media Mañana", SNRecordMedManTime.Text, SNRecordMedManTime.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Almuerzo", SNRecordAlmTime.Text, SNRecordAlmDescrip.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Media Tarde", SNRecordMedTardeTime.Text, SNRecordMedTardeDescr.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Cena", SNRecordCenaTime.Text, SNRecordCenaDescr.Text));
+            nuevoRecord.Add(new SeguimientoRecordat24H("Colación Nocturna", SNRecordColTime.Text, SNRecordColDescr.Text));
+
+            nuevoAntrop.Fecha_SA = DateTime.Now;
+            if(SegAntEdad.Text != "") { nuevoAntrop.Edad = Decimal.Parse(SegAntEdad.Text); } else { nuevoAntrop.Edad = Decimal.Parse("0"); }
+            if (SegAntTalla.Text != "") { nuevoAntrop.Talla = Decimal.Parse(SegAntTalla.Text); } else { nuevoAntrop.Talla = Decimal.Parse("0"); }
+            if (SegAntCM.Text != "") { nuevoAntrop.CM = Decimal.Parse(SegAntCM.Text); } else { nuevoAntrop.CM = Decimal.Parse("0"); }
+            if (SegAntPeso.Text != "") { nuevoAntrop.Peso = Decimal.Parse(SegAntPeso.Text); } else { nuevoAntrop.Peso = Decimal.Parse("0"); }
+            if (SegAntIMC.Text != "") { nuevoAntrop.IMC = Decimal.Parse(SegAntIMC.Text); } else { nuevoAntrop.IMC = Decimal.Parse("0"); }
+            if (SegAntAgua.Text != "") { nuevoAntrop.Agua = Decimal.Parse(SegAntAgua.Text); } else { nuevoAntrop.Agua = Decimal.Parse("0"); }
+            if (SegAntMasaOsea.Text != "") { nuevoAntrop.MasaOsea = Decimal.Parse(SegAntMasaOsea.Text); } else { nuevoAntrop.MasaOsea = Decimal.Parse("0"); }
+            if (SegAntEdadMetabolica.Text != "") { nuevoAntrop.EdadMetabolica = Decimal.Parse(SegAntEdadMetabolica.Text); } else { nuevoAntrop.EdadMetabolica = Decimal.Parse("0"); }
+            if (SegAntGrasaAnaliz.Text != "") { nuevoAntrop.PorcGrasaAnalizador = Decimal.Parse(SegAntGrasaAnaliz.Text); } else { nuevoAntrop.PorcGrasaAnalizador = Decimal.Parse("0"); }
+            if (SegAntGrasBasc.Text != "") { nuevoAntrop.PorcGr_Bascula = Decimal.Parse(SegAntGrasBasc.Text); } else { nuevoAntrop.PorcGr_Bascula = Decimal.Parse("0"); }
+            if (SegAntGBBI.Text != "") { nuevoAntrop.GB_BI = Decimal.Parse(SegAntGBBI.Text); } else { nuevoAntrop.GB_BI = Decimal.Parse("0"); }
+            if (SegAntGBBD.Text != "") { nuevoAntrop.GB_BD = Decimal.Parse(SegAntGBBD.Text); } else { nuevoAntrop.GB_BD = Decimal.Parse("0"); }
+            if (SegAntGBPI.Text != "") { nuevoAntrop.GB_PI = Decimal.Parse(SegAntGBPI.Text); } else { nuevoAntrop.GB_PI = Decimal.Parse("0"); }
+            if (SegAntGBPD.Text != "") { nuevoAntrop.GB_PD = Decimal.Parse(SegAntGBPD.Text); } else { nuevoAntrop.GB_PD = Decimal.Parse("0"); }
+            if (SegAntGBTronco.Text != "") { nuevoAntrop.GB_Tronco = Decimal.Parse(SegAntGBTronco.Text); } else { nuevoAntrop.GB_Tronco = Decimal.Parse("0"); }
+            if (SegAntGrVisceral.Text != "") { nuevoAntrop.PorcentGViceral = Decimal.Parse(SegAntGrVisceral.Text); } else { nuevoAntrop.PorcentGViceral = Decimal.Parse("0"); }
+            if (SegAntPM.Text != "") { nuevoAntrop.PorcentMusculo = Decimal.Parse(SegAntPM.Text); } else { nuevoAntrop.PorcentMusculo = Decimal.Parse("0"); }
+            if (SegAntPMBI.Text != "") { nuevoAntrop.PM_BI = Decimal.Parse(SegAntPMBI.Text); } else { nuevoAntrop.PM_BI = Decimal.Parse("0"); }
+            if (SegAntPMBD.Text != "") { nuevoAntrop.PM_BD = Decimal.Parse(SegAntPMBD.Text); } else { nuevoAntrop.PM_BD = Decimal.Parse("0"); }
+            if (SegAntPMPI.Text != "") { nuevoAntrop.PM_PI = Decimal.Parse(SegAntPMPI.Text); } else { nuevoAntrop.PM_PI = Decimal.Parse("0"); }
+            if (SegAntPMPD.Text != "") { nuevoAntrop.PM_PD = Decimal.Parse(SegAntPMPD.Text); } else { nuevoAntrop.PM_PD = Decimal.Parse("0"); }
+            if (SegAntPMTronco.Text != "") { nuevoAntrop.PM_Tronco = Decimal.Parse(SegAntPMTronco.Text); } else { nuevoAntrop.PM_Tronco = Decimal.Parse("0"); }
+            if (SegAntCircunfCint.Text != "") { nuevoAntrop.CircunfCintura = Decimal.Parse(SegAntCircunfCint.Text); } else { nuevoAntrop.CircunfCintura = Decimal.Parse("0"); }
+            if (SegAntCadera.Text != "") { nuevoAntrop.Cadera = Decimal.Parse(SegAntCadera.Text); } else { nuevoAntrop.Cadera = Decimal.Parse("0"); }
+            if (SegAntMusloIzq.Text != "") { nuevoAntrop.MusloIzq = Decimal.Parse(SegAntMusloIzq.Text); } else { nuevoAntrop.MusloIzq = Decimal.Parse("0"); }
+            if (SegAntMusloDer.Text != "") { nuevoAntrop.MusloDer = Decimal.Parse(SegAntMusloDer.Text); } else { nuevoAntrop.MusloDer = Decimal.Parse("0"); }
+            if (SegAntBrazoIzq.Text != "") { nuevoAntrop.BrazoIzq = Decimal.Parse(SegAntBrazoIzq.Text); } else { nuevoAntrop.BrazoIzq = Decimal.Parse("0"); }
+            if (SegAntBrazoDer.Text != "") { nuevoAntrop.BrazoDer = Decimal.Parse(SegAntBrazoDer.Text); } else { nuevoAntrop.BrazoDer = Decimal.Parse("0"); }
+            if (SegAntPesoIdeal.Text != "") { nuevoAntrop.PesoIdeal = Decimal.Parse(SegAntPesoIdeal.Text); } else { nuevoAntrop.PesoIdeal = Decimal.Parse("0"); }
+            nuevoAntrop.Observaciones = SNObservacion.Text;
+
+            nuevo.antrop = nuevoAntrop;
+            nuevo.nutri = nuevoNutri;
+            nuevo.record = nuevoRecord;
+            nuevo.Fecha = DateTime.Now;
+
+            bool exito = manejadorSeg.AgregaSegNutri(nuevo);
+            if(exito == true)
+            {
+                Response.Write("Seguimiento Agregado Exitosamente");
+            }
+            else
+            {
+                Response.Write("Error al Agregar Seguimiento Nutricional");
+            }
 
         }
-        
-    }
+
+        protected void Ver_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void Modificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+		/**
+        * Método protegido, accion para generar un pdf con el reporte de la consulta
+        * @param acciones y eventos del boton
+        */
+
+		protected void btnGeneraPDF_Click(object sender, EventArgs e)
+		{
+			string oldFile = "https://nutrevida-001-site1.btempurl.com/Plantilla.pdf";
+			string newFile = "https://nutrevida-001-site1.btempurl.com/Reporte.pdf";
+
+
+			var reader = new PdfReader(oldFile);
+			{
+				using (var fileStream = new FileStream(newFile, FileMode.Create, FileAccess.Write))
+				{
+					var document = new Document(reader.GetPageSizeWithRotation(1));
+					var writer = PdfWriter.GetInstance(document, fileStream);
+
+					document.Open();
+
+					for (var i = 1; i <= reader.NumberOfPages; i++)
+					{
+						document.NewPage();
+
+						var baseFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+						var importedPage = writer.GetImportedPage(reader, i);
+
+						var contentByte = writer.DirectContent;
+						contentByte.BeginText();
+						contentByte.SetFontAndSize(baseFont, 12);
+
+						if (i==1)
+						{
+							// select the font properties
+							BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+							contentByte.SetColorFill(Color.BLACK);
+							contentByte.SetFontAndSize(bf, 12);
+
+							// write the text in the pdf content
+							contentByte.BeginText();
+							string nombre = "Nombre: " + txtNombre.Text;
+							string fecha = "Fecha: " + System.DateTime.Today.ToShortDateString();
+							string peso = "Peso: " + txtPesoActual.Text;
+							string imc = "IMC: " + txtIMC.Text;
+							string grasa = "% Grasa: " + txtPorcGrasas.Text + "%";
+							// put the alignment and coordinates here
+							contentByte.ShowTextAligned(Element.ALIGN_LEFT, nombre, 100, 560, 0);
+							contentByte.ShowTextAligned(Element.ALIGN_LEFT, fecha, 100, 540, 0);
+							contentByte.ShowTextAligned(Element.ALIGN_LEFT, peso, 100, 520, 0);
+							contentByte.ShowTextAligned(Element.ALIGN_LEFT, imc, 100, 500, 0);
+							contentByte.ShowTextAligned(Element.ALIGN_LEFT, grasa, 100, 480, 0);
+							contentByte.EndText();
+						
+						}
+
+						contentByte.EndText();
+						contentByte.AddTemplate(importedPage, 0, 0);
+					}
+
+					document.Close();
+					writer.Close();
+				}
+			}
+
+			ShowPdf(newFile);
+		}
+
+
+		/**
+        * Método privado, para mostrar el pdf
+        * @param strs la ruta del archivo
+        */
+		private void ShowPdf(string strS)
+		{
+			Response.ClearContent();
+			Response.ClearHeaders();
+			Response.ContentType = "application/pdf";
+			Response.AddHeader("Content-Disposition", "attachment; filename=" + strS);
+			Response.TransmitFile(strS);
+			Response.End();
+			Response.Flush();
+			Response.Clear();
+
+		}
+
+	}
 }

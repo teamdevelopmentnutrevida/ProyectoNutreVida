@@ -38,19 +38,21 @@ namespace UI
             {
                 foreach (ClienteNutricion c in lista)
                 {
+                    
                     string est = "";
                     if(c.Estado == 1) {
                         est = "<a href =\"\" onclick=\"Eliminar_Click(" + c.Cedula + ")\">Deshabilitar</a></td>";
-                    }
-                    else
-                    {
-                        est = "<a href =\"\" onclick=\"Habilitar(" + c.Cedula + ")\">Habilitar</a></td>";
-                    }
-
-                    LitListaCliente.Text += "<tr>" +
+                        LitListaCliente.Text += "<tr>" +
                        "<td><a href=\"\" onclick=\"Redirige(" + c.Cedula + ")\">" + c.Cedula + "</a></td>" +
                             "<td>" + c.Nombre + " " + c.Apellido1 + "</td>" +
-                         "<td>"+est+"</tr>";
+                         "<td>" + est + "</tr>";
+                    }
+                    //else
+                    //{
+                    //    est = "<a href =\"\" onclick=\"Habilitar(" + c.Cedula + ")\">Habilitar</a></td>";
+                    //}
+
+                    
                 }
                 
             }

@@ -1291,76 +1291,76 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Literal SeguimMensual;
         
         /// <summary>
-        /// DiasEjerSem control.
+        /// SNDiasEjerSem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DiasEjerSem;
+        protected global::System.Web.UI.WebControls.TextBox SNDiasEjerSem;
         
         /// <summary>
-        /// ComidasExtras control.
+        /// SNComidasExtras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ComidasExtras;
+        protected global::System.Web.UI.WebControls.TextBox SNComidasExtras;
         
         /// <summary>
-        /// NivAnsiedad control.
+        /// SNNivAnsiedad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NivAnsiedad;
+        protected global::System.Web.UI.WebControls.TextBox SNNivAnsiedad;
         
         /// <summary>
-        /// RecordAyunTime control.
+        /// SNRecordAyunTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RecordAyunTime;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordAyunTime;
         
         /// <summary>
-        /// RecAyunasDescr control.
+        /// SNRecAyunasDescr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RecAyunasDescr;
+        protected global::System.Web.UI.WebControls.TextBox SNRecAyunasDescr;
         
         /// <summary>
-        /// RecordDesayunTime control.
+        /// SNRecordDesayunTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RecordDesayunTime;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordDesayunTime;
         
         /// <summary>
-        /// RecordDesayunDescr control.
+        /// SNRecordDesayunDescr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RecordDesayunDescr;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordDesayunDescr;
         
         /// <summary>
-        /// RecordMedManTime control.
+        /// SNRecordMedManTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RecordMedManTime;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordMedManTime;
         
         /// <summary>
         /// RecordMedManDescr control.
@@ -1372,76 +1372,76 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox RecordMedManDescr;
         
         /// <summary>
-        /// RecordAlmTime control.
+        /// SNRecordAlmTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RecordAlmTime;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordAlmTime;
         
         /// <summary>
-        /// RecordAlmDescrip control.
+        /// SNRecordAlmDescrip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RecordAlmDescrip;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordAlmDescrip;
         
         /// <summary>
-        /// TextBox9 control.
+        /// SNRecordMedTardeTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordMedTardeTime;
         
         /// <summary>
-        /// TextBox10 control.
+        /// SNRecordMedTardeDescr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox10;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordMedTardeDescr;
         
         /// <summary>
-        /// TextBox11 control.
+        /// SNRecordCenaTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox11;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordCenaTime;
         
         /// <summary>
-        /// TextBox12 control.
+        /// SNRecordCenaDescr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox12;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordCenaDescr;
         
         /// <summary>
-        /// TextBox13 control.
+        /// SNRecordColTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox13;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordColTime;
         
         /// <summary>
-        /// TextBox14 control.
+        /// SNRecordColDescr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox14;
+        protected global::System.Web.UI.WebControls.TextBox SNRecordColDescr;
         
         /// <summary>
         /// SegAntFecha control.
@@ -1714,418 +1714,454 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox SegAntPesoIdeal;
         
         /// <summary>
-        /// GuardarSeguimNutri control.
+        /// SNObservacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GuardarSeguimNutri;
+        protected global::System.Web.UI.WebControls.TextBox SNObservacion;
         
         /// <summary>
-        /// SAntDiasEjeSem control.
+        /// AntDiasEjer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntDiasEjeSem;
+        protected global::System.Web.UI.WebControls.TextBox AntDiasEjer;
         
         /// <summary>
-        /// SAntComExtra control.
+        /// AntComExtra control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntComExtra;
+        protected global::System.Web.UI.WebControls.TextBox AntComExtra;
         
         /// <summary>
-        /// SAntNivAnsiedad control.
+        /// AntNAnsied control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntNivAnsiedad;
+        protected global::System.Web.UI.WebControls.TextBox AntNAnsied;
         
         /// <summary>
-        /// SAntAyunHora control.
+        /// AntAyunHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntAyunHora;
+        protected global::System.Web.UI.WebControls.TextBox AntAyunHora;
         
         /// <summary>
-        /// SAntAyunDescrip control.
+        /// AntAyunDescr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntAyunDescrip;
+        protected global::System.Web.UI.WebControls.TextBox AntAyunDescr;
         
         /// <summary>
-        /// SAntDesAyunHora control.
+        /// AntDesHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntDesAyunHora;
+        protected global::System.Web.UI.WebControls.TextBox AntDesHora;
         
         /// <summary>
-        /// SAntDesAyunDescrip control.
+        /// AntDesDescrp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntDesAyunDescrip;
+        protected global::System.Web.UI.WebControls.TextBox AntDesDescrp;
         
         /// <summary>
-        /// SAntMedManHora control.
+        /// AntMedManHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntMedManHora;
+        protected global::System.Web.UI.WebControls.TextBox AntMedManHora;
         
         /// <summary>
-        /// SAntMedManDescrip control.
+        /// AntMedManDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntMedManDescrip;
+        protected global::System.Web.UI.WebControls.TextBox AntMedManDesc;
         
         /// <summary>
-        /// SAntAlmHora control.
+        /// AntAlmHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntAlmHora;
+        protected global::System.Web.UI.WebControls.TextBox AntAlmHora;
         
         /// <summary>
-        /// SAntAlmDescrip control.
+        /// AntAlmDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntAlmDescrip;
+        protected global::System.Web.UI.WebControls.TextBox AntAlmDesc;
         
         /// <summary>
-        /// SAntMedTardHora control.
+        /// AntMedTarHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntMedTardHora;
+        protected global::System.Web.UI.WebControls.TextBox AntMedTarHora;
         
         /// <summary>
-        /// SAntMedTardDescrip control.
+        /// AntMedTarDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntMedTardDescrip;
+        protected global::System.Web.UI.WebControls.TextBox AntMedTarDesc;
         
         /// <summary>
-        /// SAntCenaHora control.
+        /// AntCenaHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntCenaHora;
+        protected global::System.Web.UI.WebControls.TextBox AntCenaHora;
         
         /// <summary>
-        /// SAntCenaDescrip control.
+        /// AntCenaDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntCenaDescrip;
+        protected global::System.Web.UI.WebControls.TextBox AntCenaDesc;
         
         /// <summary>
-        /// SAntColNoctHora control.
+        /// AntColNocHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntColNoctHora;
+        protected global::System.Web.UI.WebControls.TextBox AntColNocHora;
         
         /// <summary>
-        /// SAntColNoctDescrip control.
+        /// AntColNocDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntColNoctDescrip;
+        protected global::System.Web.UI.WebControls.TextBox AntColNocDesc;
         
         /// <summary>
-        /// TextBox24 control.
+        /// AntSAFech control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox24;
+        protected global::System.Web.UI.WebControls.TextBox AntSAFech;
         
         /// <summary>
-        /// TextBox25 control.
+        /// AntSAEdad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox25;
+        protected global::System.Web.UI.WebControls.TextBox AntSAEdad;
         
         /// <summary>
-        /// TextBox26 control.
+        /// AntSATalla control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox26;
+        protected global::System.Web.UI.WebControls.TextBox AntSATalla;
         
         /// <summary>
-        /// TextBox27 control.
+        /// AntSACM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox27;
+        protected global::System.Web.UI.WebControls.TextBox AntSACM;
         
         /// <summary>
-        /// TextBox28 control.
+        /// AntSAPeso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox28;
+        protected global::System.Web.UI.WebControls.TextBox AntSAPeso;
         
         /// <summary>
-        /// TextBox29 control.
+        /// AntSAIMC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox29;
+        protected global::System.Web.UI.WebControls.TextBox AntSAIMC;
         
         /// <summary>
-        /// TextBox30 control.
+        /// AntSAAgua control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox30;
+        protected global::System.Web.UI.WebControls.TextBox AntSAAgua;
         
         /// <summary>
-        /// TextBox31 control.
+        /// AntSAMasaOsea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox31;
+        protected global::System.Web.UI.WebControls.TextBox AntSAMasaOsea;
         
         /// <summary>
-        /// TextBox32 control.
+        /// AntSAEddMet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox32;
+        protected global::System.Web.UI.WebControls.TextBox AntSAEddMet;
         
         /// <summary>
-        /// TextBox33 control.
+        /// AntSAGrAnaliz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox33;
+        protected global::System.Web.UI.WebControls.TextBox AntSAGrAnaliz;
         
         /// <summary>
-        /// TextBox34 control.
+        /// AntSAGrBasc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox34;
+        protected global::System.Web.UI.WebControls.TextBox AntSAGrBasc;
         
         /// <summary>
-        /// TextBox35 control.
+        /// AntSAGBBI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox35;
+        protected global::System.Web.UI.WebControls.TextBox AntSAGBBI;
         
         /// <summary>
-        /// TextBox36 control.
+        /// AntSAGBBD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox36;
+        protected global::System.Web.UI.WebControls.TextBox AntSAGBBD;
         
         /// <summary>
-        /// TextBox37 control.
+        /// AntSAGBPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox37;
+        protected global::System.Web.UI.WebControls.TextBox AntSAGBPI;
         
         /// <summary>
-        /// TextBox38 control.
+        /// AntSAGBPD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox38;
+        protected global::System.Web.UI.WebControls.TextBox AntSAGBPD;
         
         /// <summary>
-        /// TextBox39 control.
+        /// AntSAGBTronco control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox39;
+        protected global::System.Web.UI.WebControls.TextBox AntSAGBTronco;
         
         /// <summary>
-        /// TextBox40 control.
+        /// AntSAGrVisc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox40;
+        protected global::System.Web.UI.WebControls.TextBox AntSAGrVisc;
         
         /// <summary>
-        /// TextBox41 control.
+        /// AntSAPorMusc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox41;
+        protected global::System.Web.UI.WebControls.TextBox AntSAPorMusc;
         
         /// <summary>
-        /// TextBox42 control.
+        /// AntSAPMBI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox42;
+        protected global::System.Web.UI.WebControls.TextBox AntSAPMBI;
         
         /// <summary>
-        /// TextBox43 control.
+        /// AntSAPMBD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox43;
+        protected global::System.Web.UI.WebControls.TextBox AntSAPMBD;
         
         /// <summary>
-        /// TextBox44 control.
+        /// AntSAPMPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox44;
+        protected global::System.Web.UI.WebControls.TextBox AntSAPMPI;
         
         /// <summary>
-        /// TextBox45 control.
+        /// AntSAPMPD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox45;
+        protected global::System.Web.UI.WebControls.TextBox AntSAPMPD;
         
         /// <summary>
-        /// TextBox46 control.
+        /// AntSAPMTronco control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox46;
+        protected global::System.Web.UI.WebControls.TextBox AntSAPMTronco;
         
         /// <summary>
-        /// TextBox47 control.
+        /// AntSACircunfCint control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox47;
+        protected global::System.Web.UI.WebControls.TextBox AntSACircunfCint;
         
         /// <summary>
-        /// TextBox48 control.
+        /// AntSACadera control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox48;
+        protected global::System.Web.UI.WebControls.TextBox AntSACadera;
         
         /// <summary>
-        /// TextBox49 control.
+        /// AntSAMusIza control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox49;
+        protected global::System.Web.UI.WebControls.TextBox AntSAMusIza;
         
         /// <summary>
-        /// TextBox50 control.
+        /// AntSAMusDer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox50;
+        protected global::System.Web.UI.WebControls.TextBox AntSAMusDer;
         
         /// <summary>
-        /// TextBox51 control.
+        /// AntSABrazIzq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox51;
+        protected global::System.Web.UI.WebControls.TextBox AntSABrazIzq;
+        
+        /// <summary>
+        /// AntSABrazDer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AntSABrazDer;
+        
+        /// <summary>
+        /// AntSAPesoMet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AntSAPesoMet;
+        
+        /// <summary>
+        /// AntSNObserv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AntSNObserv;
+        
+        /// <summary>
+        /// btnGeneraPDF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGeneraPDF;
         
         /// <summary>
         /// btnGuardar control.
