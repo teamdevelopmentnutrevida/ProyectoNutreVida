@@ -116,7 +116,6 @@
     <Content Include="common\controls_styles.css" />
     <Content Include="common\custom.css" />
     <Content Include="common\docs.css" />
-    <Content Include="common\Eventos.json" />
     <Content Include="common\testdata.js" />
     <Content Include="ControlSeguridad.aspx" />
     <Content Include="css\alertify.min.css" />
@@ -186,6 +185,7 @@
     <Content Include="js\demo\datatables-demo.js" />
     <Content Include="js\dhtmlxscheduler.js" />
     <Content Include="js\dhtmlxscheduler_minical.js" />
+    <Content Include="js\formulas.js" />
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="js\sweetalert28.js" />
