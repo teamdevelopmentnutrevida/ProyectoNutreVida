@@ -640,7 +640,7 @@ namespace UI
 							contentByte.BeginText();
 							string nombre = "Nombre: " + txtNombre.Text;
 							string fecha = "Fecha: " + System.DateTime.Today.ToShortDateString();
-							string peso = "Peso: " + txtPesoActual.Text;
+							string peso = "Peso: " + txtPesoActual.Text + " Kg";
 							string imc = "IMC: " + txtIMC.Text;
 							string grasa = "% Grasa: " + txtPorcGrasas.Text + "%";
 							// put the alignment and coordinates here
