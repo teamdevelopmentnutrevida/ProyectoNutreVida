@@ -416,8 +416,8 @@ namespace UI
 
                     SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td>" +
                         "<td>" + seg.Fecha.ToString("dd/MM/yyyy") + "</td>" +
-                        "<td> <input id=\"Ver" + seg.idSeg + "\" type= \"submit\" value=\"Ver\" onclick=\"VerSeg("+seg.idSeg+ ")\" class=\"btn btn-secondary\" style=\"width:20%\"/> </td>" +
-                        "<td> <input id=\"mod" + seg.idSeg + "\" type= \"submit\"  onclick=\"Modificar_Click\" class=\"btn btn-secondary\" style=\"width:20%\" value=\"Modificar\"/> </tr>";
+                        "<td> <input id=\"Ver" + seg.idSeg + "\" type= \"submit\" value=\"Ver\" onclick=\"VerSeg("+seg.idSeg+ ")\" class=\"btn btn-secondary\" style=\"width:7rem\"/> </td>" +
+                        "<td> <input id=\"mod" + seg.idSeg + "\" type= \"submit\"  onclick=\"Modificar_Click\" class=\"btn btn-secondary\" style=\"width:7rem\" value=\"Modificar\"/> </tr>";
                 }
 
                 SeguimientoMensual seguim = listaSegNutri.Last<SeguimientoMensual>();
