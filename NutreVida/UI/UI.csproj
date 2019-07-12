@@ -185,10 +185,12 @@
     <Content Include="js\demo\datatables-demo.js" />
     <Content Include="js\dhtmlxscheduler.js" />
     <Content Include="js\dhtmlxscheduler_minical.js" />
+    <Content Include="js\formulas.js" />
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="js\sweetalert28.js" />
     <Content Include="Notificacion.aspx" />
+    <Content Include="Plantilla.pdf" />
     <Content Include="PrimerIngreso.aspx" />
     <Content Include="OlvidoContrasena.aspx" />
     <Content Include="Reportes.aspx" />
@@ -1856,7 +1858,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Doc\Reporte.pdf" />
     <None Include="packages.config" />
     <Content Include="scss\navs\_global.scss" />
     <Content Include="scss\navs\_sidebar.scss" />
@@ -2027,7 +2028,6 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Principal.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="Plantilla.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

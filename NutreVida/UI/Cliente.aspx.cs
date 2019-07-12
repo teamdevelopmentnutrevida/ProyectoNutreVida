@@ -45,10 +45,10 @@ namespace UI
       
         protected void Page_Load(object sender, EventArgs e)
         {
-			if (new ControlSeguridad().validarNutri() == true)
-			{
-				Response.Redirect("~/InicioSesion.aspx");
-			}
+			//if (new ControlSeguridad().validarNutri() == true)
+			//{
+			//	Response.Redirect("~/InicioSesion.aspx");
+			//}
 
 			if (!IsPostBack)
             {
@@ -413,7 +413,7 @@ namespace UI
                 {
                     SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td>" +
                         "<td>" + seg.Fecha.ToString("dd/MM/yyyy")+"</td>"+
-                        "<td> <button runat=\"server\" id=\"ver"+ seg.idSeg +"\" onclick=\"Ver_Click\">Ver</button> </td>" +
+                        "<td> <asp:Button runat=\"server\" ID=\"ver"+ seg.idSeg + "\" OnClick=\"Ver_Click\">Ver</asp:Button> </td>" +
                         "<td> <asp:Button runat=\"server\" ID=\"mod"+ seg.idSeg + "\" OnClick=\"Modificar_Click\" CommandArgument=\"" + seg.idSeg + "\" Text=\"Modificar\"/> </tr>";
                 }
 

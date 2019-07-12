@@ -138,7 +138,7 @@ namespace UI
             edad1 = int.Parse(Edad1);
             edad2 = int.Parse(Edad2);
             
-        }
+		}
 
 	}
 }
