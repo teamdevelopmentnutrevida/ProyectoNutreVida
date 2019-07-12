@@ -116,6 +116,7 @@
     <Content Include="common\controls_styles.css" />
     <Content Include="common\custom.css" />
     <Content Include="common\docs.css" />
+    <Content Include="common\Eventos.json" />
     <Content Include="common\testdata.js" />
     <Content Include="ControlSeguridad.aspx" />
     <Content Include="css\alertify.min.css" />
@@ -189,6 +190,7 @@
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="js\sweetalert28.js" />
     <Content Include="Notificacion.aspx" />
+    <Content Include="Plantilla.pdf" />
     <Content Include="PrimerIngreso.aspx" />
     <Content Include="OlvidoContrasena.aspx" />
     <Content Include="Reportes.aspx" />
@@ -1856,8 +1858,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="common\Eventos.json" />
-    <Content Include="Doc\Reporte.pdf" />
     <None Include="packages.config" />
     <Content Include="scss\navs\_global.scss" />
     <Content Include="scss\navs\_sidebar.scss" />
@@ -2028,7 +2028,6 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Principal.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="Plantilla.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

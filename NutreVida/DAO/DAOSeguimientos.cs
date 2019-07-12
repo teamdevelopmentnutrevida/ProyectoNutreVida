@@ -156,9 +156,9 @@ namespace DAO
                     }
 
                 }
-                String query3 = "Insert into SeguimAntropom values(@idSe,@sEdad, @sTalla, @sCm, @sFecha_SA, @sPeso, @sIMC, @sEdadMetabolica," +
+                String query3 = "Insert into SeguimAntropom values(@idSeg, @sEdad, @sTalla, @sCm, @sFecha_SA, @sPeso, @sIMC, @sEdadMetabolica," +
                     "@sAgua, @sMasaOsea, @sPorcGrasaAnalizador, @sPorcentGViceral, @sPorcGr_Bascula, @sGB_BI, @sGB_BD, @sGB_PI,@sGB_PD, @sGB_Tronco, "+
-                    "@sPorcentMusculo, @sPM_BI, @sPM_bD, @sPM_PI, @sPM_PD, @sPM_Tronco, @sCircunfCintura, @sCadera, @sMusloIzq, @sMusloDer, @sBrazoIzq, @sBrazoDer, "+
+                    "@sPorcentMusculo, @sPM_BI, @sPM_BD, @sPM_PI, @sPM_PD, @sPM_Tronco, @sCircunfCintura, @sCadera, @sMusloIzq, @sMusloDer, @sBrazoIzq, @sBrazoDer, "+
                     "@sPesoIdeal, @sObservaciones)";
                 if (conexion.State != ConnectionState.Open)
                 {
@@ -166,8 +166,9 @@ namespace DAO
                 }
                 SqlCommand cmd3 = new SqlCommand(query3, conexion);
                 TOSeguimientoAntrop segAnt = seguimiento.antrop;
+                int ed = int.Parse(segAnt.Edad+"");
                 cmd3.Parameters.AddWithValue("@idSeg", idSeg);
-                cmd3.Parameters.AddWithValue("@sEdad", segAnt.Edad);
+                cmd3.Parameters.AddWithValue("@sEdad", ed);
                 cmd3.Parameters.AddWithValue("@sTalla", segAnt.Talla);
                 cmd3.Parameters.AddWithValue("@sCm", segAnt.CM);
                 cmd3.Parameters.AddWithValue("@sFecha_SA", segAnt.Fecha_SA);
@@ -184,10 +185,10 @@ namespace DAO
                 cmd3.Parameters.AddWithValue("@sGB_PI", segAnt.GB_PI);
                 cmd3.Parameters.AddWithValue("@sGB_PD", segAnt.GB_PD);
                 cmd3.Parameters.AddWithValue("@sGB_Tronco", segAnt.GB_Tronco);
-                cmd3.Parameters.AddWithValue("@sPorcentMusculo", segAnt.PorcentMusculo); 
-                cmd3.Parameters.AddWithValue("@sPM_BI", segAnt.PM_BI); 
+                cmd3.Parameters.AddWithValue("@sPorcentMusculo", segAnt.PorcentMusculo);
+                cmd3.Parameters.AddWithValue("@sPM_BI", segAnt.PM_BI);
                 cmd3.Parameters.AddWithValue("@sPM_BD", segAnt.PM_BD); 
-                cmd3.Parameters.AddWithValue("@sPM_PI", segAnt.PM_PI); 
+                cmd3.Parameters.AddWithValue("@sPM_PI", segAnt.PM_PI);
                 cmd3.Parameters.AddWithValue("@sPM_PD", segAnt.PM_PD); 
                 cmd3.Parameters.AddWithValue("@sPM_Tronco", segAnt.PM_Tronco); 
                 cmd3.Parameters.AddWithValue("@sCircunfCintura", segAnt.CircunfCintura);
@@ -292,7 +293,7 @@ namespace DAO
                          decimal.Parse(lector3["PorcGr_Bascula"].ToString()),decimal.Parse(lector3["GB_BI"].ToString()), decimal.Parse(lector3["GB_BD"].ToString()),
                          decimal.Parse(lector3["GB_PI"].ToString()), decimal.Parse(lector3["GB_PD"].ToString()), decimal.Parse(lector3["GB_Tronco"].ToString()), 
                         decimal.Parse(lector3["PorcentMusculo"].ToString()), decimal.Parse(lector3["PM_BI"].ToString()), decimal.Parse(lector3["PM_BD"].ToString()),
-                        decimal.Parse(lector3["PM_PI"].ToString()), decimal.Parse(lector3["PM_PD"].ToString()), decimal.Parse(lector3["PM_Troco"].ToString()),
+                        decimal.Parse(lector3["PM_PI"].ToString()), decimal.Parse(lector3["PM_PD"].ToString()), decimal.Parse(lector3["PM_Tronco"].ToString()),
                         decimal.Parse(lector3["CircunfCintura"].ToString()), decimal.Parse(lector3["Cadera"].ToString()), decimal.Parse(lector3["MusloIzq"].ToString()),
                         decimal.Parse(lector3["MusloDer"].ToString()), decimal.Parse(lector3["BrazoIzq"].ToString()), decimal.Parse(lector3["BrazoDer"].ToString()),
                         decimal.Parse(lector3["PesoIdeal"].ToString()), lector3["Observaciones"].ToString());
