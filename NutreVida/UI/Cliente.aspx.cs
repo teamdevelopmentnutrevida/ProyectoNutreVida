@@ -45,12 +45,12 @@ namespace UI
       
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (new ControlSeguridad().validarNutri() == true)
-            //{
-            //	Response.Redirect("~/InicioSesion.aspx");
-            //}
+			if (new ControlSeguridad().validarNutri() == true)
+			{
+				Response.Redirect("~/InicioSesion.aspx");
+			}
 
-            if (!IsPostBack)
+			if (!IsPostBack)
             {
                 CargarDatos();
             }
@@ -573,11 +573,15 @@ namespace UI
         }
 
 
+		/**
+        * Método protegido, accion para generar un pdf con el reporte de la consulta
+        * @param acciones y eventos del boton
+        */
 
 		protected void btnGeneraPDF_Click(object sender, EventArgs e)
 		{
-			string oldFile = "C:/Users/Cristel/Source/Repos/ProyectoNutreVida/NutreVida/UI/Plantilla.pdf";
-			string newFile = "C:/Users/Cristel/Source/Repos/ProyectoNutreVida/NutreVida/UI/Reporte.pdf";
+			string oldFile = "https://nutrevida-001-site1.btempurl.com/Plantilla.pdf";
+			string newFile = "https://nutrevida-001-site1.btempurl.com/Reporte.pdf";
 
 
 			var reader = new PdfReader(oldFile);
@@ -633,57 +637,14 @@ namespace UI
 				}
 			}
 
-
-
-
-
-
-
-			//// open the reader
-			//PdfReader reader = new PdfReader(oldFile);
-			//Rectangle size = reader.GetPageSizeWithRotation(1);
-			//Document document = new Document(size);
-
-			//// open the writer
-			//FileStream fs = new FileStream(newFile, FileMode.Create, FileAccess.Write);
-			//PdfWriter writer = PdfWriter.GetInstance(document, fs);
-			//document.Open();
-
-			//// the pdf content
-			//PdfContentByte cb = writer.DirectContent;
-
-			//// select the font properties
-			//BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-			//cb.SetColorFill(Color.DARK_GRAY);
-			//cb.SetFontAndSize(bf, 8);
-
-			//// write the text in the pdf content
-			//cb.BeginText();
-			//string text = "AQUI VA LA INFO DEL PACIENTE";
-			//// put the alignment and coordinates here
-			//cb.ShowTextAligned(1, text, 250, 370, 0);
-			//cb.EndText();
-			//cb.BeginText();
-			//text = "Other random blabla...";
-			//// put the alignment and coordinates here
-			//cb.ShowTextAligned(2, text, 100, 200, 0);
-			//cb.EndText();
-
-			//// create the new page and add it to the pdf
-			//PdfImportedPage page = writer.GetImportedPage(reader, 1);
-			//cb.AddTemplate(page, 0, 0);
-
-			//// close the streams and voilá the file should be changed :)
-			//document.Close();
-			//fs.Close();
-			//writer.Close();
-			//reader.Close();
-
 			ShowPdf(newFile);
 		}
 
 
-
+		/**
+        * Método privado, para mostrar el pdf
+        * @param strs la ruta del archivo
+        */
 		private void ShowPdf(string strS)
 		{
 			Response.ClearContent();
@@ -699,55 +660,3 @@ namespace UI
 
 	}
 }
-
-//StringWriter sw = new StringWriter();
-//string html = sw.ToString();
-
-//HtmlTextWriter htmlTextWriter = new HtmlTextWriter(sw);
-//txtAbdomen.RenderControl(htmlTextWriter);
-//StringReader stringReader = new StringReader(sw.ToString());
-
-//Document Doc = new Document();
-
-//PdfWriter.GetInstance
-//(Doc, new FileStream(Environment.GetFolderPath
-//(Environment.SpecialFolder.Desktop)
-//+ "\\Prueba.pdf", FileMode.Create));
-//Doc.Open();
-
-//HTMLWorker htmlparser = new HTMLWorker(Doc);
-//htmlparser.Parse(stringReader);
-
-//Chunk c = new Chunk
-//("Prueba de un Documento en PDF \n", FontFactory.GetFont("Verdana", 15));
-
-//Paragraph p = new Paragraph();
-//p.Alignment = Element.ALIGN_CENTER;
-//p.Add(c);
-
-//BaseFont bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
-//Font times = new Font(bfTimes, 12, Font.ITALIC, Color.RED);
-//Font times2 = new Font(bfTimes, 12, Font.NORMAL, Color.BLACK);
-
-//Chunk chunk1 = new Chunk
-//("\nEste es un parrafo (p1) alineado a la derecha, con letra cursiva y de color rojo. \n\n", times);
-//Paragraph p1 = new Paragraph();
-
-//p1.Alignment = Element.ALIGN_RIGHT;
-//p1.Add(chunk1);
-
-//Chunk chunk2 = new Chunk
-//("Este es un parrafo (p2) con letra normal, color negro, en el que estamos concatenando este texto un texto extraido de un textbox, que dice HOLAAAAAAAAAAAAA'", times2);
-//Paragraph p2 = new Paragraph();
-
-//p2.Alignment = Element.ALIGN_JUSTIFIED;
-//p2.Add(chunk2);
-
-//Doc.Add(p);
-//Doc.Add(p1);
-//Doc.Add(p2);
-
-//System.Xml.XmlTextReader xmlReader = new System.Xml.XmlTextReader(new StringReader(html));
-//HtmlParser.Parse(Doc, xmlReader);
-
-//Doc.Close();
