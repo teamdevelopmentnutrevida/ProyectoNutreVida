@@ -1766,6 +1766,7 @@
     <Content Include="vendor\jquery\jquery.min.js" />
     <Content Include="vendor\jquery\jquery.slim.js" />
     <Content Include="vendor\jquery\jquery.slim.min.js" />
+    <Content Include="VerSeguimiento.aspx" />
     <Content Include="Web.config" />
     <Content Include="Agenda.aspx" />
     <Content Include="WebForm2.aspx" />
@@ -1848,6 +1849,13 @@
     </Compile>
     <Compile Include="Agenda.aspx.designer.cs">
       <DependentUpon>Agenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerSeguimiento.aspx.cs">
+      <DependentUpon>VerSeguimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerSeguimiento.aspx.designer.cs">
+      <DependentUpon>VerSeguimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
@@ -2030,6 +2038,7 @@
     <Content Include="Principal.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Reporte.pdf" />
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

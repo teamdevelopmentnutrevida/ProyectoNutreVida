@@ -54,6 +54,8 @@ namespace UI
             {
                 CargarDatos();
             }
+            
+           
         }
         
         /**
@@ -411,10 +413,11 @@ namespace UI
             {
                 foreach (SeguimientoMensual seg in listaSegNutri)
                 {
+
                     SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td>" +
-                        "<td>" + seg.Fecha.ToString("dd/MM/yyyy")+"</td>"+
-                        "<td> <input id=\"Ver"+seg.idSeg+"\" type= \"submit\" value=\"Ver\" onserverclick=\"Ver_Click\" runat=\"server\" /> </td>" +
-                        "<td> <button runat=\"server\" id=\"mod"+ seg.idSeg + "\" onclick=\"Modificar_Click\" >Modificar</button> </tr>";
+                        "<td>" + seg.Fecha.ToString("dd/MM/yyyy") + "</td>" +
+                        "<td> <input id=\"Ver" + seg.idSeg + "\" type= \"submit\" value=\"Ver\" onclick=\"VerSeg("+seg.idSeg+ ")\" class=\"btn btn-secondary\" style=\"width:7rem\"/> </td>" +
+                        "<td> <input id=\"mod" + seg.idSeg + "\" type= \"submit\"  onclick=\"Modificar_Click\" class=\"btn btn-secondary\" style=\"width:7rem\" value=\"Modificar\"/> </tr>";
                 }
 
                 SeguimientoMensual seguim = listaSegNutri.Last<SeguimientoMensual>();
@@ -491,7 +494,28 @@ namespace UI
 
         protected void MedicButton_Click(object sender, EventArgs e)
         {
+            if (tNomMed.Text.Equals("") || tMotvMed.Text.Equals("") || tFrecMed.Text.Equals("") || tDosisMed.Text.Equals(""))
+            {
+                Response.Write("<script>alert('No deben haber espacios en blanco')</script>");
+            }
+            else
+            {
+                Medicamento medicamSupl = new Medicamento();
+                string tabla = tSuplementoMedico.Text;
+                tabla += "<tr><td>" + tNomMed.Text + "</td><td>" + tMotvMed.Text + "</td><td>" + tFrecMed.Text + "</td><td>" + tDosisMed.Text + "</td></tr>";
+                tSuplementoMedico.Text = tabla;
 
+                medicamSupl.Nombre = tNomMed.Text;
+                medicamSupl.Motivo = tMotvMed.Text;
+                medicamSupl.Frecuencia = tFrecMed.Text;
+                medicamSupl.Dosis = tDosisMed.Text;
+               // ListaMedicamSuplem.Add(medicamSupl);  //Falta Guardar
+
+                tNomMed.Text = "";
+                tMotvMed.Text = "";
+                tFrecMed.Text = "";
+                tDosisMed.Text = "";
+            }
         }
 
         protected void GuardarSeguimNutri_Click(object sender, EventArgs e)
@@ -563,10 +587,10 @@ namespace UI
 
         }
 
-
-        protected void Ver_Click(object sender, EventArgs e)
+        [System.Web.Services.WebMethod(EnableSession = true)]
+        public static void Ver_Click(string idS)
         {
-            
+            HttpContext.Current.Session["idSeguimiento"] = idS;
         }
         protected void Modificar_Click(object sender, EventArgs e)
         {
