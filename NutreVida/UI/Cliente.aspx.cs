@@ -580,8 +580,8 @@ namespace UI
 
         protected void btnGeneraPDF_Click(object sender, EventArgs e)
 		{
-			string oldFile = Server.MapPath("~/Plantilla.pdf");
-			string newFile = Server.MapPath("~/Reporte.pdf");
+			string oldFile = Server.MapPath("/Plantilla.pdf");
+			string newFile = Server.MapPath("/Reporte.pdf");
 
 
 			var reader = new PdfReader(oldFile);
