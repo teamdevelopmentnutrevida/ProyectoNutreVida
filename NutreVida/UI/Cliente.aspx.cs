@@ -5,13 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualBasic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -74,6 +68,7 @@ namespace UI
             CargarAntropometría();
             CargarSeguimientoSemanal();
             CargarSeguimientoNutricional();
+            CargarAnterior();
         }
 
         /**
@@ -451,38 +446,40 @@ namespace UI
                         }
                     }
                 }
-
-                AntSAFech.Text = anterior.antrop.Fecha_SA + "";
-                AntSAEdad.Text = anterior.antrop.Edad + "";
-                AntSATalla.Text = anterior.antrop.Talla + "";
-                AntSACM.Text = anterior.antrop.CM + "";
-                AntSAPeso.Text = anterior.antrop.Peso + "";
-                AntSAIMC.Text = anterior.antrop.IMC + "";
-                AntSAAgua.Text = anterior.antrop.Agua + "";
-                AntSAMasaOsea.Text = anterior.antrop.MasaOsea + "";
-                AntSAEddMet.Text = anterior.antrop.EdadMetabolica + "";
-                AntSAGrAnaliz.Text = anterior.antrop.PorcGrasaAnalizador + "";
-                AntSAGrBasc.Text = anterior.antrop.PorcGr_Bascula + "";
-                AntSAGBBI.Text = anterior.antrop.GB_BI + "";
-                AntSAGBBD.Text = anterior.antrop.GB_BD + "";
-                AntSAGBPI.Text = anterior.antrop.GB_PI + "";
-                AntSAGBPD.Text = anterior.antrop.GB_PD + "";
-                AntSAGBTronco.Text = anterior.antrop.GB_Tronco + "";
-                AntSAGrVisc.Text = anterior.antrop.PorcentGViceral + "";
-                AntSAPorMusc.Text = anterior.antrop.PorcentMusculo + "";
-                AntSAPMBI.Text = anterior.antrop.PM_BI + "";
-                AntSAPMBD.Text = anterior.antrop.PM_BD + "";
-                AntSAPMPI.Text = anterior.antrop.PM_PI + "";
-                AntSAPMPD.Text = anterior.antrop.PM_PD + "";
-                AntSAPMTronco.Text = anterior.antrop.PM_Tronco + "";
-                AntSACircunfCint.Text = anterior.antrop.CircunfCintura + "";
-                AntSACadera.Text = anterior.antrop.Cadera + "";
-                AntSAMusIza.Text = anterior.antrop.MusloIzq + "";
-                AntSAMusDer.Text = anterior.antrop.MusloDer + "";
-                AntSABrazIzq.Text = anterior.antrop.BrazoIzq + "";
-                AntSABrazDer.Text = anterior.antrop.BrazoDer + "";
-                AntSAPesoMet.Text = anterior.antrop.PesoIdeal + "";
-                AntSNObserv.Text = anterior.antrop.Observaciones;
+                if (anterior.antrop != null)
+                {
+                    AntSAFech.Text = anterior.antrop.Fecha_SA + "";
+                    AntSAEdad.Text = anterior.antrop.Edad + "";
+                    AntSATalla.Text = anterior.antrop.Talla + "";
+                    AntSACM.Text = anterior.antrop.CM + "";
+                    AntSAPeso.Text = anterior.antrop.Peso + "";
+                    AntSAIMC.Text = anterior.antrop.IMC + "";
+                    AntSAAgua.Text = anterior.antrop.Agua + "";
+                    AntSAMasaOsea.Text = anterior.antrop.MasaOsea + "";
+                    AntSAEddMet.Text = anterior.antrop.EdadMetabolica + "";
+                    AntSAGrAnaliz.Text = anterior.antrop.PorcGrasaAnalizador + "";
+                    AntSAGrBasc.Text = anterior.antrop.PorcGr_Bascula + "";
+                    AntSAGBBI.Text = anterior.antrop.GB_BI + "";
+                    AntSAGBBD.Text = anterior.antrop.GB_BD + "";
+                    AntSAGBPI.Text = anterior.antrop.GB_PI + "";
+                    AntSAGBPD.Text = anterior.antrop.GB_PD + "";
+                    AntSAGBTronco.Text = anterior.antrop.GB_Tronco + "";
+                    AntSAGrVisc.Text = anterior.antrop.PorcentGViceral + "";
+                    AntSAPorMusc.Text = anterior.antrop.PorcentMusculo + "";
+                    AntSAPMBI.Text = anterior.antrop.PM_BI + "";
+                    AntSAPMBD.Text = anterior.antrop.PM_BD + "";
+                    AntSAPMPI.Text = anterior.antrop.PM_PI + "";
+                    AntSAPMPD.Text = anterior.antrop.PM_PD + "";
+                    AntSAPMTronco.Text = anterior.antrop.PM_Tronco + "";
+                    AntSACircunfCint.Text = anterior.antrop.CircunfCintura + "";
+                    AntSACadera.Text = anterior.antrop.Cadera + "";
+                    AntSAMusIza.Text = anterior.antrop.MusloIzq + "";
+                    AntSAMusDer.Text = anterior.antrop.MusloDer + "";
+                    AntSABrazIzq.Text = anterior.antrop.BrazoIzq + "";
+                    AntSABrazDer.Text = anterior.antrop.BrazoDer + "";
+                    AntSAPesoMet.Text = anterior.antrop.PesoIdeal + "";
+                    AntSNObserv.Text = anterior.antrop.Observaciones;
+                }
             }
         }
         

@@ -205,8 +205,9 @@ namespace DAO
 
                 return true;
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
+                Console.Write(e.ToString());
                 return false;
             }
         }
