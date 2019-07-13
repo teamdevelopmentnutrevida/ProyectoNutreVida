@@ -8,10 +8,19 @@ using System.Data;
 
 namespace DAO
 {
+
+    /**
+   * Clase que permite la conexión con la base de datos para cambiar los datos dle administrador.
+   * @author Cristel
+   */
     public class DAOCambioDatosAdministrador
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
 
+        /**
+       * Método público que permite la conexión con la base de datos para almacenar los nuevos datos del administrador
+       * @param clave string
+       */
         public void cambiarClave(String clave) {
             String query = "update Login set clave = @clave";
 
