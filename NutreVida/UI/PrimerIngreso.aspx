@@ -26,7 +26,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form3" runat="server">
         <div class="container">
-            <h2>Información Personal</h2>
+            <div class="row">
+                <h1 class="h3 mb-2 text-gray-800">Información Personal</h1>
+            </div>
             <br />
 
             <%--<h5>Habitos Alimentarios:</h5>--%>
@@ -375,9 +377,9 @@
                             <div class="row">
                                 <div class="col-form-label">
                                     <label class="form-label" for="tEdad">Edad:</label>
-                                    <asp:TextBox step="any" ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad" Enabled="False"></asp:TextBox>
+                                    <asp:TextBox step="any" ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad" ></asp:TextBox>
                                     <label class="form-label" for="tTalla">Talla: </label>
-                                    <asp:TextBox step="any" onBlur="validarIMC(); validarGEB(); validarPesoIdeal()" ID="txtTalla" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Talla"></asp:TextBox>
+                                    <asp:TextBox step="any" onBlur="validarIMC(); validarPesoIdeal(); validarGEB()" ID="txtTalla" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Talla"></asp:TextBox>
                                     <label class="form-label" for="tPesoActual">Peso Actual:</label>
                                     <asp:TextBox step="any" onBlur="validarIMC()" ID="txtPesoActual" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso actual"></asp:TextBox>
                                     <label class="form-label" for="tPesoMaxTeoria">Peso máximo en teoría:</label>
@@ -389,7 +391,7 @@
                                     <label class="form-label" for="tCintura">Cintura:</label>
                                     <asp:TextBox step="any" ID="txtCintura" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cintura"></asp:TextBox>
                                     <label class="form-label" for="tAbdm">Abdomen:</label>
-                                    <asp:TextBox step="any" ID="txtAbdomen" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Abdomen"></asp:TextBox>                                    
+                                    <asp:TextBox step="any" ID="txtAbdomen" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Abdomen"></asp:TextBox>
                                 </div>
                                 <div class="col-1"></div>
                                 <div class="col-form-label">
@@ -434,7 +436,7 @@
                                     <label class="form-label" for="tCircunfMun">Circunferencia muñeca: </label>
                                     <asp:TextBox step="any" ID="txtCircunferencia" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Circunferencia de la muñeca"></asp:TextBox>
                                     <label class="form-label" for="tIMC">IMC:</label>
-                                    <asp:TextBox step="any" Enabled="False" ID="txtIMC" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="IMC"></asp:TextBox>
+                                    <asp:TextBox step="any"  ID="txtIMC" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="IMC"></asp:TextBox>
                                     <label class="form-label" for="tPorcentMusculo">% Músculo:</label>
                                     <asp:TextBox step="any" ID="txtPorcentaje" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Músculo"></asp:TextBox>
                                     <label class="form-label" for="tPM_BI">BI: </label>
@@ -712,7 +714,7 @@
                             document.getElementById(t.id).options[7].value = Muy_pesado_M;
                         }
 
-                        
+
                     }
 
                 </script>

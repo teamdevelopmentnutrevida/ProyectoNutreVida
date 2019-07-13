@@ -54,84 +54,8 @@ namespace UI
             {
                 CargarDatos();
             }
-
-            ClientScript.GetPostBackEventReference(this, string.Empty);
-
-            if (IsPostBack)
-            {
-                if (Page.Request.Params["__EVENTTARGET"] == "IdSeguimiento")
-                {
-                    string datos = Page.Request.Params["__EVENTARGUMENT"].ToString();
-                    foreach(SeguimientoMensual s in listaSegNutri)
-                    {
-                        if (s.idSeg.Equals(datos))
-                        {
-                            VerDiasEjercSem.Text = s.nutri.DiasEjercicio;
-                            VerComExt.Text = s.nutri.ComidaExtra;
-                            VerAnsied.Text = s.nutri.NivelAnsiedad;
-
-                            foreach (SeguimientoRecordat24H rec in s.record)
-                            {if (rec.TiempoComida.Equals("Ayunas")) { VerAyunHora.Text = rec.Hora; VerAyunDescr.Text = rec.Descripcion; }
-                                else{if (rec.TiempoComida.Equals("Desayuno")) { VerDesHora.Text = rec.Hora; VerDesDescrp.Text = rec.Descripcion; }
-                                    else { if (rec.TiempoComida.Equals("Media Mañana")) { VerMedManHora.Text = rec.Hora; VerMedManDesc.Text = rec.Descripcion; }
-                                        else{ if (rec.TiempoComida.Equals("Almuerzo")) { VerAlmHora.Text = rec.Hora; VerAlmDesc.Text = rec.Descripcion; }
-                                            else{if (rec.TiempoComida.Equals("Media Tarde")) { VerMedTarHora.Text = rec.Hora; VerMedTarDesc.Text = rec.Descripcion; }
-                                                else {if (rec.TiempoComida.Equals("Cena")) { VerCenaHora.Text = rec.Hora; VerCenaDesc.Text = rec.Descripcion; }
-                                                    else {if (rec.TiempoComida.Equals("Colación Nocturna")) { VerColNocHora.Text = rec.Hora; VerColNocDesc.Text = rec.Descripcion; }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-
-                        }
-                        if (s.antrop != null)
-                        {
-                            VerSAFech.Text = s.antrop.Fecha_SA + "";
-                            VerSAEdad.Text = s.antrop.Edad + "";
-                            VerSATalla.Text = s.antrop.Talla + "";
-                            VerSACM.Text = s.antrop.CM + "";
-                            VerSAPeso.Text = s.antrop.Peso + "";
-                            VerSAIMC.Text = s.antrop.IMC + "";
-                            VerSAAgua.Text = s.antrop.Agua + "";
-                            VerSAMasaOsea.Text = s.antrop.MasaOsea + "";
-                            VerSAEddMet.Text = s.antrop.EdadMetabolica + "";
-                            VerSAGrAnaliz.Text = s.antrop.PorcGrasaAnalizador + "";
-                            VerSAGrBasc.Text = s.antrop.PorcGr_Bascula + "";
-                            VerSAGBBI.Text = s.antrop.GB_BI + "";
-                            VerSAGBBD.Text = s.antrop.GB_BD + "";
-                            VerSAGBPI.Text = s.antrop.GB_PI + "";
-                            VerSAGBPD.Text = s.antrop.GB_PD + "";
-                            VerSAGBTronco.Text = s.antrop.GB_Tronco + "";
-                            VerSAGrVisc.Text = s.antrop.PorcentGViceral + "";
-                            VerSAPorMusc.Text = s.antrop.PorcentMusculo + "";
-                            VerSAPMBI.Text = s.antrop.PM_BI + "";
-                            VerSAPMBD.Text = s.antrop.PM_BD + "";
-                            VerSAPMPI.Text = s.antrop.PM_PI + "";
-                            VerSAPMPD.Text = s.antrop.PM_PD + "";
-                            VerSAPMTronco.Text = s.antrop.PM_Tronco + "";
-                            VerSACircunfCint.Text = s.antrop.CircunfCintura + "";
-                            VerSACadera.Text = s.antrop.Cadera + "";
-                            VerSAMusIzq.Text = s.antrop.MusloIzq + "";
-                            VerSAMusDer.Text = s.antrop.MusloDer + "";
-                            VerSABrazIzq.Text = s.antrop.BrazoIzq + "";
-                            VerSABrazDer.Text = s.antrop.BrazoDer + "";
-                            VerSAPesoMet.Text = s.antrop.PesoIdeal + "";
-                            VerSNObserv.Text = s.antrop.Observaciones;
-                        }
-                    }
-                   
-
-
-                }
-            }
-            else
-            {
-                Session.Remove("Rutina");
-            }
+            
+           
         }
         
         /**
@@ -492,8 +416,8 @@ namespace UI
 
                     SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td>" +
                         "<td>" + seg.Fecha.ToString("dd/MM/yyyy") + "</td>" +
-                        "<td> <input id=\"Ver" + seg.idSeg + "\" type= \"submit\" value=\"Ver\" onclick=\"VerSeg("+seg.idSeg+")\" /> </td>" +
-                        "<td> <button runat=\"server\" id=\"mod" + seg.idSeg + "\" onclick=\"Modificar_Click\" >Modificar</button> </tr>";
+                        "<td> <input id=\"Ver" + seg.idSeg + "\" type= \"submit\" value=\"Ver\" onclick=\"VerSeg("+seg.idSeg+ ")\" class=\"btn btn-secondary\" style=\"width:7rem\"/> </td>" +
+                        "<td> <input id=\"mod" + seg.idSeg + "\" type= \"submit\"  onclick=\"Modificar_Click\" class=\"btn btn-secondary\" style=\"width:7rem\" value=\"Modificar\"/> </tr>";
                 }
 
                 SeguimientoMensual seguim = listaSegNutri.Last<SeguimientoMensual>();
@@ -570,7 +494,28 @@ namespace UI
 
         protected void MedicButton_Click(object sender, EventArgs e)
         {
+            if (tNomMed.Text.Equals("") || tMotvMed.Text.Equals("") || tFrecMed.Text.Equals("") || tDosisMed.Text.Equals(""))
+            {
+                Response.Write("<script>alert('No deben haber espacios en blanco')</script>");
+            }
+            else
+            {
+                Medicamento medicamSupl = new Medicamento();
+                string tabla = tSuplementoMedico.Text;
+                tabla += "<tr><td>" + tNomMed.Text + "</td><td>" + tMotvMed.Text + "</td><td>" + tFrecMed.Text + "</td><td>" + tDosisMed.Text + "</td></tr>";
+                tSuplementoMedico.Text = tabla;
 
+                medicamSupl.Nombre = tNomMed.Text;
+                medicamSupl.Motivo = tMotvMed.Text;
+                medicamSupl.Frecuencia = tFrecMed.Text;
+                medicamSupl.Dosis = tDosisMed.Text;
+               // ListaMedicamSuplem.Add(medicamSupl);  //Falta Guardar
+
+                tNomMed.Text = "";
+                tMotvMed.Text = "";
+                tFrecMed.Text = "";
+                tDosisMed.Text = "";
+            }
         }
 
         protected void GuardarSeguimNutri_Click(object sender, EventArgs e)
@@ -642,10 +587,10 @@ namespace UI
 
         }
 
-
-        protected void Ver_Click(object sender, EventArgs e)
+        [System.Web.Services.WebMethod(EnableSession = true)]
+        public static void Ver_Click(string idS)
         {
-            Response.Write("<script>window.alert('EntraVer');</script>");
+            HttpContext.Current.Session["idSeguimiento"] = idS;
         }
         protected void Modificar_Click(object sender, EventArgs e)
         {
@@ -695,7 +640,7 @@ namespace UI
 							contentByte.BeginText();
 							string nombre = "Nombre: " + txtNombre.Text;
 							string fecha = "Fecha: " + System.DateTime.Today.ToShortDateString();
-							string peso = "Peso: " + txtPesoActual.Text;
+							string peso = "Peso: " + txtPesoActual.Text + " Kg";
 							string imc = "IMC: " + txtIMC.Text;
 							string grasa = "% Grasa: " + txtPorcGrasas.Text + "%";
 							// put the alignment and coordinates here

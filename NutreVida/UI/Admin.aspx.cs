@@ -29,11 +29,21 @@ namespace UI
 		{
 			BLLogin usuar = (BLLogin)Session["usuario"];
 			string correo = usuar.correo;
+			string contrActual = usuar.contras;
 			string contras = "";
-			contras = txtContra.Text;
-			usuarioLogin.ModifUsuario(correo,contras);
-			Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien', 'Contraseña modificada correctamente')", true);
+			contras = txtcontraAct.Text;
+			string contraNueva = txtContra.Text;
 
+			if (usuarioLogin.buscarUsuario(correo, contras) == null)
+			{
+				Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', 'Contraseña actual incorrecta')", true);
+				return;
+			}
+			else {
+
+				usuarioLogin.ModifUsuario(correo, contraNueva);
+				Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien', 'Contraseña modificada correctamente')", true);
+			}
 		}
 
 		protected void btnGuardar_Click(object sender, EventArgs e)

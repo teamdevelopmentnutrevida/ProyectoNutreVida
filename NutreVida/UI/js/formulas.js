@@ -10,9 +10,8 @@
 
         if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
             edad--;
-
-            document.getElementById('ContentPlaceHolder1_txtEdad').value = edad;
         }
+            document.getElementById('ContentPlaceHolder1_txtEdad').value = edad;
     }
 
 }

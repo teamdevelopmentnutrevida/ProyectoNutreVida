@@ -24,14 +24,14 @@ namespace UI
 			//}
 
 			CargarLista();
-			//Fecha.Text = "Fecha del Servidor: " + DateTime.Now;
 		}
+
 
 
 		private void CargarLista()
 		{
 			DateTime hoy = DateTime.Now.Date;
-			String msj = "Recordatorio de pago";
+			String msj = "Buenas, es para confirmar su evaluación de nutrición. Recuerde no comer ni beber 1 hora antes y asistir con ropa liviana.. Se le recuerda que este día ya corresponde el pago de mensualidad. Saludos!";
 			LitListaCliente.Text = "";
 			lista = manejador.ListaClientes();
 			if (lista != null)
@@ -43,11 +43,10 @@ namespace UI
 					DateTime mensual = c.FechaIngreso.Date;
 					if (mensual >= hoy)
 					{
-						//est = "<a href =\"\" onclick=\"Eliminar_Click(" + c.Nombre + c.Apellido1 + ")\">Deshabilitar</a></td>";
 						LitListaCliente.Text += "<tr>" +
 					   "<td><a>" + c.Nombre + " " + c.Apellido1 + "</a></td>" +
 							"<td>" + c.FechaIngreso + "</td>" +
-						"<td>" + "<a href=\"https://wa.me/506" + c.Telefono + "?text=" + msj + "\">Enviar Mensaje</a> </td></tr>";
+						"<td>" + "<a target=\"_blank\" href=\"https://wa.me/506" + c.Telefono + "?text=" + msj + "\">Enviar Mensaje</a> </td></tr>";
 					}
 
 				}

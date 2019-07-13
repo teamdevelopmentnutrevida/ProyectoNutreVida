@@ -10,429 +10,456 @@
 namespace UI {
     
     
-    public partial class WebForm2 {
+    public partial class VerSeguimiento {
         
         /// <summary>
-        /// form1 control.
+        /// form3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form3;
         
         /// <summary>
-        /// GuardarSeguimNutri control.
+        /// VerDiasEjercSem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GuardarSeguimNutri;
+        protected global::System.Web.UI.WebControls.TextBox VerDiasEjercSem;
         
         /// <summary>
-        /// SAntDiasEjeSem control.
+        /// VerComExt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntDiasEjeSem;
+        protected global::System.Web.UI.WebControls.TextBox VerComExt;
         
         /// <summary>
-        /// SAntComExtra control.
+        /// VerAnsied control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntComExtra;
+        protected global::System.Web.UI.WebControls.TextBox VerAnsied;
         
         /// <summary>
-        /// SAntNivAnsiedad control.
+        /// VerAyunHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntNivAnsiedad;
+        protected global::System.Web.UI.WebControls.TextBox VerAyunHora;
         
         /// <summary>
-        /// SAntAyunHora control.
+        /// VerAyunDescr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntAyunHora;
+        protected global::System.Web.UI.WebControls.TextBox VerAyunDescr;
         
         /// <summary>
-        /// SAntAyunDescrip control.
+        /// VerDesHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntAyunDescrip;
+        protected global::System.Web.UI.WebControls.TextBox VerDesHora;
         
         /// <summary>
-        /// SAntDesAyunHora control.
+        /// VerDesDescrp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntDesAyunHora;
+        protected global::System.Web.UI.WebControls.TextBox VerDesDescrp;
         
         /// <summary>
-        /// SAntDesAyunDescrip control.
+        /// VerMedManHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntDesAyunDescrip;
+        protected global::System.Web.UI.WebControls.TextBox VerMedManHora;
         
         /// <summary>
-        /// SAntMedManHora control.
+        /// VerMedManDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntMedManHora;
+        protected global::System.Web.UI.WebControls.TextBox VerMedManDesc;
         
         /// <summary>
-        /// SAntMedManDescrip control.
+        /// VerAlmHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntMedManDescrip;
+        protected global::System.Web.UI.WebControls.TextBox VerAlmHora;
         
         /// <summary>
-        /// SAntAlmHora control.
+        /// VerAlmDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntAlmHora;
+        protected global::System.Web.UI.WebControls.TextBox VerAlmDesc;
         
         /// <summary>
-        /// SAntAlmDescrip control.
+        /// VerMedTarHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntAlmDescrip;
+        protected global::System.Web.UI.WebControls.TextBox VerMedTarHora;
         
         /// <summary>
-        /// SAntMedTardHora control.
+        /// VerMedTarDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntMedTardHora;
+        protected global::System.Web.UI.WebControls.TextBox VerMedTarDesc;
         
         /// <summary>
-        /// SAntMedTardDescrip control.
+        /// VerCenaHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntMedTardDescrip;
+        protected global::System.Web.UI.WebControls.TextBox VerCenaHora;
         
         /// <summary>
-        /// SAntCenaHora control.
+        /// VerCenaDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntCenaHora;
+        protected global::System.Web.UI.WebControls.TextBox VerCenaDesc;
         
         /// <summary>
-        /// SAntCenaDescrip control.
+        /// VerColNocHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntCenaDescrip;
+        protected global::System.Web.UI.WebControls.TextBox VerColNocHora;
         
         /// <summary>
-        /// SAntColNoctHora control.
+        /// VerColNocDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntColNoctHora;
+        protected global::System.Web.UI.WebControls.TextBox VerColNocDesc;
         
         /// <summary>
-        /// SAntColNoctDescrip control.
+        /// VerSAFech control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SAntColNoctDescrip;
+        protected global::System.Web.UI.WebControls.TextBox VerSAFech;
         
         /// <summary>
-        /// TextBox24 control.
+        /// VerSAEdad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox24;
+        protected global::System.Web.UI.WebControls.TextBox VerSAEdad;
         
         /// <summary>
-        /// TextBox25 control.
+        /// VerSATalla control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox25;
+        protected global::System.Web.UI.WebControls.TextBox VerSATalla;
         
         /// <summary>
-        /// TextBox26 control.
+        /// VerSACM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox26;
+        protected global::System.Web.UI.WebControls.TextBox VerSACM;
         
         /// <summary>
-        /// TextBox27 control.
+        /// VerSAPeso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox27;
+        protected global::System.Web.UI.WebControls.TextBox VerSAPeso;
         
         /// <summary>
-        /// TextBox28 control.
+        /// VerSAIMC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox28;
+        protected global::System.Web.UI.WebControls.TextBox VerSAIMC;
         
         /// <summary>
-        /// TextBox29 control.
+        /// VerSAAgua control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox29;
+        protected global::System.Web.UI.WebControls.TextBox VerSAAgua;
         
         /// <summary>
-        /// TextBox30 control.
+        /// VerSAMasaOsea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox30;
+        protected global::System.Web.UI.WebControls.TextBox VerSAMasaOsea;
         
         /// <summary>
-        /// TextBox31 control.
+        /// VerSAEddMet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox31;
+        protected global::System.Web.UI.WebControls.TextBox VerSAEddMet;
         
         /// <summary>
-        /// TextBox32 control.
+        /// VerSAGrAnaliz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox32;
+        protected global::System.Web.UI.WebControls.TextBox VerSAGrAnaliz;
         
         /// <summary>
-        /// TextBox33 control.
+        /// VerSAGrBasc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox33;
+        protected global::System.Web.UI.WebControls.TextBox VerSAGrBasc;
         
         /// <summary>
-        /// TextBox34 control.
+        /// VerSAGBBI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox34;
+        protected global::System.Web.UI.WebControls.TextBox VerSAGBBI;
         
         /// <summary>
-        /// TextBox35 control.
+        /// VerSAGBBD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox35;
+        protected global::System.Web.UI.WebControls.TextBox VerSAGBBD;
         
         /// <summary>
-        /// TextBox36 control.
+        /// VerSAGBPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox36;
+        protected global::System.Web.UI.WebControls.TextBox VerSAGBPI;
         
         /// <summary>
-        /// TextBox37 control.
+        /// VerSAGBPD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox37;
+        protected global::System.Web.UI.WebControls.TextBox VerSAGBPD;
         
         /// <summary>
-        /// TextBox38 control.
+        /// VerSAGBTronco control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox38;
+        protected global::System.Web.UI.WebControls.TextBox VerSAGBTronco;
         
         /// <summary>
-        /// TextBox39 control.
+        /// VerSAGrVisc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox39;
+        protected global::System.Web.UI.WebControls.TextBox VerSAGrVisc;
         
         /// <summary>
-        /// TextBox40 control.
+        /// VerSAPorMusc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox40;
+        protected global::System.Web.UI.WebControls.TextBox VerSAPorMusc;
         
         /// <summary>
-        /// TextBox41 control.
+        /// VerSAPMBI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox41;
+        protected global::System.Web.UI.WebControls.TextBox VerSAPMBI;
         
         /// <summary>
-        /// TextBox42 control.
+        /// VerSAPMBD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox42;
+        protected global::System.Web.UI.WebControls.TextBox VerSAPMBD;
         
         /// <summary>
-        /// TextBox43 control.
+        /// VerSAPMPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox43;
+        protected global::System.Web.UI.WebControls.TextBox VerSAPMPI;
         
         /// <summary>
-        /// TextBox44 control.
+        /// VerSAPMPD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox44;
+        protected global::System.Web.UI.WebControls.TextBox VerSAPMPD;
         
         /// <summary>
-        /// TextBox45 control.
+        /// VerSAPMTronco control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox45;
+        protected global::System.Web.UI.WebControls.TextBox VerSAPMTronco;
         
         /// <summary>
-        /// TextBox46 control.
+        /// VerSACircunfCint control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox46;
+        protected global::System.Web.UI.WebControls.TextBox VerSACircunfCint;
         
         /// <summary>
-        /// TextBox47 control.
+        /// VerSACadera control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox47;
+        protected global::System.Web.UI.WebControls.TextBox VerSACadera;
         
         /// <summary>
-        /// TextBox48 control.
+        /// VerSAMusIzq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox48;
+        protected global::System.Web.UI.WebControls.TextBox VerSAMusIzq;
         
         /// <summary>
-        /// TextBox49 control.
+        /// VerSAMusDer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox49;
+        protected global::System.Web.UI.WebControls.TextBox VerSAMusDer;
         
         /// <summary>
-        /// TextBox50 control.
+        /// VerSABrazIzq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox50;
+        protected global::System.Web.UI.WebControls.TextBox VerSABrazIzq;
         
         /// <summary>
-        /// TextBox51 control.
+        /// VerSABrazDer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox51;
+        protected global::System.Web.UI.WebControls.TextBox VerSABrazDer;
+        
+        /// <summary>
+        /// VerSAPesoMet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox VerSAPesoMet;
+        
+        /// <summary>
+        /// VerSNObserv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox VerSNObserv;
+        
+        /// <summary>
+        /// btnAtras control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAtras;
     }
 }
