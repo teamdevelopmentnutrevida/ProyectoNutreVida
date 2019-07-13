@@ -710,7 +710,7 @@ namespace UI
 
                             SeguimientoMensual segM = listaSegNutri.Last<SeguimientoMensual>();
 
-                            string nombre = "Nombre: " + txtNombre.Text;
+                            string nombre = "Nombre: " + txtNombre.Text + " " + txtPrimerApellido.Text + " " + txtSegundoApellido.Text;
 							string fecha = "Fecha: " + System.DateTime.Today.ToShortDateString();
 							string peso = "Peso: " + segM.antrop.Peso + " Kg";
 							string imc = "IMC: " + segM.antrop.IMC;

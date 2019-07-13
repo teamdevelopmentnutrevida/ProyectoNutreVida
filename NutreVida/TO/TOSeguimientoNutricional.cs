@@ -18,6 +18,10 @@ namespace TO
         public string ComidaExtra { set; get; }
         public string NivelAnsiedad { set; get; }
 
+        /**
+        * Método publico constructor que crea el objeto del seguimiento, 
+        * contiene el identificador del seguimiento.
+        */
         public TOSeguimientoNutricional(string cedula, string diasEjercicio, string comidaExtra, string nivelAnsiedad)
         {
             Cedula = cedula;
@@ -26,6 +30,9 @@ namespace TO
             NivelAnsiedad = nivelAnsiedad;
         }
 
+        /**
+        * Método publico constructor vacío que crea una instancia del objeto .
+        */
         public TOSeguimientoNutricional() { }
     }
 }

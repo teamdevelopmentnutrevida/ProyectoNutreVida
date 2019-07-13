@@ -18,6 +18,9 @@ namespace BL
         public string ComidaExtra { set; get; }
         public string NivelAnsiedad { set; get; }
 
+        /**
+        * Método publico constructor que crea el objeto del seguimiento nutricional.
+        */
         public SeguimientoNutricional(string cedula, string diasEjercicio, string comidaExtra, string nivelAnsiedad)
         {
             Cedula = cedula;
@@ -26,6 +29,9 @@ namespace BL
             NivelAnsiedad = nivelAnsiedad;
         }
 
+        /**
+        * Método publico constructor vacio que crea una instanci del objeto.
+        */
         public SeguimientoNutricional() { }
     }
 }
