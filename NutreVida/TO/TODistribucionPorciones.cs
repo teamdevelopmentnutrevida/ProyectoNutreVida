@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+    /**
+  * Crea un objeto de tranferencia de distribucion de porciones, además de sus metodos set y get
+  * @author Yoselyn
+  */
     public class TODistribucionPorciones
     {
         public int Cedula { set; get; }

@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+
+    /**
+* Crea un objeto del seguimiento nutricional, además de sus metodos set y get
+* @author Yoselyn
+*/
     public class TOSeguimientoNutricional
     {
         public string Cedula { set; get; }

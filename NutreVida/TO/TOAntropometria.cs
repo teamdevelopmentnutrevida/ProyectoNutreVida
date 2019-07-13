@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+    /**
+   * Crea un objeto de tranferencia de Antropometri, además de sus metodos set y get
+   * @author Yoselyn
+   */
     public class TOAntropometria
     {
         public int Cedula { set; get; }

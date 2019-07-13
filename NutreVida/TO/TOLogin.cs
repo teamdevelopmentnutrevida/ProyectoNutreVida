@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 namespace TO
 {
 
-	public class TOLogin
+    /**
+  * Crea un objeto de tranferencia del login, además de sus metodos set y get
+  * @author Yoselyn
+  */
+    public class TOLogin
 	{
 		public string correo { set; get; }
 		public string contras { set; get; }

@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+
+    /**
+* Crea un objeto del seguimiento mensual, además de sus metodos set y get
+* @author Yoselyn
+*/
     public class TOSeguimientoMensual
     {
         public int idSeg { set; get; }

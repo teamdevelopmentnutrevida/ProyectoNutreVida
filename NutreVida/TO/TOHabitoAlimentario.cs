@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+
+    /**
+  * Crea un objeto de tranferencia del habito alimentario, además de sus metodos set y get
+  * @author Yoselyn
+  */
     public class TOHabitoAlimentario
     {
         public int Cedula { set; get; }

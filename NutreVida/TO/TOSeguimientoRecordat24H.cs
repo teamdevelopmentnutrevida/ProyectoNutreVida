@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+
+    /**
+* Crea un objeto del seguimiento del recordatorio de 24 horas, además de sus metodos set y get
+* @author Yoselyn
+*/
     public class TOSeguimientoRecordat24H
     {
         public int Seguimiento { set; get; }

@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+
+    /**
+* Crea un objeto de seguimiento de antropometria, además de sus metodos set y get
+* @author Yoselyn
+*/
     public class TOSeguimientoAntrop
     {
         public int id_SegAntrop { set; get; }
