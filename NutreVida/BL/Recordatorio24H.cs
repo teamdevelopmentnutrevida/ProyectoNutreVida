@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /**
+    * Clase Recordatorio24H, crea un recordatorio de 24 horas
+    * @author Yoselyn 
+   */
     public class Recordatorio24H
     {
+        //inicio de atributos
         public int Cedula { set; get; }
         public string TiempoComida { set; get; }
         public string Hora { set; get; }

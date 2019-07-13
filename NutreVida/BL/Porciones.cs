@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /**
+    * Clase Porciones, crea el objeto Porciones como parte del registro del cliente
+    * @author Yoselyn
+   */
     public class Porciones
     {
+        //inicio de atributos
         public int Cedula { set; get; }
         public decimal Leche { set; get; }
         public decimal Carne { set; get; }

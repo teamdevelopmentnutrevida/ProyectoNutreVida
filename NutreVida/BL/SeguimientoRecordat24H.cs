@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /**
+    * Clase SeguimientoRecordat24H, clase del objeto de seguimientos del recordatorio de 24 horas.
+    * @author Yoselyn
+   */
     public class SeguimientoRecordat24H
     {
+        //incio de atributos
         public int Seguimiento { set; get; }
         public string TiempoComida { set; get; }
         public string Hora { set; get; }

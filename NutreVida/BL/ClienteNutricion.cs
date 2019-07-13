@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /**
+        * Clase ClienteNutricion, crea el objeto ClienteNutricion que representa al cliente de la clínica
+        * @author Yoselyn
+        */
+
     public class ClienteNutricion
     {
+        //inicio de atributos
         public int Cedula { set; get; }
         public string Nombre { set; get; }
         public string Apellido1 { set; get; }

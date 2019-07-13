@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+    /**
+  * Crea un objeto de tranferencia de cliente nutricion, además de sus metodos set y get
+  * @author Yoselyn
+  */
     public class TOClienteNutricion
     {
         public int Cedula { set; get; }

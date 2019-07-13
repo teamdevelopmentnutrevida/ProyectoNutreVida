@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+
+    /**
+        * Clase HabitoAlimentario, crea el objeto HabitoAlimentario como parte del registro del cliente en los seguimientos
+        * @author Yoselyn
+        */
     public class HabitoAlimentario
     {
+        //inicia atributos
         public int Cedula { set; get; }
         public int ComidaDiaria { set; get; }
         public char ComidaHorasDia { set; get; }

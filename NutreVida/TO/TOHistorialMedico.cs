@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+    /**
+  * Crea un objeto de tranferencia del historial metico, además de sus metodos set y get
+  * @author Yoselyn
+  */
     public class TOHistorialMedico
     {
         public int Cedula { set; get; }

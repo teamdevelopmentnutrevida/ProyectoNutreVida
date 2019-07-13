@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+    /**
+* Crea un objeto del seguimiento semanal, además de sus metodos set y get
+* @author Yoselyn
+*/
     public class TOSeguimientoSemanal
     {
         public int Sesion { set; get; }

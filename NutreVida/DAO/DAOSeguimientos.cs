@@ -10,9 +10,19 @@ using TO;
 
 namespace DAO
 {
+    /**
+   * Clase que permite la conexión con la base de datos para los objetos de tipo Evento.
+   * @author Yoselin
+   */
     public class DAOSeguimientos
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
+
+        /**
+        * Método público que permite la conexión con la base de datos para almacenar un seguimiento semanal
+        * @param tOSeguimientoSemanal TOSeguimientoSemanal Es un objeto TO que contiene los atributos de seguimiento semanal
+        * @return un parámetro de tipo booleano que devuelve un true si se guradó en la base o false si no se guardó.
+        */
         public bool AgregarSeguimientoSemanal(TOSeguimientoSemanal tOSeguimientoSemanal)
         {
             string query = "Insert into SeguimientoSemanal values(@sesion,@fech,@peso,@orej,@ejercic,@ced);";
@@ -72,6 +82,11 @@ namespace DAO
             }
         }
 
+        /**
+        * Método público que permite la conexión con la base de datos para traer una lista de seguimientos semanales de una persona
+        * @param cedula int Es la cedula de la persona por la que se va a realizar la busqueda
+        * @return un parámetro que contiene una lista de seguimientos semanales
+        */
         public List<TOSeguimientoSemanal> ListarSeguimSemanal(int cedula)
         {
             List<TOSeguimientoSemanal> ListaMedidas = new List<TOSeguimientoSemanal>();
@@ -102,6 +117,11 @@ namespace DAO
             }
         }
 
+        /**
+        * Método público que permite la conexión con la base de datos para almacenar un seguimiento mensual
+        * @param seguimiento TOSeguimientoMensual Es un objeto TO que contiene los atributos de seguimiento mensual
+        * @return un parámetro de tipo booleano que devuelve un true si se guradó en la base o false si no se guardó.
+        */
         public bool GuardarSeguimientoMensual(TOSeguimientoMensual seguimiento)
         {
             int idSeg = 0;
@@ -213,6 +233,11 @@ namespace DAO
             }
         }
 
+        /**
+        * Método público que permite la conexión con la base de datos para traer una lista de seguimientos mensuales de una persona
+        * @param cedula int Es la cedula de la persona por la que se va a realizar la busqueda
+        * @return un parámetro que contiene una lista de seguimientos mensuales
+        */
         public List<TOSeguimientoMensual> ListarMensual(int cedula)
         {
             List<TOSeguimientoMensual> seguimMensual = new List<TOSeguimientoMensual>();

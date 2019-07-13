@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /**
+        * Clase ClasificacionIMC, crea el objeto ClasificacionIMC como parte del registro del cliente en los seguimientos
+        * @author Yoselyn
+        */
+
     public class ClasificacionIMC
     {
-
+        //inicio de atributos
         private double[] insuficiencia = { 0, 18.5 };
 
         private double[] normal = {18.5,25};

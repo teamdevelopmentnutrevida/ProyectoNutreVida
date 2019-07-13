@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+    /**
+ * Crea un objeto del medicamento, además de sus metodos set y get
+ * @author Yoselyn
+ */
     public class TOMedicamento
     {
         public int Cedula { set; get; }

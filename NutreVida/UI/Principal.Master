@@ -28,7 +28,14 @@
     <script src="js/sweetalert28.js"></script>
 
 </head>
-<body id="page-top">
+<body id="page-top" style="cursor: default !important;" >
+
+    <script>
+        window.onbeforeunload = function () {
+            body = document.getElementsByTagName('body')[0];
+            body.style.setProperty('cursor', 'wait', 'important');
+        }
+    </script>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -47,7 +54,7 @@
 
             </a>
 
-          
+
 
             <!-- Nav Item - Reportes Collapse Menu -->
             <li class="nav-item">
@@ -136,19 +143,19 @@
             <div id="content" style="background-color: white">
 
                 <!-- Topbar -->
-                <nav style="height:45px" class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow">
+                <nav style="height: 45px" class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-                       <a class="mr-auto d-none d-md-inline">
-						   <div class="col-md-12 divlogo">
+                    <a class="mr-auto d-none d-md-inline">
+                        <div class="col-md-12 divlogo">
                             <asp:Image ID="Logo" runat="server" ImageUrl="~/img/orage 2.png" data-toggle="tooltip" Height="40px" Width="100px" title="Nutre Vida" />
                         </div>
-                         <%--<i class="fas fa-apple-alt"></i>--%>
-                    </a> 
+                        <%--<i class="fas fa-apple-alt"></i>--%>
+                    </a>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -159,8 +166,8 @@
                                 <i class="fas fa-envelope fa-fw"></i>
 
                                 <!-- Counter - Messages -->
-                               <%-- <span class="badge badge-danger badge-counter">7</span>--%>
-                            </a>                          
+                                <%-- <span class="badge badge-danger badge-counter">7</span>--%>
+                            </a>
                         </li>
 
 
@@ -178,7 +185,7 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Administrar
                                 </a>
-				
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -258,12 +265,12 @@
     <script src="js/demo/datatables-demo.js"></script>
 
     <script>
-            if (window.innerWidth > 768) {
-                document.querySelector('#main-container').style.paddingLeft = '220px';
-            } else {
-                document.querySelector('#main-container').style.paddingLeft = '60px';
-            }
-            $('#sidebarToggle').on('click', function () {
+        if (window.innerWidth > 768) {
+            document.querySelector('#main-container').style.paddingLeft = '220px';
+        } else {
+            document.querySelector('#main-container').style.paddingLeft = '60px';
+        }
+        $('#sidebarToggle').on('click', function () {
             var uni = $('#accordionSidebar li span');
             $.each(uni, function (index, value) {
                 if (value.classList.contains('d-none')) {
