@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /**
+     * Clase SeguimientoNutricional, clase del objeto de seguimientos nutricional completo.
+     * @author Yoselyn
+    */
     public class SeguimientoNutricional
     {
+        //inicio de atributos
         public string Cedula { set; get; }
         public string DiasEjercicio { set; get; }
         public string ComidaExtra { set; get; }

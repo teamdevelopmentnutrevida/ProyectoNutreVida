@@ -12,6 +12,7 @@ namespace BL
     */
     public class SeguimientoAntrop
     {
+        //inicio de atributos
         public int id_SegAntrop { set; get; }
         public int Seguimiento { set; get; }
         public decimal Edad { set; get; }

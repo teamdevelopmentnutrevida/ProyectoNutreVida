@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /**
+     * Clase SeguimientoMensual, clase del objeto de seguimientos mensual.
+     * @author Yoselyn
+    */
     public class SeguimientoMensual
     {
+        //inicio de atributos
         public int idSeg { set; get; }
         public DateTime Fecha { set; get; }
 

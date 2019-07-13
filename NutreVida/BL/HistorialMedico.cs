@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /**
+        * Clase HistorialMedico, crea el objeto HistorialMedico como parte del registro del historial medico del paciente
+        * @author Yoselyn
+        */
     public class HistorialMedico
     {
+        //inicio de variables 
         public int Cedula { set; get; }
         public string Antecedentes { set; get; }
         public string Patologias { set; get; }

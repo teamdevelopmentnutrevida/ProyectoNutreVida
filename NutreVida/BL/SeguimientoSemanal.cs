@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /**
+    * Clase SeguimientoSemanal, clase del objeto de seguimiento semanal.
+    * @author Yoselyn
+   */
     public class SeguimientoSemanal
     {
+        //inicio de atributos
         public int Sesion { set; get; }
         public DateTime Fecha { set; get; }
         public decimal Peso { set; get; }
