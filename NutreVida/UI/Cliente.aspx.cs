@@ -54,8 +54,8 @@ namespace UI
             {
                 CargarDatos();
             }
-            
-           
+
+
         }
         
         /**
@@ -71,6 +71,7 @@ namespace UI
             CargarSeguimientoSemanal();
             CargarSeguimientoNutricional();
             CargarAnterior();
+           
         }
 
         /**
@@ -89,17 +90,25 @@ namespace UI
                     ConsultDropList.Text = c.Consultorio;
                     txtNombre.Text = c.Nombre;
                     txtEmail.Text = c.Correo;
-                    if (c.WhatsApp == '1') { dropWhats.Text = "Sí"; } else { dropWhats.Text = "No"; }
+                    if (c.WhatsApp == '1') { dropWhats2.Text = "Sí"; } else { dropWhats2.Text = "No"; }
                     EdadCliente.Text = CalcularEdad(c.Fecha_Nacimiento);
                     txtPrimerApellido.Text = c.Apellido1;
-                    dropEstadoCivil.Text = c.Estado_Civil;
+                    dropEstadoCivil2.Text = c.Estado_Civil;
                     txtResid.Text = c.Residencia;
                     FechIngreso.Text = c.FechaIngreso.Day + " / " + c.FechaIngreso.Month + " / " + c.FechaIngreso.Year;
                     txtSegundoApellido.Text = c.Apellido2;
-                    if (c.Sexo == 'F') { dropSexo.Text = "Femenino"; } else { if (c.Sexo == 'M') { dropSexo.Text = "Masculino"; } else { dropSexo.Text = "Otro"; } }
+                    if (c.Sexo.Equals('F')) { dropSexo2.Text = "Femenino"; } else { if (c.Sexo.Equals('M')) { dropSexo2.Text = "Masculino"; } else { dropSexo2.Text = "Otro"; } }
                     FechNacimi.Text = c.Fecha_Nacimiento.Day + " / " + c.Fecha_Nacimiento.Month + " / " + c.Fecha_Nacimiento.Year;
                 }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error de Carga de Datos', 'Error al cargar los datos del cliente')", true);
+                }
 
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error de Carga Cédula', 'Error al cargar los datos del cliente')", true);
             }
         }
 
@@ -143,11 +152,15 @@ namespace UI
                     txtAntec.Text = hm.Antecedentes;
                     txtPatol.Text = hm.Patologias;
                     txtActividadFisica.Text = hm.ActividadFisica;
-                    DropLicor.Text = l;
-                    DropFuma.Text = f;
+                    DropLicor2.Text = l;
+                    DropFuma2.Text = f;
                     txtFrecLicor.Text = hm.FrecLicor;
                     txtFrecFuma.Text = hm.FrecFuma;
                     FechRevMedica.Text = hm.UltimoExamen;
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error con el Historial Médico', 'Error al cargar datos del Historial Médico')", true);
                 }
                 CargarTablaMedicamentos();
             }
@@ -185,14 +198,14 @@ namespace UI
             {
                 numeroComidas.Text = hab.ComidaDiaria + "";
                 string horasdia = ""; if (hab.ComidaHorasDia == 1) { horasdia = "Sí"; } else { horasdia = "No"; }
-                ComeHoras.Text = horasdia;
+                ComeHoras2.Text = horasdia;
                 txtEspres.Text = hab.AfueraExpress + "";
                 txtQueComeFuera.Text = hab.ComidaFuera;
                 cantAzucar.Text = hab.AzucarBebida;
-                dropCocinaCon.Text = hab.ComidaElaboradCon;
+                dropCocinaCon2.Text = hab.ComidaElaboradCon;
                 txtCuantaAgua.Text = hab.AguaDiaria + "";
                 string aderez = ""; if (hab.Aderezos.Equals('1')) { aderez = "Sí"; } else { aderez = "No"; }
-                dropAderezos.Text = aderez;
+                dropAderezos2.Text = aderez;
                 string fruta = ""; if (hab.Fruta.Equals('1')) { fruta = "Sí"; } else { fruta = "No"; }
                 dropFrutas.Text = fruta;
                 string verdur = ""; if (hab.Verdura.Equals('1')) { verdur = "Sí"; } else { verdur = "No"; }
@@ -338,7 +351,7 @@ namespace UI
         {
             decimal peso = 0;
             if (sPeso.Text.Equals("") || sOreja.Text.Equals("") || sEjercicio.Text.Equals(""))
-            { Response.Write("<script>alert('No deben haber espacios en blanco')</script>"); }
+            {Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error Seguimiento Semanal', 'No deben haber espacios en blanco')", true); }
             else
             {
                 try
@@ -346,9 +359,7 @@ namespace UI
                     peso = Convert.ToDecimal(sPeso.Text);
                 }
                 catch (FormatException)
-                {
-                    Response.Write("Error al ingresar el Peso.");
-                }
+                { Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error Seguimiento Semanal', 'Error al ingresar el dato de Peso')", true); }
 
                 bool creado = manejadorSeg.AgregarSeguimiento(new SeguimientoSemanal(DateTime.Now, Convert.ToDecimal(sPeso.Text), sOreja.SelectedValue, sEjercicio.Text, int.Parse(ced1.Text)));
                 if (creado)
@@ -366,6 +377,8 @@ namespace UI
                         LitSeguimiento.Text += "<tr><td>" + 1 + "</td><td>" + DateTime.Now.Date + "</td><td>" + sPeso.Text + "</td><td>" + sOreja.Text + "</td><td>" + sEjercicio.Text + "</td></tr>";
 
                     }
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien!', 'Seguimiento Semanal agregado exitosamente!')", true);
+
                 }
             }
             sPeso.Text = string.Empty; sOreja.Text = string.Empty; sEjercicio.Text = string.Empty;
@@ -375,33 +388,33 @@ namespace UI
         * Método protegido, accion para habilitar o no el espacio de la frecuencia del consumo de licor 
         * @param acciones y eventos del boton
         */
-        protected void DropLicor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (DropLicor.SelectedValue == "Sí")
-            {
-                txtFrecLicor.Enabled = true;
-            }
-            else
-            {
-                txtFrecLicor.Enabled = false;
-            }
-        }
+        //protected void DropLicor_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (DropLicor.SelectedValue == "Sí")
+        //    {
+        //        txtFrecLicor.Enabled = true;
+        //    }
+        //    else
+        //    {
+        //        txtFrecLicor.Enabled = false;
+        //    }
+        //}
 
         /**
         * Método protegido, accion para habilitar o no el espacio de la frecuencia de fumar
         * @param acciones y eventos del boton
         */
-        protected void DropFuma_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (DropFuma.SelectedValue == "Sí")
-            {
-                txtFrecFuma.Enabled = true;
-            }
-            else
-            {
-                txtFrecFuma.Enabled = false;
-            }
-        }
+        //protected void DropFuma_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (DropFuma.SelectedValue == "Sí")
+        //    {
+        //        txtFrecFuma.Enabled = true;
+        //    }
+        //    else
+        //    {
+        //        txtFrecFuma.Enabled = false;
+        //    }
+        //}
 
         /**
        * Método privado que carga la lista del seguimiento semanal del cliente seleccionado 
@@ -409,6 +422,7 @@ namespace UI
         private void CargarSeguimientoNutricional()
         {
             listaSegNutri = manejadorSeg.TraerListaMensual(Int32.Parse(Cedula));
+            SegAntFecha.Text = DateTime.Now.ToString();
             if (listaSegNutri != null)
             {
                 foreach (SeguimientoMensual seg in listaSegNutri)
@@ -425,6 +439,9 @@ namespace UI
             else { SeguimMensual.Text = "No existen Seguimientos Nutricionales de este cliente."; }
         }
 
+        /**
+      * Método privado que carga el ultimo seguimiento mensual del cliente 
+      */
         private void CargarAnterior()
         {
             if (listaSegNutri != null)
@@ -485,18 +502,38 @@ namespace UI
                 }
             }
         }
-        
+
+        /**
+       * Método protegido, accion para retroceder entre las pantallas
+       * @param acciones y eventos del boton
+       */
         protected void BackButton_Click(object sender, EventArgs e)
         {
-           
+            SNDiasEjerSem.Text = string.Empty; SNComidasExtras.Text = string.Empty; SNNivAnsiedad.Text = string.Empty;
+            SNRecordAyunTime.Text = string.Empty; SNRecAyunasDescr.Text = string.Empty; SNRecordDesayunTime.Text = string.Empty; SNRecordDesayunDescr.Text = string.Empty;
+            SNRecordMedManTime.Text = string.Empty; SNRecordMedManTime.Text = string.Empty; SNRecordAlmTime.Text = string.Empty; SNRecordAlmDescrip.Text = string.Empty;
+            SNRecordMedTardeTime.Text = string.Empty; SNRecordMedTardeDescr.Text = string.Empty; SNRecordCenaTime.Text = string.Empty; SNRecordCenaDescr.Text = string.Empty;
+            SNRecordColTime.Text = string.Empty; SNRecordColDescr.Text = string.Empty;
+
+            SegAntEdad.Text = string.Empty; SegAntTalla.Text = string.Empty; SegAntCM.Text = string.Empty; SegAntPeso.Text = string.Empty; SegAntIMC.Text = string.Empty;
+            SegAntAgua.Text = string.Empty; SegAntMasaOsea.Text = string.Empty; SegAntEdadMetabolica.Text = string.Empty; SegAntGrasaAnaliz.Text = string.Empty;
+            SegAntGrasBasc.Text = string.Empty; SegAntGBBI.Text = string.Empty; SegAntGBBD.Text = string.Empty; SegAntGBPI.Text = string.Empty; SegAntGBPD.Text = string.Empty; SegAntGBTronco.Text = string.Empty;
+            SegAntGrVisceral.Text = string.Empty; SegAntPM.Text = string.Empty; SegAntPMBI.Text = string.Empty; SegAntPMBD.Text = string.Empty; SegAntPMPI.Text = string.Empty;
+            SegAntPMPD.Text = string.Empty; SegAntPMTronco.Text = string.Empty; SegAntCircunfCint.Text = string.Empty; SegAntCadera.Text = string.Empty;
+            SegAntMusloIzq.Text = string.Empty; SegAntMusloDer.Text = string.Empty; SegAntBrazoIzq.Text = string.Empty; SegAntBrazoDer.Text = string.Empty; SegAntPesoIdeal.Text = string.Empty; SNObservacion.Text = string.Empty;
+
             Response.Redirect("Expedientes.aspx");
         }
 
+        /**
+      * Método protegido, accion para agregar seguimientos
+      * @param acciones y eventos del boton
+      */
         protected void MedicButton_Click(object sender, EventArgs e)
         {
             if (tNomMed.Text.Equals("") || tMotvMed.Text.Equals("") || tFrecMed.Text.Equals("") || tDosisMed.Text.Equals(""))
             {
-                Response.Write("<script>alert('No deben haber espacios en blanco')</script>");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error con Registro Medicamentos', 'No deben haber espacios en blanco')", true);
             }
             else
             {
@@ -518,6 +555,10 @@ namespace UI
             }
         }
 
+        /**
+      * Método protegido, accion para guardar los datos de un seguimiento mensual nuevo
+      * @param acciones y eventos del boton
+      */
         protected void GuardarSeguimNutri_Click(object sender, EventArgs e)
         {
             SeguimientoMensual nuevo = new SeguimientoMensual();
@@ -539,7 +580,7 @@ namespace UI
             nuevoRecord.Add(new SeguimientoRecordat24H("Colación Nocturna", SNRecordColTime.Text, SNRecordColDescr.Text));
 
             nuevoAntrop.Fecha_SA = DateTime.Now;
-            if(SegAntEdad.Text != "") { nuevoAntrop.Edad = Decimal.Parse(SegAntEdad.Text); } else { nuevoAntrop.Edad = Decimal.Parse("0"); }
+            if (SegAntEdad.Text != "") { nuevoAntrop.Edad = Decimal.Parse(SegAntEdad.Text); } else { nuevoAntrop.Edad = Decimal.Parse("0"); }
             if (SegAntTalla.Text != "") { nuevoAntrop.Talla = Decimal.Parse(SegAntTalla.Text); } else { nuevoAntrop.Talla = Decimal.Parse("0"); }
             if (SegAntCM.Text != "") { nuevoAntrop.CM = Decimal.Parse(SegAntCM.Text); } else { nuevoAntrop.CM = Decimal.Parse("0"); }
             if (SegAntPeso.Text != "") { nuevoAntrop.Peso = Decimal.Parse(SegAntPeso.Text); } else { nuevoAntrop.Peso = Decimal.Parse("0"); }
@@ -576,25 +617,53 @@ namespace UI
             nuevo.Fecha = DateTime.Now;
 
             bool exito = manejadorSeg.AgregaSegNutri(nuevo);
-            if(exito == true)
+            if (exito == true)
             {
-                Response.Write("Seguimiento Agregado Exitosamente");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien!', 'Seguimiento Nutricional creado exitosamente!')", true);
+                CargarSeguimientoNutricional();
+
+                SNDiasEjerSem.Text = string.Empty; SNComidasExtras.Text = string.Empty; SNNivAnsiedad.Text = string.Empty;
+                SNRecordAyunTime.Text = string.Empty; SNRecAyunasDescr.Text = string.Empty; SNRecordDesayunTime.Text = string.Empty; SNRecordDesayunDescr.Text = string.Empty;
+                SNRecordMedManTime.Text = string.Empty; SNRecordMedManTime.Text = string.Empty; SNRecordAlmTime.Text = string.Empty; SNRecordAlmDescrip.Text = string.Empty;
+                SNRecordMedTardeTime.Text = string.Empty; SNRecordMedTardeDescr.Text = string.Empty; SNRecordCenaTime.Text = string.Empty; SNRecordCenaDescr.Text = string.Empty;
+                SNRecordColTime.Text = string.Empty; SNRecordColDescr.Text = string.Empty;
+
+                SegAntEdad.Text = string.Empty; SegAntTalla.Text = string.Empty; SegAntCM.Text = string.Empty; SegAntPeso.Text = string.Empty;SegAntIMC.Text = string.Empty;
+                SegAntAgua.Text = string.Empty; SegAntMasaOsea.Text = string.Empty; SegAntEdadMetabolica.Text = string.Empty; SegAntGrasaAnaliz.Text = string.Empty; 
+                SegAntGrasBasc.Text = string.Empty; SegAntGBBI.Text = string.Empty; SegAntGBBD.Text = string.Empty; SegAntGBPI.Text = string.Empty; SegAntGBPD.Text = string.Empty; SegAntGBTronco.Text = string.Empty;
+                SegAntGrVisceral.Text = string.Empty;  SegAntPM.Text = string.Empty; SegAntPMBI.Text = string.Empty; SegAntPMBD.Text = string.Empty;  SegAntPMPI.Text = string.Empty;
+                SegAntPMPD.Text = string.Empty; SegAntPMTronco.Text = string.Empty; SegAntCircunfCint.Text = string.Empty; SegAntCadera.Text = string.Empty; 
+                SegAntMusloIzq.Text = string.Empty; SegAntMusloDer.Text = string.Empty; SegAntBrazoIzq.Text = string.Empty; SegAntBrazoDer.Text = string.Empty;SegAntPesoIdeal.Text = string.Empty; SNObservacion.Text = string.Empty;
+
             }
             else
             {
-                Response.Write("Error al Agregar Seguimiento Nutricional");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error con Seguimiento Nutricional', 'Error al crear el seguimiento nutricional')", true);
+               
             }
 
         }
 
+
+        /**
+      *  Método web publico y estatico, para guardar el identificador el cual se redirige a la clase VerSeguimiento.aspx,
+      *  el cual muestra los datos del seguimiento selecccionado
+      * @param acciones y eventos del boton
+      */
         [System.Web.Services.WebMethod(EnableSession = true)]
         public static void Ver_Click(string idS)
         {
             HttpContext.Current.Session["idSeguimiento"] = idS;
         }
+
+        /**
+        *  Método protegido, para guardar modificaciones del expediente
+        * @param acciones y eventos del boton
+        */
         protected void Modificar_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>window.alert('EntraModif');</script>");       
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error al Modificar', 'Aún no se puede modificar datos. Gracias por comprender.')", true);
+
         }
 
 
@@ -638,11 +707,14 @@ namespace UI
 
 							// write the text in the pdf content
 							contentByte.BeginText();
-							string nombre = "Nombre: " + txtNombre.Text;
+
+                            SeguimientoMensual segM = listaSegNutri.Last<SeguimientoMensual>();
+
+                            string nombre = "Nombre: " + txtNombre.Text;
 							string fecha = "Fecha: " + System.DateTime.Today.ToShortDateString();
-							string peso = "Peso: " + txtPesoActual.Text + " Kg";
-							string imc = "IMC: " + txtIMC.Text;
-							string grasa = "% Grasa: " + txtPorcGrasas.Text + "%";
+							string peso = "Peso: " + segM.antrop.Peso + " Kg";
+							string imc = "IMC: " + segM.antrop.IMC;
+							string grasa = "% Grasa: " + segM.antrop.PorcGr_Bascula + "%";
 							// put the alignment and coordinates here
 							contentByte.ShowTextAligned(Element.ALIGN_LEFT, nombre, 100, 560, 0);
 							contentByte.ShowTextAligned(Element.ALIGN_LEFT, fecha, 100, 540, 0);

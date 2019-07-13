@@ -26,12 +26,13 @@
                         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Nombre"></asp:TextBox>                      
                         <label class="form-label" for="tEmail">Email:</label>
                         <asp:TextBox ID="txtEmail" onkeyup="validarEmail(this)" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Correo electrónico"></asp:TextBox>
-                    <a id='resultado' style="color: red"></a>
                         <label class="form-label" for="tWhats">Utiliza whatsapp:</label>
-                         <asp:DropDownList runat="server" ID="dropWhats" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Usa whatsapp">
+                        <asp:TextBox runat="server" ID="dropWhats2" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Usa whatsapp"></asp:TextBox>
+                       
+                         <%--<asp:DropDownList runat="server" ID="dropWhats" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Usa whatsapp">
                             <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                             <asp:ListItem Value="No"> No </asp:ListItem>
-                        </asp:DropDownList>
+                        </asp:DropDownList>--%>
                         <label class="form-label" for="tEdad">Edad:</label>
                         <asp:TextBox ID="EdadCliente" runat="server" TextMode="Number" step="any" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad"></asp:TextBox>
                         </div>
@@ -40,12 +41,14 @@
                         <label class="form-label" for="tPrimerApellido">Primer apellido:</label>
                         <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Primer apellido"></asp:TextBox>
                         <label class="form-label" for="tEstadoCivil">Estado Civil:</label>
-                                    <asp:DropDownList runat="server" ID="dropEstadoCivil" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Estado civil">
+                        <asp:TextBox runat="server" ID="dropEstadoCivil2" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Estado Civil"></asp:TextBox>
+                       
+                                    <%--<asp:DropDownList runat="server" ID="dropEstadoCivil" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Estado civil">
                                         <asp:ListItem Selected="True" Value="Soltero"> Soltero(a) </asp:ListItem>
                                         <asp:ListItem Value="Casado"> Casado(a) </asp:ListItem>
                                         <asp:ListItem Value="Divorciado"> Divorciado(a) </asp:ListItem>
                                         <asp:ListItem Value="Otro"> Otro </asp:ListItem>
-                                    </asp:DropDownList>
+                                    </asp:DropDownList>--%>
                          <label class="form-label" for="tResid">Residencia:</label><asp:Label runat="server" ID="Label9" Font-Size="Medium"></asp:Label>
                         <asp:TextBox ID="txtResid" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Lugar de residencia"></asp:TextBox>
                         <label class="form-label" for="iFechaIngreso">Fecha de Ingreso:</label>
@@ -56,11 +59,12 @@
                         <label class="form-label" for="tSegundoApellido">Segundo apellido:</label>
                         <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Segundo apellido"></asp:TextBox>
                         <label class="form-label" for="tSex">Sexo:</label>
-                                    <asp:DropDownList runat="server" ID="dropSexo" CssClass="form-control" Font-Size="Small" Font-Bold="False" data-toggle="tooltip" title="Sexo">
+                        <asp:TextBox runat="server" ID="dropSexo2" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Sexo"></asp:TextBox>
+                           <%-- <asp:DropDownList runat="server" ID="dropSexo" CssClass="form-control" Font-Size="Small" Font-Bold="False" data-toggle="tooltip" title="Sexo">
                                         <asp:ListItem Selected="True" Value="F"> Femenino </asp:ListItem>
                                         <asp:ListItem Value="M"> Masculino </asp:ListItem>
                                         <asp:ListItem Value="O"> Otro </asp:ListItem>
-                                    </asp:DropDownList> 
+                                    </asp:DropDownList> --%>
                         <label class="form-label" for="iFechaNac">Fecha de Nacimiento:</label>
                         <asp:TextBox runat="server" ID="FechNacimi" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de nacimiento"></asp:TextBox>               
                     <br />
@@ -69,7 +73,7 @@
                     </div>
                 </div>
             <br />
-            <div class="col-11" style="width: 100%; float: left;">
+            <div class="col-11" style="width:100%; float:left;">
               <nav>
                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-HM" data-toggle="tab" href="#HM" role="tab" aria-controls="nav-home" aria-selected="true">Historial Médico</a>
@@ -105,18 +109,22 @@
                         <div class="row">
                           <div class="col-form-label">
                             <label class="form-label" for="tLicor">Licor:</label>
-                            <asp:DropDownList runat="server" ID="DropLicor" CssClass="form-control" Font-Size="Small" OnSelectedIndexChanged="DropLicor_SelectedIndexChanged" AutoPostBack="true" data-toggle="tooltip" title="Licor">
+                              <asp:TextBox runat="server" ID="DropLicor2" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Consumo Licor"></asp:TextBox>
+                       
+                            <%--<asp:DropDownList runat="server" ID="DropLicor" CssClass="form-control" Font-Size="Small" OnSelectedIndexChanged="DropLicor_SelectedIndexChanged" AutoPostBack="true" data-toggle="tooltip" title="Licor">
                                 <asp:ListItem Value="Sí"> Sí </asp:ListItem>
                                 <asp:ListItem Selected="True" Value="No"> No </asp:ListItem>
-                            </asp:DropDownList>
+                            </asp:DropDownList>--%>
                                <label class="form-label" for="tFum">Fumado:</label>
-                            <asp:DropDownList runat="server" ID="DropFuma" CssClass="form-control" Font-Size="Small" OnSelectedIndexChanged="DropFuma_SelectedIndexChanged" AutoPostBack="true" data-toggle="tooltip" title="Fumado">
+                              <asp:TextBox runat="server" ID="DropFuma2" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fuma?"></asp:TextBox>
+                       
+                            <%--<asp:DropDownList runat="server" ID="DropFuma" CssClass="form-control" Font-Size="Small" OnSelectedIndexChanged="DropFuma_SelectedIndexChanged" AutoPostBack="true" data-toggle="tooltip" title="Fumado">
                                 <asp:ListItem Value="Sí"> Sí </asp:ListItem>
                                 <asp:ListItem Selected="True" Value="No"> No </asp:ListItem>
-                            </asp:DropDownList>
+                            </asp:DropDownList>--%>
                          </div>
                           <div class="col-1"></div>
-                            <div class="col-form-label" style="width: 50%">
+                            <div class="col-form-label">
                           
                             <label class="form-label" for="tFrecLic">Frecuencia:</label>
                                 <asp:TextBox ID="txtFrecLicor" runat="server" CssClass="form-control" Font-Size="Small" Enabled="false" data-toggle="tooltip" title="Frecuencia de licor"></asp:TextBox>
@@ -183,10 +191,12 @@
                               <label class="form-label" for="tComD">¿Cuántas veces come al día? </label>
                                 <asp:TextBox ID="numeroComidas" runat="server" type="number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Cantidad de comidas al día" />
                                <label class="form-label" for="tComeHoraDia">¿Acostumbra a comer a las horas al día? </label>
-                               <asp:DropDownList runat="server" ID="ComeHoras" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="¿Come al día?">
+                               <asp:TextBox runat="server" ID="ComeHoras2" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Come a las horas al día"></asp:TextBox>
+                       
+                             <%--  <asp:DropDownList runat="server" ID="ComeHoras" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="¿Come al día?">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
-                                </asp:DropDownList>
+                                </asp:DropDownList>--%>
                                 <label class="form-label" for="tComeExprss">¿Cuántas veces a la semana come fuera o pide un express? </label>
                                 <asp:TextBox ID="txtEspres" runat="server" CssClass="form-control" Font-Size="Small" type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Cantidad de consumo"></asp:TextBox>
                                 <label class="form-label" for="tGenerComeAfuera">¿Generalmente que come fuera de la casa?</label>
@@ -194,19 +204,22 @@
                                 <label class="form-label" for="tAzucarB">¿Cuánta azúcar le agrega a las bebidas?</label>
                                 <asp:TextBox ID="cantAzucar" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Cantidad de azúcar en las bebidas"></asp:TextBox>
                                 <label class="form-label" for="tAzucarB">¿Los alimentos que cocina los elabora generalmente? </label>
-                               <asp:DropDownList runat="server" ID="dropCocinaCon" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Elaboración de alimentos">
+                               <asp:TextBox runat="server" ID="dropCocinaCon2" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Cocina Con?"></asp:TextBox>
+                        
+                              <%--<asp:DropDownList runat="server" ID="dropCocinaCon" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Elaboración de alimentos">
                                     <asp:ListItem Selected="True" Value="aceite">Aceite</asp:ListItem>
                                     <asp:ListItem Value="horneado"> Horneado </asp:ListItem>
                                     <asp:ListItem Value="hervido"> Hervido </asp:ListItem>
                                     <asp:ListItem Value="micro"> Microondas </asp:ListItem>
-                                </asp:DropDownList>
+                                </asp:DropDownList>--%>
                                 <label class="form-label" for="tAguaDia">¿Cuántos vasos de agua toma al día? </label>
                                <asp:TextBox ID="txtCuantaAgua" runat="server" type="number" min="0" oninput="validity.valid||(value='');" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Agua por día" />
                                <label class="form-label" for="tAder">¿Agrega salsa tomate, mayonesa, mantequilla o natilla a la comida? </label>
-                                <asp:DropDownList runat="server" ID="dropAderezos" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Aderezos a la comida">
+                               <asp:TextBox runat="server" ID="dropAderezos2" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Aderezos"></asp:TextBox>  
+                             <%-- <asp:DropDownList runat="server" ID="dropAderezos" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Aderezos a la comida">
                                     <asp:ListItem Selected="True" Value="Sí"> Sí </asp:ListItem>
                                     <asp:ListItem Value="No"> No </asp:ListItem>
-                                </asp:DropDownList>
+                                </asp:DropDownList>--%>
                             </div>
                             <div class="col-1"></div>
                             <div class="col-form-label">
@@ -1050,7 +1063,15 @@
         </div>
         <%--div container--%>
    </form>
-   
+   <script>
+       function mensajeError(tipo, titulo, mensaje) {
+                        Swal.fire({
+                            type: tipo,
+                            title: titulo,
+                            text: mensaje
+                        })
+                    }
+   </script>
    <script>
         function VerSeg(id) {
            $.ajax({
