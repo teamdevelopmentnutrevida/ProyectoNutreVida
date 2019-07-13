@@ -62,7 +62,7 @@ namespace DAO
         public int obtenerCantidadPersonasEdad(int edad1, int edad2)
         {
 
-            String query = "select count(cedula) from Antropometria where edad > @edad1 and edad < @edad2 ";
+            String query = "select count(cedula) from Antropometria where edad >= @edad1 and edad < @edad2 ";
 
             SqlCommand cmd = new SqlCommand(query, conexion);
 
@@ -98,7 +98,7 @@ namespace DAO
         public List<TOAntropometria> obtenerIMCEdades(int edad1, int edad2)
         {
 
-            String query = "SELECT a.cedula,a.edad,a.Peso,a.talla FROM(SELECT c.peso,Antropometria.Edad,Antropometria.cedula,Antropometria.talla FROM(SELECT c.*, row_number()OVER(PARTITION BY c.cedula ORDER BY c.fechaSesion DESC)AS rn FROM SeguimientoSemanal c)c,Antropometria WHERE c.rn = 1AND c.cedula = Antropometria.cedula UNION SELECT a.peso,a.edad,a.cedula,a.talla FROM Antropometria a FULL OUTER JOIN SeguimientoSemanal b ON a.cedula =b.cedula WHERE a.cedula IS NULL OR b.cedula IS NULL)a where edad > @edad1 and edad < @edad2";
+            String query = "SELECT a.cedula,a.edad,a.Peso,a.talla FROM(SELECT c.peso,Antropometria.Edad,Antropometria.cedula,Antropometria.talla FROM(SELECT c.*, row_number()OVER(PARTITION BY c.cedula ORDER BY c.fechaSesion DESC)AS rn FROM SeguimientoSemanal c)c,Antropometria WHERE c.rn = 1AND c.cedula = Antropometria.cedula UNION SELECT a.peso,a.edad,a.cedula,a.talla FROM Antropometria a FULL OUTER JOIN SeguimientoSemanal b ON a.cedula =b.cedula WHERE a.cedula IS NULL OR b.cedula IS NULL)a where edad >= @edad1 and edad < @edad2";
 
             SqlCommand cmd = new SqlCommand(query, conexion);
 
@@ -152,7 +152,7 @@ namespace DAO
             */
         public List<String> obtenerCantidadSexo(int edad1, int edad2)
         {
-            String query = "select cliente_nutricion.Sexo from cliente_nutricion, Antropometria where Cliente_Nutricion.Cedula = Antropometria.Cedula and edad > @edad1 and edad < @edad2 ";
+            String query = "select cliente_nutricion.Sexo from cliente_nutricion, Antropometria where Cliente_Nutricion.Cedula = Antropometria.Cedula and edad >= @edad1 and edad < @edad2 ";
 
             SqlCommand cmd = new SqlCommand(query, conexion);
 

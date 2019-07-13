@@ -379,7 +379,7 @@
                                     <label class="form-label" for="tEdad">Edad:</label>
                                     <asp:TextBox step="any" ID="txtEdad" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Edad" ></asp:TextBox>
                                     <label class="form-label" for="tTalla">Talla: </label>
-                                    <asp:TextBox step="any" onBlur="validarIMC(); validarGEB(); validarPesoIdeal()" ID="txtTalla" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Talla"></asp:TextBox>
+                                    <asp:TextBox step="any" onBlur="validarIMC(); validarPesoIdeal(); validarGEB()" ID="txtTalla" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Talla"></asp:TextBox>
                                     <label class="form-label" for="tPesoActual">Peso Actual:</label>
                                     <asp:TextBox step="any" onBlur="validarIMC()" ID="txtPesoActual" runat="server" CssClass="form-control" Font-Size="Small" Type="number" min="0" oninput="validity.valid||(value='');" data-toggle="tooltip" title="Peso actual"></asp:TextBox>
                                     <label class="form-label" for="tPesoMaxTeoria">Peso máximo en teoría:</label>
