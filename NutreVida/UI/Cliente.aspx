@@ -1041,7 +1041,7 @@
 
      <div class="footer navbar-light bg-white shadow">
 
-		 <asp:Button  CssClass="boton btn btn-primary" ID="btnGeneraPDF" runat="server" Text="Generar reporte" OnClick="btnGeneraPDF_Click" Width="11%"/>
+		 <asp:Button  CssClass="boton btn btn-primary" ID="btnGeneraPDF" runat="server" Text="Generar reporte" OnClick="btnGeneraPDF_Click" onmouseout="Cursor();" Width="11%"/>
 	    <asp:Button ID="btnGuardar" CssClass="boton2 btn btn-primary" runat="server" Text="Atrás" OnClick="BackButton_Click" Width="11%" />
         
          <br />  
@@ -1050,7 +1050,7 @@
         </div>
         <%--div container--%>
    </form>
-   
+        
    <script>
         function VerSeg(id) {
            $.ajax({
@@ -1067,6 +1067,11 @@
                     alert("No funciona");
                 }
            });
+        }
+
+        function Cursor(){
+            body = document.getElementsByTagName('body')[0];
+            body.style.setProperty('cursor', 'default', 'important');
         }
     </script>
   
