@@ -18,12 +18,12 @@ namespace UI
         private List<ClienteNutricion> lista = new List<ClienteNutricion>();
         public static ManejadorExpediente manejador = new ManejadorExpediente();
 		protected void Page_Load(object sender, EventArgs e)
-		{
-			//if (new ControlSeguridad().validarNutri() == true)
-			//{
-			//	Response.Redirect("~/InicioSesion.aspx");
-			//}
-            
+        {
+            if (new ControlSeguridad().validarNutri() == true)
+            {
+                Response.Redirect("~/InicioSesion.aspx");
+            }
+
             CargarLista();
 		}
 

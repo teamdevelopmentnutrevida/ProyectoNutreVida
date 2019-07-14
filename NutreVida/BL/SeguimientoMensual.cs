@@ -27,6 +27,10 @@ namespace BL
             this.antrop = antrop;
             this.record = record;
         }
+
+        /**
+        * Método publico constructor que crea el objeto del seguimiento mensual.
+        */
         public SeguimientoMensual(SeguimientoNutricional nutri, List<SeguimientoRecordat24H> record, SeguimientoAntrop antrop, int id)
         {
             this.idSeg = id;
@@ -35,6 +39,9 @@ namespace BL
             this.record = record;
         }
 
+        /**
+        * Método publico constructor vacío que crea una instancia del objeto.
+        */
         public SeguimientoMensual() { }
 
     }

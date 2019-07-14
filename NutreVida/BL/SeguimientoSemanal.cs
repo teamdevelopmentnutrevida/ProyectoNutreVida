@@ -20,6 +20,9 @@ namespace BL
         public string Ejercicio { set; get; }
         public int Cedula { set; get; }
 
+        /**
+         * Método publico constructor vacío que crea el objeto Seguimiento agregando el atribulo sesion.
+         */
         public SeguimientoSemanal(int sesion, DateTime fecha, decimal peso, string oreja, string ejercicio, int cedula)
         {
             Sesion = sesion;
@@ -30,8 +33,14 @@ namespace BL
             Cedula = cedula;
         }
 
+        /**
+        * Método publico constructor vacío que crea el objeto.
+        */
         public SeguimientoSemanal() { }
 
+        /**
+         * Método publico constructor que crea el objeto Seguimiento Semanal.
+         */
         public SeguimientoSemanal(DateTime fecha, decimal peso, string oreja, string ejercicio, int cedula)
         {
             Fecha = fecha;

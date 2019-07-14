@@ -72,13 +72,18 @@
 
             scheduler.setCurrentView();
         }
+
+        window.onbeforeunload = function () {
+            body = document.getElementsByTagName('body')[0];
+            body.style.setProperty('cursor', 'wait', 'important');
+        }
     </script>
 
 
 </head>
 
 
-<body onload="doOnLoad();">
+<body onload="doOnLoad();" style="cursor: default !important;">
     <div style='float: left; padding: 10px;'>
         <div id="cal_here" style='width: 250px;'></div>
         <br />

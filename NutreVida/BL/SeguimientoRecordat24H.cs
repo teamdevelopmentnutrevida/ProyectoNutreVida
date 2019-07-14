@@ -18,7 +18,10 @@ namespace BL
         public string Hora { set; get; }
         public string Descripcion { set; get; }
 
-
+        /**
+         * Método publico constructor que crea el objeto del recordatorio de 24 horas para el seguimiento, 
+         * contiene el identificador del seguimiento.
+         */
         public SeguimientoRecordat24H(int seguimiento, string tiempoComida, string hora, string descripcion)
         {
             Seguimiento = seguimiento;
@@ -26,8 +29,15 @@ namespace BL
             Hora = hora;
             Descripcion = descripcion;
         }
+
+        /**
+         * Método publico constructor vacío que crea el objeto.
+         */
         public SeguimientoRecordat24H() { }
 
+        /**
+        * Método publico constructor que crea el objeto del recordatorio de 24 horas para el seguimiento
+        */
         public SeguimientoRecordat24H(string tiempoComida, string hora, string descripcion)
         {
             TiempoComida = tiempoComida;
