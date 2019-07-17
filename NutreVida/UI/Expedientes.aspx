@@ -12,6 +12,7 @@
          <div class="card shadow mb-4">
              <div class="card-header py-3" style="text-align:right;">
               <%--<h6 class="m-0 font-weight-bold text-primary">Lista de Clientes</h6>--%>
+                 <asp:Button ID="Habilitar" runat="server" OnClick="Habilitar_Click" CssClass="boton btn btn-primary" Text="Habilitar"></asp:Button> 
               <asp:Button ID="NuevoCliente" runat="server" OnClick="NuevoCliente_Click" CssClass="boton btn btn-primary" Text="+"></asp:Button>
             </div>
               <div class="card-body">

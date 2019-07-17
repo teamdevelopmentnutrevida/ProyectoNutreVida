@@ -19,10 +19,10 @@ namespace UI
         public static ManejadorExpediente manejador = new ManejadorExpediente();
 		protected void Page_Load(object sender, EventArgs e)
         {
-            if (new ControlSeguridad().validarNutri() == true)
-            {
-                Response.Redirect("~/InicioSesion.aspx");
-            }
+            //if (new ControlSeguridad().validarNutri() == true)
+            //{
+            //    Response.Redirect("~/InicioSesion.aspx");
+            //}
 
             CargarLista();
 		}
@@ -96,6 +96,11 @@ namespace UI
         protected void NuevoCliente_Click(object sender, EventArgs e)
         {
             Response.Redirect("PrimerIngreso.aspx");
+        }
+
+        protected void Habilitar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HabilitarCliente.aspx");
         }
     }
 }

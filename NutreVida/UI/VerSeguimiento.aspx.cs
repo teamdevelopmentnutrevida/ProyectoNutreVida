@@ -16,10 +16,6 @@ namespace UI
         string Cedula;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (new ControlSeguridad().validarNutri() == true)
-            {
-                Response.Redirect("~/InicioSesion.aspx");
-            }
             idSeguim = HttpContext.Current.Session["idSeguimiento"] as string;
             Cedula = HttpContext.Current.Session["ced"] as string;
             listaSegNutri = manejador.TraerListaMensual(Int32.Parse(Cedula));

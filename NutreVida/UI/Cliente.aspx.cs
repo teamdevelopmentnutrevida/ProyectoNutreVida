@@ -39,21 +39,22 @@ namespace UI
 
         private static string Cedula = "";
         private static List<SeguimientoSemanal> listaSeguimientos = new List<SeguimientoSemanal>();
+        private static List<Medicamento> medicamSupl = new List<Medicamento>();
         private static List<SeguimientoMensual> listaSegNutri = new List<SeguimientoMensual>();
         private static ManejadorSeguimientos manejadorSeg = new ManejadorSeguimientos();
         private static ManejadorExpediente manejExpediente = new ManejadorExpediente();
       
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (new ControlSeguridad().validarNutri() == true)
-            {
-                Response.Redirect("~/InicioSesion.aspx");
-            }
+            //if (new ControlSeguridad().validarNutri() == true)
+            //{
+            //    Response.Redirect("~/InicioSesion.aspx");
+            //}
 
-            if (!IsPostBack)
-            {
-                CargarDatos();
-            }
+            //if (!IsPostBack)
+            //{
+            //    CargarDatos();
+            //}
 
 
         }
@@ -87,17 +88,17 @@ namespace UI
                     ced1.Text = c.Cedula + "";
                     txtOcup.Text = c.Ocupacion;
                     txtTel.Text = c.Telefono + "";
-                    ConsultDropList.Text = c.Consultorio;
+                    ConsultorDropList.Text = c.Consultorio;
                     txtNombre.Text = c.Nombre;
                     txtEmail.Text = c.Correo;
-                    if (c.WhatsApp == '1') { dropWhats2.Text = "Sí"; } else { dropWhats2.Text = "No"; }
+                    if (c.WhatsApp == '1') { dropWhats.Text = "Sí"; } else { dropWhats.Text = "No"; }
                     EdadCliente.Text = CalcularEdad(c.Fecha_Nacimiento);
                     txtPrimerApellido.Text = c.Apellido1;
-                    dropEstadoCivil2.Text = c.Estado_Civil;
+                    dropEstadoCivil.Text = c.Estado_Civil;
                     txtResid.Text = c.Residencia;
                     FechIngreso.Text = c.FechaIngreso.Day + " / " + c.FechaIngreso.Month + " / " + c.FechaIngreso.Year;
                     txtSegundoApellido.Text = c.Apellido2;
-                    if (c.Sexo.Equals('F')) { dropSexo2.Text = "Femenino"; } else { if (c.Sexo.Equals('M')) { dropSexo2.Text = "Masculino"; } else { dropSexo2.Text = "Otro"; } }
+                    if (c.Sexo.Equals('F')) { dropSexo.Text = "Femenino"; } else { if (c.Sexo.Equals('M')) { dropSexo.Text = "Masculino"; } else { dropSexo.Text = "Otro"; } }
                     FechNacimi.Text = c.Fecha_Nacimiento.Day + " / " + c.Fecha_Nacimiento.Month + " / " + c.Fecha_Nacimiento.Year;
                 }
                 else
@@ -152,8 +153,8 @@ namespace UI
                     txtAntec.Text = hm.Antecedentes;
                     txtPatol.Text = hm.Patologias;
                     txtActividadFisica.Text = hm.ActividadFisica;
-                    DropLicor2.Text = l;
-                    DropFuma2.Text = f;
+                    DropLicor.Text = l;
+                    DropFuma.Text = f;
                     txtFrecLicor.Text = hm.FrecLicor;
                     txtFrecFuma.Text = hm.FrecFuma;
                     FechRevMedica.Text = hm.UltimoExamen;
@@ -171,7 +172,7 @@ namespace UI
        */
         private void CargarTablaMedicamentos()
         {
-            List<Medicamento> medicamSupl = new List<Medicamento>();
+           
             medicamSupl = manejExpediente.TraerSuplMed(Cedula);
             if (medicamSupl != null)
             {
@@ -198,14 +199,14 @@ namespace UI
             {
                 numeroComidas.Text = hab.ComidaDiaria + "";
                 string horasdia = ""; if (hab.ComidaHorasDia == 1) { horasdia = "Sí"; } else { horasdia = "No"; }
-                ComeHoras2.Text = horasdia;
+                ComeHoras.Text = horasdia;
                 txtEspres.Text = hab.AfueraExpress + "";
                 txtQueComeFuera.Text = hab.ComidaFuera;
                 cantAzucar.Text = hab.AzucarBebida;
-                dropCocinaCon2.Text = hab.ComidaElaboradCon;
+                dropCocinaCon.Text = hab.ComidaElaboradCon;
                 txtCuantaAgua.Text = hab.AguaDiaria + "";
                 string aderez = ""; if (hab.Aderezos.Equals('1')) { aderez = "Sí"; } else { aderez = "No"; }
-                dropAderezos2.Text = aderez;
+                dropAderezos.Text = aderez;
                 string fruta = ""; if (hab.Fruta.Equals('1')) { fruta = "Sí"; } else { fruta = "No"; }
                 dropFrutas.Text = fruta;
                 string verdur = ""; if (hab.Verdura.Equals('1')) { verdur = "Sí"; } else { verdur = "No"; }
@@ -277,7 +278,7 @@ namespace UI
                 txtGB_Trono.Text = antrop.GB_Tronco + "";
                 txtCircunferencia.Text = antrop.CircunfMunneca + "";
                 txtIMC.Text = antrop.IMC + "";
-                txtPorcentajeMusculo.Text = antrop.PorcentMusculo + "";
+                txtPorcentaje.Text = antrop.PorcentMusculo + "";
                 txtPM_BI.Text = antrop.PM_BI + "";
                 txtPM_BD.Text = antrop.PM_BD + "";
                 txtPM_PI.Text = antrop.PM_PI + "";
@@ -388,33 +389,33 @@ namespace UI
         * Método protegido, accion para habilitar o no el espacio de la frecuencia del consumo de licor 
         * @param acciones y eventos del boton
         */
-        //protected void DropLicor_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (DropLicor.SelectedValue == "Sí")
-        //    {
-        //        txtFrecLicor.Enabled = true;
-        //    }
-        //    else
-        //    {
-        //        txtFrecLicor.Enabled = false;
-        //    }
-        //}
+        protected void DropLicor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropLicor.SelectedValue == "Sí")
+            {
+                txtFrecLicor.Enabled = true;
+            }
+            else
+            {
+                txtFrecLicor.Enabled = false;
+            }
+        }
 
         /**
         * Método protegido, accion para habilitar o no el espacio de la frecuencia de fumar
         * @param acciones y eventos del boton
         */
-        //protected void DropFuma_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (DropFuma.SelectedValue == "Sí")
-        //    {
-        //        txtFrecFuma.Enabled = true;
-        //    }
-        //    else
-        //    {
-        //        txtFrecFuma.Enabled = false;
-        //    }
-        //}
+        protected void DropFuma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropFuma.SelectedValue == "Sí")
+            {
+                txtFrecFuma.Enabled = true;
+            }
+            else
+            {
+                txtFrecFuma.Enabled = false;
+            }
+        }
 
         /**
        * Método privado que carga la lista del seguimiento semanal del cliente seleccionado 
@@ -662,7 +663,226 @@ namespace UI
         */
         protected void Modificar_Click(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error al Modificar', 'Aún no se puede modificar datos. Gracias por comprender.')", true);
+            //Datos personales
+            ClienteNutricion clienteModif = new ClienteNutricion();
+            clienteModif.Cedula = Int32.Parse(Cedula);
+            clienteModif.Correo = txtEmail.Text;
+            clienteModif.Nombre = txtNombre.Text;
+            clienteModif.Apellido1 = txtPrimerApellido.Text;
+            clienteModif.Apellido2 = txtSegundoApellido.Text;
+            clienteModif.Residencia = txtResid.Text;
+            clienteModif.Ocupacion = txtOcup.Text;
+            clienteModif.Consultorio = ConsultorDropList.SelectedValue;
+            if (!string.IsNullOrEmpty(FechIngreso.Text)) {clienteModif.FechaIngreso = DateTime.Parse(FechIngreso.Text); } else { clienteModif.FechaIngreso = DateTime.Now; }
+            if (!string.IsNullOrEmpty(FechNacimi.Text)) { clienteModif.Fecha_Nacimiento = DateTime.Parse(FechNacimi.Text); } else { clienteModif.Fecha_Nacimiento = DateTime.Now; }
+            clienteModif.Sexo = char.Parse(dropSexo.SelectedValue);
+            clienteModif.Estado_Civil = dropEstadoCivil.SelectedValue;
+            char whatsApp = '0'; if (dropWhats.SelectedValue.Equals("Sí")) { whatsApp = '1';}
+            int telefono = 0;
+            if (whatsApp == '1' && string.IsNullOrEmpty(txtTel.Text))
+            { Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos faltantes', 'Ingrese un número de teléfono')", true);
+                return;
+            } else if (whatsApp == '1' && !string.IsNullOrEmpty(txtTel.Text))
+            { telefono = int.Parse(txtTel.Text);
+            } else if (whatsApp == '0' && !string.IsNullOrEmpty(txtTel.Text))
+            { telefono = int.Parse(txtTel.Text);}
+            else {telefono = 0;}
+            clienteModif.WhatsApp = whatsApp;
+            clienteModif.Telefono = telefono;
+            clienteModif.Estado = 1;
+
+            //Historial medico
+            HistorialMedico histModif = new HistorialMedico();
+            histModif.Cedula = Int32.Parse( Cedula);
+            histModif.Antecedentes = txtAntec.Text; ;
+            histModif.Patologias = txtPatol.Text;
+            int consumeLicor = 0;
+            if (DropLicor.SelectedValue.Equals("Sí")) {consumeLicor = 1; }
+            int fuma = 0;
+            if (DropFuma.SelectedValue.Equals("Sí")) { consumeLicor = 1; }
+            histModif.ConsumeLicor = consumeLicor;
+            histModif.Fuma = fuma;
+            if (!string.IsNullOrEmpty(txtFrecFuma.Text)) { histModif.FrecFuma = txtFrecFuma.Text; } else { histModif.FrecFuma = ""; }
+            if (!string.IsNullOrEmpty(txtFrecLicor.Text)) { histModif.FrecLicor = txtFrecLicor.Text; } else { histModif.FrecLicor = ""; }
+            histModif.UltimoExamen = FechRevMedica.Text;
+            histModif.ActividadFisica = txtActividadFisica.Text;
+            List<Medicamento> listaM = medicamSupl;
+
+            //Habitos alimentarios
+            HabitoAlimentario habModif = new HabitoAlimentario();
+            habModif.Cedula = Int32.Parse(Cedula);
+            int ComidaDiaria; if (string.IsNullOrEmpty(numeroComidas.Text)) {ComidaDiaria = 0;} else ComidaDiaria = int.Parse(numeroComidas.Text);
+            habModif.ComidaDiaria = ComidaDiaria;
+            char ComidaHorasDia = '0'; //drop
+            if (ComeHoras.SelectedValue.Equals("Sí")) {ComidaHorasDia = '1'; }
+            habModif.ComidaHorasDia = ComidaHorasDia;
+            int AfueraExpress;
+            if (string.IsNullOrEmpty(txtEspres.Text)) { AfueraExpress = 0; } else AfueraExpress = int.Parse(txtEspres.Text);
+            habModif.AfueraExpress = AfueraExpress;
+            string ComidaFuera = txtQueComeFuera.Text;
+            string AzucarBebida = cantAzucar.Text;
+            string ComidaElaboradCon = dropCocinaCon.SelectedValue; //drop
+            habModif.ComidaFuera = ComidaFuera;
+            habModif.AzucarBebida = AzucarBebida;
+            habModif.ComidaElaboradCon = ComidaElaboradCon;
+            decimal AguaDiaria; if (string.IsNullOrEmpty(txtCuantaAgua.Text)) {AguaDiaria = 0;} else AguaDiaria = decimal.Parse(txtCuantaAgua.Text);
+            habModif.AguaDiaria = AguaDiaria;
+            char Aderezos = '0'; if (dropAderezos.SelectedValue.Equals("Sí")) { Aderezos = '1'; }
+            habModif.Aderezos = Aderezos;
+            char Fruta = '0';  if (dropFrutas.SelectedValue.Equals("Sí")) {Fruta = '1';}
+            habModif.Fruta = Fruta;
+            char Verdura = '0'; if (dropVeget.SelectedValue.Equals("Sí")) {Verdura = '1'; }
+            habModif.Verdura = Verdura;
+            char Leche = '0'; if (dropLeche.SelectedValue.Equals("Sí")) { Leche = '1'; }
+            habModif.Leche = Leche;
+            char Huevo = '0';  if (dropHuevo.SelectedValue.Equals("Sí")) { Huevo = '1';}
+            habModif.Huevo = Huevo;
+            char Yogurt = '0';  if (dropYogurt.SelectedValue.Equals("Sí")) {Yogurt = '1'; }
+            habModif.Yogurt = Yogurt;
+            char Carne = '0'; if (dropCarne.SelectedValue.Equals("Sí")) { Carne = '1'; }
+            habModif.Carne = Carne;
+            char Queso = '0'; if (dropQueso.SelectedValue.Equals("Sí")) { Queso = '1'; }
+            habModif.Queso = Queso;
+            char Aguacate = '0';  if (dropAguacate.SelectedValue.Equals("Sí")){ Aguacate = '1'; }
+            habModif.Aguacate = Aguacate;
+            char Semillas = '0';  if (dropSemillas.SelectedValue.Equals("Sí")) {Semillas = '1';}
+            habModif.Semillas = Semillas;
+          
+            List<Recordatorio24H> listRecordModif = new List<Recordatorio24H>();
+            listRecordModif.Add(new Recordatorio24H(Int32.Parse(Cedula), "Ayunas", txtHoraAyunas.Text, txtDescAyunas.Text));
+            listRecordModif.Add(new Recordatorio24H(Int32.Parse(Cedula), "Desayuno", txtHoraDesayuno.Text, txtDescDesay.Text));
+            listRecordModif.Add(new Recordatorio24H(Int32.Parse(Cedula), "Media mañana", txtHoraMediaM.Text, txtDescMediaM.Text));
+            listRecordModif.Add(new Recordatorio24H(Int32.Parse(Cedula), "Almuerzo", txtHoraAlmmuerzo.Text, txtDescAlmuerzo.Text));
+            listRecordModif.Add(new Recordatorio24H(Int32.Parse(Cedula), "Tarde", txtHoraTarde.Text, txtDescTarde.Text));
+            listRecordModif.Add(new Recordatorio24H(Int32.Parse(Cedula), "Cena", txtHoraCena.Text, txtDescCena.Text));
+            listRecordModif.Add(new Recordatorio24H(Int32.Parse(Cedula), "Colasión nocturna", txtHoraColacion.Text, txtDescColacion.Text));
+
+            //Antropometria
+            Antropometria antropModif = new Antropometria();
+            antropModif.Cedula = Int32.Parse(Cedula);
+            decimal talla;
+            if (string.IsNullOrEmpty(txtTalla.Text)) { talla = 0; }
+            else {if (txtTalla.Text.Length > 4) { Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', 'Valor inválido')", true);
+                    return; } else talla = decimal.Parse(txtTalla.Text);
+            }
+            antropModif.Talla = talla;
+            decimal pesoIdeal;if (string.IsNullOrEmpty(txtPesoIdeal.Text)) { pesoIdeal = 0; } else pesoIdeal = decimal.Parse(txtPesoIdeal.Text);
+            antropModif.PesoIdeal = pesoIdeal;
+            decimal edad; if (string.IsNullOrEmpty(txtEdad.Text)) {edad = 0; } else edad = decimal.Parse(txtEdad.Text);
+            antropModif.Edad = edad;
+            decimal pMB; if (string.IsNullOrEmpty(txtPMB.Text)) { pMB = 0;} else pMB = decimal.Parse(txtPMB.Text);
+            antropModif.PMB = pMB;
+            decimal peso; if (string.IsNullOrEmpty(txtPesoActual.Text)) { peso = 0; } else peso = decimal.Parse(txtPesoActual.Text);
+            antropModif.Peso = peso;
+            decimal pesoMaxTeoria;if (string.IsNullOrEmpty(txtPesoMaxTeoria.Text)) {pesoMaxTeoria = 0; } else  pesoMaxTeoria = decimal.Parse(txtPesoMaxTeoria.Text);
+            antropModif.PesoMaxTeoria = pesoMaxTeoria;
+            decimal iMC; if (string.IsNullOrEmpty(txtIMC.Text)) { iMC = 0; } else iMC = decimal.Parse(txtIMC.Text);
+            antropModif.IMC = iMC;
+            decimal porcGrasaAnalizador; if (string.IsNullOrEmpty(txtGrasaAnalizador.Text)) { porcGrasaAnalizador = 0; } else porcGrasaAnalizador = decimal.Parse(txtGrasaAnalizador.Text);
+            antropModif.PorcGrasaAnalizador = porcGrasaAnalizador;
+            decimal porcGr_Bascula; if (string.IsNullOrEmpty(txtGrasaBascula.Text)) { porcGr_Bascula = 0; } else porcGr_Bascula = decimal.Parse(txtGrasaBascula.Text);
+            antropModif.PorcGr_Bascula = porcGr_Bascula;
+            decimal gB_BI; if (string.IsNullOrEmpty(txtGB_BI.Text)) { gB_BI = 0; } else  gB_BI = decimal.Parse(txtGB_BI.Text);
+            antropModif.GB_BI = gB_BI;
+            decimal gB_BD; if (string.IsNullOrEmpty(txtGB_BD.Text)) { gB_BD = 0; } else gB_BD = decimal.Parse(txtGB_BD.Text);
+            antropModif.GB_BD = gB_BD;
+            decimal gB_PI; if (string.IsNullOrEmpty(txtGB_PI.Text)) { gB_PI = 0; }  else gB_PI = decimal.Parse(txtGB_PI.Text);
+            antropModif.GB_PI = gB_PI;
+            decimal gB_PD; if (string.IsNullOrEmpty(txtGB_PD.Text)) { gB_PD = 0; } else gB_PD = decimal.Parse(txtGB_PD.Text);
+            antropModif.GB_PD = gB_PD;
+            decimal gB_Tronco; if (string.IsNullOrEmpty(txtGB_Trono.Text)) { gB_Tronco = 0; } else  gB_Tronco = decimal.Parse(txtGB_Trono.Text);
+            antropModif.GB_Tronco = gB_Tronco;
+            decimal aguaCorporal; if (string.IsNullOrEmpty(txtAgua.Text)) { aguaCorporal = 0; } else  aguaCorporal = decimal.Parse(txtAgua.Text);
+            antropModif.AguaCorporal = aguaCorporal;
+            decimal masaOsea; if (string.IsNullOrEmpty(txtMasaOsea.Text)) { masaOsea = 0; }  else masaOsea = decimal.Parse(txtMasaOsea.Text);
+            antropModif.MasaOsea = masaOsea;
+            decimal complexión;  if (string.IsNullOrEmpty(txtComplexion.Text)) { complexión = 0; } else  complexión = decimal.Parse(txtComplexion.Text);
+            antropModif.Complexión = complexión;
+            decimal edadMetabolica; if (string.IsNullOrEmpty(txtEdadMetabolica.Text))  { edadMetabolica = 0; }  else edadMetabolica = decimal.Parse(txtEdadMetabolica.Text);
+            antropModif.EdadMetabolica = edadMetabolica;
+            decimal cintura; if (string.IsNullOrEmpty(txtCintura.Text)) { cintura = 0; } else  cintura = decimal.Parse(txtCintura.Text);
+            antropModif.Cintura = cintura;
+            decimal abdomen; if (string.IsNullOrEmpty(txtAbdomen.Text))  { abdomen = 0; } else abdomen = decimal.Parse(txtAbdomen.Text);
+            antropModif.Abdomen = abdomen;
+            decimal cadera; if (string.IsNullOrEmpty(txtCadera.Text)) { cadera = 0; } else cadera = decimal.Parse(txtCadera.Text);
+            antropModif.Cadera = cadera;
+            decimal musloIzq; if (string.IsNullOrEmpty(txtMusloIzq.Text)) { musloIzq = 0; }   else  musloIzq = decimal.Parse(txtMusloIzq.Text);
+            antropModif.MusloIzq = musloIzq;
+            decimal musloDer; if (string.IsNullOrEmpty(txtMusloDer.Text)) { musloDer = 0; }  else  musloDer = decimal.Parse(txtMusloDer.Text);
+            antropModif.MusloDer = musloDer;
+            decimal cBM; if (string.IsNullOrEmpty(txtCMB.Text)) { cBM = 0; } else  cBM = decimal.Parse(txtCMB.Text);
+            antropModif.CBM = cBM;
+            decimal circunfMunneca; if (string.IsNullOrEmpty(txtCircunferencia.Text)) { circunfMunneca = 0; } else circunfMunneca = decimal.Parse(txtCircunferencia.Text);
+            antropModif.CircunfMunneca = circunfMunneca;
+            decimal porcentGViceral; if (string.IsNullOrEmpty(txtGarsaViceral.Text)) { porcentGViceral = 0; } else porcentGViceral = decimal.Parse(txtGarsaViceral.Text);
+            antropModif.PorcentGViceral = porcentGViceral;
+            decimal porcentMusculo;  if (string.IsNullOrEmpty(txtPorcentaje.Text))  { porcentMusculo = 0; } else porcentMusculo = decimal.Parse(txtPorcentaje.Text);
+            antropModif.PorcentMusculo = porcentMusculo;
+            decimal pM_BI; if (string.IsNullOrEmpty(txtPM_BI.Text)) { pM_BI = 0; } else pM_BI = decimal.Parse(txtPM_BI.Text);
+            antropModif.PM_BI = pM_BI;
+            decimal pM_PD; if (string.IsNullOrEmpty(txtPM_PD.Text)) { pM_PD = 0; } else pM_PD = decimal.Parse(txtPM_PD.Text);
+            antropModif.PM_PD = pM_PD;
+            decimal pM_BD; if (string.IsNullOrEmpty(txtPM_BD.Text)) { pM_BD = 0; } else pM_BD = decimal.Parse(txtPM_BD.Text);
+            antropModif.PM_BD = pM_BD;
+            decimal pM_PI; if (string.IsNullOrEmpty(txtPM_PI.Text))  { pM_PI = 0; }  else pM_PI = decimal.Parse(txtPM_PI.Text);
+            antropModif.PM_PI = pM_PI;
+            decimal pM_Tronco; if (string.IsNullOrEmpty(txtPM_Tronco.Text)) { pM_Tronco = 0; } else pM_Tronco = decimal.Parse(txtPM_Tronco.Text);
+            antropModif.PM_Tronco = pM_Tronco;
+            antropModif.Observaciones = txtObservaciones.Text;
+            decimal gEB = 0;if (string.IsNullOrEmpty(txtGEB.Text)) { gEB = 0; } else gEB = decimal.Parse(txtGEB.Text);
+            antropModif.GEB = gEB;
+            decimal gET = 0; if (string.IsNullOrEmpty(txtGET.Text))  { gET = 0; } else gET = decimal.Parse(txtGET.Text);
+            antropModif.GET = gET;
+            decimal cHOPorc; if (string.IsNullOrEmpty(choPorc.Text)) { cHOPorc = 0; } else cHOPorc = decimal.Parse(choPorc.Text);
+            antropModif.CHOPorc = cHOPorc;
+            decimal cHOGram; if (string.IsNullOrEmpty(choGram.Text))  { cHOGram = 0; } else cHOGram = decimal.Parse(choGram.Text);
+            antropModif.CHOGram = cHOGram;
+            decimal cHO_kcal; if (string.IsNullOrEmpty(choKcal.Text)) { cHO_kcal = 0; } else cHO_kcal = decimal.Parse(choKcal.Text);
+            antropModif.CHO_kcal = cHO_kcal;
+            decimal proteinaPorc; if (string.IsNullOrEmpty(ProtPorc.Text)) { proteinaPorc = 0; }  else proteinaPorc = decimal.Parse(ProtPorc.Text);
+            antropModif.ProteinaPorc = proteinaPorc;
+            decimal proteinaGram; if (string.IsNullOrEmpty(ProtGram.Text))  { proteinaGram = 0; } else  proteinaGram = decimal.Parse(ProtGram.Text);
+            antropModif.ProteinaGram = proteinaGram;
+            decimal proteinakcal;  if (string.IsNullOrEmpty(protKcal.Text))  { proteinakcal = 0; } else  proteinakcal = decimal.Parse(protKcal.Text);
+            antropModif.Proteinakcal = proteinakcal;
+            decimal grasaPorc;  if (string.IsNullOrEmpty(GrasPorc.Text)) { grasaPorc = 0; } else grasaPorc = decimal.Parse(GrasPorc.Text);
+            antropModif.GrasaPorc = grasaPorc;
+            decimal grasaGram; if (string.IsNullOrEmpty(GrasGram.Text))  { grasaGram = 0; }  else  grasaGram = decimal.Parse(GrasGram.Text);
+            antropModif.GrasaGram = grasaGram;
+            decimal grasakcal;   if (string.IsNullOrEmpty(GrasKcal.Text))  { grasakcal = 0; }  else   grasakcal = decimal.Parse(GrasKcal.Text);
+            antropModif.Grasakcal = grasakcal;
+
+            Porciones porcModif = new Porciones();
+            porcModif.Cedula = Int32.Parse(Cedula);
+            decimal leche;  if (string.IsNullOrEmpty(txtPorcLeche.Text))  { leche = 0; }   else   leche = decimal.Parse(txtPorcLeche.Text);
+            porcModif.Leche = leche;
+            decimal carne; if (string.IsNullOrEmpty(txtPorcCarnes.Text)){ carne = 0; } else carne = decimal.Parse(txtPorcCarnes.Text);
+            porcModif.Carne = carne;
+            decimal vegetales;  if (string.IsNullOrEmpty(txtPorcVeget.Text))   { vegetales = 0; }  else   vegetales = decimal.Parse(txtPorcVeget.Text);
+            porcModif.Vegetales = vegetales;
+            decimal grasa;  if (string.IsNullOrEmpty(txtPorcGrasas.Text))  { grasa = 0; }  else  grasa = decimal.Parse(txtPorcGrasas.Text);
+            porcModif.Grasa = grasa;
+            decimal fruta;  if (string.IsNullOrEmpty(txtPorcFrutas.Text))   {  fruta = 0;   }  else  fruta = decimal.Parse(txtPorcFrutas.Text);
+            porcModif.Fruta = fruta;
+            decimal azucar;   if (string.IsNullOrEmpty(txtPorcAzucar.Text))   {   azucar = 0;   }  else   azucar = decimal.Parse(txtPorcAzucar.Text);
+            porcModif.Azucar = azucar;
+            decimal harina;  if (string.IsNullOrEmpty(txtPorcHarinas.Text))  {  harina = 0;  } else  harina = decimal.Parse(txtPorcHarinas.Text);
+            porcModif.Harina = harina;
+            decimal suplemento; if (string.IsNullOrEmpty(txtPorcSuplem.Text)) { suplemento = 0; } else suplemento = decimal.Parse(txtPorcSuplem.Text);
+            porcModif.Suplemento = suplemento;
+            
+            List<DistribucionPorciones> distrModif = new List<DistribucionPorciones>();
+            distrModif.Add(new DistribucionPorciones(txtDescAyunasA.Text, "Ayunas", txtHoraAyunasA.Text, Int32.Parse(Cedula)));
+            distrModif.Add(new DistribucionPorciones(txtDescDesayA.Text, "Desayuno", txtHoraDesayunoA.Text, Int32.Parse(Cedula)));
+            distrModif.Add(new DistribucionPorciones(txtDescMediaMA.Text, "Media mañana", txtHoraMediaMA.Text, Int32.Parse(Cedula)));
+            distrModif.Add(new DistribucionPorciones(txtDescAlmuerzoA.Text, "Almuerzo", txtHoraAlmmuerzoA.Text, Int32.Parse(Cedula)));
+            distrModif.Add(new DistribucionPorciones(txtDescTardeA.Text, "Tarde", txtHoraTardeA.Text, Int32.Parse(Cedula)));
+            distrModif.Add(new DistribucionPorciones(txtDescCenaA.Text, "Cena", txtHoraCenaA.Text, Int32.Parse(Cedula)));
+            distrModif.Add(new DistribucionPorciones(txtDescColacionA.Text, "Colasión nocturna", txtHoraColacionA.Text, Int32.Parse(Cedula)));
+
+            bool exito = manejExpediente.ModificarExped(clienteModif, histModif, habModif, listRecordModif, antropModif, porcModif, distrModif);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien', 'Los datos se modificaron correctamente')", true);
+
 
         }
 
@@ -707,14 +927,28 @@ namespace UI
 
 							// write the text in the pdf content
 							contentByte.BeginText();
-
+                            string nombre;
+                            string fecha;
+                            string peso;
+                            string imc;
+                            string grasa;
                             SeguimientoMensual segM = listaSegNutri.Last<SeguimientoMensual>();
-
-                            string nombre = "Nombre: " + txtNombre.Text + " " + txtPrimerApellido.Text + " " + txtSegundoApellido.Text;
-							string fecha = "Fecha: " + System.DateTime.Today.ToShortDateString();
-							string peso = "Peso: " + segM.antrop.Peso + " Kg";
-							string imc = "IMC: " + segM.antrop.IMC;
-							string grasa = "% Grasa: " + segM.antrop.PorcGr_Bascula + "%";
+                            if (segM != null)
+                            {
+                                nombre = "Nombre: " + txtNombre.Text + " " + txtPrimerApellido.Text + " " + txtSegundoApellido.Text;
+                                fecha = "Fecha: " + System.DateTime.Today.ToShortDateString();
+                                peso = "Peso: " + segM.antrop.Peso + " Kg";
+                                imc = "IMC: " + segM.antrop.IMC;
+                                grasa = "% Grasa: " + segM.antrop.PorcGr_Bascula + "%";
+                            }
+                            else
+                            {
+                                nombre = "Nombre: " + txtNombre.Text + " " + txtPrimerApellido.Text + " " + txtSegundoApellido.Text;
+                                fecha = "Fecha: " + System.DateTime.Today.ToShortDateString();
+                                peso = "Peso: " + txtPesoActual.Text + " Kg";
+                                imc = "IMC: " + txtIMC.Text;
+                                grasa = "% Grasa: " + txtGrasaAnalizador.Text + "%";
+                            }
 							// put the alignment and coordinates here
 							contentByte.ShowTextAligned(Element.ALIGN_LEFT, nombre, 100, 560, 0);
 							contentByte.ShowTextAligned(Element.ALIGN_LEFT, fecha, 100, 540, 0);

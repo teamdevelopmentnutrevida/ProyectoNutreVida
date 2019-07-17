@@ -268,5 +268,55 @@ namespace BL
                 return null;
             }
         }
+
+        public bool ModificarExped(ClienteNutricion clienteModif, HistorialMedico histModif, HabitoAlimentario habModif, List<Recordatorio24H> listRecordModif, Antropometria antropModif, Porciones porcModif, List<DistribucionPorciones> distrModif)
+        {    TOClienteNutricion cliente = new TOClienteNutricion();
+            cliente.Cedula = clienteModif.Cedula; cliente.Nombre = clienteModif.Nombre; cliente.Apellido1 = clienteModif.Apellido1; cliente.Apellido2 = clienteModif.Apellido2; cliente.Fecha_Nacimiento = clienteModif.Fecha_Nacimiento;
+            cliente.Sexo = clienteModif.Sexo; cliente.Estado_Civil = clienteModif.Estado_Civil; cliente.WhatsApp = clienteModif.WhatsApp; cliente.Telefono = clienteModif.Telefono; cliente.Residencia = clienteModif.Residencia;
+            cliente.Ocupacion = clienteModif.Ocupacion; cliente.FechaIngreso = clienteModif.FechaIngreso; cliente.Correo = clienteModif.Correo; cliente.Consultorio = clienteModif.Consultorio; cliente.Estado = clienteModif.Estado;
+
+            TOHistorialMedico histmed = new TOHistorialMedico();
+            histmed.Cedula = histModif.Cedula; histmed.Antecedentes = histModif.Antecedentes; histmed.Patologias = histModif.Patologias;
+            histmed.ConsumeLicor = histModif.ConsumeLicor; histmed.Fuma = histModif.Fuma; histmed.FrecFuma = histModif.FrecFuma;
+            histmed.FrecLicor = histModif.FrecLicor; histmed.UltimoExamen = histModif.UltimoExamen; histmed.ActividadFisica = histModif.ActividadFisica;
+
+            TOHabitoAlimentario habAlime = new TOHabitoAlimentario();
+            habAlime.Cedula = habModif.Cedula; habAlime.ComidaDiaria = habModif.ComidaDiaria;  habAlime.ComidaHorasDia = habModif.ComidaHorasDia;
+            habAlime.AfueraExpress = habModif.AfueraExpress;  habAlime.ComidaFuera = habModif.ComidaFuera;  habAlime.AzucarBebida = habModif.AzucarBebida;
+            habAlime.ComidaElaboradCon = habModif.ComidaElaboradCon;  habAlime.AguaDiaria = habModif.AguaDiaria;
+            habAlime.Aderezos = habModif.Aderezos;  habAlime.Fruta = habModif.Fruta;  habAlime.Verdura = habModif.Verdura;  habAlime.Leche = habModif.Leche;
+            habAlime.Huevo = habModif.Huevo;  habAlime.Yogurt = habModif.Yogurt;  habAlime.Carne = habModif.Carne;
+            habAlime.Queso = habModif.Queso;  habAlime.Aguacate = habModif.Aguacate;  habAlime.Semillas = habAlime.Semillas;
+
+            List<TORecordatorio24H> listRecord = new List<TORecordatorio24H>();
+            foreach(Recordatorio24H r in listRecordModif)
+            {
+                listRecord.Add(new TORecordatorio24H(r.Cedula, r.TiempoComida,r.Hora, r.Descripcion));
+            }
+
+            TOAntropometria antrop = new TOAntropometria();
+            antrop.Cedula = antropModif.Cedula; antrop.Talla = antropModif.Talla; antrop.PesoIdeal = antropModif.PesoIdeal; antrop.Edad = antropModif.Edad; antrop.PMB = antropModif.PMB;
+            antrop.Peso = antropModif.Peso;  antrop.PesoMaxTeoria = antropModif.PesoMaxTeoria;  antrop.IMC = antropModif.IMC;  antrop.PorcGrasaAnalizador = antropModif.PorcGrasaAnalizador;  antrop.PorcGr_Bascula = antropModif.PorcGr_Bascula;
+            antrop.GB_BI = antropModif.GB_BI;  antrop.GB_BD = antropModif.GB_BD; antrop.GB_PI = antropModif.GB_PI;  antrop.GB_PD = antropModif.GB_PD;  antrop.GB_Tronco = antropModif.GB_Tronco;
+            antrop.AguaCorporal = antropModif.AguaCorporal; antrop.MasaOsea = antropModif.MasaOsea;  antrop.Complexión = antropModif.Complexión;  antrop.EdadMetabolica = antropModif.EdadMetabolica;  antrop.Cintura = antropModif.Cintura;
+            antrop.Abdomen = antropModif.Abdomen;  antrop.Cadera = antropModif.Cadera;  antrop.MusloDer = antropModif.MusloDer;  antrop.MusloIzq = antropModif.MusloIzq;  antrop.CBM = antropModif.CBM;
+            antrop.CircunfMunneca = antropModif.CircunfMunneca;  antrop.PorcentGViceral = antropModif.PorcentGViceral;  antrop.PorcentMusculo = antropModif.PorcentMusculo;  antrop.PM_BI = antropModif.PM_BI;  antrop.PM_PD = antropModif.PM_PD;
+            antrop.PM_BD = antropModif.PM_BD;  antrop.PM_PI = antropModif.PM_PI;  antrop.PM_Tronco = antropModif.PM_Tronco;  antrop.Observaciones = antropModif.Observaciones;
+            antrop.GEB = antropModif.GEB;  antrop.GET = antropModif.GET;  antrop.CHOPorc = antropModif.CHOPorc;  antrop.CHOGram = antropModif.CHOGram; antrop.CHO_kcal = antropModif.CHO_kcal;
+            antrop.ProteinaPorc = antropModif.ProteinaPorc;  antrop.ProteinaGram = antropModif.ProteinaGram;  antrop.Proteinakcal = antropModif.Proteinakcal; antrop.GrasaPorc = antropModif.GrasaPorc; antrop.GrasaGram = antropModif.GrasaGram;  antrop.Grasakcal = antropModif.Grasakcal;
+
+            TOPorciones porc = new TOPorciones();
+            porc.Cedula = porcModif.Cedula; porc.Leche = porcModif.Leche; porc.Carne = porcModif.Carne;
+            porc.Vegetales = porcModif.Vegetales;  porc.Grasa = porcModif.Grasa;  porc.Fruta = porcModif.Fruta;
+            porc.Azucar = porcModif.Azucar;  porc.Harina = porcModif.Harina; porc.Suplemento = porcModif.Suplemento;
+
+            List<TODistribucionPorciones> listDist = new List<TODistribucionPorciones>();
+            foreach(DistribucionPorciones d in distrModif)
+            {
+                listDist.Add(new TODistribucionPorciones(d.Descripcion, d.TiempoComida, d.Hora, d.Cedula));
+            }
+
+            return daoClienteNutricion.ModificarExpediente(cliente, histmed, habAlime, listRecord, antrop, porc, listDist);
+        }
     }
 }
