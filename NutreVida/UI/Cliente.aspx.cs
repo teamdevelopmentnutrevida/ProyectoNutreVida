@@ -967,8 +967,7 @@ namespace UI
 					writer.Close();
 				}
 			}
-
-			ShowPdf(newFile);
+            ShowPdf(newFile);
 		}
 
 

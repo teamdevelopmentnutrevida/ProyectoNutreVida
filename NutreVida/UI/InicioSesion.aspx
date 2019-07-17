@@ -22,7 +22,7 @@
 
     <title>NutreVida</title>
 </head>
-<body>
+<body style="cursor: default !important;">
 
     <div class="container-fluid">
 
@@ -76,7 +76,12 @@
         </div>
 
     </div>
-
+    <script>
+        window.onbeforeunload = function () {
+            body = document.getElementsByTagName('body')[0];
+            body.style.setProperty('cursor', 'wait', 'important');
+        }
+    </script>
 </body>
 </html>
 
