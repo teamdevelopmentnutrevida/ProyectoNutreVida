@@ -16,7 +16,7 @@ namespace UI
 
         protected void btnAtras_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Expedientes.aspx")
+            Response.Redirect("Expedientes.aspx");
         }
     }
 }
