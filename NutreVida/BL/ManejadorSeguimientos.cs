@@ -113,6 +113,11 @@ namespace BL
 
         }
 
+        /**
+        * Método publico para traer la lista mensual de los clientes de acuerdo a su número de cédula.
+        * @param int cedula, objeto que contiene en número de cédula de un paciente.
+        * @return List<SeguimientoMensual>, retorna la lista de los seguimientos mensual del cliente con dicho número de cedula
+        */
         public List<SeguimientoMensual> TraerListaMensual(int cedula)
         {
             List<TOSeguimientoMensual> seguimientoLista = daoSeguimientos.ListarMensual(cedula);

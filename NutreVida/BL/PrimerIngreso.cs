@@ -8,10 +8,34 @@ using DAO;
 
 namespace BL
 {
+    /**
+    * Clase PrimerIngreso, crea los metodos que permiten gestionar el primer ingreso de un cliente
+    * @author Cristel
+   */
     public class PrimerIngreso
     {
         DAOPrimerIngreso daoClienteNutricion = new DAOPrimerIngreso();
 
+        /**
+        * Método publico que permite crear un TOcliente 
+        * @param cedula, datos del usuario
+        * @param correo, datos del usuario
+        * @param nombre, datos del usuario
+        * @param apellido1, datos del usuario
+        * @param apellido2, datos del usuario
+        * @param fecha_Nacimiento, datos del usuario
+        * @param sexo, datos del usuario
+        * @param estado_Civil, datos del usuario
+        * @param whatsApp, datos del usuario
+        * @param estado_Civil, datos del usuario
+        * @param telefono, datos del usuario
+        * @param residencia, datos del usuario
+        * @param ocupacion, datos del usuario
+        * @param fechaIngreso, datos del usuario
+        * @param consultorio, datos del usuario
+        * @param estado, datos del usuario
+        * @return bool, retorna si se creó correctamente o no.
+        */
         public Boolean CrearCliente(int cedula, string correo, string nombre, string apellido1, string apellido2, DateTime fecha_Nacimiento, char sexo, string estado_Civil, char whatsApp, int telefono, string residencia, string ocupacion, DateTime fechaIngreso, string consultorio, int estado)
         {
             if (cedula.Equals(""))
@@ -22,6 +46,12 @@ namespace BL
             return daoClienteNutricion.CrearUsuario(usuario);
         }
 
+        /**
+        * Método publico que permite agregar un historia medico de un paciente
+        * @param historial, objeto de tipo HistorialMedico
+        * @param listaMedicamentos, lista de tipo Medicamento
+        * @return bool, retorna si se agregó correctamente o no.
+        */
         public Boolean AgregarHistorialMedico(HistorialMedico historial, List<Medicamento> listaMedicamentos)
         {
             List<TOMedicamento> lista = new List<TOMedicamento>();
@@ -41,6 +71,12 @@ namespace BL
                 historial.UltimoExamen, historial.ActividadFisica)), lista);
         }
 
+        /**
+        * Método publico que permite agregar un habito alimentario
+        * @param habito, objeto de tipo HabitoAlimentario
+        * @param listaRecordat, lista de tipo  Recordatorio24H
+        * @return bool, retorna si se agregó correctamente o no.
+        */
         public Boolean AgregarHabitosAlimentarios(HabitoAlimentario habito, List<Recordatorio24H> listaRecordat)
         {
             List<TORecordatorio24H> lista = new List<TORecordatorio24H>();
@@ -61,6 +97,13 @@ namespace BL
                 habito.Queso, habito.Aguacate, habito.Semillas), lista);
         }
 
+        /**
+        * Método publico que permite agregar los datos de antropometria de un paciente
+        * @param antrop, objeto de tipo Antropometria
+        * @param porcion, objeto de tipo Porciones
+        * @param Listdistrib, lista de tipo  DistribucionPorciones
+        * @return bool, retorna si se agregó correctamente o no.
+        */
         public bool AgregarAntropometria(Antropometria antrop, Porciones porcion, List<DistribucionPorciones>  Listdistrib)
         {
             List<TODistribucionPorciones> lista = new List<TODistribucionPorciones>();
@@ -100,8 +143,12 @@ namespace BL
 
         }
 
-
-		public Boolean buscarCliente(string cedula)
+        /**
+        * Método publico que permite buscar un cliente de acuerdo a su numero de cedula
+        * @param cedula, objeto de tipo string
+        * @return bool, retorna si se agregó correctamente o no.
+        */
+        public Boolean buscarCliente(string cedula)
 		{
 			Boolean cliente = daoClienteNutricion.buscarCedula(cedula);
 			return cliente;

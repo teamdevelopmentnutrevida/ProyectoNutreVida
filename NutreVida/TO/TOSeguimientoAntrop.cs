@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+
+    /**
+* Crea un objeto de seguimiento de antropometria, además de sus metodos set y get
+* @author Yoselyn
+*/
     public class TOSeguimientoAntrop
     {
         public int id_SegAntrop { set; get; }
@@ -42,9 +47,15 @@ namespace TO
         public decimal PesoIdeal { set; get; }
         public string Observaciones { set; get; }
 
-
+        /**
+        * Método publico constructor vacío que crea una instancia el objeto..
+        */
         public TOSeguimientoAntrop() { }
 
+        /**
+        * Método publico constructor que crea el objeto del seguimiento, 
+        * contiene el identificador del seguimiento.
+        */
         public TOSeguimientoAntrop(decimal edad, decimal talla, decimal cm, DateTime fecha_SA, decimal peso, decimal iMC, decimal edadMetabolica, decimal agua, decimal masaOsea, decimal porcGrasaAnalizador, decimal porcentGViceral, decimal porcGr_Bascula, decimal gB_BI, decimal gB_BD, decimal gB_PI, decimal gB_PD, decimal gB_Tronco, decimal porcentMusculo, decimal pM_BI, decimal pM_PD, decimal pM_BD, decimal pM_PI, decimal pM_Tronco, decimal circunfCintura, decimal cadera, decimal musloIzq, decimal musloDer, decimal brazoIzq, decimal brazoDer, decimal pesoIdeal, string observaciones)
         {
             Edad = edad;
@@ -80,6 +91,10 @@ namespace TO
             Observaciones = observaciones;
         }
 
+        /**
+        * Método publico constructor que crea el objeto d el seguimiento, 
+        * contiene el identificador del seguimiento.
+        */
         public TOSeguimientoAntrop(int id_SegAntrop, int seguimiento, decimal edad, decimal talla, decimal cm, DateTime fecha_SA, decimal peso, decimal iMC, decimal edadMetabolica, decimal agua, decimal masaOsea, decimal porcGrasaAnalizador, decimal porcentGViceral, decimal porcGr_Bascula, decimal gB_BI, decimal gB_BD, decimal gB_PI, decimal gB_PD, decimal gB_Tronco, decimal porcentMusculo, decimal pM_BI, decimal pM_BD, decimal pM_PI, decimal pM_PD, decimal pM_Tronco, decimal circunfCintura, decimal cadera, decimal musloIzq, decimal musloDer, decimal brazoIzq, decimal brazoDer, decimal pesoIdeal, string observaciones)
         {
             this.id_SegAntrop = id_SegAntrop;

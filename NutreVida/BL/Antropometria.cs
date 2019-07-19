@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+        /**
+        * Clase Antropometria, crea el objeto antropometria como parte del registro del cliente en los seguimientos
+        * @author Yoselyn
+        */
     public class Antropometria
     {
 
+        //inicio de atributos
         public int Cedula { set; get; }
         public decimal Talla { set; get; }
         public decimal PesoIdeal { set; get; }

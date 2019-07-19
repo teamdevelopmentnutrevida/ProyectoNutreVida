@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+
+    /**
+     * Clase Medicamento, crea el objeto mediamento como parte del registro del cliente
+     * @author Yoselyn
+    */
     public class Medicamento
     {
         public int Cedula { set; get; }

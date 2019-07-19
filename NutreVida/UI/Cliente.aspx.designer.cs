@@ -49,13 +49,13 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtTel;
         
         /// <summary>
-        /// ConsultDropList control.
+        /// ConsultorDropList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ConsultDropList;
+        protected global::System.Web.UI.WebControls.DropDownList ConsultorDropList;
         
         /// <summary>
         /// txtNombre control.
@@ -580,6 +580,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtEdad;
         
         /// <summary>
+        /// txtTalla control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTalla;
+        
+        /// <summary>
         /// txtPesoActual control.
         /// </summary>
         /// <remarks>
@@ -632,15 +641,6 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAbdomen;
-        
-        /// <summary>
-        /// txtCadera control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCadera;
         
         /// <summary>
         /// txtMusloIzq control.
@@ -706,13 +706,13 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtMasaOsea;
         
         /// <summary>
-        /// txtTalla control.
+        /// txtCadera control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTalla;
+        protected global::System.Web.UI.WebControls.TextBox txtCadera;
         
         /// <summary>
         /// txtGrasaAnalizador control.
@@ -805,13 +805,13 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtIMC;
         
         /// <summary>
-        /// txtPorcentajeMusculo control.
+        /// txtPorcentaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPorcentajeMusculo;
+        protected global::System.Web.UI.WebControls.TextBox txtPorcentaje;
         
         /// <summary>
         /// txtPM_BI control.
@@ -875,6 +875,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGEB;
+        
+        /// <summary>
+        /// DropTipoActividad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropTipoActividad;
         
         /// <summary>
         /// txtGET control.
@@ -2162,6 +2171,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGeneraPDF;
+        
+        /// <summary>
+        /// Modificar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Modificar;
         
         /// <summary>
         /// btnGuardar control.

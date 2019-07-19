@@ -9,10 +9,18 @@ using TO;
 
 namespace DAO
 {
+    /**
+   * Clase que permite la conexión con la base de datos para almacenar los datos del cliente
+   * @author Yoselyn
+   */
     public class DAOClienteNutricion
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
 
+        /**
+        * Método público que permite la conexión con la base de datos para recuperar todos los clientes registrados
+        * @return una lista de clientes.
+        */
         public List<TOClienteNutricion> ListarCliente()
         {
             List<TOClienteNutricion> Lista = new List<TOClienteNutricion>();
@@ -31,7 +39,7 @@ namespace DAO
                 {
                     Lista.Add(new TOClienteNutricion(Int32.Parse(lector["Cedula"].ToString()), lector["Correo"].ToString(), lector["Nombre"].ToString(), lector["Apellido1"].ToString(),
                         lector["Apellido2"].ToString(), DateTime.Parse(lector["Fecha_Nacimiento"].ToString()), Char.Parse(lector["Sexo"].ToString()),
-                        lector["Estado_Civil"].ToString(), Char.Parse(lector["WhatsApp"].ToString()), Int32.Parse(lector["Telefono"].ToString()), lector["Residencia"].ToString(), 
+                        lector["Estado_Civil"].ToString(), Char.Parse(lector["WhatsApp"].ToString()), Int32.Parse(lector["Telefono"].ToString()), lector["Residencia"].ToString(),
                         lector["Ocupacion"].ToString(), DateTime.Parse(lector["FechaIngreso"].ToString()), lector["Consultorio"].ToString(), Int32.Parse(lector["Estado"].ToString())));
 
                 }
@@ -45,10 +53,15 @@ namespace DAO
             }
         }
 
+        /**
+       * Método público que permite la conexión con la base de datos para traer la información personal de un cliente de acuerdo a su numero de cedula
+       * @param ced string
+       * @return un cliente 
+       */
         public TOClienteNutricion TraerInfoPersonal(string ced)
         {
             TOClienteNutricion cliente = new TOClienteNutricion();
-            string qry = "Select * from Cliente_Nutricion c,Usuario u where c.Cedula = u.Cedula AND u.Cedula = "+ced;
+            string qry = "Select * from Cliente_Nutricion c,Usuario u where c.Cedula = u.Cedula AND u.Cedula = " + ced;
             SqlCommand buscar = new SqlCommand(qry, conexion);
             SqlDataReader lector;
 
@@ -63,7 +76,7 @@ namespace DAO
                 cliente = new TOClienteNutricion(Int32.Parse(lector["Cedula"].ToString()), lector["Correo"].ToString(), lector["Nombre"].ToString(), lector["Apellido1"].ToString(),
                         lector["Apellido2"].ToString(), DateTime.Parse(lector["Fecha_Nacimiento"].ToString()), Char.Parse(lector["Sexo"].ToString()),
                         lector["Estado_Civil"].ToString(), Char.Parse(lector["WhatsApp"].ToString()), Int32.Parse(lector["Telefono"].ToString()), lector["Residencia"].ToString(), lector["Ocupacion"].ToString(), DateTime.Parse(lector["FechaIngreso"].ToString()), lector["Consultorio"].ToString());
-               
+
                 conexion.Close();
                 return cliente;
             }
@@ -74,9 +87,14 @@ namespace DAO
             }
         }
 
+        /**
+       * Método público que permite la conexión con la base de datos para deshabilitar el estado de un paciente
+       * @param ced string
+       * @return un parámetro de tipo booleano que devuelve un true si se cambió en la base o flase si no se cambió.
+       */
         public bool DeshabilitarCliente(string ced)
         {
-            string query =  " UPDATE Cliente_Nutricion SET Estado = 0 WHERE Cedula = "+ ced;
+            string query = " UPDATE Cliente_Nutricion SET Estado = 0 WHERE Cedula = " + ced;
             SqlCommand cmd = new SqlCommand(query, conexion);
             try
             {
@@ -88,11 +106,18 @@ namespace DAO
                 cmd.ExecuteNonQuery();
                 conexion.Close();
                 return true;
-            } catch
+            }
+            catch
             {
                 return false;
             }
         }
+
+        /**
+       * Método público que permite la conexión con la base de datos para habilitar el estado de un paciente
+       * @param ced string
+       * @return un parámetro de tipo booleano que devuelve un true si se cambió en la base o flase si no se cambió.
+       */
         public bool HabilitarCliente(string ced)
         {
             string query = " UPDATE Cliente_Nutricion SET Estado = 1 WHERE Cedula = " + ced;
@@ -116,6 +141,11 @@ namespace DAO
 
         }
 
+        /**
+      * Método público que permite la conexión con la base de datos para traer un historial metido de acuerdo al número de cedula de un paciente
+      * @param ced object
+      * @return un parámetro de tipo TOHistorialMedico
+      */
         public TOHistorialMedico TraerHistorialMed(object ced)
         {
             TOHistorialMedico hm = new TOHistorialMedico();
@@ -154,6 +184,11 @@ namespace DAO
             return hm;
         }
 
+        /**
+      * Método público que permite la conexión con la base de datos para traer un historial metido de acuerdo al número de cedula de un paciente
+      * @param ced object
+      * @return un parámetro de tipo TOHistorialMedico
+      */
         public List<TORecordatorio24H> TraerRecord24H(object ced)
         {
             List<TORecordatorio24H> list = new List<TORecordatorio24H>();
@@ -170,7 +205,7 @@ namespace DAO
             {
                 while (lector.Read())
                 {
-                    list.Add(new TORecordatorio24H(Int32.Parse(lector["Cedula"].ToString()), lector["TiempoComida"].ToString(), 
+                    list.Add(new TORecordatorio24H(Int32.Parse(lector["Cedula"].ToString()), lector["TiempoComida"].ToString(),
                     lector["Hora"].ToString(), lector["Descripcion"].ToString()));
                 }
                 conexion.Close();
@@ -183,9 +218,15 @@ namespace DAO
             }
         }
 
+
+        /**
+     * Método público que permite la conexión con la base de datos para traer un antopometria de acuerdo al número de cedula de un paciente
+     * @param cedula string
+     * @return un parámetro de tipo TOAntropometria
+     */
         public TOAntropometria TraerAntropometria(string cedula)
         {
-             string qry = "select * from Antropometria where Cedula = " + cedula;
+            string qry = "select * from Antropometria where Cedula = " + cedula;
             SqlCommand cmd = new SqlCommand(qry, conexion);
             SqlDataReader lector;
             try
@@ -261,6 +302,12 @@ namespace DAO
             }
         }
 
+
+        /**
+    * Método público que permite la conexión con la base de datos para traer un habito alimentario de acuerdo al número de cedula de un paciente
+    * @param cedula string
+    * @return un parámetro de tipo TOHabitoAlimentario
+    */
         public TOHabitoAlimentario ConsultarHabitoAlimentario(string cedula)
         {
             string qry = "select * from HabitosAlimentario where Cedula = " + cedula;
@@ -294,6 +341,11 @@ namespace DAO
             }
         }
 
+        /**
+   * Método público que permite la conexión con la base de datos para traer una porcion de acuerdo al número de cedula de un paciente
+   * @param cedula string
+   * @return un parámetro de tipo TOPorciones
+   */
         public TOPorciones TraerPorciones(string cedula)
         {
             string qry = "select * from Porciones where Cedula = " + cedula;
@@ -329,6 +381,11 @@ namespace DAO
             }
         }
 
+        /**
+   * Método público que permite la conexión con la base de datos para traer una lista de los suplementora alimenticios de acuerdo al número de cedula de un paciente
+   * @param cedula object
+   * @return un parámetro de tipo List<TOMedicamento>
+   */
         public List<TOMedicamento> ListaSuplMed(object ced)
         {
             List<TOMedicamento> list = new List<TOMedicamento>();
@@ -360,6 +417,11 @@ namespace DAO
             }
         }
 
+        /**
+  * Método público que permite la conexión con la base de datos para traer una lista de la distribución de acuerdo al número de cedula de un paciente
+  * @param cedula string
+  * @return un parámetro de tipo List<TODistribucionPorciones>
+  */
         public List<TODistribucionPorciones> TraerDistribucion(string cedula)
         {
             List<TODistribucionPorciones> lista = new List<TODistribucionPorciones>();
@@ -378,7 +440,7 @@ namespace DAO
                 {
                     while (lector.Read())
                     {
-                        lista.Add(new TODistribucionPorciones( lector["Descripcion"].ToString(),
+                        lista.Add(new TODistribucionPorciones(lector["Descripcion"].ToString(),
                         lector["TiempoComida"].ToString(), lector["Hora"].ToString(), Int32.Parse(lector["Cedula"].ToString())));
                     }
                     conexion.Close();
@@ -396,5 +458,108 @@ namespace DAO
                 return null;
             }
         }
+
+
+        /**
+          * Método público que permite la conexión con la base de datos para modificar datos del expediente
+          * @param cedula string
+          * @return un parámetro de tipo bool, que indica si se realizo correctamente la accion o no
+          */
+        public bool ModificarExpediente(TOClienteNutricion clienteModif, TOHistorialMedico histModif, TOHabitoAlimentario habModif, List<TORecordatorio24H> listRecordModif, TOAntropometria antropModif, TOPorciones porcModif, List<TODistribucionPorciones> distrModif)
+        {
+            string query = "UPDATE Cliente_Nutricion  SET Fecha_Nacimiento = "+clienteModif.Fecha_Nacimiento+", "+
+                "Sexo = "+clienteModif.Sexo+", Estado_Civil = "+clienteModif.Estado_Civil+","+
+                " Residencia = "+clienteModif.Residencia+", Ocupacion = "+clienteModif.Ocupacion+","+
+                " FechaIngreso = "+clienteModif.FechaIngreso+", Consultorio = "+clienteModif.Consultorio+" WHERE Cedula = "+clienteModif.Cedula+"; ";
+
+            string query2 = "UPDATE Historial_Medico SET Antecedentes_Fam = "+histModif.Antecedentes+", Patologias = "+histModif.Patologias+","+
+                "Cosumo_Licor = "+histModif.ConsumeLicor+", Fumador = "+histModif.Fuma+", FrecFumar = "+histModif.FrecFuma+","+
+                "FrecTomar = "+histModif.FrecLicor+", ActividadFisica = "+histModif.ActividadFisica+" WHERE Cedula ="+histModif.Cedula+";";
+
+            string query3 = "UPDATE HabitosAlimentario SET ComidasDiarias = "+habModif.ComidaDiaria+","+
+                "Com_Hor_Dias = "+habModif.ComidaHorasDia+", Afuera_Express = "+habModif.AfueraExpress+","+
+                "ComidaFuera = "+habModif.ComidaFuera+", AzucarBebida = "+habModif.AzucarBebida+","+
+                "ComidaElaborada_Con = "+habModif.ComidaElaboradCon+", VasosAguaDiaria = "+habModif.AguaDiaria+", "+
+                "Aderezos = "+habModif.Aderezos+", Fruta = "+habModif.Fruta+", Verdura = "+habModif.Verdura+", Leche = "+habModif.Leche+", "+
+                "Huevo = "+habModif.Huevo+", Yogurt = "+habModif.Yogurt+", Carne = "+habModif.Carne+", Queso = "+habModif.Queso+","+
+                "Aguacate = "+habModif.Aguacate+", Semillas = "+habModif.Semillas+" WHERE Cedula = "+habModif.Cedula+";";
+
+            
+
+            SqlCommand cmd = new SqlCommand(query, conexion);
+            SqlCommand cmd2 = new SqlCommand(query2, conexion);
+            SqlCommand cmd3 = new SqlCommand(query3, conexion);
+
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                cmd3.ExecuteNonQuery();
+                conexion.Close();
+
+                foreach (TORecordatorio24H R in listRecordModif)
+                {
+                    string query4 = "UPDATE Historial_Medico SET Hora = "+ R.Hora+", Descripcion = "+R.Descripcion+" WHERE Cedula = "+R.Cedula+" and TiempoComida = "+R.TiempoComida+"; ";
+                    SqlCommand cmd4 = new SqlCommand(query4, conexion);
+                    conexion.Open();
+                    cmd4.ExecuteNonQuery();
+                    conexion.Close();
+                    
+                    
+                }
+
+                string query5 = "UPDATE Antropometria SET Talla = "+antropModif.Talla+", "+
+                "PesoIdeal = "+antropModif.PesoIdeal+", Edad = "+antropModif.Edad+ ", " +
+                "PMB = "+antropModif.PMB+", Peso = "+antropModif.Peso+", PesoMaxTeoria = "+antropModif.PesoMaxTeoria+", " +
+                "IMC = "+antropModif.IMC+", PorcGrasaAnalizador = "+antropModif.PorcGrasaAnalizador+ ", " +
+                "PorcGr_Bascula = "+antropModif.PorcGr_Bascula+", GB_BI = "+antropModif.GB_BI+", GB_BD = "+antropModif.GB_BD+ ", " +
+                "GB_PI = "+antropModif.GB_PI+", GB_PD = "+antropModif.GB_PD+", GB_Troco = "+antropModif.GB_Tronco+ ", " +
+                "AguaCorporal = "+antropModif.AguaCorporal+", MasaOsea = "+antropModif.MasaOsea+", Complexion = "+antropModif.Complexión+ "," +
+                "Edad_Metabolica = "+antropModif.EdadMetabolica+", Cintura = "+antropModif.Cintura+", Abdomen = "+antropModif.Abdomen+ "," +
+                "Cadera = "+antropModif.Cadera+", MusloDer = "+antropModif.MusloDer+", MusloIzq = "+antropModif.MusloIzq+ "," +
+                "CBM = "+antropModif.CBM+", CircunfMunneca = "+antropModif.CircunfMunneca+", PorcentGViceral = "+antropModif.PorcentGViceral+ "," +
+                "PorcentMusculo = "+antropModif.PorcentMusculo+", PM_BI = "+antropModif.PM_BI+", PM_PD = "+antropModif.PM_PD+ ", " +
+                "PM_BD = "+antropModif.PM_BD+", PM_PI = "+antropModif.PM_PI+", PM_Tronco = "+antropModif.PM_Tronco+", Observaciones = "+antropModif.Observaciones+ "," +
+                "GEB = "+antropModif.GEB+", GET = "+antropModif.GET+", CHOPorc = "+antropModif.CHOPorc+", CHOGram = "+antropModif.CHOGram+ "," +
+                "CHOkcal = "+antropModif.CHO_kcal+", ProteinaPorc = "+antropModif.ProteinaPorc+", ProteinaGram = "+antropModif.ProteinaGram+ "," +
+                "Proteinakcal = "+antropModif.Proteinakcal+", GrasaPorc = "+antropModif.GrasaPorc+", GrasaGram = "+antropModif.GrasaGram+ ", " +
+                "Grasakcal = "+antropModif.Grasakcal+" WHERE Cedula = "+antropModif.Cedula+"; ";
+
+                string query6 = "UPDATE  Porciones SET Leche = "+porcModif.Leche+", Carne = "+porcModif.Carne+", Vegetales = "+porcModif.Vegetales+","+
+                "Grasa = "+porcModif.Grasa+", Fruta = "+porcModif.Fruta+", Azucar = "+porcModif.Azucar+", Harina = "+porcModif.Harina+","+
+                "Suplemento = "+porcModif.Suplemento+" WHERE Cedula = "+porcModif.Cedula+"; ";
+
+                SqlCommand cmd5 = new SqlCommand(query5, conexion);
+                SqlCommand cmd6 = new SqlCommand(query6, conexion);
+                conexion.Open();
+                cmd5.ExecuteNonQuery();
+                cmd6.ExecuteNonQuery();
+                conexion.Close();
+
+                foreach (TODistribucionPorciones D in distrModif)
+                {
+                    string query7 = "UPDATE  DistribucionPorcion SET Hora = "+D.Hora+", Descripcion = "+D.Descripcion+" WHERE Cedula = "+D.Cedula+" and TiempoComida = "+D.TiempoComida+"; ";
+                    SqlCommand cmd7 = new SqlCommand(query7, conexion);
+                    conexion.Open();
+                    cmd7.ExecuteNonQuery();
+                    conexion.Close();
+
+
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
     }
 }

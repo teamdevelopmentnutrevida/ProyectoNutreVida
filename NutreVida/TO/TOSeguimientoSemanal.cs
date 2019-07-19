@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+    /**
+* Crea un objeto del seguimiento semanal, además de sus metodos set y get
+* @author Yoselyn
+*/
     public class TOSeguimientoSemanal
     {
         public int Sesion { set; get; }
@@ -15,6 +19,10 @@ namespace TO
         public string Ejercicio { set; get; }
         public int Cedula { set; get; }
 
+        /**
+        * Método publico constructor que crea el objeto del seguimiento, 
+        * contiene el identificador del seguimiento.
+        */
         public TOSeguimientoSemanal(int sesion, DateTime fecha, decimal peso, string oreja, string ejercicio, int cedula)
         {
             Sesion = sesion;
@@ -25,8 +33,14 @@ namespace TO
             Cedula = cedula;
         }
 
+        /**
+        * Método publico constructor vacío que crea una instancia del objeto
+        */
         public TOSeguimientoSemanal() { }
 
+        /**
+        * Método publico constructor que crea el objeto del seguimiento.
+        */
         public TOSeguimientoSemanal(DateTime fecha, decimal peso, string oreja, string ejercicio, int cedula)
         {
             Fecha = fecha;

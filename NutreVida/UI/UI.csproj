@@ -125,12 +125,15 @@
     <Content Include="css\dhtmlxscheduler_flat.css" />
     <Content Include="css\dhtmlxscheduler_material.css" />
     <Content Include="css\dhtmlxscheduler_terrace.css" />
+    <Content Include="css\Error.css" />
     <Content Include="css\InicioSesionStyles.css" />
     <Content Include="css\Margen.css" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="CustomError.aspx" />
     <Content Include="Expedientes.aspx" />
+    <Content Include="HabilitarClientes.aspx" />
     <Content Include="img\agenda-calendar-hov.svg" />
     <Content Include="img\agenda-calendar.svg" />
     <Content Include="img\arrow_left.png" />
@@ -1769,7 +1772,6 @@
     <Content Include="VerSeguimiento.aspx" />
     <Content Include="Web.config" />
     <Content Include="Agenda.aspx" />
-    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.aspx.cs">
@@ -1793,12 +1795,26 @@
     <Compile Include="ControlSeguridad.aspx.designer.cs">
       <DependentUpon>ControlSeguridad.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomError.aspx.cs">
+      <DependentUpon>CustomError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomError.aspx.designer.cs">
+      <DependentUpon>CustomError.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Expedientes.aspx.cs">
       <DependentUpon>Expedientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Expedientes.aspx.designer.cs">
       <DependentUpon>Expedientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HabilitarClientes.aspx.cs">
+      <DependentUpon>HabilitarClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HabilitarClientes.aspx.designer.cs">
+      <DependentUpon>HabilitarClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Notificacion.aspx.cs">
       <DependentUpon>Notificacion.aspx</DependentUpon>
@@ -1856,13 +1872,6 @@
     </Compile>
     <Compile Include="VerSeguimiento.aspx.designer.cs">
       <DependentUpon>VerSeguimiento.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

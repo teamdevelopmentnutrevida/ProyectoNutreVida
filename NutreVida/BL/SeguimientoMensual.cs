@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /**
+     * Clase SeguimientoMensual, clase del objeto de seguimientos mensual.
+     * @author Yoselyn
+    */
     public class SeguimientoMensual
     {
+        //inicio de atributos
         public int idSeg { set; get; }
         public DateTime Fecha { set; get; }
 
@@ -22,6 +27,10 @@ namespace BL
             this.antrop = antrop;
             this.record = record;
         }
+
+        /**
+        * Método publico constructor que crea el objeto del seguimiento mensual.
+        */
         public SeguimientoMensual(SeguimientoNutricional nutri, List<SeguimientoRecordat24H> record, SeguimientoAntrop antrop, int id)
         {
             this.idSeg = id;
@@ -30,6 +39,9 @@ namespace BL
             this.record = record;
         }
 
+        /**
+        * Método publico constructor vacío que crea una instancia del objeto.
+        */
         public SeguimientoMensual() { }
 
     }

@@ -9,10 +9,19 @@ using TO;
 
 namespace DAO
 {
+    /**
+   * Clase que permite la conexión con la base de datos para almacenar los datos del cliente en su primer ingreso
+   * @author Yoselyn
+   */
     public class DAOPrimerIngreso
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conexion);
 
+        /**
+        * Método público que permite la conexión con la base de datos para crear un cliente
+        * @param tOCliente TOClienteNutricion
+        * @return un parámetro de tipo booleano que devuelve un true si se guardó en la base o flase si no se guardó.
+        */
         public bool CrearUsuario(TOClienteNutricion tOCliente)
         {
             String query1 = "Insert into Usuario values(@ced,@cor,@nomb,@whats,@tel,@ape1,@ape2,@rol);";
@@ -62,7 +71,12 @@ namespace DAO
                 return false;
             }
         }
-
+        /**
+        * Método público que permite la conexión con la base de datos para guardar un historial
+        * @param historial TOHistorialMedico
+         * @param listaMedicamento List<TOMedicamento>
+        * @return un parámetro de tipo booleano que devuelve un true si se guardó en la base o flase si no se guardó.
+        */
         public bool GuardarHistorial(TOHistorialMedico historial, List<TOMedicamento> listaMedicamento)
         {
             //En laparte grafica falta consLic,fum
@@ -118,6 +132,12 @@ namespace DAO
 
         }
 
+        /**
+        * Método público que permite la conexión con la base de datos para guardar un habito alimentario
+        * @param HabitosAlimentario TOHabitoAlimentario
+        * @param listaR List<TORecordatorio24H>
+        * @return un parámetro de tipo booleano que devuelve un true si se guardó en la base o flase si no se guardó.
+        */
         public bool GuardarHabitos(TOHabitoAlimentario HabitosAlimentario, List<TORecordatorio24H> listaR)
         {
             String query1 = "Insert into HabitosAlimentario values(@ced,@comDi,@ComHD,@express,@comFue,@azuc,@comElab,@agua,@ader,@frut,@verd,@lech,@huev,@yogurt,@carn,@ques,@aguacat,@semil);";
@@ -176,6 +196,13 @@ namespace DAO
             }
         }
 
+        /**
+       * Método público que permite la conexión con la base de datos para guardar antropometría
+       * @param antropom TOAntropometria
+       * @param porcion TOPorciones
+       * @param listDistrib List<TODistribucionPorciones> 
+       * @return un parámetro de tipo booleano que devuelve un true si se guardó en la base o flase si no se guardó.
+       */
         public bool GuardarAntropometria(TOAntropometria antropom, TOPorciones porcion, List<TODistribucionPorciones> listDistrib)
         {
             //muslos
@@ -259,8 +286,12 @@ namespace DAO
             //}
         }
 
-
-		public Boolean buscarCedula(String cedula)
+        /**
+      * Método público que permite la conexión con la base de datos para realizar la busqueda de un cliente segun su numero de cedula
+      * @param cedula string
+      * @return un parámetro de tipo booleano que devuelve un true si se encontró en la base o flase si no se encontró.
+      */
+        public Boolean buscarCedula(String cedula)
 		{
 				try
 				{

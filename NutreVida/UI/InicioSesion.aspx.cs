@@ -31,7 +31,7 @@ namespace UI
 			String contrasena = txtContras.Text;
 
 			BLLogin usua = new MaejadorLogin().buscarUsuario(correo, contrasena);
-			if (usua.correo != null && !usua.correo.Equals(""))
+			if (usua != null && !usua.correo.Equals(""))
 			{
 				Session["usuario"] = usua;
 				if (usua.rol.Equals("admin"))

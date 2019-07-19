@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TO
 {
+
+    /**
+* Crea un objeto de porciones, además de sus metodos set y get
+* @author Yoselyn
+*/
     public class TOPorciones
     {
         public int Cedula { set; get; }
