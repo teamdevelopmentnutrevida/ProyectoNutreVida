@@ -19,12 +19,12 @@ namespace UI
         public static ManejadorExpediente manejador = new ManejadorExpediente();
 		protected void Page_Load(object sender, EventArgs e)
         {
-            //if (new ControlSeguridad().validarNutri() == true)
-            //{
-            //    Response.Redirect("~/InicioSesion.aspx");
-            //}
+			if (new ControlSeguridad().validarNutri() == true)
+			{
+				Response.Redirect("~/InicioSesion.aspx");
+			}
 
-            CargarLista();
+			CargarLista();
 		}
 
         /**
@@ -79,6 +79,7 @@ namespace UI
         [System.Web.Services.WebMethod]
         public static void HabilitarCliente(string ced)
         {
+			//Response.Redirect("HabilitarClientes.aspx");
             bool exito = manejador.HabilitarCliente(ced);
             
         }
@@ -100,7 +101,7 @@ namespace UI
 
         protected void Habilitar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("HabilitarCliente.aspx");
+            Response.Redirect("HabilitarClientes.aspx");
         }
     }
 }

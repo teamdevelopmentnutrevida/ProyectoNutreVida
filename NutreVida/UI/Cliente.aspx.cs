@@ -46,18 +46,18 @@ namespace UI
       
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (new ControlSeguridad().validarNutri() == true)
-            //{
-            //    Response.Redirect("~/InicioSesion.aspx");
-            //}
+			if (new ControlSeguridad().validarNutri() == true)
+			{
+				Response.Redirect("~/InicioSesion.aspx");
+			}
 
-            //if (!IsPostBack)
-            //{
-            //    CargarDatos();
-            //}
+			//if (!IsPostBack)
+			//{
+			//    CargarDatos();
+			//}
 
 
-        }
+		}
         
         /**
         * Método privado que carga la seccion de la información personal del cliente seleccionado 

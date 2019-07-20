@@ -19,18 +19,18 @@ namespace UI
         {
 			Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
-			//if (new ControlSeguridad().validarNutri() == true)
-			//{
-			//	Response.Redirect("~/InicioSesion.aspx");
+			if (new ControlSeguridad().validarNutri() == true)
+			{
+				Response.Redirect("~/InicioSesion.aspx");
 
-			//}
+			}
 
 			//if (!IsPostBack)
-   //         {
+			//         {
 
 
-   //         }
-        }
+			//         }
+		}
 
 	  /**
 	  * Método privado que carga la opcion seleccionada en el dropdown de licor 
