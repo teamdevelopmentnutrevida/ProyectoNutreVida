@@ -177,8 +177,8 @@ namespace DAO
 
                 }
                 String query3 = "Insert into SeguimAntropom values(@idSeg, @sEdad, @sTalla, @sCm, @sFecha_SA, @sPeso, @sIMC, @sEdadMetabolica," +
-                    "@sAgua, @sMasaOsea, @sPorcGrasaAnalizador, @sPorcentGViceral, @sPorcGr_Bascula, @sGB_BI, @sGB_BD, @sGB_PI,@sGB_PD, @sGB_Tronco, "+
-                    "@sPorcentMusculo, @sPM_BI, @sPM_BD, @sPM_PI, @sPM_PD, @sPM_Tronco, @sCircunfCintura, @sCadera, @sMusloIzq, @sMusloDer, @sBrazoIzq, @sBrazoDer, "+
+                    "@sAgua, @sMasaOsea, @sPorcGrasaAnalizador, @sPorcentGViceral, @sPorcGr_Bascula, @sGB_BI, @sGB_BD, @sGB_PI,@sGB_PD, @sGB_Tronco, " +
+                    "@sPorcentMusculo, @sPM_BI, @sPM_BD, @sPM_PI, @sPM_PD, @sPM_Tronco, @sCircunfCintura, @sCadera, @sMusloIzq, @sMusloDer, @sBrazoIzq, @sBrazoDer, " +
                     "@sPesoIdeal, @sObservaciones)";
                 if (conexion.State != ConnectionState.Open)
                 {
@@ -186,7 +186,7 @@ namespace DAO
                 }
                 SqlCommand cmd3 = new SqlCommand(query3, conexion);
                 TOSeguimientoAntrop segAnt = seguimiento.antrop;
-                int ed = int.Parse(segAnt.Edad+"");
+                int ed = int.Parse(segAnt.Edad + "");
                 cmd3.Parameters.AddWithValue("@idSeg", idSeg);
                 cmd3.Parameters.AddWithValue("@sEdad", ed);
                 cmd3.Parameters.AddWithValue("@sTalla", segAnt.Talla);
@@ -207,10 +207,10 @@ namespace DAO
                 cmd3.Parameters.AddWithValue("@sGB_Tronco", segAnt.GB_Tronco);
                 cmd3.Parameters.AddWithValue("@sPorcentMusculo", segAnt.PorcentMusculo);
                 cmd3.Parameters.AddWithValue("@sPM_BI", segAnt.PM_BI);
-                cmd3.Parameters.AddWithValue("@sPM_BD", segAnt.PM_BD); 
+                cmd3.Parameters.AddWithValue("@sPM_BD", segAnt.PM_BD);
                 cmd3.Parameters.AddWithValue("@sPM_PI", segAnt.PM_PI);
-                cmd3.Parameters.AddWithValue("@sPM_PD", segAnt.PM_PD); 
-                cmd3.Parameters.AddWithValue("@sPM_Tronco", segAnt.PM_Tronco); 
+                cmd3.Parameters.AddWithValue("@sPM_PD", segAnt.PM_PD);
+                cmd3.Parameters.AddWithValue("@sPM_Tronco", segAnt.PM_Tronco);
                 cmd3.Parameters.AddWithValue("@sCircunfCintura", segAnt.CircunfCintura);
                 cmd3.Parameters.AddWithValue("@sCadera", segAnt.Cadera);
                 cmd3.Parameters.AddWithValue("@sMusloIzq", segAnt.MusloIzq);
@@ -288,7 +288,7 @@ namespace DAO
                     {
                         while (lector2.Read())
                         {
-                            nutrec.Add(new TOSeguimientoRecordat24H(int.Parse(lector2["ID_Seguimiento"].ToString()), lector2["TiempoComida"].ToString(), lector2["Hora"].ToString(), lector2["Descripcion"].ToString()));
+                            nutrec.Add(new TOSeguimientoRecordat24H(int.Parse(lector2["ID_Seguimiento"].ToString()), int.Parse(lector2["ID_Record"].ToString()), lector2["TiempoComida"].ToString(), lector2["Hora"].ToString(), lector2["Descripcion"].ToString()));
                         }
                         seg.record = nutrec;
                         conexion.Close();
@@ -314,9 +314,9 @@ namespace DAO
                             decimal.Parse(lector3["Edad"].ToString()), decimal.Parse(lector3["Talla"].ToString()), decimal.Parse(lector3["CM"].ToString()),
                          DateTime.Parse(lector3["FechaSeg"].ToString()), decimal.Parse(lector3["Peso"].ToString()), decimal.Parse(lector3["IMC"].ToString()),
                          decimal.Parse(lector3["EdadMetab"].ToString()), decimal.Parse(lector3["Agua"].ToString()), decimal.Parse(lector3["MasaOsea"].ToString()),
-                         decimal.Parse(lector3["PorcGrasaAnalizador"].ToString()), decimal.Parse(lector3["PGrasaViceral"].ToString()), 
-                         decimal.Parse(lector3["PorcGr_Bascula"].ToString()),decimal.Parse(lector3["GB_BI"].ToString()), decimal.Parse(lector3["GB_BD"].ToString()),
-                         decimal.Parse(lector3["GB_PI"].ToString()), decimal.Parse(lector3["GB_PD"].ToString()), decimal.Parse(lector3["GB_Tronco"].ToString()), 
+                         decimal.Parse(lector3["PorcGrasaAnalizador"].ToString()), decimal.Parse(lector3["PGrasaViceral"].ToString()),
+                         decimal.Parse(lector3["PorcGr_Bascula"].ToString()), decimal.Parse(lector3["GB_BI"].ToString()), decimal.Parse(lector3["GB_BD"].ToString()),
+                         decimal.Parse(lector3["GB_PI"].ToString()), decimal.Parse(lector3["GB_PD"].ToString()), decimal.Parse(lector3["GB_Tronco"].ToString()),
                         decimal.Parse(lector3["PorcentMusculo"].ToString()), decimal.Parse(lector3["PM_BI"].ToString()), decimal.Parse(lector3["PM_BD"].ToString()),
                         decimal.Parse(lector3["PM_PI"].ToString()), decimal.Parse(lector3["PM_PD"].ToString()), decimal.Parse(lector3["PM_Tronco"].ToString()),
                         decimal.Parse(lector3["CircunfCintura"].ToString()), decimal.Parse(lector3["Cadera"].ToString()), decimal.Parse(lector3["MusloIzq"].ToString()),
@@ -333,6 +333,65 @@ namespace DAO
             }
             if (conexion.State != ConnectionState.Closed) { conexion.Close(); }
             return seguimMensual;
+        }
+
+        /**
+        * Método público que permite la conexión con la base de datos para modificar seguimientos mensuales de una persona
+        * @param seguimiento mensual que se va a actualizar
+        * @return bool que indica si se realizó correctamente.
+        */
+        public bool ModificarSeguimiento(TOSeguimientoMensual segMens)
+        {
+            string query = "UPDATE SeguimNutricion "+
+                "SET DiasEjercSem = '"+ segMens.nutri.DiasEjercicio + "', "+
+                "ComidaExtra = '"+ segMens.nutri.ComidaExtra +"', "+
+            "NivelAnsiedad = '"+ segMens.nutri.NivelAnsiedad +"' "
+            +"WHERE ID_Seguim = "+segMens.idSeg+" and Cedula = "+segMens.nutri.Cedula+"; ";
+
+            string query2 = "UPDATE SeguimAntropom SET Edad = "+segMens.antrop.Edad+", Talla = "+segMens.antrop.Talla+","+
+            "CM = "+ segMens.antrop.CM+ ", FechaSeg = '"+ segMens.antrop.Fecha_SA.ToString("yyyy-MM-dd") + "', Peso = "+ segMens.antrop.Peso+ ", "+
+            "IMC = "+ segMens.antrop.IMC+ ", EdadMetab = "+ segMens.antrop.EdadMetabolica+ ", Agua = "+ segMens.antrop.Agua+ ","+
+            "MasaOsea = "+ segMens.antrop.MasaOsea+ ", PorcGrasaAnalizador = "+ segMens.antrop.PorcGrasaAnalizador+ ","+
+            "PGrasaViceral = "+ segMens.antrop.PorcentGViceral+ ", PorcGr_Bascula = "+ segMens.antrop.PorcGr_Bascula+ ","+
+            "GB_BI = "+ segMens.antrop.GB_BI+", GB_BD = "+ segMens.antrop.GB_BD+", GB_PI = "+ segMens.antrop.GB_PI+ ", GB_PD = "+ segMens.antrop.GB_PD+","+
+            "GB_Tronco = "+ segMens.antrop.GB_Tronco+ ", PorcentMusculo = "+ segMens.antrop.PorcentMusculo+ ", PM_BI = "+ segMens.antrop.PM_BI+","+
+            "PM_BD = "+ segMens.antrop.PM_BD+ ", PM_PI = "+ segMens.antrop.PM_PI+ ", PM_PD = "+ segMens.antrop.PM_PD+ ", PM_Tronco = "+ segMens.antrop.PM_Tronco+ ","+
+            "CircunfCintura = "+ segMens.antrop.CircunfCintura+ ", Cadera = "+ segMens.antrop.Cadera+ ", MusloIzq = "+segMens.antrop.MusloIzq+","+
+            "MusloDer = "+ segMens.antrop.MusloDer+ ", BrazoIzq = "+ segMens.antrop.BrazoIzq+ ", BrazoDer = "+ segMens.antrop.BrazoDer+ ","+
+            "PesoIdeal = "+ segMens.antrop.PesoIdeal+ ", Observaciones = '"+ segMens.antrop.Observaciones+ "' WHERE ID_Seguim = "+ segMens.idSeg;
+
+            SqlCommand cmd = new SqlCommand(query, conexion);
+            SqlCommand cmd2 = new SqlCommand(query2, conexion);
+
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                conexion.Close();
+
+                foreach (TOSeguimientoRecordat24H R in segMens.record)
+                {
+                    string query3 = "UPDATE SeguimRecordat24H SET Hora = '" + R.Hora + "', Descripcion = '" + R.Descripcion + "' WHERE ID_Seguimiento = "+R.Seguimiento+" and TiempoComida = '"+R.TiempoComida+"'; ";
+                    SqlCommand cmd3 = new SqlCommand(query3, conexion);
+                    conexion.Open();
+                    cmd3.ExecuteNonQuery();
+                    conexion.Close();
+
+
+                }
+                
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

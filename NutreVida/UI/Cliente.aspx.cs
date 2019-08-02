@@ -39,22 +39,22 @@ namespace UI
 
         private static string Cedula = "";
         private static List<SeguimientoSemanal> listaSeguimientos = new List<SeguimientoSemanal>();
-        private static List<Medicamento> medicamSupl = new List<Medicamento>();
+        private static List<Medicamento> ListmedicamSupl = new List<Medicamento>();
         private static List<SeguimientoMensual> listaSegNutri = new List<SeguimientoMensual>();
         private static ManejadorSeguimientos manejadorSeg = new ManejadorSeguimientos();
         private static ManejadorExpediente manejExpediente = new ManejadorExpediente();
       
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (new ControlSeguridad().validarNutri() == true)
-            //{
-            //    Response.Redirect("~/InicioSesion.aspx");
-            //}
+            if (new ControlSeguridad().validarNutri() == true)
+            {
+                Response.Redirect("~/InicioSesion.aspx");
+            }
 
-            //if (!IsPostBack)
-            //{
-            //    CargarDatos();
-            //}
+            if (!IsPostBack)
+            {
+                CargarDatos();
+            }
 
 
         }
@@ -96,10 +96,10 @@ namespace UI
                     txtPrimerApellido.Text = c.Apellido1;
                     dropEstadoCivil.Text = c.Estado_Civil;
                     txtResid.Text = c.Residencia;
-                    FechIngreso.Text = c.FechaIngreso.Day + " / " + c.FechaIngreso.Month + " / " + c.FechaIngreso.Year;
+                    FechIngreso.Text = c.FechaIngreso.ToString("yyyy-MM-dd");
                     txtSegundoApellido.Text = c.Apellido2;
-                    if (c.Sexo.Equals('F')) { dropSexo.Text = "Femenino"; } else { if (c.Sexo.Equals('M')) { dropSexo.Text = "Masculino"; } else { dropSexo.Text = "Otro"; } }
-                    FechNacimi.Text = c.Fecha_Nacimiento.Day + " / " + c.Fecha_Nacimiento.Month + " / " + c.Fecha_Nacimiento.Year;
+                    if (c.Sexo.Equals('F')) { dropSexo.Text = "Femenino"; dropSexo.SelectedValue = "F"; } else { if (c.Sexo.Equals('M')) { dropSexo.Text = "Masculino"; dropSexo.SelectedValue = "M"; } else { dropSexo.Text = "Otro"; dropSexo.SelectedValue = "O"; } }
+                    FechNacimi.Text = c.Fecha_Nacimiento.ToString("yyyy-MM-dd");
                 }
                 else
                 {
@@ -173,10 +173,10 @@ namespace UI
         private void CargarTablaMedicamentos()
         {
            
-            medicamSupl = manejExpediente.TraerSuplMed(Cedula);
-            if (medicamSupl != null)
+            ListmedicamSupl = manejExpediente.TraerSuplMed(Cedula);
+            if (ListmedicamSupl != null)
             {
-                foreach (Medicamento med in medicamSupl)
+                foreach (Medicamento med in ListmedicamSupl)
                 {
                     tSuplementoMedico.Text += "<tr><td>" + med.Nombre + "</td><td>" + med.Motivo + "</td><td>" + med.Frecuencia + "</td><td>" + med.Dosis + "</td></tr>";
                 }
@@ -351,6 +351,16 @@ namespace UI
         protected void btnAgreg_Click(object sender, EventArgs e)
         {
             decimal peso = 0;
+            DateTime fechaSeg;
+            if (string.IsNullOrEmpty(FechSegSem.Text))
+            {
+                fechaSeg = DateTime.Now;
+            }
+            else
+            {
+                fechaSeg = DateTime.Parse(FechSegSem.Text);
+            }
+                          
             if (sPeso.Text.Equals("") || sOreja.Text.Equals("") || sEjercicio.Text.Equals(""))
             {Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error Seguimiento Semanal', 'No deben haber espacios en blanco')", true); }
             else
@@ -362,7 +372,7 @@ namespace UI
                 catch (FormatException)
                 { Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error Seguimiento Semanal', 'Error al ingresar el dato de Peso')", true); }
 
-                bool creado = manejadorSeg.AgregarSeguimiento(new SeguimientoSemanal(DateTime.Now, Convert.ToDecimal(sPeso.Text), sOreja.SelectedValue, sEjercicio.Text, int.Parse(ced1.Text)));
+                bool creado = manejadorSeg.AgregarSeguimiento(new SeguimientoSemanal(fechaSeg, Convert.ToDecimal(sPeso.Text), sOreja.SelectedValue, sEjercicio.Text, int.Parse(ced1.Text)));
                 if (creado)
                 {
 
@@ -432,7 +442,7 @@ namespace UI
                     SeguimMensual.Text += "<tr><td>" + seg.idSeg + "</td>" +
                         "<td>" + seg.Fecha.ToString("dd/MM/yyyy") + "</td>" +
                         "<td> <input id=\"Ver" + seg.idSeg + "\" type= \"submit\" value=\"Ver\" onclick=\"VerSeg("+seg.idSeg+ ")\" class=\"btn btn-secondary\" style=\"width:7rem\"/> </td>" +
-                        "<td> <input id=\"mod" + seg.idSeg + "\" type= \"submit\"  onclick=\"Modificar_Click\" class=\"btn btn-secondary\" style=\"width:7rem\" value=\"Modificar\"/> </tr>";
+                        "<td> <input id=\"mod" + seg.idSeg + "\" type= \"submit\"  onclick=\"Modificar_btn("+seg.idSeg+")\" class=\"btn btn-secondary\" style=\"width:7rem\" value=\"Modificar\"/> </tr>";
                 }
 
                 SeguimientoMensual seguim = listaSegNutri.Last<SeguimientoMensual>();
@@ -469,7 +479,7 @@ namespace UI
                 }
                 if (anterior.antrop != null)
                 {
-                    AntSAFech.Text = anterior.antrop.Fecha_SA + "";
+                    AntSAFech.Text = anterior.antrop.Fecha_SA.ToString("yyyy-MM-dd");
                     AntSAEdad.Text = anterior.antrop.Edad + "";
                     AntSATalla.Text = anterior.antrop.Talla + "";
                     AntSACM.Text = anterior.antrop.CM + "";
@@ -530,31 +540,34 @@ namespace UI
       * Método protegido, accion para agregar seguimientos
       * @param acciones y eventos del boton
       */
-        protected void MedicButton_Click(object sender, EventArgs e)
-        {
-            if (tNomMed.Text.Equals("") || tMotvMed.Text.Equals("") || tFrecMed.Text.Equals("") || tDosisMed.Text.Equals(""))
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Error con Registro Medicamentos', 'No deben haber espacios en blanco')", true);
-            }
-            else
-            {
-                Medicamento medicamSupl = new Medicamento();
-                string tabla = tSuplementoMedico.Text;
-                tabla += "<tr><td>" + tNomMed.Text + "</td><td>" + tMotvMed.Text + "</td><td>" + tFrecMed.Text + "</td><td>" + tDosisMed.Text + "</td></tr>";
-                tSuplementoMedico.Text = tabla;
+        //protected void MedicButton_Click(object sender, EventArgs e)
+        //{
+        //    if (tNomMed.Text.Equals("") || tMotvMed.Text.Equals("") || tFrecMed.Text.Equals("") || tDosisMed.Text.Equals(""))
+        //    {
+        //        Response.Write("<script>alert('No deben haber espacios en blanco')</script>");
+        //    }
+        //    else
+        //    {
+        //        Medicamento medicamSupl = new Medicamento();
+        //        string tabla = tSuplementoMedico.Text;
+        //        tabla += "<tr><td>" + tNomMed.Text + "</td><td>" + tMotvMed.Text + "</td><td>" + tFrecMed.Text + "</td><td>" + tDosisMed.Text + "</td></tr>";
+        //        tSuplementoMedico.Text = tabla;
 
-                medicamSupl.Nombre = tNomMed.Text;
-                medicamSupl.Motivo = tMotvMed.Text;
-                medicamSupl.Frecuencia = tFrecMed.Text;
-                medicamSupl.Dosis = tDosisMed.Text;
-               // ListaMedicamSuplem.Add(medicamSupl);  //Falta Guardar
 
-                tNomMed.Text = "";
-                tMotvMed.Text = "";
-                tFrecMed.Text = "";
-                tDosisMed.Text = "";
-            }
-        }
+        //        medicamSupl.Cedula = int.Parse(Cedula);
+
+        //        medicamSupl.Nombre = tNomMed.Text;
+        //        medicamSupl.Motivo = tMotvMed.Text;
+        //        medicamSupl.Frecuencia = tFrecMed.Text;
+        //        medicamSupl.Dosis = tDosisMed.Text;
+        //        ListmedicamSupl.Add(medicamSupl);
+
+        //        tNomMed.Text = "";
+        //        tMotvMed.Text = "";
+        //        tFrecMed.Text = "";
+        //        tDosisMed.Text = "";
+        //    }
+        //}
 
         /**
       * Método protegido, accion para guardar los datos de un seguimiento mensual nuevo
@@ -657,6 +670,26 @@ namespace UI
             HttpContext.Current.Session["idSeguimiento"] = idS;
         }
 
+
+        /**
+      *  Método web publico y estatico, para guardar el identificador el cual se redirige a la clase VerSeguimiento.aspx,
+      *  el cual muestra los datos del seguimiento selecccionado
+      * @param acciones y eventos del boton
+      */
+        [System.Web.Services.WebMethod(EnableSession = true)]
+        public static void Modif_Click(string idSeg)
+        {
+            foreach(SeguimientoMensual m in listaSegNutri)
+            {
+                if(m.idSeg == Int32.Parse(idSeg))
+                {
+                    HttpContext.Current.Session["SegModif"] = m;
+                }
+            }
+           
+        }
+
+
         /**
         *  Método protegido, para guardar modificaciones del expediente
         * @param acciones y eventos del boton
@@ -706,7 +739,7 @@ namespace UI
             if (!string.IsNullOrEmpty(txtFrecLicor.Text)) { histModif.FrecLicor = txtFrecLicor.Text; } else { histModif.FrecLicor = ""; }
             histModif.UltimoExamen = FechRevMedica.Text;
             histModif.ActividadFisica = txtActividadFisica.Text;
-            List<Medicamento> listaM = medicamSupl;
+            //List<Medicamento> listaM = ListmedicamSupl;
 
             //Habitos alimentarios
             HabitoAlimentario habModif = new HabitoAlimentario();
@@ -762,8 +795,7 @@ namespace UI
             antropModif.Cedula = Int32.Parse(Cedula);
             decimal talla;
             if (string.IsNullOrEmpty(txtTalla.Text)) { talla = 0; }
-            else {if (txtTalla.Text.Length > 4) { Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Datos incorrectos', 'Valor inválido')", true);
-                    return; } else talla = decimal.Parse(txtTalla.Text);
+            else {talla = decimal.Parse(txtTalla.Text);
             }
             antropModif.Talla = talla;
             decimal pesoIdeal;if (string.IsNullOrEmpty(txtPesoIdeal.Text)) { pesoIdeal = 0; } else pesoIdeal = decimal.Parse(txtPesoIdeal.Text);
@@ -881,8 +913,14 @@ namespace UI
             distrModif.Add(new DistribucionPorciones(txtDescColacionA.Text, "Colasión nocturna", txtHoraColacionA.Text, Int32.Parse(Cedula)));
 
             bool exito = manejExpediente.ModificarExped(clienteModif, histModif, habModif, listRecordModif, antropModif, porcModif, distrModif);
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien', 'Los datos se modificaron correctamente')", true);
-
+            if (exito)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('success', 'Bien', 'Los datos se modificaron correctamente')", true);
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensajeError", "mensajeError('error', 'Ups!', 'Sucedió un error al modificar los datos del expediente')", true);
+            }
 
         }
 

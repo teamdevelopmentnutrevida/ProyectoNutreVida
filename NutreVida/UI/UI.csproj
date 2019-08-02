@@ -192,6 +192,7 @@
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="js\sweetalert28.js" />
+    <Content Include="ModificarSeguimiento.aspx" />
     <Content Include="Notificacion.aspx" />
     <Content Include="Plantilla.pdf" />
     <Content Include="PrimerIngreso.aspx" />
@@ -1815,6 +1816,13 @@
     </Compile>
     <Compile Include="HabilitarClientes.aspx.designer.cs">
       <DependentUpon>HabilitarClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarSeguimiento.aspx.cs">
+      <DependentUpon>ModificarSeguimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarSeguimiento.aspx.designer.cs">
+      <DependentUpon>ModificarSeguimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Notificacion.aspx.cs">
       <DependentUpon>Notificacion.aspx</DependentUpon>

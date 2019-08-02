@@ -2,7 +2,7 @@
    
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+     <script src="js/sweetalert28.js"></script>
       <script type="text/javascript">
         function validarEmail(elemento) {
 
@@ -69,7 +69,7 @@
                          <label class="form-label" for="tResid">Residencia:</label><asp:Label runat="server" ID="Label9" Font-Size="Medium"></asp:Label>
                         <asp:TextBox ID="txtResid" runat="server" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Lugar de residencia"></asp:TextBox>
                         <label class="form-label" for="iFechaIngreso">Fecha de Ingreso:</label>
-                        <asp:TextBox runat="server" ID="FechIngreso" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de ingreso"></asp:TextBox>               
+                        <asp:TextBox runat="server" ID="FechIngreso" CssClass="form-control" Font-Size="Small" TextMode="Date" data-toggle="tooltip" title="Fecha de ingreso"></asp:TextBox>               
                         </div>
                     <div class="col-1"></div>
                     <div class="col-form-label">
@@ -82,7 +82,7 @@
                                         <asp:ListItem Value="O"> Otro </asp:ListItem>
                                     </asp:DropDownList> 
                         <label class="form-label" for="iFechaNac">Fecha de Nacimiento:</label>
-                        <asp:TextBox runat="server" ID="FechNacimi" CssClass="form-control" Font-Size="Small" data-toggle="tooltip" title="Fecha de nacimiento"></asp:TextBox>               
+                        <asp:TextBox runat="server" ID="FechNacimi" CssClass="form-control" TextMode="Date" Font-Size="Small" data-toggle="tooltip" title="Fecha de nacimiento"></asp:TextBox>               
                     <br />
                     <br />
                        
@@ -148,7 +148,7 @@
                         <br />
 
                         <h3>Medicamentos o suplementos que consume:</h3>
-                        <div class="row">
+                        <%--<div class="row">
                             <div class="col-20">
                                 <asp:TextBox ID="tNomMed" runat="server" placeholder="Nombre" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                             </div>
@@ -165,9 +165,8 @@
                                 <asp:Button ID="MedicButton" runat="server" Text="Agregar" CssClass=" btn btn-primary" OnClick="MedicButton_Click" />
                             </div>
 
-                        </div>
-                        <br />
-                      <br />
+                        </div>--%>
+                        
                         <div class="row">
                             <table class="table">
                                 <tr>
@@ -183,7 +182,7 @@
                         <br />
                         <div class="col-11 margen" style="width: 70%;">
                             <label class="form-label" for="tFechExm">Fecha de últimos examenes de sangre o revisión médica: </label>
-                            <asp:TextBox runat="server" ID="FechRevMedica" TextMode="DateTime" CssClass="form-control" Font-Size="Small"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="FechRevMedica" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                             
                         </div>
                         <br />
@@ -611,6 +610,10 @@
                
                                <br />
                             <div class="row">
+                                <div class="col-form-label-lg">
+                                <asp:TextBox ID="FechSegSem" runat="server" placeholder="Fecha" Font-Size="Small" TextMode="Date" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col"></div>
                                 <div class="col-form-label-lg">
                                 <asp:TextBox ID="sPeso" runat="server" placeholder="Peso" Font-Size="Small" CssClass="form-control"></asp:TextBox>
                                 </div>
@@ -1076,9 +1079,8 @@
      <div class="footer navbar-light bg-white shadow">
 
 		 <asp:Button  CssClass="boton btn btn-primary" ID="btnGeneraPDF" runat="server" Text="Generar reporte" OnClick="btnGeneraPDF_Click" Width="11%"/>
-	    <button  class="boton btn btn-primary" id="Cancelar" onclick="" style="width:11%; display:none;">Cancelar</button>
-         <asp:Button ID="Modificar" CssClass="boton2 btn btn-primary" runat="server" Text="Atrás" OnClick="Modificar_Click" Width="11%" display="none"/>
-         <asp:Button ID="btnGuardar" CssClass="boton2 btn btn-primary" runat="server" Text="Atrás" OnClick="BackButton_Click" Width="11%" />
+	     <asp:Button ID="btnModificar" CssClass="boton btn btn-primary" runat="server" Text="Guardar" OnClick="Modificar_Click" Width="11%" />
+         <asp:Button ID="btnAtras" CssClass="boton2 btn btn-primary" runat="server" Text="Atrás" OnClick="BackButton_Click" Width="11%" />
         
          <br />  
 	</div>
@@ -1087,17 +1089,25 @@
         <%--div container--%>
    </form>
     <script type="text/javascript">
-        function Cambiartexto() {
-            alert("Entra");
-            var atras = document.getElementById('<%=Modificar.ClientID %>');
-            var cancel= document.getElementById('Cancelar');
-            var modif = document.getElementById('<%=Modificar.ClientID %>');
-            modif.style.display = "inherit";
-            cancel.style.display = "inherit";
-            atras.style.display = "none";
-           
+        function Modificar_btn(id) {
+           $.ajax({
+                type: "POST",
+                url: '/Cliente.aspx/Modif_Click',
+                data: '{idSeg:' + id + '}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: true,
+                success: function () {
+                    location.href = "ModificarSeguimiento.aspx";
+                },
+                error: function () {
+                    alert("No funciona");
+                }
+           });
        }
    </script>
+  
+   
    <script>
        function mensajeError(tipo, titulo, mensaje) {
                         Swal.fire({

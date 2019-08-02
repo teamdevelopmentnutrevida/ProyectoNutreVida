@@ -64,7 +64,7 @@ namespace UI
                         }
                         if (s.antrop != null)
                         {
-                            VerSAFech.Text = s.antrop.Fecha_SA + "";
+                            VerSAFech.Text = s.antrop.Fecha_SA.ToString("yyyy-MM-dd");
                             VerSAEdad.Text = s.antrop.Edad + "";
                             VerSATalla.Text = s.antrop.Talla + "";
                             VerSACM.Text = s.antrop.CM + "";

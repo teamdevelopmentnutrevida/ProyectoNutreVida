@@ -229,51 +229,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtFrecFuma;
         
         /// <summary>
-        /// tNomMed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tNomMed;
-        
-        /// <summary>
-        /// tMotvMed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tMotvMed;
-        
-        /// <summary>
-        /// tFrecMed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tFrecMed;
-        
-        /// <summary>
-        /// tDosisMed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tDosisMed;
-        
-        /// <summary>
-        /// MedicButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MedicButton;
-        
-        /// <summary>
         /// tSuplementoMedico control.
         /// </summary>
         /// <remarks>
@@ -1246,6 +1201,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtDescColacionA;
         
         /// <summary>
+        /// FechSegSem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FechSegSem;
+        
+        /// <summary>
         /// sPeso control.
         /// </summary>
         /// <remarks>
@@ -2173,21 +2137,21 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Button btnGeneraPDF;
         
         /// <summary>
-        /// Modificar control.
+        /// btnModificar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Modificar;
+        protected global::System.Web.UI.WebControls.Button btnModificar;
         
         /// <summary>
-        /// btnGuardar control.
+        /// btnAtras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.Button btnAtras;
     }
 }

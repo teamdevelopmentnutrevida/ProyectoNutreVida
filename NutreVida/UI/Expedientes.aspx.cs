@@ -19,10 +19,10 @@ namespace UI
         public static ManejadorExpediente manejador = new ManejadorExpediente();
 		protected void Page_Load(object sender, EventArgs e)
         {
-            //if (new ControlSeguridad().validarNutri() == true)
-            //{
-            //    Response.Redirect("~/InicioSesion.aspx");
-            //}
+            if (new ControlSeguridad().validarNutri() == true)
+            {
+                Response.Redirect("~/InicioSesion.aspx");
+            }
 
             CargarLista();
 		}
@@ -66,7 +66,6 @@ namespace UI
         public static void EliminarCliente(string ced)
         {
             bool exito = manejador.EliminarCliente(ced);
-            
             //LinkButton btn = (LinkButton)(sender);
             //string yourValue = btn.CommandArgument;
             //Console.Write("Funciona "+ yourValue);

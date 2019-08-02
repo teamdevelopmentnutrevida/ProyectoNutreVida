@@ -140,7 +140,7 @@ namespace BL
                     {
                         foreach (TOSeguimientoRecordat24H record in lista)
                         {
-                            lisSeg.Add(new SeguimientoRecordat24H(record.TiempoComida, record.Hora, record.Descripcion));
+                            lisSeg.Add(new SeguimientoRecordat24H(record.Seguimiento, record.ID_Record,record.TiempoComida, record.Hora, record.Descripcion));
                         }
                         s.record = lisSeg;
                     }
@@ -192,5 +192,74 @@ namespace BL
 
             return mensualLista;
         }
+
+        /**
+        * Método publico para modificar los seguimientos mensuales a la base de datos.
+        * @param SeguimientoMensual, objeto del tipo seguimiento mensual.
+        * @return bool, retorna si se modificó correctamente o no.
+        */
+        public bool ModificarSeguim(SeguimientoMensual seguimiento)
+        {
+            TOSeguimientoMensual segMen = new TOSeguimientoMensual();
+            TOSeguimientoNutricional seg = new TOSeguimientoNutricional();
+            List<TOSeguimientoRecordat24H> lisSeg = new List<TOSeguimientoRecordat24H>();
+            List<SeguimientoRecordat24H> lista = seguimiento.record;
+            TOSeguimientoAntrop segAnt = new TOSeguimientoAntrop();
+            seg.Cedula = seguimiento.nutri.Cedula;
+            seg.DiasEjercicio = seguimiento.nutri.DiasEjercicio;
+            seg.ComidaExtra = seguimiento.nutri.ComidaExtra;
+            seg.NivelAnsiedad = seguimiento.nutri.NivelAnsiedad;
+            if (lista != null)
+            {
+                foreach (SeguimientoRecordat24H record in lista)
+                {
+                    lisSeg.Add(new TOSeguimientoRecordat24H(record.Seguimiento, record.ID_Record, record.TiempoComida, record.Hora, record.Descripcion));
+                }
+            }
+
+            segAnt.id_SegAntrop = seguimiento.antrop.id_SegAntrop;
+            segAnt.Seguimiento = seguimiento.antrop.Seguimiento;
+            segAnt.Edad = seguimiento.antrop.Edad;
+            segAnt.Talla = seguimiento.antrop.Talla;
+            segAnt.CM = seguimiento.antrop.CM;
+            segAnt.Fecha_SA = seguimiento.antrop.Fecha_SA;
+            segAnt.Peso = seguimiento.antrop.Peso;
+            segAnt.IMC = seguimiento.antrop.IMC;
+            segAnt.EdadMetabolica = seguimiento.antrop.EdadMetabolica;
+            segAnt.Agua = seguimiento.antrop.Agua;
+            segAnt.MasaOsea = seguimiento.antrop.MasaOsea;
+            segAnt.PorcGrasaAnalizador = seguimiento.antrop.PorcGrasaAnalizador;
+            segAnt.PorcentGViceral = seguimiento.antrop.PorcentGViceral;
+            segAnt.PorcGr_Bascula = seguimiento.antrop.PorcGr_Bascula;
+            segAnt.GB_BI = seguimiento.antrop.GB_BI;
+            segAnt.GB_BD = seguimiento.antrop.GB_BD;
+            segAnt.GB_PI = seguimiento.antrop.GB_PI;
+            segAnt.GB_PD = seguimiento.antrop.GB_PD;
+            segAnt.GB_Tronco = seguimiento.antrop.GB_Tronco;
+            segAnt.PorcentMusculo = seguimiento.antrop.PorcentMusculo;
+            segAnt.PM_BI = seguimiento.antrop.PM_BI;
+            segAnt.PM_PD = seguimiento.antrop.PM_PD;
+            segAnt.PM_BD = seguimiento.antrop.PM_BD;
+            segAnt.PM_PI = seguimiento.antrop.PM_PI;
+            segAnt.PM_Tronco = seguimiento.antrop.PM_Tronco;
+            segAnt.CircunfCintura = seguimiento.antrop.CircunfCintura;
+            segAnt.Cadera = seguimiento.antrop.Cadera;
+            segAnt.MusloIzq = seguimiento.antrop.MusloIzq;
+            segAnt.MusloDer = seguimiento.antrop.MusloDer;
+            segAnt.BrazoIzq = seguimiento.antrop.BrazoIzq;
+            segAnt.BrazoDer = seguimiento.antrop.BrazoDer;
+            segAnt.PesoIdeal = seguimiento.antrop.PesoIdeal;
+            segAnt.Observaciones = seguimiento.antrop.Observaciones;
+
+            segMen.antrop = segAnt;
+            segMen.record = lisSeg;
+            segMen.nutri = seg;
+            segMen.idSeg = seguimiento.idSeg;
+
+            return daoSeguimientos.ModificarSeguimiento(segMen);
+        }
+        
+
+        
     }
 }

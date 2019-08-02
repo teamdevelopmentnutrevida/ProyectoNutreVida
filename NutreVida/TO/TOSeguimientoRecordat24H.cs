@@ -14,6 +14,7 @@ namespace TO
     public class TOSeguimientoRecordat24H
     {
         public int Seguimiento { set; get; }
+        public int ID_Record { set; get; }
         public string TiempoComida { set; get; }
         public string Hora { set; get; }
         public string Descripcion { set; get; }
@@ -22,9 +23,10 @@ namespace TO
         * Método publico constructor que crea el objeto del recordatorio de 24 horas para el seguimiento, 
         * contiene el identificador del seguimiento.
         */
-        public TOSeguimientoRecordat24H(int seguimiento, string tiempoComida, string hora, string descripcion)
+        public TOSeguimientoRecordat24H(int seguimiento, int idrecord, string tiempoComida, string hora, string descripcion)
         {
             Seguimiento = seguimiento;
+            ID_Record = idrecord;
             TiempoComida = tiempoComida;
             Hora = hora;
             Descripcion = descripcion;

@@ -19,17 +19,17 @@ namespace UI
         {
 			Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
-			//if (new ControlSeguridad().validarNutri() == true)
-			//{
-			//	Response.Redirect("~/InicioSesion.aspx");
+            if (new ControlSeguridad().validarNutri() == true)
+            {
+                Response.Redirect("~/InicioSesion.aspx");
 
-			//}
+            }
 
-			//if (!IsPostBack)
-   //         {
+            //if (!IsPostBack)
+            //         {
 
 
-   //         }
+            //         }
         }
 
 	  /**

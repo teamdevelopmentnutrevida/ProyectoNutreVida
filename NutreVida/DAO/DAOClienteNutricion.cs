@@ -467,22 +467,22 @@ namespace DAO
           */
         public bool ModificarExpediente(TOClienteNutricion clienteModif, TOHistorialMedico histModif, TOHabitoAlimentario habModif, List<TORecordatorio24H> listRecordModif, TOAntropometria antropModif, TOPorciones porcModif, List<TODistribucionPorciones> distrModif)
         {
-            string query = "UPDATE Cliente_Nutricion  SET Fecha_Nacimiento = "+clienteModif.Fecha_Nacimiento+", "+
-                "Sexo = "+clienteModif.Sexo+", Estado_Civil = "+clienteModif.Estado_Civil+","+
-                " Residencia = "+clienteModif.Residencia+", Ocupacion = "+clienteModif.Ocupacion+","+
-                " FechaIngreso = "+clienteModif.FechaIngreso+", Consultorio = "+clienteModif.Consultorio+" WHERE Cedula = "+clienteModif.Cedula+"; ";
+            string query = "UPDATE Cliente_Nutricion  SET Fecha_Nacimiento = '"+clienteModif.Fecha_Nacimiento.ToString("yyyy-MM-dd") + "', "+
+                "Sexo = '"+clienteModif.Sexo+"', Estado_Civil = '"+clienteModif.Estado_Civil+"',"+
+                " Residencia = '"+clienteModif.Residencia+"', Ocupacion = '"+clienteModif.Ocupacion+"',"+
+                " FechaIngreso = '"+clienteModif.FechaIngreso.ToString("yyyy-MM-dd") + "', Consultorio = '"+clienteModif.Consultorio+"' WHERE Cedula = "+clienteModif.Cedula+"; ";
 
-            string query2 = "UPDATE Historial_Medico SET Antecedentes_Fam = "+histModif.Antecedentes+", Patologias = "+histModif.Patologias+","+
-                "Cosumo_Licor = "+histModif.ConsumeLicor+", Fumador = "+histModif.Fuma+", FrecFumar = "+histModif.FrecFuma+","+
-                "FrecTomar = "+histModif.FrecLicor+", ActividadFisica = "+histModif.ActividadFisica+" WHERE Cedula ="+histModif.Cedula+";";
+            string query2 = "UPDATE Historial_Medico SET Antecedentes_Fam = '"+histModif.Antecedentes+"', Patologias = '"+histModif.Patologias+"',"+
+                "Cosumo_Licor = "+histModif.ConsumeLicor+", Fumador = "+histModif.Fuma+", FrecFumar = '"+histModif.FrecFuma+"',"+
+                "FrecTomar = '"+histModif.FrecLicor+"', ActividadFisica = '"+histModif.ActividadFisica+"' WHERE Cedula ="+histModif.Cedula+";";
 
             string query3 = "UPDATE HabitosAlimentario SET ComidasDiarias = "+habModif.ComidaDiaria+","+
-                "Com_Hor_Dias = "+habModif.ComidaHorasDia+", Afuera_Express = "+habModif.AfueraExpress+","+
-                "ComidaFuera = "+habModif.ComidaFuera+", AzucarBebida = "+habModif.AzucarBebida+","+
-                "ComidaElaborada_Con = "+habModif.ComidaElaboradCon+", VasosAguaDiaria = "+habModif.AguaDiaria+", "+
-                "Aderezos = "+habModif.Aderezos+", Fruta = "+habModif.Fruta+", Verdura = "+habModif.Verdura+", Leche = "+habModif.Leche+", "+
-                "Huevo = "+habModif.Huevo+", Yogurt = "+habModif.Yogurt+", Carne = "+habModif.Carne+", Queso = "+habModif.Queso+","+
-                "Aguacate = "+habModif.Aguacate+", Semillas = "+habModif.Semillas+" WHERE Cedula = "+habModif.Cedula+";";
+                "Com_Hor_Dias = '"+habModif.ComidaHorasDia+"', Afuera_Express = "+habModif.AfueraExpress+","+
+                "ComidaFuera = '"+habModif.ComidaFuera+"', AzucarBebida = '"+habModif.AzucarBebida+"',"+
+                "ComidaElaborada_Con = '"+habModif.ComidaElaboradCon+"', VasosAguaDiaria = "+habModif.AguaDiaria+", "+
+                "Aderezos = '"+habModif.Aderezos+"', Fruta = '"+habModif.Fruta+"', Verdura = '"+habModif.Verdura+"', Leche = '"+habModif.Leche+"', "+
+                "Huevo = '"+habModif.Huevo+"', Yogurt = '"+habModif.Yogurt+"', Carne = '"+habModif.Carne+"', Queso = '"+habModif.Queso+"',"+
+                "Aguacate = '"+habModif.Aguacate+"', Semillas = '"+habModif.Semillas+"' WHERE Cedula = "+habModif.Cedula+";";
 
             
 
@@ -504,7 +504,7 @@ namespace DAO
 
                 foreach (TORecordatorio24H R in listRecordModif)
                 {
-                    string query4 = "UPDATE Historial_Medico SET Hora = "+ R.Hora+", Descripcion = "+R.Descripcion+" WHERE Cedula = "+R.Cedula+" and TiempoComida = "+R.TiempoComida+"; ";
+                    string query4 = "UPDATE Recordat24H SET Hora = '" + R.Hora+"', Descripcion = '"+R.Descripcion+"' WHERE Cedula = "+R.Cedula+" and TiempoComida = '"+R.TiempoComida+"'; ";
                     SqlCommand cmd4 = new SqlCommand(query4, conexion);
                     conexion.Open();
                     cmd4.ExecuteNonQuery();
@@ -518,13 +518,13 @@ namespace DAO
                 "PMB = "+antropModif.PMB+", Peso = "+antropModif.Peso+", PesoMaxTeoria = "+antropModif.PesoMaxTeoria+", " +
                 "IMC = "+antropModif.IMC+", PorcGrasaAnalizador = "+antropModif.PorcGrasaAnalizador+ ", " +
                 "PorcGr_Bascula = "+antropModif.PorcGr_Bascula+", GB_BI = "+antropModif.GB_BI+", GB_BD = "+antropModif.GB_BD+ ", " +
-                "GB_PI = "+antropModif.GB_PI+", GB_PD = "+antropModif.GB_PD+", GB_Troco = "+antropModif.GB_Tronco+ ", " +
+                "GB_PI = "+antropModif.GB_PI+", GB_PD = "+antropModif.GB_PD+", GB_Tronco = "+antropModif.GB_Tronco+ ", " +
                 "AguaCorporal = "+antropModif.AguaCorporal+", MasaOsea = "+antropModif.MasaOsea+", Complexion = "+antropModif.Complexión+ "," +
                 "Edad_Metabolica = "+antropModif.EdadMetabolica+", Cintura = "+antropModif.Cintura+", Abdomen = "+antropModif.Abdomen+ "," +
-                "Cadera = "+antropModif.Cadera+", MusloDer = "+antropModif.MusloDer+", MusloIzq = "+antropModif.MusloIzq+ "," +
+                "Cadera = "+antropModif.Cadera+ ", Muslo_Der = " + antropModif.MusloDer+ ", Muslo_Izq = " + antropModif.MusloIzq+ "," +
                 "CBM = "+antropModif.CBM+", CircunfMunneca = "+antropModif.CircunfMunneca+", PorcentGViceral = "+antropModif.PorcentGViceral+ "," +
                 "PorcentMusculo = "+antropModif.PorcentMusculo+", PM_BI = "+antropModif.PM_BI+", PM_PD = "+antropModif.PM_PD+ ", " +
-                "PM_BD = "+antropModif.PM_BD+", PM_PI = "+antropModif.PM_PI+", PM_Tronco = "+antropModif.PM_Tronco+", Observaciones = "+antropModif.Observaciones+ "," +
+                "PM_BD = "+antropModif.PM_BD+", PM_PI = "+antropModif.PM_PI+", PM_Troco = "+antropModif.PM_Tronco+", Observaciones = '"+antropModif.Observaciones+ "'," +
                 "GEB = "+antropModif.GEB+", GET = "+antropModif.GET+", CHOPorc = "+antropModif.CHOPorc+", CHOGram = "+antropModif.CHOGram+ "," +
                 "CHOkcal = "+antropModif.CHO_kcal+", ProteinaPorc = "+antropModif.ProteinaPorc+", ProteinaGram = "+antropModif.ProteinaGram+ "," +
                 "Proteinakcal = "+antropModif.Proteinakcal+", GrasaPorc = "+antropModif.GrasaPorc+", GrasaGram = "+antropModif.GrasaGram+ ", " +
@@ -543,7 +543,7 @@ namespace DAO
 
                 foreach (TODistribucionPorciones D in distrModif)
                 {
-                    string query7 = "UPDATE  DistribucionPorcion SET Hora = "+D.Hora+", Descripcion = "+D.Descripcion+" WHERE Cedula = "+D.Cedula+" and TiempoComida = "+D.TiempoComida+"; ";
+                    string query7 = "UPDATE  DistribucionPorcion SET Hora = '"+D.Hora+"', Descripcion = '"+D.Descripcion+"' WHERE Cedula = "+D.Cedula+" and TiempoComida = '"+D.TiempoComida+"'; ";
                     SqlCommand cmd7 = new SqlCommand(query7, conexion);
                     conexion.Open();
                     cmd7.ExecuteNonQuery();
@@ -554,7 +554,7 @@ namespace DAO
 
                 return true;
             }
-            catch
+            catch (Exception e)
             {
                 return false;
             }
