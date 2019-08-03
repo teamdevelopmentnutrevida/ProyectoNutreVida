@@ -44,7 +44,7 @@ namespace BL
 
             //Definir instacia de la clase MailMessage
             MailMessage email = new MailMessage();
-            email.To.Add(new MailAddress("jandiego199847@gmail.com"));//cambiar por correo
+            email.To.Add(new MailAddress("elkyfdez@hotmail.com"));
             email.From = new MailAddress("cambiocontrasenna@gmail.com");
             email.Subject = "Asunto: Cambio de contraseña ";
             email.Body = "Su contraseña ha sido cambiada por: \n" + token;
