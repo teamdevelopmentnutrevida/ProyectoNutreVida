@@ -336,6 +336,41 @@ namespace DAO
         }
 
         /**
+       * Método público que permite la conexión con la base de datos para medicamento de la 
+       * @param cedula int Es la cedula de la persona por la que se va a realizar la busqueda
+       * @return un parámetro que contiene una lista de seguimientos mensuales
+       */
+        public void AgregarMedSuplemento(TOMedicamento med)
+        {
+            string query2 = "Insert into Medic_Suplem values(@ced,@nomb,@mot,@frec,@dosis)";
+            SqlCommand cmd2 = new SqlCommand(query2, conexion);
+            try
+            {
+
+                
+                cmd2.Parameters.AddWithValue("@ced", med.Cedula);
+                cmd2.Parameters.AddWithValue("@nomb", med.Nombre);
+                cmd2.Parameters.AddWithValue("@mot", med.Motivo);
+                cmd2.Parameters.AddWithValue("@frec", med.Frecuencia);
+                cmd2.Parameters.AddWithValue("@dosis", med.Dosis);
+               
+                
+
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+                cmd2.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (SqlException e)
+            {
+                conexion.Close();
+                Console.Write(e.ToString());
+            }
+        }
+
+        /**
         * Método público que permite la conexión con la base de datos para modificar seguimientos mensuales de una persona
         * @param seguimiento mensual que se va a actualizar
         * @return bool que indica si se realizó correctamente.

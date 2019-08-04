@@ -258,8 +258,16 @@ namespace BL
 
             return daoSeguimientos.ModificarSeguimiento(segMen);
         }
-        
 
-        
+        public void AgregarMedicSuplemento(Medicamento medicamSupl)
+        {
+            TOMedicamento med = new TOMedicamento();
+            med.Cedula = medicamSupl.Cedula;
+            med.Nombre = medicamSupl.Nombre;
+            med.Motivo = medicamSupl.Motivo;
+            med.Frecuencia = medicamSupl.Frecuencia;
+            med.Dosis = medicamSupl.Dosis;
+            daoSeguimientos.AgregarMedSuplemento(med);
+        }
     }
 }

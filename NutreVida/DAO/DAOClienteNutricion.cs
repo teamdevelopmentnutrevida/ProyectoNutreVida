@@ -484,12 +484,14 @@ namespace DAO
                 "Huevo = '"+habModif.Huevo+"', Yogurt = '"+habModif.Yogurt+"', Carne = '"+habModif.Carne+"', Queso = '"+habModif.Queso+"',"+
                 "Aguacate = '"+habModif.Aguacate+"', Semillas = '"+habModif.Semillas+"' WHERE Cedula = "+habModif.Cedula+";";
 
-            
+            string query8 = "UPDATE Usuario SET Correo = '"+clienteModif.Correo+"', Nombre = '"+clienteModif.Nombre+"', WhatsApp = '"+clienteModif.WhatsApp+"',"+
+                    "Telefono = '"+clienteModif.Telefono+"', Apellido1 = '"+clienteModif.Apellido1+"', Apellido2 = '"+clienteModif.Apellido2+"'"+
+                    "WHERE Cedula = "+clienteModif.Cedula+"; ";
 
             SqlCommand cmd = new SqlCommand(query, conexion);
             SqlCommand cmd2 = new SqlCommand(query2, conexion);
             SqlCommand cmd3 = new SqlCommand(query3, conexion);
-
+            SqlCommand cmd8 = new SqlCommand(query8, conexion);
             try
             {
                 if (conexion.State != ConnectionState.Open)
@@ -500,6 +502,7 @@ namespace DAO
                 cmd.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
                 cmd3.ExecuteNonQuery();
+                cmd8.ExecuteNonQuery();
                 conexion.Close();
 
                 foreach (TORecordatorio24H R in listRecordModif)

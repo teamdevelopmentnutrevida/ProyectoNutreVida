@@ -540,34 +540,36 @@ namespace UI
       * Método protegido, accion para agregar seguimientos
       * @param acciones y eventos del boton
       */
-        //protected void MedicButton_Click(object sender, EventArgs e)
-        //{
-        //    if (tNomMed.Text.Equals("") || tMotvMed.Text.Equals("") || tFrecMed.Text.Equals("") || tDosisMed.Text.Equals(""))
-        //    {
-        //        Response.Write("<script>alert('No deben haber espacios en blanco')</script>");
-        //    }
-        //    else
-        //    {
-        //        Medicamento medicamSupl = new Medicamento();
-        //        string tabla = tSuplementoMedico.Text;
-        //        tabla += "<tr><td>" + tNomMed.Text + "</td><td>" + tMotvMed.Text + "</td><td>" + tFrecMed.Text + "</td><td>" + tDosisMed.Text + "</td></tr>";
-        //        tSuplementoMedico.Text = tabla;
+        protected void MedicButton_Click(object sender, EventArgs e)
+        {
+            if (tNomMed.Text.Equals("") || tMotvMed.Text.Equals("") || tFrecMed.Text.Equals("") || tDosisMed.Text.Equals(""))
+            {
+                Response.Write("<script>alert('No deben haber espacios en blanco')</script>");
+            }
+            else
+            {
+                Medicamento medicamSupl = new Medicamento();
+                string tabla = tSuplementoMedico.Text;
+                tabla += "<tr><td>" + tNomMed.Text + "</td><td>" + tMotvMed.Text + "</td><td>" + tFrecMed.Text + "</td><td>" + tDosisMed.Text + "</td></tr>";
+                tSuplementoMedico.Text = tabla;
 
 
-        //        medicamSupl.Cedula = int.Parse(Cedula);
+                medicamSupl.Cedula = int.Parse(Cedula);
 
-        //        medicamSupl.Nombre = tNomMed.Text;
-        //        medicamSupl.Motivo = tMotvMed.Text;
-        //        medicamSupl.Frecuencia = tFrecMed.Text;
-        //        medicamSupl.Dosis = tDosisMed.Text;
-        //        ListmedicamSupl.Add(medicamSupl);
+                medicamSupl.Nombre = tNomMed.Text;
+                medicamSupl.Motivo = tMotvMed.Text;
+                medicamSupl.Frecuencia = tFrecMed.Text;
+                medicamSupl.Dosis = tDosisMed.Text;
+                manejadorSeg.AgregarMedicSuplemento(medicamSupl);
+                ListmedicamSupl.Add(medicamSupl);
 
-        //        tNomMed.Text = "";
-        //        tMotvMed.Text = "";
-        //        tFrecMed.Text = "";
-        //        tDosisMed.Text = "";
-        //    }
-        //}
+
+                tNomMed.Text = "";
+                tMotvMed.Text = "";
+                tFrecMed.Text = "";
+                tDosisMed.Text = "";
+            }
+        }
 
         /**
       * Método protegido, accion para guardar los datos de un seguimiento mensual nuevo

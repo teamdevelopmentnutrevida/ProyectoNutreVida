@@ -148,7 +148,7 @@
                         <br />
 
                         <h3>Medicamentos o suplementos que consume:</h3>
-                        <%--<div class="row">
+                        <div class="row">
                             <div class="col-20">
                                 <asp:TextBox ID="tNomMed" runat="server" placeholder="Nombre" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                             </div>
@@ -165,7 +165,7 @@
                                 <asp:Button ID="MedicButton" runat="server" Text="Agregar" CssClass=" btn btn-primary" OnClick="MedicButton_Click" />
                             </div>
 
-                        </div>--%>
+                        </div>
                         
                         <div class="row">
                             <table class="table">
