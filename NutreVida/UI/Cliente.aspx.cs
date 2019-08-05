@@ -50,7 +50,6 @@ namespace UI
             {
                 Response.Redirect("~/InicioSesion.aspx");
             }
-
             if (!IsPostBack)
             {
                 CargarDatos();
@@ -157,7 +156,7 @@ namespace UI
                     DropFuma.Text = f;
                     txtFrecLicor.Text = hm.FrecLicor;
                     txtFrecFuma.Text = hm.FrecFuma;
-                    FechRevMedica.Text = hm.UltimoExamen;
+                    FechRevMedica.Text = hm.UltimoExamen.ToString("yyyy-MM-dd");
                 }
                 else
                 {
@@ -561,8 +560,15 @@ namespace UI
                 medicamSupl.Frecuencia = tFrecMed.Text;
                 medicamSupl.Dosis = tDosisMed.Text;
                 manejadorSeg.AgregarMedicSuplemento(medicamSupl);
-                ListmedicamSupl.Add(medicamSupl);
-
+                if (ListmedicamSupl != null)
+                {
+                    ListmedicamSupl.Add(medicamSupl);
+                }
+                else
+                {
+                    ListmedicamSupl = new List<Medicamento>();
+                    ListmedicamSupl.Add(medicamSupl);
+                }
 
                 tNomMed.Text = "";
                 tMotvMed.Text = "";
@@ -739,7 +745,7 @@ namespace UI
             histModif.Fuma = fuma;
             if (!string.IsNullOrEmpty(txtFrecFuma.Text)) { histModif.FrecFuma = txtFrecFuma.Text; } else { histModif.FrecFuma = ""; }
             if (!string.IsNullOrEmpty(txtFrecLicor.Text)) { histModif.FrecLicor = txtFrecLicor.Text; } else { histModif.FrecLicor = ""; }
-            histModif.UltimoExamen = FechRevMedica.Text;
+            histModif.UltimoExamen = DateTime.Parse(FechRevMedica.Text);
             histModif.ActividadFisica = txtActividadFisica.Text;
             //List<Medicamento> listaM = ListmedicamSupl;
 

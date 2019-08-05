@@ -167,7 +167,7 @@ namespace DAO
                     hm.Patologias = lector["Patologias"].ToString();
                     hm.ConsumeLicor = Int32.Parse(lector["Cosumo_Licor"].ToString());
                     hm.Fuma = Int32.Parse(lector["Fumador"].ToString());
-                    hm.UltimoExamen = DateTime.Parse(lector["Fecha_Ult_Exm"].ToString()).Date + "";
+                    hm.UltimoExamen = DateTime.Parse(lector["Fecha_Ult_Exm"].ToString());
                     hm.FrecFuma = lector["FrecFumar"].ToString();
                     hm.FrecLicor = lector["FrecTomar"].ToString();
                     hm.ActividadFisica = lector["ActividadFisica"].ToString();
@@ -474,7 +474,8 @@ namespace DAO
 
             string query2 = "UPDATE Historial_Medico SET Antecedentes_Fam = '"+histModif.Antecedentes+"', Patologias = '"+histModif.Patologias+"',"+
                 "Cosumo_Licor = "+histModif.ConsumeLicor+", Fumador = "+histModif.Fuma+", FrecFumar = '"+histModif.FrecFuma+"',"+
-                "FrecTomar = '"+histModif.FrecLicor+"', ActividadFisica = '"+histModif.ActividadFisica+"' WHERE Cedula ="+histModif.Cedula+";";
+                "FrecTomar = '"+histModif.FrecLicor+"', ActividadFisica = '"+histModif.ActividadFisica+"',"+
+                "Fecha_Ult_Exm = '" + histModif.UltimoExamen.ToString("yyyy-MM-dd") + "' WHERE Cedula =" + histModif.Cedula+";";
 
             string query3 = "UPDATE HabitosAlimentario SET ComidasDiarias = "+habModif.ComidaDiaria+","+
                 "Com_Hor_Dias = '"+habModif.ComidaHorasDia+"', Afuera_Express = "+habModif.AfueraExpress+","+

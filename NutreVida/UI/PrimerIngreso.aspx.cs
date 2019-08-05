@@ -213,7 +213,7 @@ namespace UI
 
             string frecFuma = txtFrecFuma.Text;
             string frecLicor = txtFrecLicor.Text;
-            string ultimoExamen = fechaExam.Value;
+            DateTime ultimoExamen = DateTime.Parse(fechaExam.Value);
             string actividadFisica = txtActividadFisica.Text;
             List<Medicamento> listaM = ListaMedicamSuplem; // no se si debería validar que la lista tenga al menos un elemento
 

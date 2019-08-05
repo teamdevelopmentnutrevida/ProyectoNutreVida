@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="Cliente.aspx.cs" Inherits="UI.Cliente" %>
    
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+     <link href="css/sb-admin-2.min.css" rel="stylesheet">
      <script src="js/sweetalert28.js"></script>
       <script type="text/javascript">
         function validarEmail(elemento) {
@@ -18,7 +19,7 @@
 
         }
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/formulas.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -166,7 +167,7 @@
                             </div>
 
                         </div>
-                        
+                        <br />
                         <div class="row">
                             <table class="table">
                                 <tr>
@@ -182,7 +183,7 @@
                         <br />
                         <div class="col-11 margen" style="width: 70%;">
                             <label class="form-label" for="tFechExm">Fecha de últimos examenes de sangre o revisión médica: </label>
-                            <asp:TextBox runat="server" ID="FechRevMedica" CssClass="form-control" Font-Size="Small"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="FechRevMedica" TextMode="Date" CssClass="form-control" Font-Size="Small"></asp:TextBox>
                             
                         </div>
                         <br />

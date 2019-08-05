@@ -12,7 +12,7 @@ namespace DAO.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,8 +26,8 @@ namespace DAO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sql7001.site4now.net;Initial Catalog=DB_A49A8E_NutreVida;User Id=DB_A" +
-            "49A8E_NutreVida_admin;Password=NutreVida123;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SQL5041.site4now.net;Initial Catalog=DB_A4C1CC_NutreVida;User Id=DB_A" +
+            "4C1CC_NutreVida_admin;Password=NutreVida123;")]
         public string conexion {
             get {
                 return ((string)(this["conexion"]));

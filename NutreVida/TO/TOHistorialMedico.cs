@@ -19,12 +19,12 @@ namespace TO
         public int Fuma { set; get; }
         public string FrecFuma { set; get; }
         public string FrecLicor { set; get; }
-        public string UltimoExamen { set; get; }
+        public DateTime UltimoExamen { set; get; }
         public string ActividadFisica { set; get; }
 
         public TOHistorialMedico() { }
 
-        public TOHistorialMedico(int cedula, string antecedentes, string patologias, int consumeLicor, int fuma, string frecFuma, string frecLicor, string ultimoExamen, string actividadFisica)
+        public TOHistorialMedico(int cedula, string antecedentes, string patologias, int consumeLicor, int fuma, string frecFuma, string frecLicor, DateTime ultimoExamen, string actividadFisica)
         {
             Cedula = cedula;
             Antecedentes = antecedentes;
